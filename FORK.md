@@ -336,6 +336,7 @@ reproductibles ou dont la provenance ne peut être démontrée bloquent la relea
 - `docs/fork/ICON_MIGRATION.md` : alias hérités, usage Tabler CSS et rupture du registre
   SVG ;
 - `docs/fork/MOBILE_FIRST_SEO.md` : profil HTML-first, mobile-first et SEO technique ;
+- `docs/fork/NO_RUNTIME.md` : attentes par composant avec JavaScript désactivé ;
 - `docs/fork/UPSTREAM.md` : synchronisation avec l’amont ;
 - `docs/fork/DECISIONS.md` : registre des décisions acceptées ;
 - `docs/fork/CHANGELOG-uikit-amont.md` : journal des changements hérité de l’amont, conservé

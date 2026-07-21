@@ -35,6 +35,7 @@
         "build-manifest": "node build/fork/dist-manifest.js",
         "check-assets": "node build/fork/check-assets.js",
         "check-compat": "node build/fork/check-compat",
+        "audit-heritage": "node build/fork/audit-heritage",
         "check-frontend": "node build/fork/check-frontend.js",
         "check-node-runtime": "node build/fork/check-node-runtime.js",
         "compile": "pnpm compile-css && pnpm compile-js",

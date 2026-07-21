@@ -298,6 +298,14 @@ D-012 :
   chaque scénario partant d'une page rechargée.
 - **C3** — `build/fork/compat-api.js` instancie et détruit programmatiquement chaque
   composant du registre public et vérifie l'expando `__drake__`.
+- **Sans runtime** — `build/fork/compat-noruntime.js` recharge chaque page avec le
+  JavaScript désactivé et compare les attentes du HTML initial (titres, liens avec
+  `href`, texte, alternatives, contrôles natifs) à `tests/fixtures/compat/no-runtime.json` ;
+  la lecture humaine par composant vit dans `docs/fork/NO_RUNTIME.md`.
+
+`pnpm audit-heritage` (hors gate) inventorie la dette mobile-first/SEO héritée du
+catalogue à 320 px (`tests/fixtures/heritage-audit.json`) ; une correction de dette est un
+changement ordinaire qui met à jour l'inventaire.
 
 Les fixtures de `tests/fixtures/compat/` ont été capturées depuis la référence de parité
 (`fork/main` antérieur à D-012) via un worktree Git, la table de renommage étant appliquée

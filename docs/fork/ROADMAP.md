@@ -66,16 +66,21 @@ pnpm 11.4.0.
 
 ## Phase 1 — Référence de compatibilité
 
-- État : **En cours**
+- État : **Terminé**
 
 Avancement au 2026-07-21 : la matrice C0 à C3 est outillée et verte via `pnpm check-compat`
 (G7) — C0/C1 : 176 snapshots structurels (88 pages × LTR/RTL) conformes aux fixtures
 capturées depuis la référence pré-renommage ; C2 : scénarios d'interaction des grappes
 prioritaires (modal/offcanvas/lightbox/tooltip, drop, slider, sticky) avec clavier, ARIA et
 destruction sans résidu ; C3 : 58 composants du registre montés et détruits
-programmatiquement sans résidu. Restent ouverts avant release : l'attente documentée par
-composant avec JavaScript désactivé, et l'inventaire exhaustif des écarts mobile-first/SEO
-hérités au-delà de l'allowlist existante.
+programmatiquement sans résidu. Les deux derniers critères sont
+couverts : chaque composant possède son attente documentée avec JavaScript désactivé
+(docs/fork/NO_RUNTIME.md + attentes machine `tests/fixtures/compat/no-runtime.json`,
+vérifiées par G7), et les écarts mobile-first/SEO hérités sont inventoriés comme
+divergences à corriger (`pnpm audit-heritage` → `tests/fixtures/heritage-audit.json` :
+22 débordements horizontaux à 320 px, 337 cibles < 24 px hors liens en ligne, 8 images
+sans alt, 50 sans dimensions, 19 sauts de titres — dette suivie, non bloquante pour la
+phase, bloquante pour la release via G12/G13 sur les surfaces conformes).
 
 Depuis D-012, cette référence est figée comme référence pré-renommage : le dernier état vert
 de `fork/main` avant renommage sert de comparaison C0 à C3 pour toutes les phases suivantes.
