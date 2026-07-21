@@ -10,7 +10,7 @@ import {
     position,
     sumBy,
     Transition,
-} from 'uikit-util';
+} from 'drake-util';
 import { translate } from '../../mixin/internal/slideshow-animations';
 import { triggerUpdate } from '../../mixin/internal/slideshow-transitioner';
 

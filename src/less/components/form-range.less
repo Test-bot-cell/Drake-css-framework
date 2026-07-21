@@ -1,7 +1,7 @@
 // Name:            Form Range
 // Description:     Styles for the range input type
 //
-// Component:       `uk-range`
+// Component:       `drk-range`
 //
 // ========================================================================
 
@@ -33,7 +33,7 @@
  * 7. Remove white background in Chrome.
  */
 
-.uk-range {
+.drk-range {
     /* 1 */
     -webkit-appearance: none;
     /* 2 */
@@ -52,15 +52,15 @@
 }
 
 /* Focus */
-.uk-range:focus { outline: none; }
-.uk-range::-moz-focus-outer { border: none; }
+.drk-range:focus { outline: none; }
+.drk-range::-moz-focus-outer { border: none; }
 
 /*
  * Improves consistency of cursor style for clickable elements
  */
 
-.uk-range:not(:disabled)::-webkit-slider-thumb { cursor: pointer; }
-.uk-range:not(:disabled)::-moz-range-thumb { cursor: pointer; }
+.drk-range:not(:disabled)::-webkit-slider-thumb { cursor: pointer; }
+.drk-range:not(:disabled)::-moz-range-thumb { cursor: pointer; }
 
 
 /*
@@ -69,27 +69,27 @@
  */
 
 /* Webkit */
-.uk-range::-webkit-slider-runnable-track {
+.drk-range::-webkit-slider-runnable-track {
     height: @form-range-track-height;
     background: @form-range-track-background;
     .hook-form-range-track();
 }
 
-.uk-range:focus::-webkit-slider-runnable-track,
+.drk-range:focus::-webkit-slider-runnable-track,
 /* 1 */
-.uk-range:active::-webkit-slider-runnable-track {
+.drk-range:active::-webkit-slider-runnable-track {
     background: @form-range-track-focus-background;
     .hook-form-range-track-focus();
 }
 
 /* Firefox */
-.uk-range::-moz-range-track {
+.drk-range::-moz-range-track {
     height: @form-range-track-height;
     background: @form-range-track-background;
     .hook-form-range-track();
 }
 
-.uk-range:focus::-moz-range-track {
+.drk-range:focus::-moz-range-track {
     background: @form-range-track-focus-background;
     .hook-form-range-track-focus();
 }
@@ -101,7 +101,7 @@
  */
 
 /* Webkit */
-.uk-range::-webkit-slider-thumb {
+.drk-range::-webkit-slider-thumb {
     /* 1 */
     -webkit-appearance: none;
     margin-top: (floor((@form-range-thumb-height / 2)) * -1);
@@ -114,7 +114,7 @@
 }
 
 /* Firefox */
-.uk-range::-moz-range-thumb {
+.drk-range::-moz-range-thumb {
     /* 1 */
     border: none;
     /* 2 */
@@ -150,36 +150,36 @@
 .hook-inverse() {
 
     /* Webkit */
-    .uk-range::-webkit-slider-runnable-track {
+    .drk-range::-webkit-slider-runnable-track {
         background: @inverse-form-range-track-background;
         .hook-inverse-form-range-track();
     }
 
-    .uk-range:focus::-webkit-slider-runnable-track,
-    .uk-range:active::-webkit-slider-runnable-track {
+    .drk-range:focus::-webkit-slider-runnable-track,
+    .drk-range:active::-webkit-slider-runnable-track {
         background: @inverse-form-range-track-focus-background;
         .hook-inverse-form-range-track-focus();
     }
 
     /* Firefox */
-    .uk-range::-moz-range-track {
+    .drk-range::-moz-range-track {
         background: @inverse-form-range-track-background;
         .hook-inverse-form-range-track();
     }
 
-    .uk-range:focus::-moz-range-track {
+    .drk-range:focus::-moz-range-track {
         background: @inverse-form-range-track-focus-background;
         .hook-inverse-form-range-track-focus();
     }
 
     /* Webkit */
-    .uk-range::-webkit-slider-thumb {
+    .drk-range::-webkit-slider-thumb {
         background: @inverse-form-range-thumb-background;
         .hook-inverse-form-range-thumb();
     }
 
     /* Firefox */
-    .uk-range::-moz-range-thumb {
+    .drk-range::-moz-range-thumb {
         background: @inverse-form-range-thumb-background;
         .hook-inverse-form-range-thumb();
     }

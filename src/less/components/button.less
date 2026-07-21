@@ -1,20 +1,20 @@
 // Name:            Button
 // Description:     Styles for buttons
 //
-// Component:       `uk-button`
+// Component:       `drk-button`
 //
-// Sub-objects:     `uk-button-group`
+// Sub-objects:     `drk-button-group`
 //
-// Modifiers:       `uk-button-default`
-//                  `uk-button-primary`
-//                  `uk-button-secondary`
-//                  `uk-button-danger`
-//                  `uk-button-text`
-//                  `uk-button-link`
-//                  `uk-button-small`
-//                  `uk-button-large`
+// Modifiers:       `drk-button-default`
+//                  `drk-button-primary`
+//                  `drk-button-secondary`
+//                  `drk-button-danger`
+//                  `drk-button-text`
+//                  `drk-button-link`
+//                  `drk-button-small`
+//                  `drk-button-large`
 //
-// States:          `uk-active`
+// States:          `drk-active`
 //
 // ========================================================================
 
@@ -95,7 +95,7 @@
  * 10. Required for `a`.
  */
 
-.uk-button {
+.drk-button {
     /* 1 */
     margin: 0;
     /* 2 */
@@ -125,27 +125,27 @@
     .hook-button();
 }
 
-.uk-button:not(:disabled) { cursor: pointer; }
+.drk-button:not(:disabled) { cursor: pointer; }
 
 /*
  * Remove the inner border and padding in Firefox.
  */
 
-.uk-button::-moz-focus-inner {
+.drk-button::-moz-focus-inner {
     border: 0;
     padding: 0;
 }
 
 /* Hover */
-.uk-button:hover {
+.drk-button:hover {
     /* 9 */
     text-decoration: none;
     .hook-button-hover();
 }
 
 /* OnClick + Active */
-.uk-button:active,
-.uk-button.uk-active {
+.drk-button:active,
+.drk-button.drk-active {
     .hook-button-active();
 }
 
@@ -157,22 +157,22 @@
  * Default
  */
 
-.uk-button-default {
+.drk-button-default {
     background-color: @button-default-background;
     color: @button-default-color;
     .hook-button-default();
 }
 
 /* Hover */
-.uk-button-default:hover {
+.drk-button-default:hover {
     background-color: @button-default-hover-background;
     color: @button-default-hover-color;
     .hook-button-default-hover();
 }
 
 /* OnClick + Active */
-.uk-button-default:active,
-.uk-button-default.uk-active {
+.drk-button-default:active,
+.drk-button-default.drk-active {
     background-color: @button-default-active-background;
     color: @button-default-active-color;
     .hook-button-default-active();
@@ -182,22 +182,22 @@
  * Primary
  */
 
-.uk-button-primary {
+.drk-button-primary {
     background-color: @button-primary-background;
     color: @button-primary-color;
     .hook-button-primary();
 }
 
 /* Hover */
-.uk-button-primary:hover {
+.drk-button-primary:hover {
     background-color: @button-primary-hover-background;
     color: @button-primary-hover-color;
     .hook-button-primary-hover();
 }
 
 /* OnClick + Active */
-.uk-button-primary:active,
-.uk-button-primary.uk-active {
+.drk-button-primary:active,
+.drk-button-primary.drk-active {
     background-color: @button-primary-active-background;
     color: @button-primary-active-color;
     .hook-button-primary-active();
@@ -207,22 +207,22 @@
  * Secondary
  */
 
-.uk-button-secondary {
+.drk-button-secondary {
     background-color: @button-secondary-background;
     color: @button-secondary-color;
     .hook-button-secondary();
 }
 
 /* Hover */
-.uk-button-secondary:hover {
+.drk-button-secondary:hover {
     background-color: @button-secondary-hover-background;
     color: @button-secondary-hover-color;
     .hook-button-secondary-hover();
 }
 
 /* OnClick + Active */
-.uk-button-secondary:active,
-.uk-button-secondary.uk-active {
+.drk-button-secondary:active,
+.drk-button-secondary.drk-active {
     background-color: @button-secondary-active-background;
     color: @button-secondary-active-color;
     .hook-button-secondary-active();
@@ -232,22 +232,22 @@
  * Danger
  */
 
-.uk-button-danger {
+.drk-button-danger {
     background-color: @button-danger-background;
     color: @button-danger-color;
     .hook-button-danger();
 }
 
 /* Hover */
-.uk-button-danger:hover {
+.drk-button-danger:hover {
     background-color: @button-danger-hover-background;
     color: @button-danger-hover-color;
     .hook-button-danger-hover();
 }
 
 /* OnClick + Active */
-.uk-button-danger:active,
-.uk-button-danger.uk-active {
+.drk-button-danger:active,
+.drk-button-danger.drk-active {
     background-color: @button-danger-active-background;
     color: @button-danger-active-color;
     .hook-button-danger-active();
@@ -258,10 +258,10 @@
  * The same for all style modifiers
  */
 
-.uk-button-default:disabled,
-.uk-button-primary:disabled,
-.uk-button-secondary:disabled,
-.uk-button-danger:disabled {
+.drk-button-default:disabled,
+.drk-button-primary:disabled,
+.drk-button-secondary:disabled,
+.drk-button-danger:disabled {
     background-color: @button-disabled-background;
     color: @button-disabled-color;
     .hook-button-disabled();
@@ -271,14 +271,14 @@
 /* Size modifiers
  ========================================================================== */
 
-.uk-button-small {
+.drk-button-small {
     padding: 0 @button-small-padding-horizontal;
     line-height: @button-small-line-height;
     font-size: @button-small-font-size;
     .hook-button-small();
 }
 
-.uk-button-large {
+.drk-button-large {
     padding: 0 @button-large-padding-horizontal;
     line-height: @button-large-line-height;
     font-size: @button-large-font-size;
@@ -295,7 +295,7 @@
  * 2. Style
  */
 
-.uk-button-text {
+.drk-button-text {
     /* 1 */
     padding: 0;
     line-height: @button-text-line-height;
@@ -306,13 +306,13 @@
 }
 
 /* Hover */
-.uk-button-text:hover {
+.drk-button-text:hover {
     color: @button-text-hover-color;
     .hook-button-text-hover();
 }
 
 /* Disabled */
-.uk-button-text:disabled {
+.drk-button-text:disabled {
     color: @button-text-disabled-color;
     .hook-button-text-disabled();
 }
@@ -323,7 +323,7 @@
  * 2. Style
  */
 
-.uk-button-link {
+.drk-button-link {
     /* 1 */
     padding: 0;
     line-height: @button-link-line-height;
@@ -334,13 +334,13 @@
 }
 
 /* Hover */
-.uk-button-link:hover {
+.drk-button-link:hover {
     color: @button-link-hover-color;
     text-decoration: @button-link-hover-text-decoration;
 }
 
 /* Disabled */
-.uk-button-link:disabled {
+.drk-button-link:disabled {
     color: @button-link-disabled-color;
     text-decoration: none;
 }
@@ -355,7 +355,7 @@
  * 3. Create position context
  */
 
-.uk-button-group {
+.drk-button-group {
     /* 1 */
     display: inline-flex;
     /* 2 */
@@ -428,20 +428,20 @@
     // Default
     //
 
-    .uk-button-default {
+    .drk-button-default {
         background-color: @inverse-button-default-background;
         color: @inverse-button-default-color;
         .hook-inverse-button-default();
     }
 
-    .uk-button-default:hover {
+    .drk-button-default:hover {
         background-color: @inverse-button-default-hover-background;
         color: @inverse-button-default-hover-color;
         .hook-inverse-button-default-hover();
     }
 
-    .uk-button-default:active,
-    .uk-button-default.uk-active {
+    .drk-button-default:active,
+    .drk-button-default.drk-active {
         background-color: @inverse-button-default-active-background;
         color: @inverse-button-default-active-color;
         .hook-inverse-button-default-active();
@@ -451,20 +451,20 @@
     // Primary
     //
 
-    .uk-button-primary {
+    .drk-button-primary {
         background-color: @inverse-button-primary-background;
         color: @inverse-button-primary-color;
         .hook-inverse-button-primary();
     }
 
-    .uk-button-primary:hover {
+    .drk-button-primary:hover {
         background-color: @inverse-button-primary-hover-background;
         color: @inverse-button-primary-hover-color;
         .hook-inverse-button-primary-hover();
     }
 
-    .uk-button-primary:active,
-    .uk-button-primary.uk-active {
+    .drk-button-primary:active,
+    .drk-button-primary.drk-active {
         background-color: @inverse-button-primary-active-background;
         color: @inverse-button-primary-active-color;
         .hook-inverse-button-primary-active();
@@ -474,20 +474,20 @@
     // Secondary
     //
 
-    .uk-button-secondary {
+    .drk-button-secondary {
         background-color: @inverse-button-secondary-background;
         color: @inverse-button-secondary-color;
         .hook-inverse-button-secondary();
     }
 
-    .uk-button-secondary:hover {
+    .drk-button-secondary:hover {
         background-color: @inverse-button-secondary-hover-background;
         color: @inverse-button-secondary-hover-color;
         .hook-inverse-button-secondary-hover();
     }
 
-    .uk-button-secondary:active,
-    .uk-button-secondary.uk-active {
+    .drk-button-secondary:active,
+    .drk-button-secondary.drk-active {
         background-color: @inverse-button-secondary-active-background;
         color: @inverse-button-secondary-active-color;
         .hook-inverse-button-secondary-active();
@@ -497,17 +497,17 @@
     // Text
     //
 
-    .uk-button-text {
+    .drk-button-text {
         color: @inverse-button-text-color;
         .hook-inverse-button-text();
     }
 
-    .uk-button-text:hover {
+    .drk-button-text:hover {
         color: @inverse-button-text-hover-color;
         .hook-inverse-button-text-hover();
     }
 
-    .uk-button-text:disabled {
+    .drk-button-text:disabled {
         color: @inverse-button-text-disabled-color;
         .hook-inverse-button-text-disabled();
     }
@@ -516,12 +516,12 @@
     // Link
     //
 
-    .uk-button-link {
+    .drk-button-link {
         color: @inverse-button-link-color;
         .hook-inverse-button-link();
     }
 
-    .uk-button-link:hover { color: @inverse-button-link-hover-color; }
+    .drk-button-link:hover { color: @inverse-button-link-hover-color; }
 
 }
 

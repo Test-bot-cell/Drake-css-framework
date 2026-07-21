@@ -1,4 +1,4 @@
-import { $$, camelize, hyphenate, isEmpty, isPlainObject } from 'uikit-util';
+import { $$, camelize, hyphenate, isEmpty, isPlainObject } from 'drake-util';
 import type {
     ComponentConstructor,
     ComponentDefinition,
@@ -10,7 +10,7 @@ import type {
 } from '../types';
 import App from './app';
 
-const PREFIX = 'uk-';
+const PREFIX = 'drk-';
 export const components: ComponentRegistry = {};
 
 export function component(name: string): ComponentConstructor;
@@ -101,7 +101,7 @@ function selectElements(value: unknown): Element[] {
 }
 
 export function getComponents(element?: Element | null): Record<string, ComponentInternalInstance> {
-    return element ? ((element as MountedElement).__uikit__ ?? {}) : {};
+    return element ? ((element as MountedElement).__drake__ ?? {}) : {};
 }
 
 export function getComponent(
@@ -113,10 +113,10 @@ export function getComponent(
 
 export function attachToElement(element: Element, instance: ComponentInternalInstance): void {
     const mounted = element as MountedElement;
-    mounted.__uikit__ ??= {};
+    mounted.__drake__ ??= {};
     const name = instance.$options.name;
     if (name) {
-        mounted.__uikit__[name] = instance;
+        mounted.__drake__[name] = instance;
     }
 }
 
@@ -124,10 +124,10 @@ export function detachFromElement(element: Element, instance: ComponentInternalI
     const mounted = element as MountedElement;
     const name = instance.$options.name;
     if (name) {
-        delete mounted.__uikit__?.[name];
+        delete mounted.__drake__?.[name];
     }
-    if (isEmpty(mounted.__uikit__)) {
-        delete mounted.__uikit__;
+    if (isEmpty(mounted.__drake__)) {
+        delete mounted.__drake__;
     }
 }
 

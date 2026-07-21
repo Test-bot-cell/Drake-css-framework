@@ -1,4 +1,4 @@
-import { addClass, attr, css, hasAttr, hasClass, hyphenate, isTag, removeClass } from 'uikit-util';
+import { addClass, attr, css, hasAttr, hasClass, hyphenate, isTag, removeClass } from 'drake-util';
 import I18n from '../mixin/i18n';
 import type { ComponentInternalInstance } from '../types';
 
@@ -32,7 +32,7 @@ const Icon = {
     isIcon: true,
 
     beforeConnect(this: IconInstance) {
-        addClass(this.$el, 'uk-icon', 'uk-ti');
+        addClass(this.$el, 'drk-icon', 'drk-ti');
     },
 
     connected(this: IconInstance) {
@@ -41,7 +41,7 @@ const Icon = {
             return;
         }
 
-        this._iconClasses = [`uk-ti-${icon}`, `uk-icon-alias-${icon}`];
+        this._iconClasses = [`drk-ti-${icon}`, `drk-icon-alias-${icon}`];
         addClass(this.$el, this._iconClasses);
         setDimensions(this);
         hideDecorativeIcon(this);
@@ -50,9 +50,9 @@ const Icon = {
     disconnected(this: IconInstance) {
         removeClass(this.$el, this._iconClasses);
         css(this.$el, {
-            '--uk-icon-ratio': '',
-            '--uk-icon-width': '',
-            '--uk-icon-height': '',
+            '--drk-icon-ratio': '',
+            '--drk-icon-width': '',
+            '--drk-icon-height': '',
         });
         if (this._iconAddedAriaHidden) {
             attr(this.$el, 'aria-hidden', null);
@@ -83,7 +83,7 @@ export const NavParentIcon = {
 
     beforeConnect(this: IconInstance) {
         const icon = readIconProp(this);
-        this.icon = this.$el.closest('.uk-nav-primary') ? `${icon}-large` : icon;
+        this.icon = this.$el.closest('.drk-nav-primary') ? `${icon}-large` : icon;
     },
 };
 
@@ -96,12 +96,12 @@ export const Search = {
 
     beforeConnect(this: IconInstance) {
         const isToggle =
-            hasClass(this.$el, 'uk-search-toggle') || hasClass(this.$el, 'uk-navbar-toggle');
+            hasClass(this.$el, 'drk-search-toggle') || hasClass(this.$el, 'drk-navbar-toggle');
         this.icon = isToggle
             ? 'search-toggle-icon'
-            : hasClass(this.$el, 'uk-search-icon') && this.$el.closest('.uk-search-large')
+            : hasClass(this.$el, 'drk-search-icon') && this.$el.closest('.drk-search-large')
               ? 'search-large'
-              : this.$el.closest('.uk-search-medium')
+              : this.$el.closest('.drk-search-medium')
                 ? 'search-medium'
                 : readIconProp(this);
 
@@ -164,9 +164,9 @@ export const Slidenav = {
     extends: ButtonComponent,
 
     beforeConnect(this: IconInstance) {
-        addClass(this.$el, 'uk-slidenav');
+        addClass(this.$el, 'drk-slidenav');
         const icon = readIconProp(this);
-        this.icon = hasClass(this.$el, 'uk-slidenav-large') ? `${icon}-large` : icon;
+        this.icon = hasClass(this.$el, 'drk-slidenav-large') ? `${icon}-large` : icon;
     },
 };
 
@@ -189,7 +189,7 @@ export const Close = {
     i18n: { label: 'Close' },
 
     beforeConnect(this: IconInstance) {
-        this.icon = `close-${hasClass(this.$el, 'uk-close-large') ? 'large' : 'icon'}`;
+        this.icon = `close-${hasClass(this.$el, 'drk-close-large') ? 'large' : 'icon'}`;
     },
 };
 
@@ -227,16 +227,16 @@ function readIconProp(instance: IconInstance): string {
 
 function setDimensions(instance: IconInstance): void {
     const ratio = positiveNumber(instance.ratio) || 1;
-    css(instance.$el, '--uk-icon-ratio', ratio);
+    css(instance.$el, '--drk-icon-ratio', ratio);
 
     const width = positiveNumber(instance.width);
     if (width) {
-        css(instance.$el, '--uk-icon-width', `${width}px`);
+        css(instance.$el, '--drk-icon-width', `${width}px`);
     }
 
     const height = positiveNumber(instance.height);
     if (height) {
-        css(instance.$el, '--uk-icon-height', `${height}px`);
+        css(instance.$el, '--drk-icon-height', `${height}px`);
     }
 }
 

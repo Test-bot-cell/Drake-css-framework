@@ -1,4 +1,4 @@
-import { css, Dimensions, isTag, parent } from 'uikit-util';
+import { css, Dimensions, isTag, parent } from 'drake-util';
 import { resize } from '../api/observables';
 import { defineComponent } from '../api/options';
 import type { ComponentInternalInstance } from '../types';

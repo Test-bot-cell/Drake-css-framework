@@ -13,7 +13,7 @@ import {
     toFloat,
     toNumber,
     toggleClass,
-} from 'uikit-util';
+} from 'drake-util';
 import { generateId } from '../api/instance';
 import { defineMixin } from '../api/options';
 import { keyMap } from '../util/keys';
@@ -240,7 +240,7 @@ export default defineMixin<SliderNavInstance>()({
                     const active = item === index;
 
                     toggleClass(el, this.clsActive, active);
-                    toggleClass(button, 'uk-disabled', !!this.parallax);
+                    toggleClass(button, 'drk-disabled', !!this.parallax);
 
                     button.ariaSelected = String(active);
                     button.tabIndex = active && !this.parallax ? 0 : -1;
@@ -251,7 +251,7 @@ export default defineMixin<SliderNavInstance>()({
                 } else {
                     toggleClass(
                         el,
-                        'uk-invisible',
+                        'drk-invisible',
                         this.finite &&
                             ((cmd === 'previous' && index === 0) ||
                                 (cmd === 'next' && index >= this.maxIndex)),

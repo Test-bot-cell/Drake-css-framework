@@ -148,7 +148,7 @@
         "tv": "device-tv",
         "twitch": "brand-twitch",
         "twitter": "brand-x",
-        "uikit": "components",
+        "drake": "components",
         "unlock": "lock-open",
         "upload": "upload",
         "user": "user",
@@ -206,7 +206,7 @@
         "500px": "photo",
         "gitter": "messages",
         "joomla": "brand-open-source",
-        "uikit": "components",
+        "drake": "components",
         "yelp": "stars",
         "yootheme": "palette"
     }

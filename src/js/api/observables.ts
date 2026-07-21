@@ -16,7 +16,7 @@ import {
     scrollParent,
     toNodes,
     trigger,
-} from 'uikit-util';
+} from 'drake-util';
 import type {
     ComponentInternalInstance,
     ComponentObservable,

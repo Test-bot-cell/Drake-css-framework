@@ -1,4 +1,4 @@
-import { $, $$, isInput, matches, parent, selInput } from 'uikit-util';
+import { $, $$, isInput, matches, parent, selInput } from 'drake-util';
 import { defineComponent } from '../api/options';
 import Class from '../mixin/class';
 import type { ComponentInternalInstance } from '../types';

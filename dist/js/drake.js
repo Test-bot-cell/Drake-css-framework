@@ -1,9 +1,9 @@
-/*! UIkit 3.25.20 | https://www.getuikit.com | (c) 2014 - 2026 YOOtheme | MIT License */
+/*! Drake.css framework 0.1.0 | MIT License | based on UIkit, (c) 2014 - 2026 YOOtheme (https://getuikit.com) */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-    typeof define === 'function' && define.amd ? define('uikit', factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.UIkit = factory());
+    typeof define === 'function' && define.amd ? define('drake', factory) :
+    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Drake = factory());
 })(this, (function () { 'use strict';
 
     const { hasOwnProperty, toString } = Object.prototype;
@@ -750,7 +750,7 @@
       return name.startsWith("--");
     }
 
-    const clsTransition = "uk-transition";
+    const clsTransition = "drk-transition";
     const transitionEnd = "transitionend";
     const transitionCanceled = "transitioncanceled";
     function transition$1(input, properties, duration = 400, timing = "linear", skipReflow = false) {
@@ -805,7 +805,7 @@
         return hasClass(element, clsTransition);
       }
     };
-    const clsAnimation = "uk-animation";
+    const clsAnimation = "drk-animation";
     const animationEnd = "animationend";
     const animationCanceled = "animationcanceled";
     function animate$2(input, animation, duration = 200, origin, out = false) {
@@ -819,7 +819,7 @@
               animation,
               clsAnimation,
               `${clsAnimation}-${out ? "leave" : "enter"}`,
-              origin && `uk-transform-origin-${origin}`,
+              origin && `drk-transform-origin-${origin}`,
               out && `${clsAnimation}-reverse`
             ];
             const timer = setTimeout(() => trigger(element, animationEnd), duration);
@@ -1574,7 +1574,7 @@
       for (const position of top ? [0, top] : [0]) {
         let covering;
         for (const element of document2.elementsFromPoint(left + width / 2, position)) {
-          const relevant = !element.contains(node) && !hasClass(element, "uk-togglable-leave") && (hasPosition(element, "fixed") && zIndex(
+          const relevant = !element.contains(node) && !hasClass(element, "drk-togglable-leave") && (hasPosition(element, "fixed") && zIndex(
             parents(node).reverse().find(
               (ancestor) => !ancestor.contains(element) && !hasPosition(ancestor, "static")
             )
@@ -2129,7 +2129,7 @@
       },
       data: {
         date: "",
-        clsWrapper: ".uk-countdown-%unit%",
+        clsWrapper: ".drk-countdown-%unit%",
         role: "timer",
         reload: false
       },
@@ -2438,8 +2438,8 @@
         firstColumn: Boolean
       },
       data: {
-        margin: "uk-margin-small-top",
-        firstColumn: "uk-first-column"
+        margin: "drk-margin-small-top",
+        firstColumn: "drk-first-column"
       },
       observe: [
         mutation({
@@ -2558,8 +2558,8 @@
       return new Promise((resolve) => setTimeout(resolve, timeout));
     }
 
-    const clsLeave = "uk-transition-leave";
-    const clsEnter = "uk-transition-enter";
+    const clsLeave = "drk-transition-leave";
+    const clsEnter = "drk-transition-enter";
     function fade(action, target, duration, stagger = 0) {
       const index = transitionIndex(target, true);
       const propsIn = { opacity: 1 };
@@ -2801,8 +2801,8 @@
       data: {
         target: "",
         selActive: false,
-        attrItem: "uk-filter-control",
-        cls: "uk-active",
+        attrItem: "drk-filter-control",
+        cls: "drk-active",
         duration: 250
       },
       computed: {
@@ -3182,8 +3182,8 @@
         velocity: 0.2,
         origin: false,
         transition: "ease",
-        clsEnter: "uk-togglable-enter",
-        clsLeave: "uk-togglable-leave"
+        clsEnter: "drk-togglable-enter",
+        clsLeave: "drk-togglable-leave"
       },
       computed: {
         hasAnimation: ({ animation }) => !!animation[0],
@@ -3374,7 +3374,7 @@
         role: String
       },
       data: {
-        cls: "uk-open",
+        cls: "drk-open",
         escClose: true,
         bgClose: true,
         overlay: true,
@@ -3940,7 +3940,7 @@
       return Math.atan2(Math.abs(pos2.y - pos1.y), Math.abs(pos2.x - pos1.x)) * 180 / Math.PI;
     }
 
-    var VERSION = '3.25.20';
+    var VERSION = '0.1.0';
 
     function initWatches(instance) {
       instance._watches = [];
@@ -4348,7 +4348,7 @@
     App.options = {};
     App.version = VERSION;
 
-    const PREFIX = "uk-";
+    const PREFIX = "drk-";
     const components$2 = {};
     function component(name, options) {
       const id = PREFIX + hyphenate(name);
@@ -4417,7 +4417,7 @@
     }
     function getComponents(element) {
       var _a;
-      return element ? (_a = element.__uikit__) != null ? _a : {} : {};
+      return element ? (_a = element.__drake__) != null ? _a : {} : {};
     }
     function getComponent(element, name) {
       return getComponents(element)[name];
@@ -4425,10 +4425,10 @@
     function attachToElement(element, instance) {
       var _a;
       const mounted = element;
-      (_a = mounted.__uikit__) != null ? _a : mounted.__uikit__ = {};
+      (_a = mounted.__drake__) != null ? _a : mounted.__drake__ = {};
       const name = instance.$options.name;
       if (name) {
-        mounted.__uikit__[name] = instance;
+        mounted.__drake__[name] = instance;
       }
     }
     function detachFromElement(element, instance) {
@@ -4436,10 +4436,10 @@
       const mounted = element;
       const name = instance.$options.name;
       if (name) {
-        (_a = mounted.__uikit__) == null ? true : delete _a[name];
+        (_a = mounted.__drake__) == null ? true : delete _a[name];
       }
-      if (isEmpty(mounted.__uikit__)) {
-        delete mounted.__uikit__;
+      if (isEmpty(mounted.__drake__)) {
+        delete mounted.__drake__;
       }
     }
     function isComponentConstructor$1(value) {
@@ -4558,7 +4558,7 @@
     let id = 1;
     function generateId(instance, element) {
       var _a;
-      return (element == null ? void 0 : element.id) || `${(_a = instance.$options.id) != null ? _a : "uk"}-${id++}`;
+      return (element == null ? void 0 : element.id) || `${(_a = instance.$options.id) != null ? _a : "drk"}-${id++}`;
     }
 
     var SliderNav = defineMixin()({
@@ -4709,7 +4709,7 @@
               }
               const active = item === index;
               toggleClass(el, this.clsActive, active);
-              toggleClass(button, "uk-disabled", !!this.parallax);
+              toggleClass(button, "drk-disabled", !!this.parallax);
               button.ariaSelected = String(active);
               button.tabIndex = active && !this.parallax ? 0 : -1;
               if (active && button && matches(parent(el), ":focus-within")) {
@@ -4718,7 +4718,7 @@
             } else {
               toggleClass(
                 el,
-                "uk-invisible",
+                "drk-invisible",
                 this.finite && (cmd === "previous" && index === 0 || cmd === "next" && index >= this.maxIndex)
               );
             }
@@ -4771,11 +4771,11 @@
         prevIndex: -1,
         stack: [],
         percent: 0,
-        clsActive: "uk-active",
+        clsActive: "drk-active",
         clsActivated: "",
-        clsEnter: "uk-slide-enter",
-        clsLeave: "uk-slide-leave",
-        clsSlideActive: "uk-slide-active",
+        clsEnter: "drk-slide-enter",
+        clsLeave: "drk-slide-leave",
+        clsSlideActive: "drk-slide-active",
         Transitioner: false,
         transitionOptions: {}
       }),
@@ -4953,7 +4953,7 @@
       },
       data: {
         animation: "slide",
-        clsActivated: "uk-transition-active",
+        clsActivated: "drk-transition-active",
         Animations: animations,
         Transitioner: Transitioner$1
       },
@@ -5127,20 +5127,20 @@
         delayControls: 3e3,
         videoAutoplay: false,
         items: [],
-        cls: "uk-open",
-        clsPage: "uk-lightbox-page",
-        clsFit: "uk-lightbox-items-fit",
-        clsZoom: "uk-lightbox-zoom",
-        attrItem: "uk-lightbox-item",
-        selList: ".uk-lightbox-items",
-        selClose: ".uk-close-large",
-        selNav: ".uk-lightbox-thumbnav, .uk-lightbox-dotnav",
-        selCaption: ".uk-lightbox-caption",
-        selCounter: ".uk-lightbox-counter",
+        cls: "drk-open",
+        clsPage: "drk-lightbox-page",
+        clsFit: "drk-lightbox-items-fit",
+        clsZoom: "drk-lightbox-zoom",
+        attrItem: "drk-lightbox-item",
+        selList: ".drk-lightbox-items",
+        selClose: ".drk-close-large",
+        selNav: ".drk-lightbox-thumbnav, .drk-lightbox-dotnav",
+        selCaption: ".drk-lightbox-caption",
+        selCounter: ".drk-lightbox-counter",
         pauseOnHover: false,
         velocity: 2,
         Animations,
-        template: `<div class="uk-lightbox uk-overflow-hidden">  <div class="uk-lightbox-items"></div>  <div class="uk-position-top-right uk-position-small uk-transition-fade" uk-inverse>  <button class="uk-lightbox-close uk-close-large" type="button" uk-close></button>  </div>  <div class="uk-lightbox-slidenav uk-position-center-left uk-position-medium uk-transition-fade" uk-inverse>  <a href uk-slidenav-previous uk-lightbox-item="previous"></a>  </div>  <div class="uk-lightbox-slidenav uk-position-center-right uk-position-medium uk-transition-fade" uk-inverse>  <a href uk-slidenav-next uk-lightbox-item="next"></a>  </div>  <div class="uk-position-center-right uk-position-medium uk-transition-fade" uk-inverse style="max-height: 90vh; overflow: auto;">  <ul class="uk-lightbox-thumbnav uk-lightbox-thumbnav-vertical uk-thumbnav uk-thumbnav-vertical"></ul>  <ul class="uk-lightbox-dotnav uk-dotnav uk-dotnav-vertical"></ul>  </div>  <div class="uk-lightbox-counter uk-text-large uk-position-top-left uk-position-small uk-transition-fade" uk-inverse></div>  <div class="uk-lightbox-caption uk-position-bottom uk-text-center uk-transition-slide-bottom uk-transition-opaque"></div>  </div>`
+        template: `<div class="drk-lightbox drk-overflow-hidden">  <div class="drk-lightbox-items"></div>  <div class="drk-position-top-right drk-position-small drk-transition-fade" drk-inverse>  <button class="drk-lightbox-close drk-close-large" type="button" drk-close></button>  </div>  <div class="drk-lightbox-slidenav drk-position-center-left drk-position-medium drk-transition-fade" drk-inverse>  <a href drk-slidenav-previous drk-lightbox-item="previous"></a>  </div>  <div class="drk-lightbox-slidenav drk-position-center-right drk-position-medium drk-transition-fade" drk-inverse>  <a href drk-slidenav-next drk-lightbox-item="next"></a>  </div>  <div class="drk-position-center-right drk-position-medium drk-transition-fade" drk-inverse style="max-height: 90vh; overflow: auto;">  <ul class="drk-lightbox-thumbnav drk-lightbox-thumbnav-vertical drk-thumbnav drk-thumbnav-vertical"></ul>  <ul class="drk-lightbox-dotnav drk-dotnav drk-dotnav-vertical"></ul>  </div>  <div class="drk-lightbox-counter drk-text-large drk-position-top-left drk-position-small drk-transition-fade" drk-inverse></div>  <div class="drk-lightbox-caption drk-position-bottom drk-text-center drk-transition-slide-bottom drk-transition-opaque"></div>  </div>`
       }),
       created() {
         var _a;
@@ -5159,25 +5159,25 @@
           return;
         }
         const navType = this.$props.nav;
-        remove$1($$(this.selNav, $el).filter((el) => !matches(el, `.uk-${navType}`)));
+        remove$1($$(this.selNav, $el).filter((el) => !matches(el, `.drk-${navType}`)));
         for (const [i, item] of this.items.entries()) {
           append(list, "<div>");
           if (navType === "thumbnav") {
             const nav = $(this.selNav, $el);
-            const navItem = nav ? append(nav, `<li uk-lightbox-item="${i}"><a href></a></li>`) : void 0;
+            const navItem = nav ? append(nav, `<li drk-lightbox-item="${i}"><a href></a></li>`) : void 0;
             if (navItem instanceof Element) {
               wrapAll(toThumbnavItem(item, this.videoAutoplay), navItem);
             }
           }
         }
         if (!this.slidenav) {
-          remove$1($$(".uk-lightbox-slidenav", $el));
+          remove$1($$(".drk-lightbox-slidenav", $el));
         }
         if (!this.counter) {
           remove$1($(this.selCounter, $el));
         }
         addClass(list, this.clsFit);
-        const close = $("[uk-close]", $el);
+        const close = $("[drk-close]", $el);
         const closeLabel = this.t("close");
         if (close && closeLabel) {
           close.dataset.i18n = JSON.stringify({ label: closeLabel });
@@ -5303,7 +5303,7 @@
             const item = value;
             const { source: src, type } = item;
             const attrs = toAttributes(item.attrs);
-            this.setItem(item, "<span uk-spinner uk-inverse></span>");
+            this.setItem(item, "<span drk-spinner drk-inverse></span>");
             if (!src) {
               return;
             }
@@ -5311,8 +5311,8 @@
             const iframeAttrs = {
               allowfullscreen: "",
               style: "max-width: 100%; box-sizing: border-box;",
-              "uk-responsive": "",
-              "uk-video": Boolean(this.videoAutoplay)
+              "drk-responsive": "",
+              "drk-video": Boolean(this.videoAutoplay)
             };
             if (type === "image" || isImage(src)) {
               const img = createEl("img");
@@ -5333,7 +5333,7 @@
                 loop: inline ? "" : null,
                 muted: inline ? "" : null,
                 poster: this.videoAutoplay ? null : (_b = item.poster) != null ? _b : null,
-                "uk-video": Boolean(this.videoAutoplay),
+                "drk-video": Boolean(this.videoAutoplay),
                 ...attrs
               });
               on(video, "loadedmetadata", () => this.setItem(item, video));
@@ -5344,7 +5344,7 @@
                 createEl("iframe", {
                   src,
                   allowfullscreen: "",
-                  class: "uk-lightbox-iframe",
+                  class: "drk-lightbox-iframe",
                   ...attrs
                 })
               );
@@ -5439,15 +5439,15 @@
           return slide;
         },
         setError(item) {
-          this.setItem(item, '<span uk-icon="icon: bolt; ratio: 2" uk-inverse></span>');
+          this.setItem(item, '<span drk-icon="icon: bolt; ratio: 2" drk-inverse></span>');
         },
         showControls() {
           clearTimeout(this.controlsTimer);
           this.controlsTimer = this.delayControls ? setTimeout(this.hideControls, this.delayControls) : void 0;
-          addClass(this.$el, "uk-active", "uk-transition-active");
+          addClass(this.$el, "drk-active", "drk-transition-active");
         },
         hideControls() {
-          removeClass(this.$el, "uk-active", "uk-transition-active");
+          removeClass(this.$el, "drk-active", "drk-transition-active");
         }
       }
     });
@@ -5462,7 +5462,7 @@
         loop: "",
         playsinline: "",
         muted: "",
-        "uk-video": videoAutoplay === "inline"
+        "drk-video": videoAutoplay === "inline"
       }) : createEl("canvas");
       if (item.thumbRatio) {
         el.style.aspectRatio = String(item.thumbRatio);
@@ -5513,7 +5513,7 @@
       return typeof value === "object" && value !== null;
     }
 
-    const selDisabled$1 = ".uk-disabled *, .uk-disabled, [disabled]";
+    const selDisabled$1 = ".drk-disabled *, .drk-disabled, [disabled]";
     var lightbox = defineComponent()({
       install: install$2,
       props: { toggle: String },
@@ -5574,11 +5574,11 @@
         }
       }
     });
-    function install$2(UIkit, Lightbox) {
-      if (!UIkit.lightboxPanel) {
-        UIkit.component("lightboxPanel", LightboxPanel);
+    function install$2(Drake, Lightbox) {
+      if (!Drake.lightboxPanel) {
+        Drake.component("lightboxPanel", LightboxPanel);
       }
-      const panelDefinition = UIkit.component("lightboxPanel");
+      const panelDefinition = Drake.component("lightboxPanel");
       const panelProps = typeof panelDefinition === "function" ? panelDefinition.options.props : panelDefinition.props;
       if (panelProps && !Array.isArray(panelProps)) {
         assign(Lightbox.props, panelProps);
@@ -5630,9 +5630,9 @@
         timeout: 5e3,
         group: "",
         pos: "top-center",
-        clsContainer: "uk-notification",
-        clsClose: "uk-notification-close",
-        clsMsg: "uk-notification-message"
+        clsContainer: "drk-notification",
+        clsClose: "drk-notification-close",
+        clsMsg: "drk-notification-message"
       },
       install: install$1,
       computed: {
@@ -5660,7 +5660,7 @@
         }
         const message = append(
           container,
-          `<div class="${this.clsMsg}${this.status ? ` ${this.clsMsg}-${this.status}` : ""}" role="alert">  <a href class="${this.clsClose}" data-uk-close></a>  <div>${this.message}</div>  </div>`
+          `<div class="${this.clsMsg}${this.status ? ` ${this.clsMsg}-${this.status}` : ""}" role="alert">  <a href class="${this.clsClose}" data-drk-close></a>  <div>${this.message}</div>  </div>`
         );
         if (message instanceof Element) {
           this.$mount(message);
@@ -5724,10 +5724,10 @@
         }
       }
     });
-    function install$1(UIkit) {
-      UIkit.notification.closeAll = function(group, immediate) {
+    function install$1(Drake) {
+      Drake.notification.closeAll = function(group, immediate) {
         apply(document.body, (el) => {
-          const notification = UIkit.getComponent(el, "notification");
+          const notification = Drake.getComponent(el, "notification");
           if (isNotificationInstance(notification) && (!group || group === notification.group)) {
             notification.close(immediate);
           }
@@ -5772,7 +5772,7 @@
     function toMedia(value, element) {
       if (isString(value)) {
         if (startsWith(value, "@")) {
-          value = toFloat(css(element, `--uk-breakpoint-${value.slice(1)}`));
+          value = toFloat(css(element, `--drk-breakpoint-${value.slice(1)}`));
         } else if (Number.isNaN(Number(value))) {
           return value;
         }
@@ -6541,10 +6541,10 @@
       data: {
         center: false,
         sets: false,
-        attrItem: "uk-slider-item",
-        selList: ".uk-slider-items",
-        selNav: ".uk-slider-nav",
-        clsContainer: "uk-slider-container",
+        attrItem: "drk-slider-item",
+        selList: ".drk-slider-items",
+        selNav: ".drk-slider-nav",
+        clsContainer: "drk-slider-container",
         active: "all",
         Transitioner
       },
@@ -6919,9 +6919,9 @@
         ratio: "16:9",
         minHeight: void 0,
         maxHeight: void 0,
-        selList: ".uk-slideshow-items",
-        attrItem: "uk-slideshow-item",
-        selNav: ".uk-slideshow-nav",
+        selList: ".drk-slideshow-items",
+        attrItem: "drk-slideshow-item",
+        selNav: ".drk-slideshow-nav",
         Animations: Animations$1
       },
       watch: {
@@ -6962,13 +6962,13 @@
       data: {
         group: false,
         threshold: 5,
-        clsItem: "uk-sortable-item",
-        clsPlaceholder: "uk-sortable-placeholder",
-        clsDrag: "uk-sortable-drag",
-        clsDragState: "uk-drag",
-        clsBase: "uk-sortable",
-        clsNoDrag: "uk-sortable-nodrag",
-        clsEmpty: "uk-sortable-empty",
+        clsItem: "drk-sortable-item",
+        clsPlaceholder: "drk-sortable-placeholder",
+        clsDrag: "drk-sortable-drag",
+        clsDragState: "drk-drag",
+        clsBase: "drk-sortable",
+        clsNoDrag: "drk-sortable-nodrag",
+        clsEmpty: "drk-sortable-empty",
         clsCustom: "",
         handle: false,
         pos: {}
@@ -7358,20 +7358,20 @@
         },
         getPositionOffset(element = this.$el) {
           return toPx(
-            this.offset === false ? css(element, "--uk-position-offset") : this.offset,
+            this.offset === false ? css(element, "--drk-position-offset") : this.offset,
             this.axis === "x" ? "width" : "height",
             element
           ) * (includes(["left", "top"], this.dir) ? -1 : 1) * (this.inset ? -1 : 1);
         },
         getShiftOffset(element = this.$el) {
           return this.align === "center" ? 0 : toPx(
-            css(element, "--uk-position-shift-offset"),
+            css(element, "--drk-position-shift-offset"),
             this.axis === "y" ? "width" : "height",
             element
           ) * (includes(["left", "top"], this.align) ? 1 : -1);
         },
         getViewportOffset(element) {
-          return toPx(css(element, "--uk-position-viewport-offset"));
+          return toPx(css(element, "--drk-position-viewport-offset"));
         }
       }
     });
@@ -7392,9 +7392,9 @@
       mixins: [Container, Togglable, Position],
       data: {
         pos: "top",
-        animation: ["uk-animation-scale-up"],
+        animation: ["drk-animation-scale-up"],
         duration: 100,
-        cls: "uk-active"
+        cls: "drk-active"
       },
       connected() {
         makeFocusable(this.$el);
@@ -7439,7 +7439,7 @@
         async _show(title, id) {
           const tooltip = append(
             this.container,
-            `<div id="${id}" class="uk-${this.$options.name}" role="tooltip">  <div class="uk-${this.$options.name}-inner">${title}</div>  </div>`
+            `<div id="${id}" class="drk-${this.$options.name}" role="tooltip">  <div class="drk-${this.$options.name}-inner">${title}</div>  </div>`
           );
           if (!(tooltip instanceof HTMLElement)) {
             return;
@@ -7549,7 +7549,7 @@
       },
       data: {
         allow: false,
-        clsDragover: "uk-dragover",
+        clsDragover: "drk-dragover",
         concurrent: 1,
         maxSize: 0,
         method: "POST",
@@ -7790,7 +7790,7 @@
       }
     }
     function initialize(App) {
-      trigger(document, "uikit:init", App);
+      trigger(document, "drake:init", App);
       if (document.body) {
         apply(document.body, connect);
       }
@@ -7866,9 +7866,9 @@
         animation: true,
         collapsible: true,
         multiple: false,
-        clsOpen: "uk-open",
-        toggle: ".uk-accordion-title",
-        content: ".uk-accordion-content",
+        clsOpen: "drk-open",
+        toggle: ".drk-accordion-title",
+        content: ".drk-accordion-content",
         offset: 0
       },
       computed: {
@@ -8051,7 +8051,7 @@
       },
       data: {
         animation: true,
-        selClose: ".uk-alert-close",
+        selClose: ".drk-alert-close",
         duration: 150
       },
       events: {
@@ -8286,11 +8286,11 @@
         autoUpdate: true,
         animateOut: false,
         bgScroll: true,
-        animation: ["uk-animation-fade"],
-        cls: "uk-open",
+        animation: ["drk-animation-fade"],
+        cls: "drk-open",
         container: false,
         closeOnScroll: false,
-        selClose: ".uk-drop-close"
+        selClose: ".drk-drop-close"
       },
       computed: {
         boundary({ boundary, boundaryX, boundaryY }, $el) {
@@ -8312,7 +8312,7 @@
         this.tracker = new MouseTracker();
       },
       connected() {
-        addClass(this.$el, "uk-drop");
+        addClass(this.$el, "drk-drop");
         if (this.toggle && !this.targetEl) {
           this.targetEl = createToggleComponent(this);
         }
@@ -8525,11 +8525,11 @@
           return active === this;
         },
         isDelaying() {
-          return [this.$el, ...$$(".uk-drop", this.$el)].some((el) => this.tracker.movesTo(el));
+          return [this.$el, ...$$(".drk-drop", this.$el)].some((el) => this.tracker.movesTo(el));
         },
         position() {
           const restoreScrollPosition = storeScrollPosition(this.$el);
-          removeClass(this.$el, "uk-drop-stack");
+          removeClass(this.$el, "drk-drop-stack");
           css(this.$el, this._style);
           this.$el.hidden = true;
           const viewports = [
@@ -8556,7 +8556,7 @@
           this.$el.hidden = false;
           css(this.$el, "maxWidth", "");
           if (this.$el.offsetWidth > maxWidth) {
-            addClass(this.$el, "uk-drop-stack");
+            addClass(this.$el, "drk-drop-stack");
           }
           css(this.$el, "maxWidth", maxWidth);
           this.positionAt(this.$el, this.target, this.boundary);
@@ -8673,8 +8673,8 @@
       },
       data: {
         align: isRtl ? "right" : "left",
-        clsDrop: "uk-dropdown",
-        clsDropbar: "uk-dropnav-dropbar",
+        clsDrop: "drk-dropdown",
+        clsDropbar: "drk-dropnav-dropbar",
         boundary: true,
         dropbar: false,
         dropbarAnchor: false,
@@ -8717,10 +8717,10 @@
         dropbar(dropbar) {
           addClass(
             dropbar,
-            "uk-dropbar",
-            "uk-dropbar-top",
+            "drk-dropbar",
+            "drk-dropbar-top",
             this.clsDropbar,
-            `uk-${this.$options.name}-dropbar`
+            `drk-${this.$options.name}-dropbar`
           );
         },
         dropdowns() {
@@ -9078,8 +9078,8 @@
         parallaxJustify: Boolean
       },
       data: {
-        margin: "uk-grid-margin",
-        clsStack: "uk-grid-stack",
+        margin: "drk-grid-margin",
+        clsStack: "drk-grid-stack",
         masonry: false,
         parallax: 0,
         parallaxStart: 0,
@@ -9088,7 +9088,7 @@
       },
       connected() {
         if (this.masonry) {
-          addClass(this.$el, "uk-flex-top", "uk-flex-wrap-top");
+          addClass(this.$el, "drk-flex-top", "drk-flex-wrap-top");
         }
       },
       observe: scroll$1({
@@ -9418,14 +9418,14 @@
       },
       isIcon: true,
       beforeConnect() {
-        addClass(this.$el, "uk-icon", "uk-ti");
+        addClass(this.$el, "drk-icon", "drk-ti");
       },
       connected() {
         const icon = normalizeIconName(this.icon);
         if (!icon) {
           return;
         }
-        this._iconClasses = [`uk-ti-${icon}`, `uk-icon-alias-${icon}`];
+        this._iconClasses = [`drk-ti-${icon}`, `drk-icon-alias-${icon}`];
         addClass(this.$el, this._iconClasses);
         setDimensions(this);
         hideDecorativeIcon(this);
@@ -9433,9 +9433,9 @@
       disconnected() {
         removeClass(this.$el, this._iconClasses);
         css(this.$el, {
-          "--uk-icon-ratio": "",
-          "--uk-icon-width": "",
-          "--uk-icon-height": ""
+          "--drk-icon-ratio": "",
+          "--drk-icon-width": "",
+          "--drk-icon-height": ""
         });
         if (this._iconAddedAriaHidden) {
           attr(this.$el, "aria-hidden", null);
@@ -9458,7 +9458,7 @@
       extends: IconComponent,
       beforeConnect() {
         const icon = readIconProp(this);
-        this.icon = this.$el.closest(".uk-nav-primary") ? `${icon}-large` : icon;
+        this.icon = this.$el.closest(".drk-nav-primary") ? `${icon}-large` : icon;
       }
     };
     const Search = {
@@ -9466,8 +9466,8 @@
       mixins: [I18n],
       i18n: { toggle: "Open Search", submit: "Submit Search" },
       beforeConnect() {
-        const isToggle = hasClass(this.$el, "uk-search-toggle") || hasClass(this.$el, "uk-navbar-toggle");
-        this.icon = isToggle ? "search-toggle-icon" : hasClass(this.$el, "uk-search-icon") && this.$el.closest(".uk-search-large") ? "search-large" : this.$el.closest(".uk-search-medium") ? "search-medium" : readIconProp(this);
+        const isToggle = hasClass(this.$el, "drk-search-toggle") || hasClass(this.$el, "drk-navbar-toggle");
+        this.icon = isToggle ? "search-toggle-icon" : hasClass(this.$el, "drk-search-icon") && this.$el.closest(".drk-search-large") ? "search-large" : this.$el.closest(".drk-search-medium") ? "search-medium" : readIconProp(this);
         if (hasAttr(this.$el, "aria-label")) {
           return;
         }
@@ -9514,9 +9514,9 @@
     const Slidenav = {
       extends: ButtonComponent,
       beforeConnect() {
-        addClass(this.$el, "uk-slidenav");
+        addClass(this.$el, "drk-slidenav");
         const icon = readIconProp(this);
-        this.icon = hasClass(this.$el, "uk-slidenav-large") ? `${icon}-large` : icon;
+        this.icon = hasClass(this.$el, "drk-slidenav-large") ? `${icon}-large` : icon;
       }
     };
     const NavbarToggleIcon = {
@@ -9533,7 +9533,7 @@
       extends: ButtonComponent,
       i18n: { label: "Close" },
       beforeConnect() {
-        this.icon = `close-${hasClass(this.$el, "uk-close-large") ? "large" : "icon"}`;
+        this.icon = `close-${hasClass(this.$el, "drk-close-large") ? "large" : "icon"}`;
       }
     };
     const Marker = {
@@ -9564,14 +9564,14 @@
     }
     function setDimensions(instance) {
       const ratio = positiveNumber(instance.ratio) || 1;
-      css(instance.$el, "--uk-icon-ratio", ratio);
+      css(instance.$el, "--drk-icon-ratio", ratio);
       const width = positiveNumber(instance.width);
       if (width) {
-        css(instance.$el, "--uk-icon-width", `${width}px`);
+        css(instance.$el, "--drk-icon-width", `${width}px`);
       }
       const height = positiveNumber(instance.height);
       if (height) {
-        css(instance.$el, "--uk-icon-height", `${height}px`);
+        css(instance.$el, "--drk-icon-height", `${height}px`);
       }
     }
     function hideDecorativeIcon(instance) {
@@ -9688,7 +9688,7 @@
           for (const target of toNodes(this.target)) {
             const color = !this.selActive || matches(target, this.selActive) ? findTargetColor(target) : "";
             if (color !== false) {
-              replaceClass(target, "uk-light uk-dark", color);
+              replaceClass(target, "drk-light drk-dark", color);
             }
           }
         }
@@ -9711,17 +9711,17 @@
           if (target.contains(element) || !checkVisibility(element) || element.closest('[class*="-leave"]') && elements.some((el) => element !== el && matches(el, '[class*="-enter"]'))) {
             continue;
           }
-          const color = css(element, "--uk-inverse");
+          const color = css(element, "--drk-inverse");
           if (color) {
             if (color === last) {
-              return `uk-${color}`;
+              return `drk-${color}`;
             }
             last = color;
             break;
           }
         }
       }
-      return last ? `uk-${last}` : "";
+      return last ? `drk-${last}` : "";
     }
     function checkVisibility(element) {
       if (css(element, "visibility") !== "visible") {
@@ -9744,12 +9744,12 @@
       },
       data: {
         fill: "",
-        clsWrapper: "uk-leader-fill",
-        clsHide: "uk-leader-hide",
+        clsWrapper: "drk-leader-fill",
+        clsHide: "drk-leader-hide",
         attrFill: "data-fill"
       },
       computed: {
-        fill: ({ fill }, $el) => fill || css($el, "--uk-leader-fill-content")
+        fill: ({ fill }, $el) => fill || css($el, "--drk-leader-fill-content")
       },
       connected() {
         const wrapper = wrapInner(this.$el, `<span class="${this.clsWrapper}">`)[0];
@@ -9787,9 +9787,9 @@
       install,
       mixins: [Modal],
       data: {
-        clsPage: "uk-modal-page",
-        selPanel: ".uk-modal-dialog",
-        selClose: '[class*="uk-modal-close"]'
+        clsPage: "drk-modal-page",
+        selPanel: ".drk-modal-dialog",
+        selClose: '[class*="drk-modal-close"]'
       },
       events: [
         {
@@ -9805,8 +9805,8 @@
           name: "show",
           self: true,
           handler() {
-            if (hasClass(this.panel, "uk-margin-auto-vertical")) {
-              addClass(this.$el, "uk-flex");
+            if (hasClass(this.panel, "drk-margin-auto-vertical")) {
+              addClass(this.$el, "drk-flex");
             } else {
               css(this.$el, "display", "block");
             }
@@ -9818,14 +9818,14 @@
           self: true,
           handler() {
             css(this.$el, "display", "");
-            removeClass(this.$el, "uk-flex");
+            removeClass(this.$el, "drk-flex");
           }
         }
       ]
     });
     function install({ modal }) {
       modal.dialog = function(content, options) {
-        const dialog = modal($(`<div><div class="uk-modal-dialog">${content}</div></div>`), {
+        const dialog = modal($(`<div><div class="drk-modal-dialog">${content}</div></div>`), {
           stack: true,
           role: "alertdialog",
           ...options
@@ -9844,20 +9844,20 @@
       };
       modal.alert = function(message, options) {
         return openDialog(
-          ({ i18n }) => `<div class="uk-modal-body">${isString(message) ? message : html(message)}</div>  <div class="uk-modal-footer uk-text-right">  <button class="uk-button uk-button-primary uk-modal-close" type="button" autofocus>${i18n.ok}</button>  </div>`,
+          ({ i18n }) => `<div class="drk-modal-body">${isString(message) ? message : html(message)}</div>  <div class="drk-modal-footer drk-text-right">  <button class="drk-button drk-button-primary drk-modal-close" type="button" autofocus>${i18n.ok}</button>  </div>`,
           options
         );
       };
       modal.confirm = function(message, options) {
         return openDialog(
-          ({ i18n }) => `<form>  <div class="uk-modal-body">${isString(message) ? message : html(message)}</div>  <div class="uk-modal-footer uk-text-right">  <button class="uk-button uk-button-default uk-modal-close" type="button">${i18n.cancel}</button>  <button class="uk-button uk-button-primary" autofocus>${i18n.ok}</button>  </div>  </form>`,
+          ({ i18n }) => `<form>  <div class="drk-modal-body">${isString(message) ? message : html(message)}</div>  <div class="drk-modal-footer drk-text-right">  <button class="drk-button drk-button-default drk-modal-close" type="button">${i18n.cancel}</button>  <button class="drk-button drk-button-primary" autofocus>${i18n.ok}</button>  </div>  </form>`,
           options,
           () => Promise.reject()
         );
       };
       modal.prompt = function(message, value, options) {
         const promise = openDialog(
-          ({ i18n }) => `<form class="uk-form-stacked">  <div class="uk-modal-body">  <label>${isString(message) ? message : html(message)}</label>  <input class="uk-input" autofocus>  </div>  <div class="uk-modal-footer uk-text-right">  <button class="uk-button uk-button-default uk-modal-close" type="button">${i18n.cancel}</button>  <button class="uk-button uk-button-primary">${i18n.ok}</button>  </div>  </form>`,
+          ({ i18n }) => `<form class="drk-form-stacked">  <div class="drk-modal-body">  <label>${isString(message) ? message : html(message)}</label>  <input class="drk-input" autofocus>  </div>  <div class="drk-modal-footer drk-text-right">  <button class="drk-button drk-button-default drk-modal-close" type="button">${i18n.cancel}</button>  <button class="drk-button drk-button-primary">${i18n.ok}</button>  </div>  </form>`,
           options,
           () => null,
           (dialog) => {
@@ -9908,13 +9908,13 @@
     var nav = defineComponent()({
       extends: Accordion,
       data: {
-        targets: "> .uk-parent",
+        targets: "> .drk-parent",
         toggle: "> a",
         content: "> ul"
       }
     });
 
-    const clsNavbarTransparent = "uk-navbar-transparent";
+    const clsNavbarTransparent = "drk-navbar-transparent";
     var navbar = defineComponent()({
       extends: Dropnav,
       props: {
@@ -9924,20 +9924,23 @@
         flip: false,
         autoUpdate: false,
         delayShow: 200,
-        clsDrop: "uk-navbar-dropdown",
-        selNavItem: ".uk-navbar-nav > li > a,a.uk-navbar-item,button.uk-navbar-item,.uk-navbar-item a,.uk-navbar-item button,.uk-navbar-toggle",
+        clsDrop: "drk-navbar-dropdown",
+        selNavItem: ".drk-navbar-nav > li > a,a.drk-navbar-item,button.drk-navbar-item,.drk-navbar-item a,.drk-navbar-item button,.drk-navbar-toggle",
         // Simplify with :where() selector once browser target is Safari 14+
         dropbarTransparentMode: false
       },
       computed: {
-        navbarContainer: (_props, $el) => $el.closest(".uk-navbar-container")
+        navbarContainer: (_props, $el) => $el.closest(".drk-navbar-container")
       },
       watch: {
         items() {
-          const justify = hasClass(this.$el, "uk-navbar-justify");
-          const containers = $$(".uk-navbar-nav, .uk-navbar-left, .uk-navbar-right", this.$el);
+          const justify = hasClass(this.$el, "drk-navbar-justify");
+          const containers = $$(".drk-navbar-nav, .drk-navbar-left, .drk-navbar-right", this.$el);
           for (const container of containers) {
-            const items = justify ? $$(".uk-navbar-nav > li > a, .uk-navbar-item, .uk-navbar-toggle", container).length : "";
+            const items = justify ? $$(
+              ".drk-navbar-nav > li > a, .drk-navbar-item, .drk-navbar-toggle",
+              container
+            ).length : "";
             css(container, "flexGrow", items);
           }
         }
@@ -9974,7 +9977,7 @@
             return this.dropbarTransparentMode;
           }
           const drop = this.getDropdown(el);
-          if (drop && hasClass(el, "uk-dropbar")) {
+          if (drop && hasClass(el, "drk-dropbar")) {
             return drop.inset ? "behind" : "remove";
           }
         },
@@ -9998,15 +10001,15 @@
         mode: "slide",
         flip: false,
         overlay: false,
-        clsPage: "uk-offcanvas-page",
-        clsContainer: "uk-offcanvas-container",
-        selPanel: ".uk-offcanvas-bar",
-        clsFlip: "uk-offcanvas-flip",
-        clsContainerAnimation: "uk-offcanvas-container-animation",
-        clsSidebarAnimation: "uk-offcanvas-bar-animation",
-        clsMode: "uk-offcanvas",
-        clsOverlay: "uk-offcanvas-overlay",
-        selClose: ".uk-offcanvas-close",
+        clsPage: "drk-offcanvas-page",
+        clsContainer: "drk-offcanvas-container",
+        selPanel: ".drk-offcanvas-bar",
+        clsFlip: "drk-offcanvas-flip",
+        clsContainerAnimation: "drk-offcanvas-container-animation",
+        clsSidebarAnimation: "drk-offcanvas-bar-animation",
+        clsMode: "drk-offcanvas",
+        clsOverlay: "drk-offcanvas-overlay",
+        selClose: ".drk-offcanvas-close",
         container: false,
         swiping: true
       },
@@ -10131,8 +10134,8 @@
         minHeight: Number
       },
       data: {
-        selContainer: ".uk-modal",
-        selContent: ".uk-modal-dialog",
+        selContainer: ".drk-modal",
+        selContent: ".drk-modal-dialog",
         minHeight: 150
       },
       computed: {
@@ -10221,8 +10224,8 @@
               const percent = current ? scrollPosition / current : 0;
               const toValue = (value) => current ? clamp((this.fadeDuration - value) / this.fadeDuration) : 1;
               css(this.$el, {
-                "--uk-overflow-fade-start-opacity": toValue(percent),
-                "--uk-overflow-fade-end-opacity": toValue(1 - percent)
+                "--drk-overflow-fade-start-opacity": toValue(percent),
+                "--drk-overflow-fade-end-opacity": toValue(1 - percent)
               });
             }
           }
@@ -10272,7 +10275,7 @@
     var responsive = defineComponent()({
       props: ["width", "height"],
       connected() {
-        addClass(this.$el, "uk-responsive-width");
+        addClass(this.$el, "drk-responsive-width");
         css(this.$el, "aspectRatio", `${this.width}/${this.height}`);
       }
     });
@@ -10328,7 +10331,7 @@
       }
     }
 
-    const clsInView = "uk-scrollspy-inview";
+    const clsInView = "drk-scrollspy-inview";
     var scrollspy = defineComponent()({
       args: "cls",
       props: {
@@ -10377,7 +10380,7 @@
           for (const { target: el, isIntersecting } of records) {
             if (!elements.has(el)) {
               elements.set(el, {
-                cls: data(el, "uk-scrollspy-class") || this.cls
+                cls: data(el, "drk-scrollspy-class") || this.cls
               });
             }
             const state = elements.get(el);
@@ -10424,7 +10427,7 @@
           css(el, "opacity", !inview && this.hidden ? 0 : "");
           toggleClass(el, clsInView, inview);
           toggleClass(el, state.cls);
-          const animationClasses = state.cls.match(/\buk-animation-[\w-]+/g);
+          const animationClasses = state.cls.match(/\bdrk-animation-[\w-]+/g);
           if (animationClasses) {
             const removeAnimationClasses = () => removeClass(el, animationClasses);
             if (inview) {
@@ -10450,7 +10453,7 @@
         offset: Number
       },
       data: {
-        cls: "uk-active",
+        cls: "drk-active",
         closest: false,
         scroll: false,
         target: 'a[href]:not([role="button"])',
@@ -10553,10 +10556,10 @@
         offsetEnd: 0,
         overflowFlip: false,
         animation: "",
-        clsActive: "uk-active",
+        clsActive: "drk-active",
         clsInactive: "",
-        clsFixed: "uk-sticky-fixed",
-        clsBelow: "uk-sticky-below",
+        clsFixed: "drk-sticky-fixed",
+        clsBelow: "drk-sticky-below",
         selTarget: "",
         showOnUp: false,
         targetOffset: false
@@ -10567,7 +10570,7 @@
       connected() {
         this.start = coerce(this.start || this.top);
         this.end = coerce(this.end || this.bottom);
-        this.placeholder = $("+ .uk-sticky-placeholder", this.$el) || createPlaceholder();
+        this.placeholder = $("+ .drk-sticky-placeholder", this.$el) || createPlaceholder();
         this.isFixed = false;
         this.setActive(false);
       },
@@ -10662,7 +10665,7 @@
             }
             const elementBox = height$1 + offset$1 + offsetEnd;
             const overflow = this.overflowFlip ? 0 : Math.max(0, elementBox - viewport2);
-            const topOffset = offset(referenceElement).top - // offset possible `transform: translateY` animation 'uk-animation-slide-top' while hiding
+            const topOffset = offset(referenceElement).top - // offset possible `transform: translateY` animation 'drk-animation-slide-top' while hiding
             new DOMMatrix(css(referenceElement, "transform")).m42;
             const elHeight = dimensions$1(this.$el).height;
             const start = (this.start === false ? topOffset : parseProp(this.start, this.$el, topOffset)) - offset$1;
@@ -10774,7 +10777,7 @@
                 return;
               }
               if (this.animation && below) {
-                if (hasClass(this.$el, "uk-animation-leave")) {
+                if (hasClass(this.$el, "drk-animation-leave")) {
                   return;
                 }
                 Animation.out(this.$el, this.animation).then(() => this.hide(), noop);
@@ -10884,7 +10887,7 @@
     function reset(el) {
       css(el, { position: "", top: "", marginTop: "", width: "" });
     }
-    const clsTransitionDisable = "uk-transition-disable";
+    const clsTransitionDisable = "drk-transition-disable";
     async function preventTransition(element) {
       if (!hasClass(element, clsTransitionDisable)) {
         addClass(element, clsTransitionDisable);
@@ -10906,7 +10909,7 @@
     }
     function createPlaceholder() {
       const placeholder = document.createElement("div");
-      placeholder.className = "uk-sticky-placeholder";
+      placeholder.className = "drk-sticky-placeholder";
       return placeholder;
     }
 
@@ -11064,7 +11067,7 @@
     });
     function applyAttributes(el) {
       const { $el } = this;
-      addClass(el, attr($el, "class"), "uk-svg");
+      addClass(el, attr($el, "class"), "drk-svg");
       for (let i = 0; i < $el.style.length; i++) {
         const prop = $el.style[i];
         if (prop) {
@@ -11094,14 +11097,14 @@
     function applyAnimation(el) {
       const length = getMaxPathLength(el);
       if (length) {
-        css(el, "--uk-animation-stroke", length);
+        css(el, "--drk-animation-stroke", length);
       }
     }
     function isLazyImage(element) {
       return isTag(element, "img") && element.getAttribute("loading") === "lazy";
     }
 
-    const selDisabled = ".uk-disabled *, .uk-disabled, [disabled]";
+    const selDisabled = ".drk-disabled *, .drk-disabled, [disabled]";
     var Switcher = defineComponent()({
       mixins: [Togglable],
       args: "connect",
@@ -11114,13 +11117,13 @@
         swiping: Boolean
       },
       data: {
-        connect: "~.uk-switcher",
+        connect: "~.drk-switcher",
         toggle: "> * > :first-child",
         itemNav: false,
         active: 0,
-        cls: "uk-active",
-        attrItem: "uk-switcher-item",
-        selVertical: ".uk-nav",
+        cls: "drk-active",
+        attrItem: "drk-switcher-item",
+        selVertical: ".drk-nav",
         followFocus: false,
         swiping: true
       },
@@ -11316,11 +11319,11 @@
       },
       data: {
         media: 960,
-        attrItem: "uk-tab-item",
-        selVertical: ".uk-tab-left,.uk-tab-right"
+        attrItem: "drk-tab-item",
+        selVertical: ".drk-tab-left,.drk-tab-right"
       },
       connected() {
-        const cls = hasClass(this.$el, "uk-tab-left") ? "uk-tab-left" : hasClass(this.$el, "uk-tab-right") ? "uk-tab-right" : false;
+        const cls = hasClass(this.$el, "drk-tab-left") ? "drk-tab-left" : hasClass(this.$el, "drk-tab-right") ? "drk-tab-right" : false;
         if (cls) {
           this.$create("toggle", this.$el, { cls, mode: "media", media: this.media });
         }

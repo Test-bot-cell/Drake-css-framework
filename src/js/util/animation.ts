@@ -4,7 +4,7 @@ import { once, trigger } from './event';
 import { toNodes } from './lang';
 import { css, propName, resetProps } from './style';
 
-const clsTransition = 'uk-transition';
+const clsTransition = 'drk-transition';
 const transitionEnd = 'transitionend';
 const transitionCanceled = 'transitioncanceled';
 
@@ -69,7 +69,7 @@ export const Transition = {
     },
 };
 
-const clsAnimation = 'uk-animation';
+const clsAnimation = 'drk-animation';
 const animationEnd = 'animationend';
 const animationCanceled = 'animationcanceled';
 
@@ -91,7 +91,7 @@ function animate(
                         animation,
                         clsAnimation,
                         `${clsAnimation}-${out ? 'leave' : 'enter'}`,
-                        origin && `uk-transform-origin-${origin}`,
+                        origin && `drk-transform-origin-${origin}`,
                         out && `${clsAnimation}-reverse`,
                     ];
                     const timer = setTimeout(() => trigger(element, animationEnd), duration);

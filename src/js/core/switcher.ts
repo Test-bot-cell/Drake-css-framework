@@ -14,7 +14,7 @@ import {
     queryAll,
     toArray,
     toggleClass,
-} from 'uikit-util';
+} from 'drake-util';
 import { generateId } from '../api/instance';
 import { lazyload, swipe } from '../api/observables';
 import { defineComponent } from '../api/options';
@@ -24,7 +24,7 @@ import type { ComponentInternalInstance, FrameworkEvent, NodeInput } from '../ty
 import { keyMap } from '../util/keys';
 import type { IndexSpecifier } from '../util/lang';
 
-const selDisabled = '.uk-disabled *, .uk-disabled, [disabled]';
+const selDisabled = '.drk-disabled *, .drk-disabled, [disabled]';
 
 interface SwitcherProps {
     connect: string;
@@ -68,13 +68,13 @@ export default defineComponent<SwitcherInstance>()({
     },
 
     data: {
-        connect: '~.uk-switcher',
+        connect: '~.drk-switcher',
         toggle: '> * > :first-child',
         itemNav: false,
         active: 0,
-        cls: 'uk-active',
-        attrItem: 'uk-switcher-item',
-        selVertical: '.uk-nav',
+        cls: 'drk-active',
+        attrItem: 'drk-switcher-item',
+        selVertical: '.drk-nav',
         followFocus: false,
         swiping: true,
     },

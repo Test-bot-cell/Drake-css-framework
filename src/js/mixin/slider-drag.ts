@@ -11,7 +11,7 @@ import {
     selInput,
     toArray,
     trigger,
-} from 'uikit-util';
+} from 'drake-util';
 import { defineMixin } from '../api/options';
 import type { FrameworkEvent, Point } from '../types';
 import type { DraggableSliderInstance } from './types';

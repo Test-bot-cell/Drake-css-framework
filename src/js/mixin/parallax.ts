@@ -14,7 +14,7 @@ import {
     trigger,
     ucfirst,
     type DimensionsValue,
-} from 'uikit-util';
+} from 'drake-util';
 import { defineMixin } from '../api/options';
 import Media from '../mixin/media';
 import type { ComponentInternalInstance, CssProperties } from '../types';

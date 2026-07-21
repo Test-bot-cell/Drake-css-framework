@@ -1,4 +1,4 @@
-import { css } from 'uikit-util';
+import { css } from 'drake-util';
 import Animations, { translate, translated } from '../../mixin/internal/slideshow-animations';
 
 type AnimationElement = HTMLElement;

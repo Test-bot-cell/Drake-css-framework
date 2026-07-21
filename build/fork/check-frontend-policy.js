@@ -275,7 +275,7 @@ async function auditLegacyIconRegistries() {
     const errors = [];
     if (prohibitedFiles.length) {
         errors.push(
-            `Catalogue d’icônes UIkit hérité trouvé: ${prohibitedFiles.length} fichier(s).`,
+            `Catalogue d’icônes Drake hérité trouvé: ${prohibitedFiles.length} fichier(s).`,
         );
     }
     if (registryMatches.length) {
@@ -454,7 +454,7 @@ async function auditHtmlFixture(expectations, baseUrl) {
     const stylesheets = readTags(html, 'link')
         .filter(({ attributes }) => attributes.rel === 'stylesheet')
         .map(({ attributes }) => attributes.href);
-    for (const required of ['../dist/css/uikit-inter.css', '../dist/css/uikit.css']) {
+    for (const required of ['../dist/css/drake-inter.css', '../dist/css/drake.css']) {
         assert(
             errors,
             stylesheets.includes(required),
@@ -463,7 +463,7 @@ async function auditHtmlFixture(expectations, baseUrl) {
     }
     assert(
         errors,
-        !stylesheets.includes('../dist/css/uikit-tabler-icons.css'),
+        !stylesheets.includes('../dist/css/drake-tabler-icons.css'),
         'Le catalogue Tabler complet doit rester opt-in sur la fixture de performance.',
     );
 

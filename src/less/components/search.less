@@ -1,17 +1,17 @@
 // Name:            Search
 // Description:     Component to create the search
 //
-// Component:       `uk-search`
+// Component:       `drk-search`
 //
-// Sub-objects:     `uk-search-input`
-//                  `uk-search-toggle`
+// Sub-objects:     `drk-search-input`
+//                  `drk-search-toggle`
 //
-// Adopted:         `uk-search-icon`
+// Adopted:         `drk-search-icon`
 //
-// Modifier:        `uk-search-default`
-//                  `uk-search-navbar`
-//                  `uk-search-medium`
-//                  `uk-search-large`
+// Modifier:        `drk-search-default`
+//                  `drk-search-navbar`
+//                  `drk-search-medium`
+//                  `drk-search-large`
 //
 // ========================================================================
 
@@ -77,7 +77,7 @@
  * 4. Reset `form`
  */
 
-.uk-search {
+.drk-search {
     /* 1 */
     display: inline-block;
     /* 2 */
@@ -96,14 +96,14 @@
  * Remove the inner padding and cancel buttons in Chrome on OS X and Safari on OS X.
  */
 
-.uk-search-input::-webkit-search-cancel-button,
-.uk-search-input::-webkit-search-decoration { -webkit-appearance: none; }
+.drk-search-input::-webkit-search-cancel-button,
+.drk-search-input::-webkit-search-decoration { -webkit-appearance: none; }
 
 /*
  * Removes placeholder transparency in Firefox.
  */
 
-.uk-search-input::-moz-placeholder { opacity: 1; }
+.drk-search-input::-moz-placeholder { opacity: 1; }
 
 /*
  * 1. Define consistent box sizing.
@@ -117,7 +117,7 @@
  * 9. Style
  */
 
-.uk-search-input {
+.drk-search-input {
     /* 1 */
     box-sizing: border-box;
     /* 2 */
@@ -140,13 +140,13 @@
     .hook-search-input();
 }
 
-.uk-search-input:focus { outline: none; }
+.drk-search-input:focus { outline: none; }
 
 /* Placeholder */
-.uk-search-input::placeholder { color: @search-placeholder-color; }
+.drk-search-input::placeholder { color: @search-placeholder-color; }
 
 
-/* Icon (Adopts `uk-icon`)
+/* Icon (Adopts `drk-icon`)
  ========================================================================== */
 
 /*
@@ -156,7 +156,7 @@
  * 3. Style
  */
 
-.uk-search .uk-search-icon {
+.drk-search .drk-search-icon {
     /* 1 */
     position: absolute;
     top: 0;
@@ -175,19 +175,19 @@
  * Required for `a`.
  */
 
-.uk-search .uk-search-icon:hover { color: @search-icon-color; }
+.drk-search .drk-search-icon:hover { color: @search-icon-color; }
 
 /*
  * Make `input` element clickable through icon, e.g. if it's a `span`
  */
 
-.uk-search .uk-search-icon:not(a):not(button):not(input) { pointer-events: none; }
+.drk-search .drk-search-icon:not(a):not(button):not(input) { pointer-events: none; }
 
 /*
  * Position modifier
  */
 
-.uk-search .uk-search-icon-flip {
+.drk-search .drk-search-icon-flip {
     right: 0;
     left: auto;
 }
@@ -196,13 +196,13 @@
 /* Default modifier
  ========================================================================== */
 
-.uk-search-default { width: @search-default-width; }
+.drk-search-default { width: @search-default-width; }
 
 /*
  * Input
  */
 
-.uk-search-default .uk-search-input {
+.drk-search-default .drk-search-input {
     height: @search-default-height;
     padding-left: @search-default-padding-horizontal;
     padding-right: @search-default-padding-horizontal;
@@ -211,7 +211,7 @@
 }
 
 /* Focus */
-.uk-search-default .uk-search-input:focus {
+.drk-search-default .drk-search-input:focus {
     background-color: @search-default-focus-background;
     .hook-search-default-input-focus();
 }
@@ -220,27 +220,27 @@
  * Icon
  */
 
-.uk-search-default .uk-search-icon {
-    --uk-icon-width: @search-default-icon-width;
-    --uk-icon-height: @search-default-icon-width;
+.drk-search-default .drk-search-icon {
+    --drk-icon-width: @search-default-icon-width;
+    --drk-icon-height: @search-default-icon-width;
     padding-left: @search-default-padding-horizontal;
     padding-right: @search-default-padding-horizontal;
 }
 
-.uk-search-default:has(.uk-search-icon:not(.uk-search-icon-flip)) .uk-search-input { padding-left: (@search-default-icon-width + @search-default-padding-horizontal + @search-default-icon-padding); }
-.uk-search-default:has(.uk-search-icon-flip) .uk-search-input { padding-right: (@search-default-icon-width + @search-default-padding-horizontal + @search-default-icon-padding); }
+.drk-search-default:has(.drk-search-icon:not(.drk-search-icon-flip)) .drk-search-input { padding-left: (@search-default-icon-width + @search-default-padding-horizontal + @search-default-icon-padding); }
+.drk-search-default:has(.drk-search-icon-flip) .drk-search-input { padding-right: (@search-default-icon-width + @search-default-padding-horizontal + @search-default-icon-padding); }
 
 
 /* Navbar modifier
  ========================================================================== */
 
-.uk-search-navbar { width: @search-navbar-width; }
+.drk-search-navbar { width: @search-navbar-width; }
 
 /*
  * Input
  */
 
-.uk-search-navbar .uk-search-input {
+.drk-search-navbar .drk-search-input {
     height: @search-navbar-height;
     padding-left: @search-navbar-padding-horizontal;
     padding-right: @search-navbar-padding-horizontal;
@@ -249,7 +249,7 @@
 }
 
 /* Focus */
-.uk-search-navbar .uk-search-input:focus {
+.drk-search-navbar .drk-search-input:focus {
     background-color: @search-navbar-focus-background;
     .hook-search-navbar-input-focus();
 }
@@ -258,27 +258,27 @@
  * Icon
  */
 
-.uk-search-navbar .uk-search-icon {
-    --uk-icon-width: @search-navbar-icon-width;
-    --uk-icon-height: @search-navbar-icon-width;
+.drk-search-navbar .drk-search-icon {
+    --drk-icon-width: @search-navbar-icon-width;
+    --drk-icon-height: @search-navbar-icon-width;
     padding-left: @search-navbar-padding-horizontal;
     padding-right: @search-navbar-padding-horizontal;
 }
 
-.uk-search-navbar:has(.uk-search-icon:not(.uk-search-icon-flip)) .uk-search-input { padding-left: (@search-navbar-icon-width + @search-navbar-padding-horizontal + @search-navbar-icon-padding); }
-.uk-search-navbar:has(.uk-search-icon-flip) .uk-search-input { padding-right: (@search-navbar-icon-width + @search-navbar-padding-horizontal + @search-navbar-icon-padding); }
+.drk-search-navbar:has(.drk-search-icon:not(.drk-search-icon-flip)) .drk-search-input { padding-left: (@search-navbar-icon-width + @search-navbar-padding-horizontal + @search-navbar-icon-padding); }
+.drk-search-navbar:has(.drk-search-icon-flip) .drk-search-input { padding-right: (@search-navbar-icon-width + @search-navbar-padding-horizontal + @search-navbar-icon-padding); }
 
 
 /* Medium modifier
  ========================================================================== */
 
-.uk-search-medium { width: @search-medium-width; }
+.drk-search-medium { width: @search-medium-width; }
 
 /*
  * Input
  */
 
-.uk-search-medium .uk-search-input {
+.drk-search-medium .drk-search-input {
     height: @search-medium-height;
     padding-left: @search-medium-padding-horizontal;
     padding-right: @search-medium-padding-horizontal;
@@ -288,7 +288,7 @@
 }
 
 /* Focus */
-.uk-search-medium .uk-search-input:focus {
+.drk-search-medium .drk-search-input:focus {
     background-color: @search-medium-focus-background;
     .hook-search-medium-input-focus();
 }
@@ -297,27 +297,27 @@
  * Icon
  */
 
-.uk-search-medium .uk-search-icon {
-    --uk-icon-width: @search-medium-icon-width;
-    --uk-icon-height: @search-medium-icon-width;
+.drk-search-medium .drk-search-icon {
+    --drk-icon-width: @search-medium-icon-width;
+    --drk-icon-height: @search-medium-icon-width;
     padding-left: @search-medium-padding-horizontal;
     padding-right: @search-medium-padding-horizontal;
 }
 
-.uk-search-medium:has(.uk-search-icon:not(.uk-search-icon-flip)) .uk-search-input { padding-left: (@search-medium-icon-width + @search-medium-padding-horizontal + @search-medium-icon-padding); }
-.uk-search-medium:has(.uk-search-icon-flip) .uk-search-input { padding-right: (@search-medium-icon-width + @search-medium-padding-horizontal + @search-medium-icon-padding); }
+.drk-search-medium:has(.drk-search-icon:not(.drk-search-icon-flip)) .drk-search-input { padding-left: (@search-medium-icon-width + @search-medium-padding-horizontal + @search-medium-icon-padding); }
+.drk-search-medium:has(.drk-search-icon-flip) .drk-search-input { padding-right: (@search-medium-icon-width + @search-medium-padding-horizontal + @search-medium-icon-padding); }
 
 
 /* Large modifier
  ========================================================================== */
 
-.uk-search-large { width: @search-large-width; }
+.drk-search-large { width: @search-large-width; }
 
 /*
  * Input
  */
 
-.uk-search-large .uk-search-input {
+.drk-search-large .drk-search-input {
     height: @search-large-height;
     padding-left: @search-large-padding-horizontal;
     padding-right: @search-large-padding-horizontal;
@@ -327,7 +327,7 @@
 }
 
 /* Focus */
-.uk-search-large .uk-search-input:focus {
+.drk-search-large .drk-search-input:focus {
     background-color: @search-medium-focus-background;
     .hook-search-large-input-focus();
 }
@@ -336,27 +336,27 @@
  * Icon
  */
 
-.uk-search-large .uk-search-icon {
-    --uk-icon-width: @search-large-icon-width;
-    --uk-icon-height: @search-large-icon-width;
+.drk-search-large .drk-search-icon {
+    --drk-icon-width: @search-large-icon-width;
+    --drk-icon-height: @search-large-icon-width;
     padding-left: @search-large-padding-horizontal;
     padding-right: @search-large-padding-horizontal;
 }
 
-.uk-search-large:has(.uk-search-icon:not(.uk-search-icon-flip)) .uk-search-input { padding-left: (@search-large-icon-width + @search-large-padding-horizontal + @search-large-icon-padding); }
-.uk-search-large:has(.uk-search-icon-flip) .uk-search-input { padding-right: (@search-large-icon-width + @search-large-padding-horizontal + @search-large-icon-padding); }
+.drk-search-large:has(.drk-search-icon:not(.drk-search-icon-flip)) .drk-search-input { padding-left: (@search-large-icon-width + @search-large-padding-horizontal + @search-large-icon-padding); }
+.drk-search-large:has(.drk-search-icon-flip) .drk-search-input { padding-right: (@search-large-icon-width + @search-large-padding-horizontal + @search-large-icon-padding); }
 
 
 /* Toggle
  ========================================================================== */
 
-.uk-search-toggle {
+.drk-search-toggle {
     color: @search-toggle-color;
     .hook-search-toggle();
 }
 
 /* Hover */
-.uk-search-toggle:hover {
+.drk-search-toggle:hover {
     color: @search-toggle-hover-color;
     .hook-search-toggle-hover();
 }
@@ -413,57 +413,57 @@
     // Input
     //
 
-    .uk-search-input { color: @inverse-search-color; }
+    .drk-search-input { color: @inverse-search-color; }
 
-    .uk-search-input::placeholder { color: @inverse-search-placeholder-color; }
+    .drk-search-input::placeholder { color: @inverse-search-placeholder-color; }
 
     //
     // Icon
     //
 
-    .uk-search .uk-search-icon { color: @inverse-search-icon-color; }
-    .uk-search .uk-search-icon:hover { color: @inverse-search-icon-color; }
+    .drk-search .drk-search-icon { color: @inverse-search-icon-color; }
+    .drk-search .drk-search-icon:hover { color: @inverse-search-icon-color; }
 
     //
     // Style modifier
     //
 
-    .uk-search-default .uk-search-input {
+    .drk-search-default .drk-search-input {
         background-color: @inverse-search-default-background;
         .hook-inverse-search-default-input();
     }
 
-    .uk-search-default .uk-search-input:focus {
+    .drk-search-default .drk-search-input:focus {
         background-color: @inverse-search-default-focus-background;
         .hook-inverse-search-default-input-focus();
     }
 
-    .uk-search-navbar .uk-search-input {
+    .drk-search-navbar .drk-search-input {
         background-color: @inverse-search-navbar-background;
         .hook-inverse-search-navbar-input();
     }
 
-    .uk-search-navbar .uk-search-input:focus {
+    .drk-search-navbar .drk-search-input:focus {
         background-color: @inverse-search-navbar-focus-background;
         .hook-inverse-search-navbar-input-focus();
     }
 
-    .uk-search-medium .uk-search-input {
+    .drk-search-medium .drk-search-input {
         background-color: @inverse-search-medium-background;
         .hook-inverse-search-medium-input();
     }
 
-    .uk-search-medium .uk-search-input:focus {
+    .drk-search-medium .drk-search-input:focus {
         background-color: @inverse-search-medium-focus-background;
         .hook-inverse-search-medium-input-focus();
     }
 
-    .uk-search-large .uk-search-input {
+    .drk-search-large .drk-search-input {
         background-color: @inverse-search-large-background;
         .hook-inverse-search-large-input();
     }
 
-    .uk-search-large .uk-search-input:focus {
+    .drk-search-large .drk-search-input:focus {
         background-color: @inverse-search-large-focus-background;
         .hook-inverse-search-large-input-focus();
     }
@@ -472,12 +472,12 @@
     // Toggle
     //
 
-    .uk-search-toggle {
+    .drk-search-toggle {
         color: @inverse-search-toggle-color;
         .hook-inverse-search-toggle();
     }
 
-    .uk-search-toggle:hover {
+    .drk-search-toggle:hover {
         color: @inverse-search-toggle-hover-color;
         .hook-inverse-search-toggle-hover();
     }

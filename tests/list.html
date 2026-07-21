@@ -4,12 +4,12 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>List - UIkit tests</title>
+        <title>List - Drake tests</title>
         <script src="../dist/js/tests/test.js"></script>
         <style>
 
             @supports not selector(::marker) {
-                .uk-list > li[value]::before {
+                .drk-list > li[value]::before {
                     content: attr(value) "\200A.\00A0";
                 }
             }
@@ -19,38 +19,38 @@
 
     <body>
 
-        <div class="uk-container">
+        <div class="drk-container">
 
             <h1>List</h1>
 
             <h2>Marker</h2>
 
-            <div class="uk-margin">
-                <select id="js-color-switcher" class="uk-select uk-form-width-small" aria-label="Color switcher">
+            <div class="drk-margin">
+                <select id="js-color-switcher" class="drk-select drk-form-width-small" aria-label="Color switcher">
                     <option value="">Default</option>
-                    <option value="uk-list-muted">Muted</option>
-                    <option value="uk-list-emphasis">Emphasis</option>
-                    <option value="uk-list-primary">Primary</option>
-                    <option value="uk-list-secondary">Secondary</option>
+                    <option value="drk-list-muted">Muted</option>
+                    <option value="drk-list-emphasis">Emphasis</option>
+                    <option value="drk-list-primary">Primary</option>
+                    <option value="drk-list-secondary">Secondary</option>
                 </select>
             </div>
 
-            <div class="uk-child-width-1-6" uk-grid>
+            <div class="drk-child-width-1-6" drk-grid>
                 <div>
 
                     <h3>Disc</h3>
 
-                    <ul class="uk-list uk-list-disc">
+                    <ul class="drk-list drk-list-disc">
                         <li>List <a>item</a> 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>
                         <li>List item 4 with some more text wrapping into the next line</li>
                         <li>
                             List item 5
-                            <ul class="uk-list uk-list-disc">
+                            <ul class="drk-list drk-list-disc">
                                 <li>List item 1</li>
                                 <li>List item 2
-                                    <ul class="uk-list uk-list-disc">
+                                    <ul class="drk-list drk-list-disc">
                                         <li>List item 1</li>
                                         <li>List item 2</li>
                                     </ul>
@@ -66,16 +66,16 @@
 
                     <h3>Circle</h3>
 
-                    <ul class="uk-list uk-list-circle">
+                    <ul class="drk-list drk-list-circle">
                         <li>List item 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>
                         <li>List item 4 with some more text wrapping into the next line</li>
                         <li>List item 5
-                            <ul class="uk-list uk-list-circle">
+                            <ul class="drk-list drk-list-circle">
                                 <li>List item 1</li>
                                 <li>List item 2
-                                    <ul class="uk-list uk-list-circle">
+                                    <ul class="drk-list drk-list-circle">
                                         <li>List item 1</li>
                                         <li>List item 2</li>
                                     </ul>
@@ -91,16 +91,16 @@
 
                     <h3>Square</h3>
 
-                    <ul class="uk-list uk-list-square">
+                    <ul class="drk-list drk-list-square">
                         <li>List item 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>
                         <li>List item 4 with some more text wrapping into the next line</li>
                         <li>List item 5
-                            <ul class="uk-list uk-list-square">
+                            <ul class="drk-list drk-list-square">
                                 <li>List item 1</li>
                                 <li>List item 2
-                                    <ul class="uk-list uk-list-square">
+                                    <ul class="drk-list drk-list-square">
                                         <li>List item 1</li>
                                         <li>List item 2</li>
                                     </ul>
@@ -116,16 +116,16 @@
 
                     <h3>Decimal</h3>
 
-                    <ul class="uk-list uk-list-decimal">
+                    <ul class="drk-list drk-list-decimal">
                         <li>List item 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>
                         <li>List item 4 with some more text wrapping into the next line</li>
                         <li>List item 5
-                            <ul class="uk-list uk-list-decimal">
+                            <ul class="drk-list drk-list-decimal">
                                 <li>List item 1</li>
                                 <li>List item 2
-                                    <ul class="uk-list uk-list-decimal">
+                                    <ul class="drk-list drk-list-decimal">
                                         <li>List item 1</li>
                                         <li>List item 2</li>
                                     </ul>
@@ -141,16 +141,16 @@
 
                     <h3>Hyphen</h3>
 
-                    <ul class="uk-list uk-list-hyphen">
+                    <ul class="drk-list drk-list-hyphen">
                         <li>List item 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>
                         <li>List item 4 with some more text wrapping into the next line</li>
                         <li>List item 5
-                            <ul class="uk-list uk-list-hyphen">
+                            <ul class="drk-list drk-list-hyphen">
                                 <li>List item 1</li>
                                 <li>List item 2
-                                    <ul class="uk-list uk-list-hyphen">
+                                    <ul class="drk-list drk-list-hyphen">
                                         <li>List item 1</li>
                                         <li>List item 2</li>
                                     </ul>
@@ -166,16 +166,16 @@
 
                     <h3>Image Bullet</h3>
 
-                    <ul class="uk-list uk-list-bullet">
+                    <ul class="drk-list drk-list-bullet">
                         <li>List item 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>
                         <li>List item 4 with some more text wrapping into the next line</li>
                         <li>List item 5
-                            <ul class="uk-list uk-list-bullet">
+                            <ul class="drk-list drk-list-bullet">
                                 <li>List item 1</li>
                                 <li>List item 2
-                                    <ul class="uk-list uk-list-bullet">
+                                    <ul class="drk-list drk-list-bullet">
                                         <li>List item 1</li>
                                         <li>List item 2</li>
                                     </ul>
@@ -191,12 +191,12 @@
 
             <h2>Style</h2>
 
-            <div class="uk-child-width-1-4" uk-grid>
+            <div class="drk-child-width-1-4" drk-grid>
                 <div>
 
                     <h3>Divider</h3>
 
-                    <ul class="uk-list uk-list-divider">
+                    <ul class="drk-list drk-list-divider">
                         <li>List item 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>
@@ -220,7 +220,7 @@
 
                     <h3>Striped</h3>
 
-                    <ul class="uk-list uk-list-striped">
+                    <ul class="drk-list drk-list-striped">
                         <li>List item 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>
@@ -244,7 +244,7 @@
 
                     <h3>Divider</h3>
 
-                    <ul class="uk-list uk-list-divider uk-list-decimal">
+                    <ul class="drk-list drk-list-divider drk-list-decimal">
                         <li>List item 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>
@@ -268,12 +268,12 @@
 
             <h2>Large</h2>
 
-            <div class="uk-child-width-1-4" uk-grid>
+            <div class="drk-child-width-1-4" drk-grid>
                 <div>
 
                     <h3>Default</h3>
 
-                    <ul class="uk-list uk-list-large">
+                    <ul class="drk-list drk-list-large">
                         <li>List item 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>
@@ -297,7 +297,7 @@
 
                     <h3>Disc</h3>
 
-                    <ul class="uk-list uk-list-large uk-list-disc">
+                    <ul class="drk-list drk-list-large drk-list-disc">
                         <li>List item 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>
@@ -322,7 +322,7 @@
 
                     <h3>Divider</h3>
 
-                    <ul class="uk-list uk-list-large uk-list-divider">
+                    <ul class="drk-list drk-list-large drk-list-divider">
                         <li>List item 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>
@@ -346,7 +346,7 @@
 
                     <h3>Striped</h3>
 
-                    <ul class="uk-list uk-list-large uk-list-striped">
+                    <ul class="drk-list drk-list-large drk-list-striped">
                         <li>List item 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>
@@ -370,12 +370,12 @@
 
             <h2>Collapse</h2>
 
-            <div class="uk-child-width-1-4" uk-grid>
+            <div class="drk-child-width-1-4" drk-grid>
                 <div>
 
                     <h3>Default</h3>
 
-                    <ul class="uk-list uk-list-collapse">
+                    <ul class="drk-list drk-list-collapse">
                         <li>List item 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>
@@ -399,7 +399,7 @@
 
                     <h3>Disc</h3>
 
-                    <ul class="uk-list uk-list-collapse uk-list-disc">
+                    <ul class="drk-list drk-list-collapse drk-list-disc">
                         <li>List item 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>
@@ -424,7 +424,7 @@
 
                     <h3>Divider</h3>
 
-                    <ul class="uk-list uk-list-collapse uk-list-divider">
+                    <ul class="drk-list drk-list-collapse drk-list-divider">
                         <li>List item 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>
@@ -448,7 +448,7 @@
 
                     <h3>Striped</h3>
 
-                    <ul class="uk-list uk-list-collapse uk-list-striped">
+                    <ul class="drk-list drk-list-collapse drk-list-striped">
                         <li>List item 1</li>
                         <li>List item 2</li>
                         <li>List item 3</li>

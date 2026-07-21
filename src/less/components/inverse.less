@@ -1,8 +1,8 @@
 // Name:            Inverse
 // Description:     Inverse component style for light or dark backgrounds
 //
-// Component:       `uk-light`
-//                  `uk-dark`
+// Component:       `drk-light`
+//                  `drk-dark`
 //
 // ========================================================================
 
@@ -29,17 +29,17 @@
 
 /*
  * Implemented class depends on the general theme color
- * `uk-light` is for light colors on dark backgrounds
- * `uk-dark` is or dark colors on light backgrounds
+ * `drk-light` is for light colors on dark backgrounds
+ * `drk-dark` is or dark colors on light backgrounds
  */
 
-.uk-light when (@inverse-global-color-mode = light) {
+.drk-light when (@inverse-global-color-mode = light) {
 
     .hook-inverse();
 
 }
 
-.uk-dark when (@inverse-global-color-mode = dark) {
+.drk-dark when (@inverse-global-color-mode = dark) {
 
     .hook-inverse();
 
@@ -49,13 +49,13 @@
  * Pass dropbar behind color to JS
  */
 
-* { --uk-inverse: initial; }
+* { --drk-inverse: initial; }
 
-.uk-light { --uk-inverse: light; }
-.uk-dark { --uk-inverse: dark; }
+.drk-light { --drk-inverse: light; }
+.drk-dark { --drk-inverse: dark; }
 
-.uk-inverse-light { --uk-inverse: light !important; }
-.uk-inverse-dark { --uk-inverse: dark !important; }
+.drk-inverse-light { --drk-inverse: light !important; }
+.drk-inverse-dark { --drk-inverse: dark !important; }
 
 
 // Hooks

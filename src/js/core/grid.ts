@@ -8,7 +8,7 @@ import {
     toFloat,
     toggleClass,
     toPx,
-} from 'uikit-util';
+} from 'drake-util';
 import { scroll } from '../api/observables';
 import { defineComponent } from '../api/options';
 import Class from '../mixin/class';
@@ -56,8 +56,8 @@ export default defineComponent<GridInstance>()({
     },
 
     data: {
-        margin: 'uk-grid-margin',
-        clsStack: 'uk-grid-stack',
+        margin: 'drk-grid-margin',
+        clsStack: 'drk-grid-stack',
         masonry: false,
         parallax: 0,
         parallaxStart: 0,
@@ -67,7 +67,7 @@ export default defineComponent<GridInstance>()({
 
     connected() {
         if (this.masonry) {
-            addClass(this.$el, 'uk-flex-top', 'uk-flex-wrap-top');
+            addClass(this.$el, 'drk-flex-top', 'drk-flex-wrap-top');
         }
     },
 

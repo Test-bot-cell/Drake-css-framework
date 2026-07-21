@@ -1,4 +1,4 @@
-import { hasOwn, isEqual } from 'uikit-util';
+import { hasOwn, isEqual } from 'drake-util';
 import type {
     ComponentInternalInstance,
     ComponentValueMap,

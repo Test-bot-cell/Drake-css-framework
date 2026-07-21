@@ -1,4 +1,4 @@
-import { noop } from 'uikit-util';
+import { noop } from 'drake-util';
 import { defineMixin } from '../api/options';
 import type { ComponentInternalInstance } from '../types';
 import fade from './internal/animate-fade';

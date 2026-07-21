@@ -7,7 +7,7 @@ import {
     startsWith,
     toBoolean,
     toNumber,
-} from 'uikit-util';
+} from 'drake-util';
 import type {
     ComponentConstructor,
     ComponentEventDefinition,

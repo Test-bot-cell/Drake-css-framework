@@ -4,61 +4,61 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Tooltip - UIkit tests</title>
+        <title>Tooltip - Drake tests</title>
         <script src="../dist/js/tests/test.js"></script>
     </head>
 
     <body>
 
-        <div class="uk-container">
+        <div class="drk-container">
 
             <h1>Tooltip</h1>
 
-            <div class="uk-tooltip uk-tooltip-top-center uk-display-inline-block uk-margin-remove uk-position-relative">Tooltip</div>
+            <div class="drk-tooltip drk-tooltip-top-center drk-display-inline-block drk-margin-remove drk-position-relative">Tooltip</div>
 
-            <div class="uk-child-width-1-2@m" uk-grid>
+            <div class="drk-child-width-1-2@m" drk-grid>
                 <div>
 
                     <h2>Position</h2>
 
-                    <p uk-margin>
-                        <button class="uk-button uk-button-default" uk-tooltip="Hello World">Top</button>
-                        <button class="uk-button uk-button-default" uk-tooltip="title: Hello World; pos: top-left">Top Left</button>
-                        <button class="uk-button uk-button-default" uk-tooltip="title: Hello World; pos: top-right">Top Right</button>
+                    <p drk-margin>
+                        <button class="drk-button drk-button-default" drk-tooltip="Hello World">Top</button>
+                        <button class="drk-button drk-button-default" drk-tooltip="title: Hello World; pos: top-left">Top Left</button>
+                        <button class="drk-button drk-button-default" drk-tooltip="title: Hello World; pos: top-right">Top Right</button>
                     </p>
 
-                    <p uk-margin>
-                        <button class="uk-button uk-button-default" uk-tooltip="title: Hello World; pos: bottom">Bottom</button>
-                        <button class="uk-button uk-button-default" uk-tooltip="title: Hello World; pos: bottom-left">Bottom Left</button>
-                        <button class="uk-button uk-button-default" uk-tooltip="title: Hello World; pos: bottom-right">Bottom Right</button>
+                    <p drk-margin>
+                        <button class="drk-button drk-button-default" drk-tooltip="title: Hello World; pos: bottom">Bottom</button>
+                        <button class="drk-button drk-button-default" drk-tooltip="title: Hello World; pos: bottom-left">Bottom Left</button>
+                        <button class="drk-button drk-button-default" drk-tooltip="title: Hello World; pos: bottom-right">Bottom Right</button>
                     </p>
 
-                    <p uk-margin>
-                        <button class="uk-button uk-button-default" uk-tooltip="title: Hello World; pos: left">Left</button>
-                        <button class="uk-button uk-button-default" uk-tooltip="title: Hello World; pos: right">Right</button>
+                    <p drk-margin>
+                        <button class="drk-button drk-button-default" drk-tooltip="title: Hello World; pos: left">Left</button>
+                        <button class="drk-button drk-button-default" drk-tooltip="title: Hello World; pos: right">Right</button>
                     </p>
 
                 </div>
                 <form>
 
-                    <h2>Focused Form <span uk-icon="info" uk-tooltip="Hello World"></span></h2>
+                    <h2>Focused Form <span drk-icon="info" drk-tooltip="Hello World"></span></h2>
 
                     <p>
-                        <input class="uk-input uk-form-width-medium" type="text" placeholder="Input" aria-label="Focused form" uk-tooltip="title: Hello World; pos: left">
+                        <input class="drk-input drk-form-width-medium" type="text" placeholder="Input" aria-label="Focused form" drk-tooltip="title: Hello World; pos: left">
                     </p>
                     <p>
-                        <input class="uk-input uk-form-width-medium" type="text" placeholder="Input" aria-label="Focused form" uk-tooltip="title: Hello World; pos: right">
+                        <input class="drk-input drk-form-width-medium" type="text" placeholder="Input" aria-label="Focused form" drk-tooltip="title: Hello World; pos: right">
                     </p>
 
-                    <button type="button" class="uk-button uk-button-default" uk-tooltip="title: Hello World; delay: 500">Delay 500</button>
+                    <button type="button" class="drk-button drk-button-default" drk-tooltip="title: Hello World; delay: 500">Delay 500</button>
 
                 </form>
             </div>
 
             <h2>JavaScript Options</h2>
 
-            <div class="uk-overflow-auto">
-                <table class="uk-table uk-table-striped">
+            <div class="drk-overflow-auto">
+                <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
                             <th>Option</th>
@@ -107,7 +107,7 @@
                         <tr>
                             <td><code>cls</code></td>
                             <td>String</td>
-                            <td>uk-active</td>
+                            <td>drk-active</td>
                             <td>The active class.</td>
                         </tr>
                         <tr>

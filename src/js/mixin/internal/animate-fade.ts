@@ -11,13 +11,13 @@ import {
     resetProps,
     toNumber,
     Transition,
-} from 'uikit-util';
+} from 'drake-util';
 import { getRows } from '../../core/margin';
 import { awaitTimeout } from '../../util/await';
 import type { MixinAnimationAction } from '../animate';
 
-const clsLeave = 'uk-transition-leave';
-const clsEnter = 'uk-transition-enter';
+const clsLeave = 'drk-transition-leave';
+const clsEnter = 'drk-transition-enter';
 
 export default function fade(
     action: MixinAnimationAction,
@@ -65,7 +65,7 @@ export default function fade(
 
         css(stagger ? children(target) : target, propsOut);
 
-        // Ensure UIkit updates have propagated (e.g. Grid needs to reset margin classes)
+        // Ensure Drake updates have propagated (e.g. Grid needs to reset margin classes)
         height(target, oldHeight);
         await awaitTimeout();
         height(target, '');

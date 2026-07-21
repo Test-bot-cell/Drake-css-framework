@@ -4,26 +4,26 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Image - UIkit tests</title>
+        <title>Image - Drake tests</title>
         <script src="../dist/js/tests/test.js"></script>
     </head>
 
     <body>
 
-        <div class="uk-container">
+        <div class="drk-container">
 
             <h1>Image</h1>
 
-            <div class="uk-height-large uk-background-cover uk-margin-medium uk-flex uk-flex-center uk-flex-middle uk-light" data-src="https://images.unsplash.com/photo-1495321308589-43affb814eee?fit=crop&w=1200&h=450&q=80" uk-img="loading: eager">
+            <div class="drk-height-large drk-background-cover drk-margin-medium drk-flex drk-flex-center drk-flex-middle drk-light" data-src="https://images.unsplash.com/photo-1495321308589-43affb814eee?fit=crop&w=1200&h=450&q=80" drk-img="loading: eager">
                 <h1>Background Image Loading Eager</h1>
             </div>
 
             <h2>Loading Lazy Attribute</h2>
 
-            <div class="uk-child-width-1-2@m" uk-grid>
+            <div class="drk-child-width-1-2@m" drk-grid>
                 <div>
                     <img src="https://images.unsplash.com/photo-1476820865390-c52aeebb9891?fit=crop&w=900&h=600&q=80" width="900" height="600" alt="" loading="lazy">
-                    <p class="uk-margin-small-top">Image</p>
+                    <p class="drk-margin-small-top">Image</p>
                 </div>
                 <div>
                     <picture>
@@ -36,11 +36,11 @@
                              sizes="(min-width: 960px) 580px, 100vw"
                              width="900" height="600" alt="" loading="lazy">
                     </picture>
-                    <p class="uk-margin-small-top">Picture with Srcset</p>
+                    <p class="drk-margin-small-top">Picture with Srcset</p>
                 </div>
             </div>
 
-            <div class="uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid>
+            <div class="drk-child-width-1-2@s drk-child-width-1-3@m" drk-grid>
                 <div>
                     <img src="https://images.unsplash.com/photo-1517842536804-bf6629e2c291?fit=crop&w=373&h=249&q=80"
                          srcset="https://images.unsplash.com/photo-1517842536804-bf6629e2c291?fit=crop&w=373&h=249&q=80 373w,
@@ -234,27 +234,27 @@
 
             <h2>Background Image</h2>
 
-            <div class="uk-height-large uk-background-cover uk-margin-medium uk-flex uk-flex-center uk-flex-middle uk-light" data-src="https://images.unsplash.com/photo-1490822180406-880c226c150b?fit=crop&w=1200&h=450&q=80" uk-img>
+            <div class="drk-height-large drk-background-cover drk-margin-medium drk-flex drk-flex-center drk-flex-middle drk-light" data-src="https://images.unsplash.com/photo-1490822180406-880c226c150b?fit=crop&w=1200&h=450&q=80" drk-img>
                 <h1>Background Image</h1>
             </div>
 
-            <div class="uk-height-large uk-background-cover uk-margin-medium uk-flex uk-flex-center uk-flex-middle"
+            <div class="drk-height-large drk-background-cover drk-margin-medium drk-flex drk-flex-center drk-flex-middle"
                  data-src="https://images.unsplash.com/photo-1485627941502-d2e6429a8af0?fit=crop&w=1200&h=450&q=80"
                  data-srcset="https://images.unsplash.com/photo-1485627941502-d2e6429a8af0?fit=crop&w=800&h=300&q=80 800w,
                               https://images.unsplash.com/photo-1485627941502-d2e6429a8af0?fit=crop&w=1200&h=450&q=80 1200w,
                               https://images.unsplash.com/photo-1485627941502-d2e6429a8af0?fit=crop&w=2400&h=900&q=80 2400w"
-                 sizes="(min-width: 1200px) 1200px, 100vw" uk-img>
+                 sizes="(min-width: 1200px) 1200px, 100vw" drk-img>
                 <h1>Background Image with Srcset</h1>
             </div>
 
-            <div class="uk-height-large uk-background-cover uk-margin-medium uk-flex uk-flex-center uk-flex-middle uk-light"
+            <div class="drk-height-large drk-background-cover drk-margin-medium drk-flex drk-flex-center drk-flex-middle drk-light"
                  sources="srcset: https://images.unsplash.com/photo-1487837647815-bbc1f30cd0d2?fit=crop&w=1200&h=450&q=80; media: (min-width: 1200px)"
                  data-src="https://images.unsplash.com/photo-1546349851-64285be8e9fa?fit=crop&w=1200&h=450&q=8"
-                 uk-img>
+                 drk-img>
                 <h1>Background Picture</h1>
             </div>
 
-            <div class="uk-height-large uk-background-cover uk-margin-medium uk-flex uk-flex-center uk-flex-middle uk-light"
+            <div class="drk-height-large drk-background-cover drk-margin-medium drk-flex drk-flex-center drk-flex-middle drk-light"
                  sources="srcset: https://images.unsplash.com/photo-1464621922360-27f3bf0eca75?fit=crop&w=800&h=300&q=80 800w,
                                   https://images.unsplash.com/photo-1464621922360-27f3bf0eca75?fit=crop&w=1200&h=450&q=80 1200w,
                                   https://images.unsplash.com/photo-1464621922360-27f3bf0eca75?fit=crop&w=2400&h=900&q=80 2400w; media: (min-width: 1200px)"
@@ -262,11 +262,11 @@
                  data-srcset="https://images.unsplash.com/photo-1472803828399-39d4ac53c6e5?fit=crop&w=800&h=300&q=80 800w,
                               https://images.unsplash.com/photo-1472803828399-39d4ac53c6e5?fit=crop&w=1200&h=450&q=80 1200w,
                               https://images.unsplash.com/photo-1472803828399-39d4ac53c6e5?fit=crop&w=2400&h=900&q=80 2400w"
-                 sizes="(min-width: 1200px) 1200px, 100vw" uk-img>
+                 sizes="(min-width: 1200px) 1200px, 100vw" drk-img>
                 <h1>Background Picture with Srcset</h1>
             </div>
 
-            <div class="uk-height-large uk-background-cover uk-margin-medium uk-flex uk-flex-center uk-flex-middle"
+            <div class="drk-height-large drk-background-cover drk-margin-medium drk-flex drk-flex-center drk-flex-middle"
                  sources="[{&quot;srcset&quot;: &quot;images/image-type.avif&quot;,
                             &quot;type&quot;: &quot;image\/avif&quot;
                            },
@@ -274,16 +274,16 @@
                             &quot;type&quot;: &quot;image\/webp&quot;
                            }]"
                  data-src="images/image-type.jpg"
-                 uk-img>
+                 drk-img>
                 <h1>Background Picture with Multiple Sources</h1>
             </div>
 
-            <h2>uk-img with Image element (Deprecated)</h2>
+            <h2>drk-img with Image element (Deprecated)</h2>
 
-            <div class="uk-child-width-1-2@m" uk-grid>
+            <div class="drk-child-width-1-2@m" drk-grid>
                 <div>
-                    <img data-src="https://images.unsplash.com/photo-1522201949034-507737bce479?fit=crop&w=900&h=600&q=80" width="900" height="600" alt="" uk-img>
-                    <p class="uk-margin-small-top">Image</p>
+                    <img data-src="https://images.unsplash.com/photo-1522201949034-507737bce479?fit=crop&w=900&h=600&q=80" width="900" height="600" alt="" drk-img>
+                    <p class="drk-margin-small-top">Image</p>
                 </div>
                 <div>
                     <picture>
@@ -294,295 +294,295 @@
                              data-srcset="https://images.unsplash.com/photo-1503481766315-7a586b20f66d?fit=crop&w=580&h=386&q=80 580w,
                                           https://images.unsplash.com/photo-1503481766315-7a586b20f66d?fit=crop&w=900&h=600&q=80 900w"
                              sizes="(min-width: 960px) 580px, 100vw"
-                             width="900" height="600" alt="" uk-img>
+                             width="900" height="600" alt="" drk-img>
                     </picture>
-                    <p class="uk-margin-small-top">Picture with Srcset</p>
+                    <p class="drk-margin-small-top">Picture with Srcset</p>
                 </div>
             </div>
 
-            <div class="uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid>
+            <div class="drk-child-width-1-2@s drk-child-width-1-3@m" drk-grid>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1523359247812-29dde5ac53a0?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1523359247812-29dde5ac53a0?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1523359247812-29dde5ac53a0?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1522201949034-507737bce479?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1522201949034-507737bce479?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1522201949034-507737bce479?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1522205445560-4630427027e3?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1522205445560-4630427027e3?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1522205445560-4630427027e3?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1519635667140-f5e8fd6c617f?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1519635667140-f5e8fd6c617f?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1519635667140-f5e8fd6c617f?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1516054237813-0df813b7f496?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1516054237813-0df813b7f496?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1516054237813-0df813b7f496?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1487447054015-16918f0e7999?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1487447054015-16918f0e7999?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1487447054015-16918f0e7999?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1449247526693-aa049327be54?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1449247526693-aa049327be54?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1449247526693-aa049327be54?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1522205419828-f5b336fc3931?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1522205419828-f5b336fc3931?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1522205419828-f5b336fc3931?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1522204538344-922f76ecc041?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1522204538344-922f76ecc041?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1522204538344-922f76ecc041?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1491947153227-33d59da6c448?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1491947153227-33d59da6c448?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1491947153227-33d59da6c448?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1502021680532-838cfc650323?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1502021680532-838cfc650323?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1502021680532-838cfc650323?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1508138221679-760a23a2285b?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1508138221679-760a23a2285b?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1508138221679-760a23a2285b?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1487611459768-bd414656ea10?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1487611459768-bd414656ea10?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1487611459768-bd414656ea10?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1501854140801-50d01698950b?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1501854140801-50d01698950b?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1501854140801-50d01698950b?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1455612693675-112974d4880b?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1455612693675-112974d4880b?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1455612693675-112974d4880b?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1515853327920-2567e0b122f7?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1515853327920-2567e0b122f7?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1515853327920-2567e0b122f7?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1500393734221-584dd6dbf92a?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1500393734221-584dd6dbf92a?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1500393734221-584dd6dbf92a?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1506084868230-bb9d95c24759?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1506084868230-bb9d95c24759?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1501254667263-b4867b4f7482?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1501254667263-b4867b4f7482?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1501254667263-b4867b4f7482?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1478024646077-8a9b56e5319c?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1478024646077-8a9b56e5319c?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1478024646077-8a9b56e5319c?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1500964757637-c85e8a162699?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1500964757637-c85e8a162699?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1500964757637-c85e8a162699?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1481386642130-4a31ef3bf00d?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1481386642130-4a31ef3bf00d?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1481386642130-4a31ef3bf00d?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1448375240586-882707db888b?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1448375240586-882707db888b?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1448375240586-882707db888b?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
                 <div>
                     <img data-src="https://images.unsplash.com/photo-1508971344143-29b17efc1689?fit=crop&w=373&h=249&q=80"
                          data-srcset="https://images.unsplash.com/photo-1508971344143-29b17efc1689?fit=crop&w=373&h=249&q=80 373w,
                                       https://images.unsplash.com/photo-1508971344143-29b17efc1689?fit=crop&w=746&h=498&q=80 746w"
                          sizes="(min-width: 1200px) 373px, (min-width: 960px) 33vw, (min-width: 640px) 50vw, 100vw"
-                         width="746" height="498" alt="" uk-img>
+                         width="746" height="498" alt="" drk-img>
                 </div>
             </div>
 
-            <div class="uk-child-width-1-2@m" uk-grid>
+            <div class="drk-child-width-1-2@m" drk-grid>
                 <div>
 
-                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="ratio: 3:2; autoplay: false">
+                    <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1" drk-slideshow="ratio: 3:2; autoplay: false">
 
-                        <div class="uk-slideshow-items">
+                        <div class="drk-slideshow-items">
                             <div>
-                                <img data-src="images/photo.jpg" alt="" uk-cover uk-img="target: !.uk-slideshow-items > :last-child, !* +*">
-                                <div class="uk-position-center uk-position-small uk-text-center">
-                                    <h2 uk-slideshow-parallax="x: 100,-100">Heading</h2>
-                                    <p uk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+                                <img data-src="images/photo.jpg" alt="" drk-cover drk-img="target: !.drk-slideshow-items > :last-child, !* +*">
+                                <div class="drk-position-center drk-position-small drk-text-center">
+                                    <h2 drk-slideshow-parallax="x: 100,-100">Heading</h2>
+                                    <p drk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
                                 </div>
                             </div>
                             <div>
-                                <img data-src="images/dark.jpg" alt="" uk-cover uk-img="target: !* -*, !* +*">
-                                <div class="uk-position-center uk-position-small uk-text-center">
-                                    <h2 uk-slideshow-parallax="x: 100,-100">Heading</h2>
-                                    <p uk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+                                <img data-src="images/dark.jpg" alt="" drk-cover drk-img="target: !* -*, !* +*">
+                                <div class="drk-position-center drk-position-small drk-text-center">
+                                    <h2 drk-slideshow-parallax="x: 100,-100">Heading</h2>
+                                    <p drk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
                                 </div>
                             </div>
                             <div>
-                                <img data-src="images/light.jpg" alt="" uk-cover uk-img="target: !* -*, !* +*">
-                                <div class="uk-position-center uk-position-small uk-text-center">
-                                    <h2 uk-slideshow-parallax="y: -50,0,0; opacity: 1,1,0">Heading</h2>
-                                    <p uk-slideshow-parallax="y: 50,0,0; opacity: 1,1,0">Lorem ipsum dolor sit amet.</p>
+                                <img data-src="images/light.jpg" alt="" drk-cover drk-img="target: !* -*, !* +*">
+                                <div class="drk-position-center drk-position-small drk-text-center">
+                                    <h2 drk-slideshow-parallax="y: -50,0,0; opacity: 1,1,0">Heading</h2>
+                                    <p drk-slideshow-parallax="y: 50,0,0; opacity: 1,1,0">Lorem ipsum dolor sit amet.</p>
                                 </div>
                             </div>
                             <div>
-                                <img data-src="images/photo2.jpg" alt="" uk-cover uk-img="target: !* -*, !.uk-slideshow-items > :first-child">
-                                <div class="uk-position-center uk-position-small uk-text-center">
-                                    <h2 uk-slideshow-parallax="x: 200,0,0">Heading</h2>
-                                    <p uk-slideshow-parallax="x: 0,0,-200">Lorem ipsum dolor sit amet.</p>
+                                <img data-src="images/photo2.jpg" alt="" drk-cover drk-img="target: !* -*, !.drk-slideshow-items > :first-child">
+                                <div class="drk-position-center drk-position-small drk-text-center">
+                                    <h2 drk-slideshow-parallax="x: 200,0,0">Heading</h2>
+                                    <p drk-slideshow-parallax="x: 0,0,-200">Lorem ipsum dolor sit amet.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
-                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
+                        <a class="drk-position-center-left drk-position-small drk-hidden-hover" href drk-slidenav-previous drk-slideshow-item="previous"></a>
+                        <a class="drk-position-center-right drk-position-small drk-hidden-hover" href drk-slidenav-next drk-slideshow-item="next"></a>
 
                     </div>
 
                 </div>
                 <div>
 
-                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="clsActivated: uk-transition-active">
+                    <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1" drk-slider="clsActivated: drk-transition-active">
 
-                        <div class="uk-slider-items uk-child-width-1-2@s uk-child-width-1-3@m">
+                        <div class="drk-slider-items drk-child-width-1-2@s drk-child-width-1-3@m">
                             <div>
-                                <img data-src="images/slider1.jpg" width="400" height="600" alt="" uk-img="target: !.uk-slider-items">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">1</h1></div>
+                                <img data-src="images/slider1.jpg" width="400" height="600" alt="" drk-img="target: !.drk-slider-items">
+                                <div class="drk-position-center drk-panel"><h1 class="drk-transition-slide-bottom-small">1</h1></div>
                             </div>
                             <div>
-                                <img data-src="images/slider2.jpg" width="400" height="600" alt="" uk-img="target: !.uk-slider-items">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">2</h1></div>
+                                <img data-src="images/slider2.jpg" width="400" height="600" alt="" drk-img="target: !.drk-slider-items">
+                                <div class="drk-position-center drk-panel"><h1 class="drk-transition-slide-bottom-small">2</h1></div>
                             </div>
                             <div>
-                                <img data-src="images/slider3.jpg" width="400" height="600" alt="" uk-img="target: !.uk-slider-items">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">3</h1></div>
+                                <img data-src="images/slider3.jpg" width="400" height="600" alt="" drk-img="target: !.drk-slider-items">
+                                <div class="drk-position-center drk-panel"><h1 class="drk-transition-slide-bottom-small">3</h1></div>
                             </div>
                             <div>
-                                <img data-src="images/slider4.jpg" width="400" height="600" alt="" uk-img="target: !.uk-slider-items">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">4</h1></div>
+                                <img data-src="images/slider4.jpg" width="400" height="600" alt="" drk-img="target: !.drk-slider-items">
+                                <div class="drk-position-center drk-panel"><h1 class="drk-transition-slide-bottom-small">4</h1></div>
                             </div>
                             <div>
-                                <img data-src="images/slider5.jpg" width="400" height="600" alt="" uk-img="target: !.uk-slider-items">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">5</h1></div>
+                                <img data-src="images/slider5.jpg" width="400" height="600" alt="" drk-img="target: !.drk-slider-items">
+                                <div class="drk-position-center drk-panel"><h1 class="drk-transition-slide-bottom-small">5</h1></div>
                             </div>
                             <div>
-                                <img data-src="images/slider1.jpg" width="400" height="600" alt="" uk-img="target: !.uk-slider-items">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">6</h1></div>
+                                <img data-src="images/slider1.jpg" width="400" height="600" alt="" drk-img="target: !.drk-slider-items">
+                                <div class="drk-position-center drk-panel"><h1 class="drk-transition-slide-bottom-small">6</h1></div>
                             </div>
                             <div>
-                                <img data-src="images/slider2.jpg" width="400" height="600" alt="" uk-img="target: !.uk-slider-items">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">7</h1></div>
+                                <img data-src="images/slider2.jpg" width="400" height="600" alt="" drk-img="target: !.drk-slider-items">
+                                <div class="drk-position-center drk-panel"><h1 class="drk-transition-slide-bottom-small">7</h1></div>
                             </div>
                             <div>
-                                <img data-src="images/slider3.jpg" width="400" height="600" alt="" uk-img="target: !.uk-slider-items">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">8</h1></div>
+                                <img data-src="images/slider3.jpg" width="400" height="600" alt="" drk-img="target: !.drk-slider-items">
+                                <div class="drk-position-center drk-panel"><h1 class="drk-transition-slide-bottom-small">8</h1></div>
                             </div>
                             <div>
-                                <img data-src="images/slider4.jpg" width="400" height="600" alt="" uk-img="target: !.uk-slider-items">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">9</h1></div>
+                                <img data-src="images/slider4.jpg" width="400" height="600" alt="" drk-img="target: !.drk-slider-items">
+                                <div class="drk-position-center drk-panel"><h1 class="drk-transition-slide-bottom-small">9</h1></div>
                             </div>
                             <div>
-                                <img data-src="images/slider5.jpg" width="400" height="600" alt="" uk-img="target: !.uk-slider-items">
-                                <div class="uk-position-center uk-panel"><h1 class="uk-transition-slide-bottom-small">10</h1></div>
+                                <img data-src="images/slider5.jpg" width="400" height="600" alt="" drk-img="target: !.drk-slider-items">
+                                <div class="drk-position-center drk-panel"><h1 class="drk-transition-slide-bottom-small">10</h1></div>
                             </div>
                         </div>
 
-                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
-                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>
+                        <a class="drk-position-center-left drk-position-small drk-hidden-hover" href drk-slidenav-previous drk-slider-item="previous"></a>
+                        <a class="drk-position-center-right drk-position-small drk-hidden-hover" href drk-slidenav-next drk-slider-item="next"></a>
 
                     </div>
 
@@ -591,8 +591,8 @@
 
             <h2>JavaScript Options</h2>
 
-            <div class="uk-overflow-auto">
-                <table class="uk-table uk-table-striped">
+            <div class="drk-overflow-auto">
+                <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
                             <th>Option</th>

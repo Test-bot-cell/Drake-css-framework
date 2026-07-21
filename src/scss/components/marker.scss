@@ -3,7 +3,7 @@
 // Name:            Marker
 // Description:     Component to create a marker icon
 //
-// Component:       `uk-marker`
+// Component:       `drk-marker`
 //
 // ========================================================================
 
@@ -19,12 +19,12 @@
  ========================================================================== */
 
 /*
- * Addopts `uk-icon`
+ * Addopts `drk-icon`
  */
 
-.uk-marker {
-    --uk-icon-width: 20px;
-    --uk-icon-height: 20px;
+.drk-marker {
+    --drk-icon-width: 20px;
+    --drk-icon-height: 20px;
     padding: $marker-padding;
     background: $marker-background;
     color: $marker-color;
@@ -32,7 +32,7 @@
 }
 
 /* Hover */
-.uk-marker:hover {
+.drk-marker:hover {
     color: $marker-hover-color;
     @if(meta.mixin-exists(hook-marker-hover)) {@include hook-marker-hover();}
 }

@@ -15,7 +15,7 @@ const OFFICIAL_CSS_SHA256 = '94d799da40fc859eb2017aadd454245b87f707ef326b4dcbbe9
 const MAX_OFFICIAL_SOURCE_CSS_BYTES = 128 * 1024;
 const MAX_CUSTOM_SOURCE_CSS_BYTES = 2 * 1024 * 1024;
 const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
-const DEFAULT_OUTPUT = join(PROJECT_ROOT, 'dist/css/uikit-inter.css');
+const DEFAULT_OUTPUT = join(PROJECT_ROOT, 'dist/css/drake-inter.css');
 const DEFAULT_CACHE = join(PROJECT_ROOT, '.cache/fork-assets/inter-4.1');
 const FACE_DEFINITIONS = {
     normal: {
@@ -215,7 +215,7 @@ Usage:
 
 Options:
   --source-css <path|url>  Local or remote Inter CSS source
-  --output <path>          Output CSS file (default: dist/css/uikit-inter.css)
+  --output <path>          Output CSS file (default: dist/css/drake-inter.css)
   --cache <path>           Verified download cache
   --refresh                Ignore valid cached sources and fetch again
   -h, --help               Show this help
@@ -403,7 +403,7 @@ async function readResource(resource, { allowedOrigin = null, maxBytes }) {
     }
 
     const response = await fetch(resource, {
-        headers: { 'user-agent': `uikit-fork-assets/${INTER_VERSION}` },
+        headers: { 'user-agent': `drake-fork-assets/${INTER_VERSION}` },
         redirect: 'follow',
         signal: AbortSignal.timeout(30_000),
     });
@@ -490,7 +490,7 @@ function renderCss(faces) {
  * Generated from the official unmodified WOFF2 files; do not edit by hand.
 ${legal}
  */
-/* @uikit-fork-asset inter version=${INTER_VERSION} faces=2 normal-sha256=${FACE_DEFINITIONS.normal.sha256} italic-sha256=${FACE_DEFINITIONS.italic.sha256} */
+/* @drake-fork-asset inter version=${INTER_VERSION} faces=2 normal-sha256=${FACE_DEFINITIONS.normal.sha256} italic-sha256=${FACE_DEFINITIONS.italic.sha256} */
 
 @font-face {
     font-family: "InterVariable";

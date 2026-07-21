@@ -23,7 +23,7 @@ const output = resolve(
     options.output || 'tests/fixtures/fork-mobile-seo.metrics.json',
 );
 const deviceProfile = options.width < 960 ? 'mobile' : 'desktop';
-const userDataDirectory = await mkdtemp(resolve(tmpdir(), 'uikit-ts-chrome-'));
+const userDataDirectory = await mkdtemp(resolve(tmpdir(), 'drake-ts-chrome-'));
 const chrome = spawn(
     options.chrome || 'google-chrome',
     [

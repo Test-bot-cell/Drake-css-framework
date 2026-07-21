@@ -11,7 +11,7 @@ import {
     noop,
     on,
     removeClass,
-} from 'uikit-util';
+} from 'drake-util';
 import { defineComponent } from '../api/options';
 import Modal from '../mixin/modal';
 import type { ComponentInternalInstance, FrameworkEvent } from '../types';
@@ -60,9 +60,9 @@ export default defineComponent<ModalInstance>()({
     mixins: [Modal],
 
     data: {
-        clsPage: 'uk-modal-page',
-        selPanel: '.uk-modal-dialog',
-        selClose: '[class*="uk-modal-close"]',
+        clsPage: 'drk-modal-page',
+        selPanel: '.drk-modal-dialog',
+        selClose: '[class*="drk-modal-close"]',
     },
 
     events: [
@@ -84,8 +84,8 @@ export default defineComponent<ModalInstance>()({
             self: true,
 
             handler() {
-                if (hasClass(this.panel, 'uk-margin-auto-vertical')) {
-                    addClass(this.$el, 'uk-flex');
+                if (hasClass(this.panel, 'drk-margin-auto-vertical')) {
+                    addClass(this.$el, 'drk-flex');
                 } else {
                     css(this.$el, 'display', 'block');
                 }
@@ -101,7 +101,7 @@ export default defineComponent<ModalInstance>()({
 
             handler() {
                 css(this.$el, 'display', '');
-                removeClass(this.$el, 'uk-flex');
+                removeClass(this.$el, 'drk-flex');
             },
         },
     ],
@@ -109,7 +109,7 @@ export default defineComponent<ModalInstance>()({
 
 function install({ modal }: ModalInstaller): void {
     modal.dialog = function (content: string, options?: DialogOptions): ModalInstance {
-        const dialog = modal($(`<div><div class="uk-modal-dialog">${content}</div></div>`), {
+        const dialog = modal($(`<div><div class="drk-modal-dialog">${content}</div></div>`), {
             stack: true,
             role: 'alertdialog',
             ...options,
@@ -135,11 +135,11 @@ function install({ modal }: ModalInstaller): void {
         options?: DialogOptions,
     ): DialogPromise<unknown> {
         return openDialog(
-            ({ i18n }) => `<div class="uk-modal-body">${
+            ({ i18n }) => `<div class="drk-modal-body">${
                 isString(message) ? message : html(message)
             }</div>
-            <div class="uk-modal-footer uk-text-right">
-                <button class="uk-button uk-button-primary uk-modal-close" type="button" autofocus>${
+            <div class="drk-modal-footer drk-text-right">
+                <button class="drk-button drk-button-primary drk-modal-close" type="button" autofocus>${
                     i18n.ok
                 }</button>
             </div>`,
@@ -153,12 +153,12 @@ function install({ modal }: ModalInstaller): void {
     ): DialogPromise<unknown> {
         return openDialog(
             ({ i18n }) => `<form>
-                <div class="uk-modal-body">${isString(message) ? message : html(message)}</div>
-                <div class="uk-modal-footer uk-text-right">
-                    <button class="uk-button uk-button-default uk-modal-close" type="button">${
+                <div class="drk-modal-body">${isString(message) ? message : html(message)}</div>
+                <div class="drk-modal-footer drk-text-right">
+                    <button class="drk-button drk-button-default drk-modal-close" type="button">${
                         i18n.cancel
                     }</button>
-                    <button class="uk-button uk-button-primary" autofocus>${i18n.ok}</button>
+                    <button class="drk-button drk-button-primary" autofocus>${i18n.ok}</button>
                 </div>
             </form>`,
             options,
@@ -172,16 +172,16 @@ function install({ modal }: ModalInstaller): void {
         options?: DialogOptions,
     ): DialogPromise<unknown> {
         const promise = openDialog(
-            ({ i18n }) => `<form class="uk-form-stacked">
-                <div class="uk-modal-body">
+            ({ i18n }) => `<form class="drk-form-stacked">
+                <div class="drk-modal-body">
                     <label>${isString(message) ? message : html(message)}</label>
-                    <input class="uk-input" autofocus>
+                    <input class="drk-input" autofocus>
                 </div>
-                <div class="uk-modal-footer uk-text-right">
-                    <button class="uk-button uk-button-default uk-modal-close" type="button">${
+                <div class="drk-modal-footer drk-text-right">
+                    <button class="drk-button drk-button-default drk-modal-close" type="button">${
                         i18n.cancel
                     }</button>
-                    <button class="uk-button uk-button-primary">${i18n.ok}</button>
+                    <button class="drk-button drk-button-primary">${i18n.ok}</button>
                 </div>
             </form>`,
             options,

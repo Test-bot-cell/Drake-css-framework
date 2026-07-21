@@ -7,7 +7,7 @@ import {
     startsWith,
     toFloat,
     trigger,
-} from 'uikit-util';
+} from 'drake-util';
 import { defineMixin } from '../api/options';
 import type { ComponentInternalInstance, Teardown } from '../types';
 
@@ -54,7 +54,7 @@ export default defineMixin<MediaInstance>()({
 function toMedia(value: MediaValue, element: Element): string {
     if (isString(value)) {
         if (startsWith(value, '@')) {
-            value = toFloat(css(element, `--uk-breakpoint-${value.slice(1)}`));
+            value = toFloat(css(element, `--drk-breakpoint-${value.slice(1)}`));
         } else if (Number.isNaN(Number(value))) {
             return value;
         }

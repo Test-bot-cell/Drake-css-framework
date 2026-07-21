@@ -1,4 +1,4 @@
-import { hasClass } from 'uikit-util';
+import { hasClass } from 'drake-util';
 import { defineComponent } from '../api/options';
 import Class from '../mixin/class';
 import type { ComponentInternalInstance } from '../types';
@@ -15,15 +15,15 @@ export default defineComponent<ComponentInternalInstance>()({
 
     data: {
         media: 960,
-        attrItem: 'uk-tab-item',
-        selVertical: '.uk-tab-left,.uk-tab-right',
+        attrItem: 'drk-tab-item',
+        selVertical: '.drk-tab-left,.drk-tab-right',
     },
 
     connected() {
-        const cls = hasClass(this.$el, 'uk-tab-left')
-            ? 'uk-tab-left'
-            : hasClass(this.$el, 'uk-tab-right')
-              ? 'uk-tab-right'
+        const cls = hasClass(this.$el, 'drk-tab-left')
+            ? 'drk-tab-left'
+            : hasClass(this.$el, 'drk-tab-right')
+              ? 'drk-tab-right'
               : false;
 
         if (cls) {

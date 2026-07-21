@@ -29,7 +29,7 @@ import {
     toggleClass,
     Transition,
     trigger,
-} from 'uikit-util';
+} from 'drake-util';
 import { defineComponent } from '../api/options';
 import Animate from '../mixin/animate';
 import Class from '../mixin/class';
@@ -96,13 +96,13 @@ export default defineComponent<SortableInstance>()({
     data: {
         group: false,
         threshold: 5,
-        clsItem: 'uk-sortable-item',
-        clsPlaceholder: 'uk-sortable-placeholder',
-        clsDrag: 'uk-sortable-drag',
-        clsDragState: 'uk-drag',
-        clsBase: 'uk-sortable',
-        clsNoDrag: 'uk-sortable-nodrag',
-        clsEmpty: 'uk-sortable-empty',
+        clsItem: 'drk-sortable-item',
+        clsPlaceholder: 'drk-sortable-placeholder',
+        clsDrag: 'drk-sortable-drag',
+        clsDragState: 'drk-drag',
+        clsBase: 'drk-sortable',
+        clsNoDrag: 'drk-sortable-nodrag',
+        clsEmpty: 'drk-sortable-empty',
         clsCustom: '',
         handle: false,
         pos: {},

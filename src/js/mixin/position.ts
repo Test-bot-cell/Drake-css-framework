@@ -7,7 +7,7 @@ import {
     positionAt,
     scrollParent,
     toPx,
-} from 'uikit-util';
+} from 'drake-util';
 import { defineMixin } from '../api/options';
 import type { Axis, ComponentInternalInstance, ComponentValueMap, Side } from '../types';
 import type { PositionOptions } from '../util/position';
@@ -117,7 +117,7 @@ export default defineMixin<PositionInstance>()({
         getPositionOffset(this: PositionInstance, element = this.$el): number {
             return (
                 toPx(
-                    this.offset === false ? css(element, '--uk-position-offset') : this.offset,
+                    this.offset === false ? css(element, '--drk-position-offset') : this.offset,
                     this.axis === 'x' ? 'width' : 'height',
                     element,
                 ) *
@@ -130,14 +130,14 @@ export default defineMixin<PositionInstance>()({
             return this.align === 'center'
                 ? 0
                 : toPx(
-                      css(element, '--uk-position-shift-offset'),
+                      css(element, '--drk-position-shift-offset'),
                       this.axis === 'y' ? 'width' : 'height',
                       element,
                   ) * (includes(['left', 'top'], this.align) ? 1 : -1);
         },
 
         getViewportOffset(element: Element): number {
-            return toPx(css(element, '--uk-position-viewport-offset'));
+            return toPx(css(element, '--drk-position-viewport-offset'));
         },
     },
 });

@@ -15,7 +15,7 @@ if (!options.url) {
 }
 
 const output = resolve(PROJECT_ROOT, options.output || 'reports/fork/browser-assets-audit.json');
-const userDataDirectory = await mkdtemp(resolve(tmpdir(), 'uikit-ts-assets-chrome-'));
+const userDataDirectory = await mkdtemp(resolve(tmpdir(), 'drake-ts-assets-chrome-'));
 const chrome = spawn(
     options.chrome || 'google-chrome',
     [
@@ -143,8 +143,8 @@ function createAssertions(measurement) {
         assertion(
             'icons.tabler-catalogue-mask',
             icons.tablerCatalogue.hasDataMask &&
-                icons.tablerCatalogue.classes.includes('uk-ti-brand-tabler'),
-            'uk-ti-brand-tabler with a CSS data mask',
+                icons.tablerCatalogue.classes.includes('drk-ti-brand-tabler'),
+            'drk-ti-brand-tabler with a CSS data mask',
             icons.tablerCatalogue,
         ),
         assertion(

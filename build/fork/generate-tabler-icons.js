@@ -12,11 +12,11 @@ const EXPECTED_PUBLIC_ALIAS_COUNT = 162;
 const EXPECTED_INTERNAL_ALIAS_COUNT = 22;
 const EXPECTED_BACKGROUND_COUNT = 7;
 const EXPECTED_SOURCE_SHA256 = '02f2036fdca959639f74ac3827e283110b3232bb8f2dc5f4241f4b57d757afdc';
-const CLASS_PREFIX = 'uk-ti';
+const CLASS_PREFIX = 'drk-ti';
 const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
-const DEFAULT_OUTPUT = join(PROJECT_ROOT, 'dist/css/uikit-tabler-icons.css');
+const DEFAULT_OUTPUT = join(PROJECT_ROOT, 'dist/css/drake-tabler-icons.css');
 const DEFAULT_CORE_OUTPUT = join(PROJECT_ROOT, 'src/less/components/tabler.less');
-const DEFAULT_MAPPING = join(PROJECT_ROOT, 'src/icons/uikit-tabler.json');
+const DEFAULT_MAPPING = join(PROJECT_ROOT, 'src/icons/drake-tabler.json');
 
 const options = parseArguments(process.argv.slice(2));
 
@@ -70,10 +70,10 @@ for (const [alias, target] of Object.entries(aliases)) {
 const rules = [...iconData].map(([name, { dataUri }]) => {
     const selectors = [
         `.${CLASS_PREFIX}-${name}`,
-        ...(aliasesByTarget[name] || []).map((alias) => `.${CLASS_PREFIX}.uk-icon-alias-${alias}`),
+        ...(aliasesByTarget[name] || []).map((alias) => `.${CLASS_PREFIX}.drk-icon-alias-${alias}`),
     ];
 
-    return `${selectors.join(',\n')} { --uk-ti-mask: url("${dataUri}"); }`;
+    return `${selectors.join(',\n')} { --drk-ti-mask: url("${dataUri}"); }`;
 });
 const rtlAliasRules = renderRtlAliasRules(aliases, iconData);
 
@@ -102,7 +102,7 @@ await writeAtomic(output, css);
 await writeAtomic(coreOutput, coreLess);
 console.log(
     `Generated ${iconFiles.length} Tabler outline masks and ${Object.keys(aliases).length} ` +
-        `UIkit CSS aliases in ${output}; internal masks in ${coreOutput}`,
+        `Drake CSS aliases in ${output}; internal masks in ${coreOutput}`,
 );
 
 function parseArguments(argv) {
@@ -141,7 +141,7 @@ Usage:
 
 Options:
   --source <path>       @tabler/icons package root or icons/outline directory
-  --mapping <path>      UIkit compatibility mapping JSON
+  --mapping <path>      Drake compatibility mapping JSON
   --output <path>       Complete CSS catalogue output
   --core-output <path>  Generated internal Less output
   -h, --help            Show this help
@@ -409,20 +409,20 @@ function assertSvgAttributes(actual, expected, element, fileName) {
 
 async function loadCompatibilityMapping(file, tablerNames) {
     const source = await readFile(resolve(file), 'utf8').catch((error) => {
-        throw new Error(`Unable to read UIkit icon mapping ${file}: ${error.message}`);
+        throw new Error(`Unable to read Drake icon mapping ${file}: ${error.message}`);
     });
     let mapping;
 
     try {
         mapping = JSON.parse(source);
     } catch (error) {
-        throw new Error(`Invalid UIkit icon mapping JSON in ${file}: ${error.message}`, {
+        throw new Error(`Invalid Drake icon mapping JSON in ${file}: ${error.message}`, {
             cause: error,
         });
     }
 
     if (mapping.version !== 1 || mapping.tablerVersion !== TABLER_VERSION) {
-        throw new Error(`Unexpected UIkit icon mapping schema or Tabler version in ${file}.`);
+        throw new Error(`Unexpected Drake icon mapping schema or Tabler version in ${file}.`);
     }
 
     validateMappingGroup(mapping.public, EXPECTED_PUBLIC_ALIAS_COUNT, 'public', tablerNames);
@@ -432,7 +432,7 @@ async function loadCompatibilityMapping(file, tablerNames) {
 
     const aliases = new Set([...Object.keys(mapping.public), ...Object.keys(mapping.internal)]);
     if (aliases.size !== EXPECTED_PUBLIC_ALIAS_COUNT + EXPECTED_INTERNAL_ALIAS_COUNT) {
-        throw new Error(`Public and internal UIkit icon aliases must not overlap.`);
+        throw new Error(`Public and internal Drake icon aliases must not overlap.`);
     }
 
     for (const [name, target] of Object.entries(mapping.brandDivergences || {})) {
@@ -446,22 +446,22 @@ async function loadCompatibilityMapping(file, tablerNames) {
 
 function validateMappingGroup(group, expectedCount, label, tablerNames) {
     if (!group || Object.getPrototypeOf(group) !== Object.prototype) {
-        throw new Error(`The ${label} UIkit icon mapping must be an object.`);
+        throw new Error(`The ${label} Drake icon mapping must be an object.`);
     }
 
     const entries = Object.entries(group);
     if (entries.length !== expectedCount) {
         throw new Error(
-            `Expected ${expectedCount} ${label} UIkit icon mappings, found ${entries.length}.`,
+            `Expected ${expectedCount} ${label} Drake icon mappings, found ${entries.length}.`,
         );
     }
 
     for (const [alias, target] of entries) {
         if (!isSafeIconName(alias) || !isSafeIconName(target)) {
-            throw new Error(`Unsafe ${label} UIkit icon mapping ${alias} -> ${target}.`);
+            throw new Error(`Unsafe ${label} Drake icon mapping ${alias} -> ${target}.`);
         }
         if (!tablerNames.has(target)) {
-            throw new Error(`Unknown Tabler target for ${label} UIkit icon ${alias}: ${target}.`);
+            throw new Error(`Unknown Tabler target for ${label} Drake icon ${alias}: ${target}.`);
         }
     }
 }
@@ -481,7 +481,7 @@ function renderRtlAliasRules(aliases, iconData) {
 
         const { dataUri } = iconData.get(aliases[rtlAlias]);
         rules.push(
-            `:dir(rtl).${CLASS_PREFIX}.uk-icon-alias-${alias} { --uk-ti-mask: url("${dataUri}"); }`,
+            `:dir(rtl).${CLASS_PREFIX}.drk-icon-alias-${alias} { --drk-ti-mask: url("${dataUri}"); }`,
         );
     }
 
@@ -511,10 +511,10 @@ function renderCoreLess(mapping, iconData, sourceHash, license) {
         });
     const customProperties = [...targets]
         .sort((left, right) => left.localeCompare(right, 'en'))
-        .map((target) => `    --uk-tabler-icon-${target}: url("@{tabler-icon-${target}}");`);
+        .map((target) => `    --drk-tabler-icon-${target}: url("@{tabler-icon-${target}}");`);
     const aliasRules = Object.entries(mapping.internal).map(
         ([alias, target]) =>
-            `.${CLASS_PREFIX}.uk-icon-alias-${alias} { --uk-ti-mask: var(--uk-tabler-icon-${target}); }`,
+            `.${CLASS_PREFIX}.drk-icon-alias-${alias} { --drk-ti-mask: var(--drk-tabler-icon-${target}); }`,
     );
     const rtlRules = renderCoreRtlAliasRules(mapping.internal);
 
@@ -524,11 +524,11 @@ function renderCoreLess(mapping, iconData, sourceHash, license) {
         .join('\n');
 
     return `/*!
- * Tabler Icons ${TABLER_VERSION}, outline set used by UIkit core.
+ * Tabler Icons ${TABLER_VERSION}, outline set used by Drake core.
  * Generated from @tabler/icons; do not edit by hand.
 ${legal}
  */
-/*! @uikit-fork-asset tabler-core version=${TABLER_VERSION} variant=outline targets=${targets.size} source-sha256=${sourceHash} */
+/*! @drake-fork-asset tabler-core version=${TABLER_VERSION} variant=outline targets=${targets.size} source-sha256=${sourceHash} */
 // Generated by build/fork/generate-tabler-icons.js. Do not edit by hand.
 // Tabler Icons ${TABLER_VERSION} Outline; source SHA-256: ${sourceHash}
 
@@ -551,7 +551,7 @@ function renderCoreRtlAliasRules(aliases) {
             continue;
         }
         rules.push(
-            `:dir(rtl).${CLASS_PREFIX}.uk-icon-alias-${alias} { --uk-ti-mask: var(--uk-tabler-icon-${aliases[rtlAlias]}); }`,
+            `:dir(rtl).${CLASS_PREFIX}.drk-icon-alias-${alias} { --drk-ti-mask: var(--drk-tabler-icon-${aliases[rtlAlias]}); }`,
         );
     }
 
@@ -569,7 +569,7 @@ function renderCss({ license, mapping, rtlAliasRules, rules, sourceHash }) {
  * Generated from @tabler/icons; do not edit by hand.
 ${legal}
  */
-/* @uikit-fork-asset tabler-icons version=${TABLER_VERSION} variant=outline count=${EXPECTED_ICON_COUNT} public-aliases=${Object.keys(mapping.public).length} internal-aliases=${Object.keys(mapping.internal).length} source-sha256=${sourceHash} */
+/* @drake-fork-asset tabler-icons version=${TABLER_VERSION} variant=outline count=${EXPECTED_ICON_COUNT} public-aliases=${Object.keys(mapping.public).length} internal-aliases=${Object.keys(mapping.internal).length} source-sha256=${sourceHash} */
 
 .${CLASS_PREFIX} {
     display: inline-block;
@@ -579,8 +579,8 @@ ${legal}
     color: inherit;
     vertical-align: -0.125em;
     background-color: currentColor;
-    -webkit-mask-image: var(--uk-ti-mask);
-    mask-image: var(--uk-ti-mask);
+    -webkit-mask-image: var(--drk-ti-mask);
+    mask-image: var(--drk-ti-mask);
     -webkit-mask-position: center;
     mask-position: center;
     -webkit-mask-repeat: no-repeat;
@@ -589,10 +589,10 @@ ${legal}
     mask-size: 100% 100%;
 }
 
-/* Native Tabler classes and UIkit 3.25.20 compatibility aliases. */
+/* Native Tabler classes and inherited compatibility aliases (D-012). */
 ${rules.join('\n')}
 
-/* Match UIkit's historical left/right and previous/next behavior in RTL. */
+/* Match Drake's historical left/right and previous/next behavior in RTL. */
 ${rtlAliasRules.join('\n')}
 `;
 }

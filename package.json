@@ -1,11 +1,11 @@
 {
-    "name": "uikit-ts",
-    "title": "UIkit TS local fork",
-    "description": "Private TypeScript, mobile-first UIkit 3.25.20 fork with CSS-only Tabler Outline icons and embedded Inter variable faces.",
-    "version": "3.25.20",
+    "name": "drake.css",
+    "title": "Drake.css framework",
+    "description": "Drake.css framework — private TypeScript, mobile-first fork of UIkit 3.25.20 with CSS-only Tabler Outline icons and embedded Inter variable faces.",
+    "version": "0.1.0",
     "private": true,
-    "main": "dist/js/uikit.js",
-    "style": "dist/css/uikit.css",
+    "main": "dist/js/drake.js",
+    "style": "dist/css/drake.css",
     "files": [
         "dist/css/*.css",
         "dist/js/*.js",
@@ -49,7 +49,7 @@
         "verify": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm build-assets && pnpm build-scss && pnpm compile && pnpm compile-rtl && pnpm build-manifest && pnpm check-node-runtime && pnpm check-assets && pnpm check-frontend",
         "watch": "node build/watch.js"
     },
-    "uikitFork": {
+    "drakeFork": {
         "upstream": "https://github.com/uikit/uikit.git",
         "baseTag": "v3.25.20",
         "baseCommit": "45cc430052ba967de8e9972507dee4d37701552d"

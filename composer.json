@@ -1,7 +1,7 @@
 {
-    "name": "local/uikit-ts",
+    "name": "local/drake-css",
     "type": "library",
-    "description": "Private TypeScript and mobile-first fork of UIkit 3.25.20.",
+    "description": "Drake.css framework — private TypeScript, mobile-first fork of UIkit 3.25.20.",
     "keywords": [],
     "authors": [],
     "license": "MIT"

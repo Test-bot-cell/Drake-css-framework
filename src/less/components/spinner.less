@@ -1,7 +1,7 @@
 // Name:            Spinner
 // Description:     Component to create a loading spinner
 //
-// Component:       `uk-spinner`
+// Component:       `drk-spinner`
 //
 // ========================================================================
 
@@ -18,23 +18,23 @@
  ========================================================================== */
 
 /*
- * Adopts `uk-icon`
+ * Adopts `drk-icon`
  */
 
-.uk-spinner {
-    --uk-icon-width: @spinner-size;
-    --uk-icon-height: @spinner-size;
-    animation: uk-spinner-rotate @spinner-duration linear infinite;
+.drk-spinner {
+    --drk-icon-width: @spinner-size;
+    --drk-icon-height: @spinner-size;
+    animation: drk-spinner-rotate @spinner-duration linear infinite;
     .hook-spinner();
 }
 
-@keyframes uk-spinner-rotate {
+@keyframes drk-spinner-rotate {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .uk-spinner { animation: none; }
+    .drk-spinner { animation: none; }
 }
 
 

@@ -1,13 +1,13 @@
 // Name:            Subnav
 // Description:     Component to create a sub navigation
 //
-// Component:       `uk-subnav`
+// Component:       `drk-subnav`
 //
-// Modifiers:       `uk-subnav-divider`
-//                  `uk-subnav-pill`
+// Modifiers:       `drk-subnav-divider`
+//                  `drk-subnav-pill`
 //
-// States:          `uk-active`
-//                  `uk-first-column`
+// States:          `drk-active`
+//                  `drk-first-column`
 //
 // ========================================================================
 
@@ -53,7 +53,7 @@
  * 4. Reset list
  */
 
-.uk-subnav {
+.drk-subnav {
     display: flex;
     /* 1 */
     flex-wrap: wrap;
@@ -73,7 +73,7 @@
  * 3. Create position context for dropdowns
  */
 
-.uk-subnav > * {
+.drk-subnav > * {
     /* 1 */
     flex: none;
     /* 2 */
@@ -94,7 +94,7 @@
  * 3. Style
  */
 
-.uk-subnav > * > :first-child {
+.drk-subnav > * > :first-child {
     /* 1 */
     display: flex;
     align-items: center;
@@ -106,14 +106,14 @@
 }
 
 /* Hover */
-.uk-subnav > * > a:hover {
+.drk-subnav > * > a:hover {
     color: @subnav-item-hover-color;
     text-decoration: @subnav-item-hover-text-decoration;
     .hook-subnav-item-hover();
 }
 
 /* Active */
-.uk-subnav > .uk-active > a {
+.drk-subnav > .drk-active > a {
     color: @subnav-item-active-color;
     .hook-subnav-item-active();
 }
@@ -126,13 +126,13 @@
  * Set gutter
  */
 
-.uk-subnav-divider { margin-left: -((@subnav-divider-margin-horizontal * 2) + @subnav-divider-border-width); }
+.drk-subnav-divider { margin-left: -((@subnav-divider-margin-horizontal * 2) + @subnav-divider-border-width); }
 
 /*
  * Align items and divider vertically
  */
 
-.uk-subnav-divider > * {
+.drk-subnav-divider > * {
     display: flex;
     align-items: center;
 }
@@ -142,7 +142,7 @@
  * 1. `nth-child` makes it also work without JS if it's only one row
  */
 
-.uk-subnav-divider > ::before {
+.drk-subnav-divider > ::before {
     content: "";
     height: @subnav-divider-border-height;
     margin-left: (@subnav-divider-margin-horizontal - @subnav-margin-horizontal);
@@ -151,7 +151,7 @@
 }
 
 /* 1 */
-.uk-subnav-divider > :nth-child(n+2):not(.uk-first-column)::before {
+.drk-subnav-divider > :nth-child(n+2):not(.drk-first-column)::before {
     border-left-color: @subnav-divider-border;
     .hook-subnav-divider();
 }
@@ -164,10 +164,10 @@
  * Gutter
  */
 
-.uk-subnav-pill { margin-left: -@subnav-pill-margin-horizontal; }
-.uk-subnav-pill > * { padding-left: @subnav-pill-margin-horizontal; }
+.drk-subnav-pill { margin-left: -@subnav-pill-margin-horizontal; }
+.drk-subnav-pill > * { padding-left: @subnav-pill-margin-horizontal; }
 
-.uk-subnav-pill > * > :first-child {
+.drk-subnav-pill > * > :first-child {
     padding: @subnav-pill-item-padding-vertical @subnav-pill-item-padding-horizontal;
     background: @subnav-pill-item-background;
     color: @subnav-pill-item-color;
@@ -175,21 +175,21 @@
 }
 
 /* Hover */
-.uk-subnav-pill > * > a:hover {
+.drk-subnav-pill > * > a:hover {
     background-color: @subnav-pill-item-hover-background;
     color: @subnav-pill-item-hover-color;
     .hook-subnav-pill-item-hover();
 }
 
 /* OnClick */
-.uk-subnav-pill > * > a:active {
+.drk-subnav-pill > * > a:active {
     background-color: @subnav-pill-item-onclick-background;
     color: @subnav-pill-item-onclick-color;
     .hook-subnav-pill-item-onclick();
 }
 
 /* Active */
-.uk-subnav-pill > .uk-active > a {
+.drk-subnav-pill > .drk-active > a {
     background-color: @subnav-pill-item-active-background;
     color: @subnav-pill-item-active-color;
     .hook-subnav-pill-item-active();
@@ -200,7 +200,7 @@
  * The same for all style modifiers
  ========================================================================== */
 
-.uk-subnav > .uk-disabled > :first-child {
+.drk-subnav > .drk-disabled > :first-child {
     color: @subnav-item-disabled-color;
     .hook-subnav-item-disabled();
 }
@@ -243,17 +243,17 @@
 
 .hook-inverse() {
 
-    .uk-subnav > * > :first-child {
+    .drk-subnav > * > :first-child {
         color: @inverse-subnav-item-color;
         .hook-inverse-subnav-item();
     }
 
-    .uk-subnav > * > a:hover {
+    .drk-subnav > * > a:hover {
         color: @inverse-subnav-item-hover-color;
         .hook-inverse-subnav-item-hover();
     }
 
-    .uk-subnav > .uk-active > a {
+    .drk-subnav > .drk-active > a {
         color: @inverse-subnav-item-active-color;
         .hook-inverse-subnav-item-active();
     }
@@ -262,7 +262,7 @@
     // Divider
     //
 
-    .uk-subnav-divider > :nth-child(n+2):not(.uk-first-column)::before {
+    .drk-subnav-divider > :nth-child(n+2):not(.drk-first-column)::before {
         border-left-color: @inverse-subnav-divider-border;
         .hook-inverse-subnav-divider();
     }
@@ -271,25 +271,25 @@
     // Pill
     //
 
-    .uk-subnav-pill > * > :first-child {
+    .drk-subnav-pill > * > :first-child {
         background-color: @inverse-subnav-pill-item-background;
         color: @inverse-subnav-pill-item-color;
         .hook-inverse-subnav-pill-item();
     }
 
-    .uk-subnav-pill > * > a:hover {
+    .drk-subnav-pill > * > a:hover {
         background-color: @inverse-subnav-pill-item-hover-background;
         color: @inverse-subnav-pill-item-hover-color;
         .hook-inverse-subnav-pill-item-hover();
     }
 
-    .uk-subnav-pill > * > a:active {
+    .drk-subnav-pill > * > a:active {
         background-color: @inverse-subnav-pill-item-onclick-background;
         color: @inverse-subnav-pill-item-onclick-color;
         .hook-inverse-subnav-pill-item-onclick();
     }
 
-    .uk-subnav-pill > .uk-active > a {
+    .drk-subnav-pill > .drk-active > a {
         background-color: @inverse-subnav-pill-item-active-background;
         color: @inverse-subnav-pill-item-active-color;
         .hook-inverse-subnav-pill-item-active();
@@ -299,7 +299,7 @@
     // Disabled
     //
 
-    .uk-subnav > .uk-disabled > a {
+    .drk-subnav > .drk-disabled > a {
         color: @inverse-subnav-item-disabled-color;
         .hook-inverse-subnav-item-disabled();
     }

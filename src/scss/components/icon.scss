@@ -4,14 +4,14 @@
 // Name:            Icon
 // Description:     Component to create icons
 //
-// Component:       `uk-icon`
+// Component:       `drk-icon`
 //
-// Modifiers:       `uk-icon-image`
-//                  `uk-icon-link`
-//                  `uk-icon-button`
-//                  `uk-icon-overlay`
+// Modifiers:       `drk-icon-image`
+//                  `drk-icon-link`
+//                  `drk-icon-button`
+//                  `drk-icon-overlay`
 //
-// States:          `uk-preserve`
+// States:          `drk-preserve`
 //
 // ========================================================================
 
@@ -43,7 +43,7 @@
  * 9. Let the container fit the height of the icon
  */
 
-.uk-icon {
+.drk-icon {
     /* 1 */
     margin: 0;
     /* 2 */
@@ -67,23 +67,23 @@
 }
 
 /* Required for `button`. */
-button.uk-icon:not(:disabled) { cursor: pointer; }
+button.drk-icon:not(:disabled) { cursor: pointer; }
 
 /*
  * Remove the inner border and padding in Firefox.
  */
 
-.uk-icon::-moz-focus-inner {
+.drk-icon::-moz-focus-inner {
     border: 0;
     padding: 0;
 }
 
 /*
  * Tabler Outline icons are CSS masks. The complete 5,112-icon catalogue stays opt-in,
- * while the internal aliases required by UIkit are generated into the core stylesheet.
+ * while the internal aliases required by Drake are generated into the core stylesheet.
  */
 
-.uk-ti {
+.drk-ti {
     display: inline-block;
     flex: none;
     width: 1em;
@@ -91,8 +91,8 @@ button.uk-icon:not(:disabled) { cursor: pointer; }
     color: inherit;
     vertical-align: -0.125em;
     background-color: currentcolor;
-    -webkit-mask-image: var(--uk-ti-mask);
-    mask-image: var(--uk-ti-mask);
+    -webkit-mask-image: var(--drk-ti-mask);
+    mask-image: var(--drk-ti-mask);
     -webkit-mask-position: center;
     mask-position: center;
     -webkit-mask-repeat: no-repeat;
@@ -101,9 +101,9 @@ button.uk-icon:not(:disabled) { cursor: pointer; }
     mask-size: 100% 100%;
 }
 
-.uk-icon.uk-ti {
-    width: string.unquote('calc(var(--uk-icon-width, 20px) * var(--uk-icon-ratio, 1))');
-    height: string.unquote('calc(var(--uk-icon-height, 20px) * var(--uk-icon-ratio, 1))');
+.drk-icon.drk-ti {
+    width: string.unquote('calc(var(--drk-icon-width, 20px) * var(--drk-icon-ratio, 1))');
+    height: string.unquote('calc(var(--drk-icon-height, 20px) * var(--drk-icon-ratio, 1))');
     vertical-align: middle;
     background-color: currentcolor;
 }
@@ -113,19 +113,19 @@ button.uk-icon:not(:disabled) { cursor: pointer; }
  * Decorative icons are unaffected because the rule only targets interactive elements.
  */
 
-a.uk-icon.uk-ti,
-button.uk-icon.uk-ti {
+a.drk-icon.drk-ti,
+button.drk-icon.drk-ti {
     min-width: 24px;
     min-height: 24px;
-    -webkit-mask-size: string.unquote('calc(var(--uk-icon-width, 20px) * var(--uk-icon-ratio, 1)) calc(var(--uk-icon-height, 20px) * var(--uk-icon-ratio, 1))');
-    mask-size: string.unquote('calc(var(--uk-icon-width, 20px) * var(--uk-icon-ratio, 1)) calc(var(--uk-icon-height, 20px) * var(--uk-icon-ratio, 1))');
+    -webkit-mask-size: string.unquote('calc(var(--drk-icon-width, 20px) * var(--drk-icon-ratio, 1)) calc(var(--drk-icon-height, 20px) * var(--drk-icon-ratio, 1))');
+    mask-size: string.unquote('calc(var(--drk-icon-width, 20px) * var(--drk-icon-ratio, 1)) calc(var(--drk-icon-height, 20px) * var(--drk-icon-ratio, 1))');
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .uk-accordion-icon,
-    .uk-nav-parent-icon,
-    .uk-navbar-parent-icon,
-    .uk-navbar-toggle-icon {
+    .drk-accordion-icon,
+    .drk-nav-parent-icon,
+    .drk-navbar-parent-icon,
+    .drk-navbar-toggle-icon {
         transition: none !important;
     }
 }
@@ -140,7 +140,7 @@ button.uk-icon.uk-ti {
  * 2. Required for `image`
  */
 
-.uk-icon-image {
+.drk-icon-image {
     width: $icon-image-size;
     height: $icon-image-size;
     /* 1 */
@@ -162,21 +162,21 @@ button.uk-icon.uk-ti {
  * 1. Allow text within link
  */
 
-.uk-icon-link {
+.drk-icon-link {
     color: $icon-link-color;
     /* 1 */
     text-decoration: none !important;
     @if(meta.mixin-exists(hook-icon-link)) {@include hook-icon-link();}
 }
 
-.uk-icon-link:hover {
+.drk-icon-link:hover {
     color: $icon-link-hover-color;
     @if(meta.mixin-exists(hook-icon-link-hover)) {@include hook-icon-link-hover();}
 }
 
 /* OnClick + Active */
-.uk-icon-link:active,
-.uk-active > .uk-icon-link {
+.drk-icon-link:active,
+.drk-active > .drk-icon-link {
     color: $icon-link-active-color;
     @if(meta.mixin-exists(hook-icon-link-active)) {@include hook-icon-link-active();}
 }
@@ -186,7 +186,7 @@ button.uk-icon.uk-ti {
  * 1. Center icon vertically and horizontally
  */
 
-.uk-icon-button {
+.drk-icon-button {
     box-sizing: border-box;
     width: $icon-button-size;
     height: $icon-button-size;
@@ -202,15 +202,15 @@ button.uk-icon.uk-ti {
 }
 
 /* Hover */
-.uk-icon-button:hover {
+.drk-icon-button:hover {
     background-color: $icon-button-hover-background;
     color: $icon-button-hover-color;
     @if(meta.mixin-exists(hook-icon-button-hover)) {@include hook-icon-button-hover();}
 }
 
 /* OnClick + Active */
-.uk-icon-button:active,
-.uk-active > .uk-icon-button {
+.drk-icon-button:active,
+.drk-active > .drk-icon-button {
     background-color: $icon-button-active-background;
     color: $icon-button-active-color;
     @if(meta.mixin-exists(hook-icon-button-active)) {@include hook-icon-button-active();}
@@ -220,14 +220,14 @@ button.uk-icon.uk-ti {
  * Overlay
  */
 
-.uk-icon-overlay,
-a .uk-icon-overlay {
+.drk-icon-overlay,
+a .drk-icon-overlay {
     color: $icon-overlay-color;
     @if(meta.mixin-exists(hook-icon-overlay)) {@include hook-icon-overlay();}
 }
 
-.uk-icon-overlay:hover,
-a:hover .uk-icon-overlay {
+.drk-icon-overlay:hover,
+a:hover .drk-icon-overlay {
     color: $icon-overlay-hover-color;
     @if(meta.mixin-exists(hook-icon-overlay-hover)) {@include hook-icon-overlay-hover();}
 }

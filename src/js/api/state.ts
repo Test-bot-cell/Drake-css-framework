@@ -1,4 +1,4 @@
-import { assign, isArray, isFunction, isPlainObject, isString } from 'uikit-util';
+import { assign, isArray, isFunction, isPlainObject, isString } from 'drake-util';
 import type {
     ComponentInitOptions,
     ComponentInternalInstance,

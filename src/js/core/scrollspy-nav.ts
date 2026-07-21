@@ -10,7 +10,7 @@ import {
     scrollParent,
     toggleClass,
     trigger,
-} from 'uikit-util';
+} from 'drake-util';
 import { intersection, scroll } from '../api/observables';
 import { defineComponent } from '../api/options';
 import type { ComponentInternalInstance } from '../types';
@@ -40,7 +40,7 @@ export default defineComponent<ScrollspyNavInstance>()({
     },
 
     data: {
-        cls: 'uk-active',
+        cls: 'drk-active',
         closest: false,
         scroll: false,
         target: 'a[href]:not([role="button"])',

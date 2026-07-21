@@ -20,9 +20,9 @@ if (args.h || args.help) {
 
         examples:
 
-        build.js // builds all of uikit and its components, including minification (implies 'all')
-        build.js uikit tests -d // builds uikit and the test harness without minification
-        build.js core lightbox -d // builds uikit-core and the lightbox, skipping the minification
+        build.js // builds all of drake and its components, including minification (implies 'all')
+        build.js drake tests -d // builds drake and the test harness without minification
+        build.js core lightbox -d // builds drake-core and the lightbox, skipping the minification
 
         available components:
 
@@ -49,9 +49,9 @@ await Promise.all(Object.values(tasks).map((task) => limit(task)));
 
 function getBundleTasks() {
     return {
-        core: () => compile('src/js/uikit-core.ts', 'dist/js/uikit-core'),
+        core: () => compile('src/js/drake-core.ts', 'dist/js/drake-core'),
 
-        uikit: () => compile('src/js/uikit.ts', 'dist/js/uikit'),
+        drake: () => compile('src/js/drake.ts', 'dist/js/drake'),
 
         tests: async () =>
             compile('tests/js/index.ts', 'dist/js/tests/test', {
@@ -72,8 +72,8 @@ async function getComponentTasks() {
         components[name] = () =>
             compile('src/js/component.ts', `dist/js/components/${name}`, {
                 name,
-                external: ['uikit', 'uikit-util'],
-                globals: { uikit: 'UIkit', 'uikit-util': 'UIkit.util' },
+                external: ['drake', 'drake-util'],
+                globals: { drake: 'Drake', 'drake-util': 'Drake.util' },
                 aliases: { component: path.resolve('src/js/components', `${name}.ts`) },
                 virtualModules: { 'virtual:name': `'${camelize(name)}'` },
             });

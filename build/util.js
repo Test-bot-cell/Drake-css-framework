@@ -14,7 +14,7 @@ const limit = pLimit(Number(process.env.cpus || 2));
 const COPYRIGHT_END_YEAR = 2026;
 
 // Keep generated output byte-for-byte stable. A reviewed legal update may advance this year.
-export const banner = `/*! UIkit ${await getVersion()} | https://www.getuikit.com | (c) 2014 - ${COPYRIGHT_END_YEAR} YOOtheme | MIT License */\n`;
+export const banner = `/*! Drake.css framework ${await getVersion()} | MIT License | based on UIkit, (c) 2014 - ${COPYRIGHT_END_YEAR} YOOtheme (https://getuikit.com) */\n`;
 
 const argv = minimist(process.argv.slice(2));
 
@@ -90,7 +90,7 @@ export async function compile(
 
             alias({
                 entries: {
-                    'uikit-util': path.resolve('./src/js/util/index.ts'),
+                    'drake-util': path.resolve('./src/js/util/index.ts'),
                     ...aliases,
                 },
             }),
@@ -117,8 +117,8 @@ export async function compile(
         globals,
         banner,
         format: 'umd',
-        amd: { id: `UIkit${name}`.toLowerCase() },
-        name: `UIkit${ucfirst(name)}`,
+        amd: { id: `Drake${name}`.toLowerCase() },
+        name: `Drake${ucfirst(name)}`,
         sourcemap: debug ? 'inline' : false,
     };
 
@@ -154,7 +154,7 @@ export async function compile(
 
         await bundle.close();
     } else {
-        console.log('UIkit is watching the files...');
+        console.log('Drake is watching the files...');
 
         const watcher = rollupWatch({
             ...inputOptions,

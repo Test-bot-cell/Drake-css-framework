@@ -14,7 +14,7 @@ import {
     pointerEnter,
     pointerLeave,
     remove,
-} from 'uikit-util';
+} from 'drake-util';
 import { generateId } from '../api/instance';
 import { defineComponent, parseOptions } from '../api/options';
 import Container from '../mixin/container';
@@ -60,9 +60,9 @@ export default defineComponent<TooltipInstance>()({
 
     data: {
         pos: 'top',
-        animation: ['uk-animation-scale-up'],
+        animation: ['drk-animation-scale-up'],
         duration: 100,
-        cls: 'uk-active',
+        cls: 'drk-active',
     },
 
     connected() {
@@ -120,8 +120,8 @@ export default defineComponent<TooltipInstance>()({
         async _show(title: string, id: string) {
             const tooltip = append(
                 this.container,
-                `<div id="${id}" class="uk-${this.$options.name}" role="tooltip">
-                    <div class="uk-${this.$options.name}-inner">${title}</div>
+                `<div id="${id}" class="drk-${this.$options.name}" role="tooltip">
+                    <div class="drk-${this.$options.name}-inner">${title}</div>
                  </div>`,
             );
             if (!(tooltip instanceof HTMLElement)) {

@@ -1,4 +1,4 @@
-import { attr, css, toggleClass, wrapInner } from 'uikit-util';
+import { attr, css, toggleClass, wrapInner } from 'drake-util';
 import { resize } from '../api/observables';
 import { defineComponent } from '../api/options';
 import Class from '../mixin/class';
@@ -34,13 +34,14 @@ export default defineComponent<LeaderInstance>()({
 
     data: {
         fill: '',
-        clsWrapper: 'uk-leader-fill',
-        clsHide: 'uk-leader-hide',
+        clsWrapper: 'drk-leader-fill',
+        clsHide: 'drk-leader-hide',
         attrFill: 'data-fill',
     },
 
     computed: {
-        fill: ({ fill }: LeaderProps, $el: Element) => fill || css($el, '--uk-leader-fill-content'),
+        fill: ({ fill }: LeaderProps, $el: Element) =>
+            fill || css($el, '--drk-leader-fill-content'),
     },
 
     connected() {

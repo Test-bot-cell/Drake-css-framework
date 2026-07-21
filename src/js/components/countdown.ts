@@ -1,4 +1,4 @@
-import { $, html, toFloat, trigger } from 'uikit-util';
+import { $, html, toFloat, trigger } from 'drake-util';
 import { defineComponent } from '../api/options';
 import Class from '../mixin/class';
 import type { ComponentInternalInstance } from '../types';
@@ -34,7 +34,7 @@ export default defineComponent<CountdownInstance>()({
 
     data: {
         date: '',
-        clsWrapper: '.uk-countdown-%unit%',
+        clsWrapper: '.drk-countdown-%unit%',
         role: 'timer',
         reload: false,
     },

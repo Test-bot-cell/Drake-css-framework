@@ -1,12 +1,12 @@
 // Name:            Overlay
 // Description:     Component to create content areas overlaying an image
 //
-// Component:       `uk-overlay`
+// Component:       `drk-overlay`
 //
-// Adopted:         `uk-overlay-icon`
+// Adopted:         `drk-overlay-icon`
 //
-// Modifier:        `uk-overlay-default`
-//                  `uk-overlay-primary`
+// Modifier:        `drk-overlay-default`
+//                  `drk-overlay-primary`
 //
 // ========================================================================
 
@@ -28,7 +28,7 @@
    Component: Overlay
  ========================================================================== */
 
-.uk-overlay {
+.drk-overlay {
     padding: @overlay-padding-vertical @overlay-padding-horizontal;
     .hook-overlay();
 }
@@ -37,15 +37,15 @@
  * Remove margin from the last-child
  */
 
-.uk-overlay > :last-child { margin-bottom: 0; }
+.drk-overlay > :last-child { margin-bottom: 0; }
 
 
 /* Icon
  ========================================================================== */
 
-.uk-overlay-icon {
-    --uk-icon-width: 40px;
-    --uk-icon-height: 40px;
+.drk-overlay-icon {
+    --drk-icon-width: 40px;
+    --drk-icon-height: 40px;
     .hook-overlay-icon();
 }
 
@@ -57,29 +57,29 @@
  * Default
  */
 
-.uk-overlay-default {
-    --uk-inverse: @overlay-default-color-mode;
+.drk-overlay-default {
+    --drk-inverse: @overlay-default-color-mode;
     background: @overlay-default-background;
     .hook-overlay-default();
 }
 
 // Color Mode
-.uk-overlay-default:extend(.uk-light all) when (@overlay-default-color-mode = light) {}
-.uk-overlay-default:extend(.uk-dark all) when (@overlay-default-color-mode = dark) {}
+.drk-overlay-default:extend(.drk-light all) when (@overlay-default-color-mode = light) {}
+.drk-overlay-default:extend(.drk-dark all) when (@overlay-default-color-mode = dark) {}
 
 /*
  * Primary
  */
 
-.uk-overlay-primary {
-    --uk-inverse: @overlay-primary-color-mode;
+.drk-overlay-primary {
+    --drk-inverse: @overlay-primary-color-mode;
     background: @overlay-primary-background;
     .hook-overlay-primary();
 }
 
 // Color Mode
-.uk-overlay-primary:extend(.uk-light all) when (@overlay-primary-color-mode = light) {}
-.uk-overlay-primary:extend(.uk-dark all) when (@overlay-primary-color-mode = dark) {}
+.drk-overlay-primary:extend(.drk-light all) when (@overlay-primary-color-mode = light) {}
+.drk-overlay-primary:extend(.drk-dark all) when (@overlay-primary-color-mode = dark) {}
 
 
 // Hooks

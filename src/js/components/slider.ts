@@ -14,7 +14,7 @@ import {
     toFloat,
     toNumber,
     toggleClass,
-} from 'uikit-util';
+} from 'drake-util';
 import { intersection, resize } from '../api/observables';
 import { defineComponent } from '../api/options';
 import Class from '../mixin/class';
@@ -69,10 +69,10 @@ export default defineComponent<SliderComponentInstance>()({
     data: {
         center: false,
         sets: false,
-        attrItem: 'uk-slider-item',
-        selList: '.uk-slider-items',
-        selNav: '.uk-slider-nav',
-        clsContainer: 'uk-slider-container',
+        attrItem: 'drk-slider-item',
+        selList: '.drk-slider-items',
+        selNav: '.drk-slider-nav',
+        clsContainer: 'drk-slider-container',
         active: 'all',
         Transitioner,
     },

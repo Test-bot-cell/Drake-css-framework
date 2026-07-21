@@ -1,25 +1,25 @@
-import { $, apply, isString, parents, toNode } from 'uikit-util';
+import { $, apply, isString, parents, toNode } from 'drake-util';
 import type {
     ComponentConstructor,
     ComponentInitOptions,
     ComponentInternalInstance,
     ComponentOptions,
+    DrakePlugin,
+    DrakeStatic,
     NodeInput,
-    UIkitPlugin,
-    UIkitStatic,
 } from '../types';
 import { component, getComponent, getComponents } from './component';
 import { mergeOptions } from './options';
 import { init } from './state';
 import { callUpdate } from './update';
 
-export default function globalApi(App: UIkitStatic): void {
+export default function globalApi(App: DrakeStatic): void {
     App.component = component;
     App.getComponents = getComponents;
     App.getComponent = getComponent;
     App.update = update;
 
-    App.use = function (plugin: UIkitPlugin): UIkitStatic {
+    App.use = function (plugin: DrakePlugin): DrakeStatic {
         if (!plugin.installed) {
             plugin.call(null, this);
             plugin.installed = true;

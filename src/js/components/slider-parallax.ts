@@ -1,4 +1,4 @@
-import { css, endsWith, fastdom, noop, Transition } from 'uikit-util';
+import { css, endsWith, fastdom, noop, Transition } from 'drake-util';
 import { defineComponent } from '../api/options';
 import Parallax from '../mixin/parallax';
 import type {

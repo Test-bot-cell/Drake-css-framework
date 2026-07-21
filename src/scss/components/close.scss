@@ -3,7 +3,7 @@
 // Name:            Close
 // Description:     Component to create a close button
 //
-// Component:       `uk-close`
+// Component:       `drk-close`
 //
 // ========================================================================
 
@@ -18,23 +18,23 @@
  ========================================================================== */
 
 /*
- * Adopts `uk-icon`
+ * Adopts `drk-icon`
  */
 
-.uk-close {
-    --uk-icon-width: 14px;
-    --uk-icon-height: 14px;
+.drk-close {
+    --drk-icon-width: 14px;
+    --drk-icon-height: 14px;
     color: $close-color;
     @if(meta.mixin-exists(hook-close)) {@include hook-close();}
 }
 
-.uk-close-large {
-    --uk-icon-width: 20px;
-    --uk-icon-height: 20px;
+.drk-close-large {
+    --drk-icon-width: 20px;
+    --drk-icon-height: 20px;
 }
 
 /* Hover */
-.uk-close:hover {
+.drk-close:hover {
     color: $close-hover-color;
     @if(meta.mixin-exists(hook-close-hover)) {@include hook-close-hover();}
 }

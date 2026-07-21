@@ -4,103 +4,103 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Dropnav - UIkit tests</title>
+        <title>Dropnav - Drake tests</title>
         <script src="../dist/js/tests/test.js"></script>
     </head>
 
     <body>
 
-        <div class="uk-container">
+        <div class="drk-container">
 
             <h1>Dropnav</h1>
 
-            <div class="uk-margin">
-                <select id="js-nav-switcher" class="uk-select uk-form-width-small" aria-label="Nav switcher">
-                    <option value="uk-subnav">Subnav</option>
-                    <option value="uk-tab">Tab</option>
+            <div class="drk-margin">
+                <select id="js-nav-switcher" class="drk-select drk-form-width-small" aria-label="Nav switcher">
+                    <option value="drk-subnav">Subnav</option>
+                    <option value="drk-tab">Tab</option>
                 </select>
             </div>
 
             <h2>Dropdown</h2>
 
-            <div class="uk-margin">
-                <select id="js-dropdown-size-switcher" class="uk-select uk-form-width-small" aria-label="Dropdown size switcher">
+            <div class="drk-margin">
+                <select id="js-dropdown-size-switcher" class="drk-select drk-form-width-small" aria-label="Dropdown size switcher">
                     <option value="">Default</option>
-                    <option value="uk-dropdown-large">Large</option>
+                    <option value="drk-dropdown-large">Large</option>
                 </select>
             </div>
 
-            <nav uk-dropnav>
-                <ul class="uk-subnav">
-                    <li class="uk-active">
-                        <a href>Hover <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown">
-                            <ul class="uk-nav uk-dropdown-nav">
-                                <li class="uk-active"><a href="#">Active</a></li>
-                                    <li class="uk-parent">
+            <nav drk-dropnav>
+                <ul class="drk-subnav">
+                    <li class="drk-active">
+                        <a href>Hover <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown">
+                            <ul class="drk-nav drk-dropdown-nav">
+                                <li class="drk-active"><a href="#">Active</a></li>
+                                    <li class="drk-parent">
                                     <a href="#">Parent</a>
-                                    <ul class="uk-nav-sub">
+                                    <ul class="drk-nav-sub">
                                         <li><a href="#">Sub item</a></li>
                                         <li><a href="#">Sub item</a></li>
                                     </ul>
                                 </li>
-                                <li class="uk-nav-header">Header</li>
-                                <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                <li class="uk-nav-divider"></li>
-                                <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                <li class="drk-nav-header">Header</li>
+                                <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                <li class="drk-nav-divider"></li>
+                                <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                             </ul>
                         </div>
                     </li>
                     <li>
-                        <a href>2 Columns <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown uk-width-xlarge">
-                            <div class="uk-child-width-1-2" uk-grid>
+                        <a href>2 Columns <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown drk-width-xlarge">
+                            <div class="drk-child-width-1-2" drk-grid>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent"><a href="#">Parent</a></li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent"><a href="#">Parent</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent"><a href="#">Parent</a></li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent"><a href="#">Parent</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </li>
                     <li>
-                        <a href>3 Columns <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown uk-width-2xlarge">
-                            <div class="uk-child-width-1-3" uk-grid>
+                        <a href>3 Columns <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown drk-width-2xlarge">
+                            <div class="drk-child-width-1-3" drk-grid>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent"><a href="#">Parent</a></li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent"><a href="#">Parent</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent"><a href="#">Parent</a></li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent"><a href="#">Parent</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -108,41 +108,41 @@
                         </div>
                     </li>
                     <li>
-                        <a href>Stretch <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown" uk-drop="boundary: !.uk-dropnav; stretch: x; flip: false">
-                            <div class="uk-child-width-1-3@m" uk-grid>
+                        <a href>Stretch <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown" drk-drop="boundary: !.drk-dropnav; stretch: x; flip: false">
+                            <div class="drk-child-width-1-3@m" drk-grid>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -150,41 +150,41 @@
                         </div>
                     </li>
                     <li>
-                        <a href>Stretch Full <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown" uk-drop="stretch: x; flip: false">
-                            <div class="uk-child-width-1-3@m" uk-grid>
+                        <a href>Stretch Full <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown" drk-drop="stretch: x; flip: false">
+                            <div class="drk-child-width-1-3@m" drk-grid>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -194,77 +194,77 @@
                 </ul>
             </nav>
 
-            <nav uk-dropnav="mode: click; align: center">
-                <ul class="uk-subnav uk-flex-center">
-                    <li class="uk-active">
-                        <a href>Click <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown">
-                            <ul class="uk-nav uk-dropdown-nav">
-                                <li class="uk-active"><a href="#">Active</a></li>
-                                    <li class="uk-parent">
+            <nav drk-dropnav="mode: click; align: center">
+                <ul class="drk-subnav drk-flex-center">
+                    <li class="drk-active">
+                        <a href>Click <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown">
+                            <ul class="drk-nav drk-dropdown-nav">
+                                <li class="drk-active"><a href="#">Active</a></li>
+                                    <li class="drk-parent">
                                     <a href="#">Parent</a>
-                                    <ul class="uk-nav-sub">
+                                    <ul class="drk-nav-sub">
                                         <li><a href="#">Sub item</a></li>
                                         <li><a href="#">Sub item</a></li>
                                     </ul>
                                 </li>
-                                <li class="uk-nav-header">Header</li>
-                                <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                <li class="uk-nav-divider"></li>
-                                <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                <li class="drk-nav-header">Header</li>
+                                <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                <li class="drk-nav-divider"></li>
+                                <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                             </ul>
                         </div>
                     </li>
                     <li>
-                        <a href>2 Columns <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown uk-width-xlarge">
-                            <div class="uk-child-width-1-2" uk-grid>
+                        <a href>2 Columns <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown drk-width-xlarge">
+                            <div class="drk-child-width-1-2" drk-grid>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent"><a href="#">Parent</a></li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent"><a href="#">Parent</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent"><a href="#">Parent</a></li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent"><a href="#">Parent</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </li>
                     <li>
-                        <a href>3 Columns <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown uk-width-2xlarge">
-                            <div class="uk-child-width-1-3" uk-grid>
+                        <a href>3 Columns <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown drk-width-2xlarge">
+                            <div class="drk-child-width-1-3" drk-grid>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent"><a href="#">Parent</a></li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent"><a href="#">Parent</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent"><a href="#">Parent</a></li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent"><a href="#">Parent</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -272,41 +272,41 @@
                         </div>
                     </li>
                     <li>
-                        <a href>Stretch <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown" uk-drop="mode: click; boundary: !.uk-dropnav; stretch: x; flip: false">
-                            <div class="uk-child-width-1-3@m" uk-grid>
+                        <a href>Stretch <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown" drk-drop="mode: click; boundary: !.drk-dropnav; stretch: x; flip: false">
+                            <div class="drk-child-width-1-3@m" drk-grid>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -314,41 +314,41 @@
                         </div>
                     </li>
                     <li>
-                        <a href>Stretch Full <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown" uk-drop="mode: click; stretch: x; flip: false">
-                            <div class="uk-child-width-1-3@m" uk-grid>
+                        <a href>Stretch Full <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown" drk-drop="mode: click; stretch: x; flip: false">
+                            <div class="drk-child-width-1-3@m" drk-grid>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -360,84 +360,84 @@
 
             <h2>Dropbar</h2>
 
-            <div class="uk-margin">
-                <select id="js-dropbar-size-switcher" class="uk-select uk-form-width-small" aria-label="Dropbar size switcher">
+            <div class="drk-margin">
+                <select id="js-dropbar-size-switcher" class="drk-select drk-form-width-small" aria-label="Dropbar size switcher">
                     <option value="">Default</option>
-                    <option value="uk-dropdown-dropbar-large">Large</option>
+                    <option value="drk-dropdown-dropbar-large">Large</option>
                 </select>
             </div>
 
-            <nav uk-dropnav="dropbar: true">
-                <ul class="uk-subnav">
-                    <li class="uk-active">
-                        <a href>Hover <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown">
-                            <ul class="uk-nav uk-dropdown-nav">
-                                <li class="uk-active"><a href="#">Active</a></li>
-                                    <li class="uk-parent">
+            <nav drk-dropnav="dropbar: true">
+                <ul class="drk-subnav">
+                    <li class="drk-active">
+                        <a href>Hover <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown">
+                            <ul class="drk-nav drk-dropdown-nav">
+                                <li class="drk-active"><a href="#">Active</a></li>
+                                    <li class="drk-parent">
                                     <a href="#">Parent</a>
-                                    <ul class="uk-nav-sub">
+                                    <ul class="drk-nav-sub">
                                         <li><a href="#">Sub item</a></li>
                                         <li><a href="#">Sub item</a></li>
                                     </ul>
                                 </li>
-                                <li class="uk-nav-header">Header</li>
-                                <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                <li class="uk-nav-divider"></li>
-                                <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                <li class="drk-nav-header">Header</li>
+                                <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                <li class="drk-nav-divider"></li>
+                                <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                             </ul>
                         </div>
                     </li>
                     <li>
-                        <a href>2 Columns <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown uk-width-xlarge">
-                            <div class="uk-child-width-1-2" uk-grid>
+                        <a href>2 Columns <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown drk-width-xlarge">
+                            <div class="drk-child-width-1-2" drk-grid>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent"><a href="#">Parent</a></li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent"><a href="#">Parent</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent"><a href="#">Parent</a></li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent"><a href="#">Parent</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </li>
                     <li>
-                        <a href>3 Columns <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown uk-width-2xlarge">
-                            <div class="uk-child-width-1-3" uk-grid>
+                        <a href>3 Columns <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown drk-width-2xlarge">
+                            <div class="drk-child-width-1-3" drk-grid>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent"><a href="#">Parent</a></li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent"><a href="#">Parent</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent"><a href="#">Parent</a></li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent"><a href="#">Parent</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -445,41 +445,41 @@
                         </div>
                     </li>
                     <li>
-                        <a href>Stretch <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown" uk-drop="boundary: !.uk-dropnav; stretch: x; flip: false">
-                            <div class="uk-child-width-1-3@m" uk-grid>
+                        <a href>Stretch <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown" drk-drop="boundary: !.drk-dropnav; stretch: x; flip: false">
+                            <div class="drk-child-width-1-3@m" drk-grid>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -487,41 +487,41 @@
                         </div>
                     </li>
                     <li>
-                        <a href>Stretch Full <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown" uk-drop="stretch: x; flip: false">
-                            <div class="uk-child-width-1-3@m" uk-grid>
+                        <a href>Stretch Full <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown" drk-drop="stretch: x; flip: false">
+                            <div class="drk-child-width-1-3@m" drk-grid>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -531,77 +531,77 @@
                 </ul>
             </nav>
 
-            <nav uk-dropnav="dropbar: true; mode: click; align: center">
-                <ul class="uk-subnav uk-flex-center">
-                    <li class="uk-active">
-                        <a href>Click <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown">
-                            <ul class="uk-nav uk-dropdown-nav">
-                                <li class="uk-active"><a href="#">Active</a></li>
-                                    <li class="uk-parent">
+            <nav drk-dropnav="dropbar: true; mode: click; align: center">
+                <ul class="drk-subnav drk-flex-center">
+                    <li class="drk-active">
+                        <a href>Click <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown">
+                            <ul class="drk-nav drk-dropdown-nav">
+                                <li class="drk-active"><a href="#">Active</a></li>
+                                    <li class="drk-parent">
                                     <a href="#">Parent</a>
-                                    <ul class="uk-nav-sub">
+                                    <ul class="drk-nav-sub">
                                         <li><a href="#">Sub item</a></li>
                                         <li><a href="#">Sub item</a></li>
                                     </ul>
                                 </li>
-                                <li class="uk-nav-header">Header</li>
-                                <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                <li class="uk-nav-divider"></li>
-                                <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                <li class="drk-nav-header">Header</li>
+                                <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                <li class="drk-nav-divider"></li>
+                                <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                             </ul>
                         </div>
                     </li>
                     <li>
-                        <a href>2 Columns <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown uk-width-xlarge">
-                            <div class="uk-child-width-1-2" uk-grid>
+                        <a href>2 Columns <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown drk-width-xlarge">
+                            <div class="drk-child-width-1-2" drk-grid>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent"><a href="#">Parent</a></li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent"><a href="#">Parent</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent"><a href="#">Parent</a></li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent"><a href="#">Parent</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </li>
                     <li>
-                        <a href>3 Columns <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown uk-width-2xlarge">
-                            <div class="uk-child-width-1-3" uk-grid>
+                        <a href>3 Columns <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown drk-width-2xlarge">
+                            <div class="drk-child-width-1-3" drk-grid>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent"><a href="#">Parent</a></li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent"><a href="#">Parent</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent"><a href="#">Parent</a></li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent"><a href="#">Parent</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -609,41 +609,41 @@
                         </div>
                     </li>
                     <li>
-                        <a href>Stretch <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown" uk-drop="mode: click; boundary: !.uk-dropnav; stretch: x; flip: false">
-                            <div class="uk-child-width-1-3@m" uk-grid>
+                        <a href>Stretch <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown" drk-drop="mode: click; boundary: !.drk-dropnav; stretch: x; flip: false">
+                            <div class="drk-child-width-1-3@m" drk-grid>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -651,41 +651,41 @@
                         </div>
                     </li>
                     <li>
-                        <a href>Stretch Full <span uk-drop-parent-icon></span></a>
-                        <div class="uk-dropdown" uk-drop="mode: click; stretch: x; flip: false">
-                            <div class="uk-child-width-1-3@m" uk-grid>
+                        <a href>Stretch Full <span drk-drop-parent-icon></span></a>
+                        <div class="drk-dropdown" drk-drop="mode: click; stretch: x; flip: false">
+                            <div class="drk-child-width-1-3@m" drk-grid>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
@@ -697,8 +697,8 @@
 
             <h2>JavaScript Options</h2>
 
-            <div class="uk-overflow-auto">
-                <table class="uk-table uk-table-striped">
+            <div class="drk-overflow-auto">
+                <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
                             <th>Option</th>
@@ -795,7 +795,7 @@
                         <tr>
                             <td><code>animation</code></td>
                             <td>String</td>
-                            <td>uk-animation-fade</td>
+                            <td>drk-animation-fade</td>
                             <td>Space-separated names of animations. Comma-separated for animation out.</td>
                         </tr>
                         <tr>

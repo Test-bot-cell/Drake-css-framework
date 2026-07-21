@@ -12,7 +12,7 @@ import {
     resetProps,
     Transition,
     trigger,
-} from 'uikit-util';
+} from 'drake-util';
 import type { CssProperties } from '../../types';
 import { awaitFrame } from '../../util/await';
 import type { MixinAnimationAction } from '../animate';

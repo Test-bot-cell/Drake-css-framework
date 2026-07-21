@@ -1,13 +1,13 @@
 // Name:            Slidenav
 // Description:     Component to create previous/next icon navigations
 //
-// Component:       `uk-slidenav`
+// Component:       `drk-slidenav`
 //
-// Sub-objects:     `uk-slidenav-container`
+// Sub-objects:     `drk-slidenav-container`
 //
-// Modifiers:       `uk-slidenav-previous`
-//                  `uk-slidenav-next`
-//                  `uk-slidenav-large`
+// Modifiers:       `drk-slidenav-previous`
+//                  `drk-slidenav-next`
+//                  `drk-slidenav-large`
 //
 // ========================================================================
 
@@ -31,25 +31,25 @@
  ========================================================================== */
 
 /*
- * Adopts `uk-icon`
+ * Adopts `drk-icon`
  */
 
-.uk-slidenav {
-    --uk-icon-width: 14px;
-    --uk-icon-height: 24px;
+.drk-slidenav {
+    --drk-icon-width: 14px;
+    --drk-icon-height: 24px;
     padding: @slidenav-padding-vertical @slidenav-padding-horizontal;
     color: @slidenav-color;
     .hook-slidenav();
 }
 
 /* Hover */
-.uk-slidenav:hover {
+.drk-slidenav:hover {
     color: @slidenav-hover-color;
     .hook-slidenav-hover();
 }
 
 /* OnClick */
-.uk-slidenav:active {
+.drk-slidenav:active {
     color: @slidenav-active-color;
     .hook-slidenav-active();
 }
@@ -62,7 +62,7 @@
  * Previous
  */
 
-.uk-slidenav-previous {
+.drk-slidenav-previous {
     .hook-slidenav-previous();
 }
 
@@ -70,7 +70,7 @@
  * Next
  */
 
-.uk-slidenav-next {
+.drk-slidenav-next {
     .hook-slidenav-next();
 }
 
@@ -78,9 +78,9 @@
 /* Size modifier
  ========================================================================== */
 
-.uk-slidenav-large {
-    --uk-icon-width: 25px;
-    --uk-icon-height: 40px;
+.drk-slidenav-large {
+    --drk-icon-width: 25px;
+    --drk-icon-height: 40px;
     padding: @slidenav-large-padding-vertical @slidenav-large-padding-horizontal;
     .hook-slidenav-large();
 }
@@ -89,7 +89,7 @@
 /* Container
  ========================================================================== */
 
-.uk-slidenav-container {
+.drk-slidenav-container {
     display: flex;
     .hook-slidenav-container();
 }
@@ -119,17 +119,17 @@
 
 .hook-inverse() {
 
-    .uk-slidenav {
+    .drk-slidenav {
         color: @inverse-slidenav-color;
         .hook-inverse-slidenav();
     }
 
-    .uk-slidenav:hover {
+    .drk-slidenav:hover {
         color: @inverse-slidenav-hover-color;
         .hook-inverse-slidenav-hover();
     }
 
-    .uk-slidenav:active {
+    .drk-slidenav:active {
         color: @inverse-slidenav-active-color;
         .hook-inverse-slidenav-active();
     }

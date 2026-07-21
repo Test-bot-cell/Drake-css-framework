@@ -18,7 +18,7 @@ import {
     Transition,
     trigger,
     wrapInner,
-} from 'uikit-util';
+} from 'drake-util';
 import { defineMixin } from '../api/options';
 import type { CssProperties, Dimension, NodeInput } from '../types';
 import type { TogglableInstance, ToggleAnimation, ToggleAnimationHandler } from './types';
@@ -40,8 +40,8 @@ export default defineMixin<TogglableInstance>()({
         velocity: 0.2,
         origin: false,
         transition: 'ease',
-        clsEnter: 'uk-togglable-enter',
-        clsLeave: 'uk-togglable-leave',
+        clsEnter: 'drk-togglable-enter',
+        clsLeave: 'drk-togglable-leave',
     },
 
     computed: {

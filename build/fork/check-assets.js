@@ -34,15 +34,15 @@ const EXPECTED_TABLER_SOURCE_SHA256 =
     '02f2036fdca959639f74ac3827e283110b3232bb8f2dc5f4241f4b57d757afdc';
 // Deliberately update this only after reviewing an intentional Tabler asset refresh.
 const EXPECTED_TABLER_CSS_SHA256 =
-    '6b26d52f1cd938a5c797d01a6c8b0edaf09f4b328e331a1b519330210f2a551f';
+    'df895a32fcd5f84c0a264293e742b11d456c88717ebc1b903e2cc944b6c4d948';
 const EXPECTED_LICENSE_SHA256 = {
     inter: 'cdad1abdaae7825b20ffd96fc7b20c13c2209c45cbb3721c10e955fc268c9918',
     tabler: 'b740a1d46122672da62833e97f7e7c8a13fa85cbc7445b584b297cc00dde93db',
-    uikit: '1aad791f51d28f466734553711181c9f676877a1899a760ac07171718213cee2',
+    drake: '1aad791f51d28f466734553711181c9f676877a1899a760ac07171718213cee2',
 };
 const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const execFileAsync = promisify(execFile);
-const DEFAULT_MAPPING = join(PROJECT_ROOT, 'src/icons/uikit-tabler.json');
+const DEFAULT_MAPPING = join(PROJECT_ROOT, 'src/icons/drake-tabler.json');
 const DEFAULT_CORE_LESS = join(PROJECT_ROOT, 'src/less/components/tabler.less');
 const EXPECTED_INTER_FACES = {
     normal: {
@@ -64,8 +64,8 @@ if (options.help) {
 
 try {
     const dist = resolve(options.dist || join(PROJECT_ROOT, 'dist'));
-    const iconsFile = resolve(options.iconsCss || join(dist, 'css/uikit-tabler-icons.css'));
-    const interFile = resolve(options.interCss || join(dist, 'css/uikit-inter.css'));
+    const iconsFile = resolve(options.iconsCss || join(dist, 'css/drake-tabler-icons.css'));
+    const interFile = resolve(options.interCss || join(dist, 'css/drake-inter.css'));
     const coreLessFile = resolve(options.coreLess || DEFAULT_CORE_LESS);
     const mapping = await loadCompatibilityMapping(resolve(options.mapping || DEFAULT_MAPPING));
 
@@ -134,7 +134,7 @@ Options:
   --dist <path>       Distribution root (default: dist)
   --icons-css <path>  Generated Tabler CSS
   --inter-css <path>  Generated Inter CSS
-  --mapping <path>    Canonical UIkit-to-Tabler mapping JSON
+  --mapping <path>    Canonical Drake-to-Tabler mapping JSON
   --core-less <path>  Generated core Tabler Less aliases
   -h, --help          Show this help
 `);
@@ -159,7 +159,7 @@ async function validateLegalFiles() {
     const files = {
         inter: join(PROJECT_ROOT, 'licenses/Inter-OFL-1.1.txt'),
         tabler: join(PROJECT_ROOT, 'licenses/Tabler-Icons-MIT.txt'),
-        uikit: join(PROJECT_ROOT, 'LICENSE.md'),
+        drake: join(PROJECT_ROOT, 'LICENSE.md'),
     };
     for (const [name, file] of Object.entries(files)) {
         const contents = await readFile(file);
@@ -221,7 +221,7 @@ async function loadCompatibilityMapping(file) {
 
     const aliases = [...Object.keys(mapping.public), ...Object.keys(mapping.internal)];
     if (new Set(aliases).size !== aliases.length) {
-        throw new Error(`Public and internal UIkit icon aliases must not overlap.`);
+        throw new Error(`Public and internal Drake icon aliases must not overlap.`);
     }
     for (const [alias, target] of Object.entries(mapping.brandDivergences)) {
         assertEqual(mapping.public[alias], target, `Documented brand divergence ${alias}`);
@@ -276,15 +276,15 @@ async function validateTablerCss(file, mapping) {
     if (!css.includes('MIT License') || !css.includes('Copyright (c)')) {
         throw new Error(`The generated Tabler CSS must retain the MIT license notice.`);
     }
-    if (!/\.uk-ti\s*\{[\s\S]*?mask-image:\s*var\(--uk-ti-mask\)/.test(css)) {
-        throw new Error(`The .uk-ti mask base class is missing.`);
+    if (!/\.drk-ti\s*\{[\s\S]*?mask-image:\s*var\(--drk-ti-mask\)/.test(css)) {
+        throw new Error(`The .drk-ti mask base class is missing.`);
     }
     if (/tabler-icons-filled|icons\/filled/i.test(css)) {
         throw new Error(`The generated Tabler CSS contains a filled icon asset.`);
     }
 
     const rulePattern =
-        /^(\.uk-ti-([a-z0-9]+(?:-[a-z0-9]+)*)(?:,\n\.uk-ti\.uk-icon-alias-[a-z0-9]+(?:-[a-z0-9]+)*)*) \{ --uk-ti-mask: url\("(data:image\/svg\+xml,[^"]+)"\); \}$/gm;
+        /^(\.drk-ti-([a-z0-9]+(?:-[a-z0-9]+)*)(?:,\n\.drk-ti\.drk-icon-alias-[a-z0-9]+(?:-[a-z0-9]+)*)*) \{ --drk-ti-mask: url\("(data:image\/svg\+xml,[^"]+)"\); \}$/gm;
     const matches = [...css.matchAll(rulePattern)];
     if (matches.length !== EXPECTED_ICON_COUNT) {
         throw new Error(
@@ -297,16 +297,16 @@ async function validateTablerCss(file, mapping) {
     const aliasMatches = [];
     for (const [, selectors, name, dataUri] of matches) {
         if (names.has(name)) {
-            throw new Error(`Duplicate Tabler CSS class: uk-ti-${name}`);
+            throw new Error(`Duplicate Tabler CSS class: drk-ti-${name}`);
         }
         names.add(name);
         nativeIcons.set(name, dataUri);
         for (const selector of selectors.split(',\n').slice(1)) {
             const alias = selector.match(
-                /^\.uk-ti\.uk-icon-alias-([a-z0-9]+(?:-[a-z0-9]+)*)$/,
+                /^\.drk-ti\.drk-icon-alias-([a-z0-9]+(?:-[a-z0-9]+)*)$/,
             )?.[1];
             if (!alias) {
-                throw new Error(`Invalid compatibility selector grouped with uk-ti-${name}.`);
+                throw new Error(`Invalid compatibility selector grouped with drk-ti-${name}.`);
             }
             aliasMatches.push([null, alias, dataUri]);
         }
@@ -315,7 +315,7 @@ async function validateTablerCss(file, mapping) {
         try {
             svg = decodeURIComponent(dataUri.slice(dataUri.indexOf(',') + 1));
         } catch {
-            throw new Error(`Invalid SVG data URI for uk-ti-${name}.`);
+            throw new Error(`Invalid SVG data URI for drk-ti-${name}.`);
         }
 
         if (
@@ -325,23 +325,23 @@ async function validateTablerCss(file, mapping) {
             /<(?:script|style|foreignObject|image|use)\b/i.test(svg) ||
             /\b(?:href|xlink:href)\s*=/i.test(svg)
         ) {
-            throw new Error(`Unsafe or non-outline SVG mask for uk-ti-${name}.`);
+            throw new Error(`Unsafe or non-outline SVG mask for drk-ti-${name}.`);
         }
     }
 
     const aliases = { ...mapping.public, ...mapping.internal };
-    validateAliasRules(aliasMatches, aliases, nativeIcons, 'UIkit compatibility');
+    validateAliasRules(aliasMatches, aliases, nativeIcons, 'Drake compatibility');
 
     const rtlAliases = expectedRtlAliases(aliases);
     const rtlPattern =
-        /^:dir\(rtl\)\.uk-ti\.uk-icon-alias-([a-z0-9]+(?:-[a-z0-9]+)*) \{ --uk-ti-mask: url\("(data:image\/svg\+xml,[^"]+)"\); \}$/gm;
+        /^:dir\(rtl\)\.drk-ti\.drk-icon-alias-([a-z0-9]+(?:-[a-z0-9]+)*) \{ --drk-ti-mask: url\("(data:image\/svg\+xml,[^"]+)"\); \}$/gm;
     const rtlMatches = [...css.matchAll(rtlPattern)];
     validateAliasRules(rtlMatches, rtlAliases, nativeIcons, 'RTL compatibility');
     assertEqual(rtlMatches.length, EXPECTED_RTL_ALIAS_COUNT, 'RTL compatibility alias count');
     assertEqual(
-        countMatches(css, /\.uk-ti\.uk-icon-alias-/g),
+        countMatches(css, /\.drk-ti\.drk-icon-alias-/g),
         Object.keys(aliases).length + rtlMatches.length,
-        'Total UIkit compatibility selector count',
+        'Total Drake compatibility selector count',
     );
 
     const urls = readCssUrls(css);
@@ -441,7 +441,7 @@ async function validateCoreLess(file, mapping, nativeIcons) {
     }
 
     const customPropertyPattern =
-        /^\s+--uk-tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*): url\("@\{tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*)\}"\);$/gm;
+        /^\s+--drk-tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*): url\("@\{tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*)\}"\);$/gm;
     const customProperties = collectRuleMap(
         [...less.matchAll(customPropertyPattern)],
         'core Tabler custom property',
@@ -452,14 +452,14 @@ async function validateCoreLess(file, mapping, nativeIcons) {
     }
 
     const aliasPattern =
-        /^\.uk-ti\.uk-icon-alias-([a-z0-9]+(?:-[a-z0-9]+)*) \{ --uk-ti-mask: var\(--uk-tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*)\); \}$/gm;
-    const aliases = collectRuleMap([...less.matchAll(aliasPattern)], 'core UIkit alias');
-    assertRuleTargets(aliases, mapping.internal, 'Core UIkit aliases');
+        /^\.drk-ti\.drk-icon-alias-([a-z0-9]+(?:-[a-z0-9]+)*) \{ --drk-ti-mask: var\(--drk-tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*)\); \}$/gm;
+    const aliases = collectRuleMap([...less.matchAll(aliasPattern)], 'core Drake alias');
+    assertRuleTargets(aliases, mapping.internal, 'Core Drake aliases');
 
     const rtlPattern =
-        /^:dir\(rtl\)\.uk-ti\.uk-icon-alias-([a-z0-9]+(?:-[a-z0-9]+)*) \{ --uk-ti-mask: var\(--uk-tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*)\); \}$/gm;
-    const rtlAliases = collectRuleMap([...less.matchAll(rtlPattern)], 'core RTL UIkit alias');
-    assertRuleTargets(rtlAliases, expectedRtlAliases(mapping.internal), 'Core RTL UIkit aliases');
+        /^:dir\(rtl\)\.drk-ti\.drk-icon-alias-([a-z0-9]+(?:-[a-z0-9]+)*) \{ --drk-ti-mask: var\(--drk-tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*)\); \}$/gm;
+    const rtlAliases = collectRuleMap([...less.matchAll(rtlPattern)], 'core RTL Drake alias');
+    assertRuleTargets(rtlAliases, expectedRtlAliases(mapping.internal), 'Core RTL Drake aliases');
 
     assertEqual(readCssUrls(less).length, EXPECTED_CORE_TARGET_COUNT, 'Core embedded mask count');
 }
@@ -712,14 +712,14 @@ async function validateDistFiles(dist) {
 
 async function validateBuiltCoreCss(dist) {
     for (const name of [
-        'uikit.css',
-        'uikit.min.css',
-        'uikit-rtl.css',
-        'uikit-rtl.min.css',
-        'uikit-core.css',
-        'uikit-core.min.css',
-        'uikit-core-rtl.css',
-        'uikit-core-rtl.min.css',
+        'drake.css',
+        'drake.min.css',
+        'drake-rtl.css',
+        'drake-rtl.min.css',
+        'drake-core.css',
+        'drake-core.min.css',
+        'drake-core-rtl.css',
+        'drake-core-rtl.min.css',
     ]) {
         const file = join(dist, 'css', name);
         const css = await readFile(file, 'utf8').catch((error) => {
@@ -729,7 +729,7 @@ async function validateBuiltCoreCss(dist) {
             !css.includes(`Tabler Icons ${TABLER_VERSION}`) ||
             !css.includes('MIT License') ||
             !css.includes('Copyright (c)') ||
-            !css.includes('@uikit-fork-asset tabler-core')
+            !css.includes('@drake-fork-asset tabler-core')
         ) {
             throw new Error(`The built core stylesheet lacks its Tabler legal notice: ${file}.`);
         }
@@ -744,7 +744,7 @@ async function validateDistManifest() {
 }
 
 async function validatePackageContents() {
-    const cacheDirectory = await mkdtemp(join(tmpdir(), 'uikit-ts-npm-pack-'));
+    const cacheDirectory = await mkdtemp(join(tmpdir(), 'drake-ts-npm-pack-'));
 
     try {
         const { stdout } = await execFileAsync(
@@ -786,20 +786,20 @@ async function validatePackageContents() {
             'licenses/Inter-OFL-1.1.txt',
             'licenses/Tabler-Icons-MIT.txt',
             'dist/fork-manifest.json',
-            'dist/css/uikit-core.css',
-            'dist/css/uikit-core.min.css',
-            'dist/css/uikit-core-rtl.css',
-            'dist/css/uikit-core-rtl.min.css',
-            'dist/css/uikit-inter.css',
-            'dist/css/uikit-tabler-icons.css',
-            'dist/css/uikit.css',
-            'dist/css/uikit.min.css',
-            'dist/css/uikit-rtl.css',
-            'dist/css/uikit-rtl.min.css',
-            'dist/js/uikit-core.js',
-            'dist/js/uikit-core.min.js',
-            'dist/js/uikit.js',
-            'dist/js/uikit.min.js',
+            'dist/css/drake-core.css',
+            'dist/css/drake-core.min.css',
+            'dist/css/drake-core-rtl.css',
+            'dist/css/drake-core-rtl.min.css',
+            'dist/css/drake-inter.css',
+            'dist/css/drake-tabler-icons.css',
+            'dist/css/drake.css',
+            'dist/css/drake.min.css',
+            'dist/css/drake-rtl.css',
+            'dist/css/drake-rtl.min.css',
+            'dist/js/drake-core.js',
+            'dist/js/drake-core.min.js',
+            'dist/js/drake.js',
+            'dist/js/drake.min.js',
             ...EXPECTED_COMPONENT_BUNDLES.flatMap((name) => [
                 `dist/js/components/${name}.js`,
                 `dist/js/components/${name}.min.js`,
@@ -836,7 +836,7 @@ async function walk(directory, prohibited) {
 
 function readMarker(css, asset) {
     const matches = [
-        ...css.matchAll(new RegExp(`/\\*!? @uikit-fork-asset ${asset} ([^*]+)\\*/`, 'g')),
+        ...css.matchAll(new RegExp(`/\\*!? @drake-fork-asset ${asset} ([^*]+)\\*/`, 'g')),
     ];
     if (matches.length !== 1) {
         throw new Error(`Expected one ${asset} asset marker, found ${matches.length}.`);

@@ -1,11 +1,11 @@
-import { $$, addClass, css, hasClass, offset, removeClass } from 'uikit-util';
+import { $$, addClass, css, hasClass, offset, removeClass } from 'drake-util';
 import { defineComponent } from '../api/options';
 import type { ComponentInternalInstance, FrameworkEvent } from '../types';
 import { awaitTimeout } from '../util/await';
 import { active } from './drop';
 import Dropnav from './dropnav';
 
-const clsNavbarTransparent = 'uk-navbar-transparent';
+const clsNavbarTransparent = 'drk-navbar-transparent';
 
 interface NavbarProps {
     dropbarTransparentMode: boolean | 'behind' | 'remove';
@@ -41,25 +41,27 @@ export default defineComponent<NavbarInstance>()({
         flip: false,
         autoUpdate: false,
         delayShow: 200,
-        clsDrop: 'uk-navbar-dropdown',
+        clsDrop: 'drk-navbar-dropdown',
         selNavItem:
-            '.uk-navbar-nav > li > a,a.uk-navbar-item,button.uk-navbar-item,.uk-navbar-item a,.uk-navbar-item button,.uk-navbar-toggle', // Simplify with :where() selector once browser target is Safari 14+
+            '.drk-navbar-nav > li > a,a.drk-navbar-item,button.drk-navbar-item,.drk-navbar-item a,.drk-navbar-item button,.drk-navbar-toggle', // Simplify with :where() selector once browser target is Safari 14+
         dropbarTransparentMode: false,
     },
 
     computed: {
         navbarContainer: (_props: NavbarProps, $el: Element) =>
-            $el.closest<HTMLElement>('.uk-navbar-container'),
+            $el.closest<HTMLElement>('.drk-navbar-container'),
     },
 
     watch: {
         items() {
-            const justify = hasClass(this.$el, 'uk-navbar-justify');
-            const containers = $$('.uk-navbar-nav, .uk-navbar-left, .uk-navbar-right', this.$el);
+            const justify = hasClass(this.$el, 'drk-navbar-justify');
+            const containers = $$('.drk-navbar-nav, .drk-navbar-left, .drk-navbar-right', this.$el);
             for (const container of containers) {
                 const items = justify
-                    ? $$('.uk-navbar-nav > li > a, .uk-navbar-item, .uk-navbar-toggle', container)
-                          .length
+                    ? $$(
+                          '.drk-navbar-nav > li > a, .drk-navbar-item, .drk-navbar-toggle',
+                          container,
+                      ).length
                     : '';
                 css(container, 'flexGrow', items);
             }
@@ -111,7 +113,7 @@ export default defineComponent<NavbarInstance>()({
 
             const drop = this.getDropdown(el);
 
-            if (drop && hasClass(el, 'uk-dropbar')) {
+            if (drop && hasClass(el, 'drk-dropbar')) {
                 return drop.inset ? 'behind' : 'remove';
             }
         },

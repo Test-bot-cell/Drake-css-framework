@@ -26,7 +26,7 @@ import {
     pointerUp,
     query,
     removeClass,
-} from 'uikit-util';
+} from 'drake-util';
 import { defineComponent } from '../api/options';
 import Class from '../mixin/class';
 import Container from '../mixin/container';
@@ -139,11 +139,11 @@ export default defineComponent<DropInstance>()({
         autoUpdate: true,
         animateOut: false,
         bgScroll: true,
-        animation: ['uk-animation-fade'],
-        cls: 'uk-open',
+        animation: ['drk-animation-fade'],
+        cls: 'drk-open',
         container: false,
         closeOnScroll: false,
-        selClose: '.uk-drop-close',
+        selClose: '.drk-drop-close',
     },
 
     computed: {
@@ -170,7 +170,7 @@ export default defineComponent<DropInstance>()({
     },
 
     connected() {
-        addClass(this.$el, 'uk-drop');
+        addClass(this.$el, 'drk-drop');
 
         if (this.toggle && !this.targetEl) {
             this.targetEl = createToggleComponent(this);
@@ -451,13 +451,13 @@ export default defineComponent<DropInstance>()({
         },
 
         isDelaying() {
-            return [this.$el, ...$$('.uk-drop', this.$el)].some((el) => this.tracker.movesTo(el));
+            return [this.$el, ...$$('.drk-drop', this.$el)].some((el) => this.tracker.movesTo(el));
         },
 
         position() {
             const restoreScrollPosition = storeScrollPosition(this.$el);
 
-            removeClass(this.$el, 'uk-drop-stack');
+            removeClass(this.$el, 'drk-drop-stack');
             css(this.$el, this._style);
 
             // Ensure none positioned element does not generate scrollbars
@@ -493,7 +493,7 @@ export default defineComponent<DropInstance>()({
             css(this.$el, 'maxWidth', '');
 
             if (this.$el.offsetWidth > maxWidth) {
-                addClass(this.$el, 'uk-drop-stack');
+                addClass(this.$el, 'drk-drop-stack');
             }
 
             css(this.$el, 'maxWidth', maxWidth);

@@ -1,11 +1,11 @@
 // Name:            Slideshow
 // Description:     Component to create slideshows
 //
-// Component:       `uk-slideshow`
+// Component:       `drk-slideshow`
 //
-// Sub-objects:     `uk-slideshow-items`
+// Sub-objects:     `drk-slideshow-items`
 //
-// States:          `uk-active`
+// States:          `drk-active`
 //
 // ========================================================================
 
@@ -18,7 +18,7 @@
  * 1. Prevent tab highlighting on iOS.
  */
 
-.uk-slideshow {
+.drk-slideshow {
     /* 1 */
     -webkit-tap-highlight-color: transparent;
     .hook-slideshow();
@@ -36,7 +36,7 @@
  * 5. Disable horizontal panning gestures
  */
 
-.uk-slideshow-items {
+.drk-slideshow-items {
     /* 1 */
     position: relative;
     z-index: 0;
@@ -59,11 +59,11 @@
 /*
  * 1. Position items above each other
  * 2. Take the full width
- * 3. Clip child elements, e.g. for `uk-cover`
+ * 3. Clip child elements, e.g. for `drk-cover`
  * 4. Optimize animation
  */
 
-.uk-slideshow-items > * {
+.drk-slideshow-items > * {
     /* 1 */
     position: absolute;
     top: 0;
@@ -81,12 +81,12 @@
  * Hide not active items
  */
 
-.uk-slideshow-items > :not(.uk-active) { display: none; }
+.drk-slideshow-items > :not(.drk-active) { display: none; }
 
 /*
  * Reset animations on hidden slides so the Ken Burns effect restarts in Safari.
  */
-.uk-slideshow-items > :not(.uk-active) [class*="uk-animation-"] { animation-name: none; }
+.drk-slideshow-items > :not(.drk-active) [class*="drk-animation-"] { animation-name: none; }
 
 
 // Hooks

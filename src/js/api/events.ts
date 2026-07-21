@@ -1,4 +1,4 @@
-import { hasOwn, on } from 'uikit-util';
+import { hasOwn, on } from 'drake-util';
 import type {
     ComponentEventDefinition,
     ComponentEventMap,

@@ -16,7 +16,7 @@ import {
     matches,
     toggleClass,
     trigger,
-} from 'uikit-util';
+} from 'drake-util';
 import { defineComponent, parseOptions } from '../api/options';
 import Animate from '../mixin/animate';
 import { maybeDefaultPreventClick } from '../mixin/event';
@@ -63,8 +63,8 @@ export default defineComponent<FilterInstance>()({
     data: {
         target: '',
         selActive: false,
-        attrItem: 'uk-filter-control',
-        cls: 'uk-active',
+        attrItem: 'drk-filter-control',
+        cls: 'drk-active',
         duration: 250,
     },
 

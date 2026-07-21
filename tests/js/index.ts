@@ -6,15 +6,15 @@ interface ThemeDefinition {
     css: string;
 }
 
-const STYLE_KEY = '_uikit_style';
-const INVERSE_KEY = '_uikit_inverse';
-const DIRECTION_KEY = '_uikit_dir';
-const FALLBACK_THEME: ThemeDefinition = { css: '../dist/css/uikit.css' };
+const STYLE_KEY = '_drake_style';
+const INVERSE_KEY = '_drake_inverse';
+const DIRECTION_KEY = '_drake_dir';
+const FALLBACK_THEME: ThemeDefinition = { css: '../dist/css/drake.css' };
 const storage = window.sessionStorage;
 const requestedStyle = getParam('style');
 const externalThemes = loadThemes('../themes.json');
 const styles: Record<string, ThemeDefinition> = {
-    core: { css: '../dist/css/uikit-core.css' },
+    core: { css: '../dist/css/drake-core.css' },
     theme: FALLBACK_THEME,
     ...externalThemes,
 };
@@ -43,11 +43,11 @@ const direction = storage.getItem(DIRECTION_KEY) === 'rtl' ? 'rtl' : 'ltr';
 const selectedStyle = styles[storage.getItem(STYLE_KEY) ?? ''] ?? FALLBACK_THEME;
 
 document.dir = direction;
-appendStylesheet('../dist/css/uikit-inter.css');
+appendStylesheet('../dist/css/drake-inter.css');
 appendStylesheet(
     direction === 'rtl' ? selectedStyle.css.replace(/\.css$/, '-rtl.css') : selectedStyle.css,
 );
-appendStylesheet('../dist/css/uikit-tabler-icons.css');
+appendStylesheet('../dist/css/drake-tabler-icons.css');
 
 const testPageStyle = document.createElement('style');
 testPageStyle.textContent =
@@ -55,13 +55,13 @@ testPageStyle.textContent =
 document.head.append(testPageStyle);
 
 const runtime = document.createElement('script');
-runtime.src = '../dist/js/uikit.js';
+runtime.src = '../dist/js/drake.js';
 runtime.async = false;
 const runtimeReady = new Promise<void>((resolve, reject) => {
     runtime.addEventListener('load', () => resolve(), { once: true });
     runtime.addEventListener(
         'error',
-        () => reject(new Error(`Unable to load the UIkit fixture runtime: ${runtime.src}`)),
+        () => reject(new Error(`Unable to load the Drake fixture runtime: ${runtime.src}`)),
         { once: true },
     );
 });
@@ -76,7 +76,7 @@ window.addEventListener('load', async () => {
     await awaitFrame();
 
     const container = document.createElement('div');
-    container.className = 'uk-container';
+    container.className = 'drk-container';
 
     const testSelect = createSelect('Component switcher', [
         ['index.html', 'Overview'],
@@ -95,7 +95,7 @@ window.addEventListener('load', async () => {
     const rtlText = document.createElement('span');
 
     rtlCheckbox.type = 'checkbox';
-    rtlCheckbox.className = 'uk-checkbox';
+    rtlCheckbox.className = 'drk-checkbox';
     rtlCheckbox.checked = direction === 'rtl';
     rtlText.textContent = 'RTL';
     rtlText.style.margin = '5px';
@@ -154,7 +154,7 @@ function createSelect(
     options: ReadonlyArray<readonly [string, string]>,
 ): HTMLSelectElement {
     const select = document.createElement('select');
-    select.className = 'uk-select uk-form-width-small';
+    select.className = 'drk-select drk-form-width-small';
     select.ariaLabel = label;
     select.style.margin = '20px';
 
@@ -209,32 +209,32 @@ function applyInverse(inverse: string): void {
     }
 
     const inverseClasses = [
-        'uk-card-default',
-        'uk-card-muted',
-        'uk-card-primary',
-        'uk-card-secondary',
-        'uk-card-overlay',
-        'uk-tile-default',
-        'uk-tile-muted',
-        'uk-tile-primary',
-        'uk-tile-secondary',
-        'uk-section-default',
-        'uk-section-muted',
-        'uk-section-primary',
-        'uk-section-secondary',
-        'uk-overlay-default',
-        'uk-overlay-primary',
+        'drk-card-default',
+        'drk-card-muted',
+        'drk-card-primary',
+        'drk-card-secondary',
+        'drk-card-overlay',
+        'drk-tile-default',
+        'drk-tile-muted',
+        'drk-tile-primary',
+        'drk-tile-secondary',
+        'drk-section-default',
+        'drk-section-muted',
+        'drk-section-primary',
+        'drk-section-secondary',
+        'drk-overlay-default',
+        'drk-overlay-primary',
     ];
 
     for (const element of document.querySelectorAll<HTMLElement>('*')) {
         element.classList.remove(...inverseClasses);
     }
-    for (const navbar of document.querySelectorAll<HTMLElement>('.uk-navbar-container')) {
-        navbar.classList.add('uk-navbar-transparent');
+    for (const navbar of document.querySelectorAll<HTMLElement>('.drk-navbar-container')) {
+        navbar.classList.add('drk-navbar-transparent');
     }
 
     document.documentElement.style.background = inverse === 'dark' ? '#fff' : '#222';
-    document.body.classList.add(`uk-${inverse}`);
+    document.body.classList.add(`drk-${inverse}`);
 }
 
 function getParam(name: string): string | null {

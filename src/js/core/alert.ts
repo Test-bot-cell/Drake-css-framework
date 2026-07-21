@@ -1,4 +1,4 @@
-import { css, toFloat, Transition } from 'uikit-util';
+import { css, toFloat, Transition } from 'drake-util';
 import { defineComponent } from '../api/options';
 import Class from '../mixin/class';
 import { maybeDefaultPreventClick } from '../mixin/event';
@@ -36,7 +36,7 @@ export default defineComponent<AlertInstance>()({
 
     data: {
         animation: true,
-        selClose: '.uk-alert-close',
+        selClose: '.drk-alert-close',
         duration: 150,
     },
 

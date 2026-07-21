@@ -6,7 +6,7 @@ import {
     on,
     scrollIntoView,
     trigger,
-} from 'uikit-util';
+} from 'drake-util';
 import { defineComponent } from '../api/options';
 import type { ComponentInternalInstance, FrameworkEvent } from '../types';
 

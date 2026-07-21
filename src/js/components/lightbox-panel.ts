@@ -19,7 +19,7 @@ import {
     toggleClass,
     trigger,
     wrapAll,
-} from 'uikit-util';
+} from 'drake-util';
 import { defineComponent } from '../api/options';
 import { wrapInPicture } from '../core/img';
 import Modal from '../mixin/modal';
@@ -118,36 +118,36 @@ export default defineComponent<LightboxPanelInstance>()({
         delayControls: 3000,
         videoAutoplay: false,
         items: [],
-        cls: 'uk-open',
-        clsPage: 'uk-lightbox-page',
-        clsFit: 'uk-lightbox-items-fit',
-        clsZoom: 'uk-lightbox-zoom',
-        attrItem: 'uk-lightbox-item',
-        selList: '.uk-lightbox-items',
-        selClose: '.uk-close-large',
-        selNav: '.uk-lightbox-thumbnav, .uk-lightbox-dotnav',
-        selCaption: '.uk-lightbox-caption',
-        selCounter: '.uk-lightbox-counter',
+        cls: 'drk-open',
+        clsPage: 'drk-lightbox-page',
+        clsFit: 'drk-lightbox-items-fit',
+        clsZoom: 'drk-lightbox-zoom',
+        attrItem: 'drk-lightbox-item',
+        selList: '.drk-lightbox-items',
+        selClose: '.drk-close-large',
+        selNav: '.drk-lightbox-thumbnav, .drk-lightbox-dotnav',
+        selCaption: '.drk-lightbox-caption',
+        selCounter: '.drk-lightbox-counter',
         pauseOnHover: false,
         velocity: 2,
         Animations,
-        template: `<div class="uk-lightbox uk-overflow-hidden">
-                        <div class="uk-lightbox-items"></div>
-                        <div class="uk-position-top-right uk-position-small uk-transition-fade" uk-inverse>
-                            <button class="uk-lightbox-close uk-close-large" type="button" uk-close></button>
+        template: `<div class="drk-lightbox drk-overflow-hidden">
+                        <div class="drk-lightbox-items"></div>
+                        <div class="drk-position-top-right drk-position-small drk-transition-fade" drk-inverse>
+                            <button class="drk-lightbox-close drk-close-large" type="button" drk-close></button>
                         </div>
-                        <div class="uk-lightbox-slidenav uk-position-center-left uk-position-medium uk-transition-fade" uk-inverse>
-                            <a href uk-slidenav-previous uk-lightbox-item="previous"></a>
+                        <div class="drk-lightbox-slidenav drk-position-center-left drk-position-medium drk-transition-fade" drk-inverse>
+                            <a href drk-slidenav-previous drk-lightbox-item="previous"></a>
                         </div>
-                        <div class="uk-lightbox-slidenav uk-position-center-right uk-position-medium uk-transition-fade" uk-inverse>
-                            <a href uk-slidenav-next uk-lightbox-item="next"></a>
+                        <div class="drk-lightbox-slidenav drk-position-center-right drk-position-medium drk-transition-fade" drk-inverse>
+                            <a href drk-slidenav-next drk-lightbox-item="next"></a>
                         </div>
-                        <div class="uk-position-center-right uk-position-medium uk-transition-fade" uk-inverse style="max-height: 90vh; overflow: auto;">
-                            <ul class="uk-lightbox-thumbnav uk-lightbox-thumbnav-vertical uk-thumbnav uk-thumbnav-vertical"></ul>
-                            <ul class="uk-lightbox-dotnav uk-dotnav uk-dotnav-vertical"></ul>
+                        <div class="drk-position-center-right drk-position-medium drk-transition-fade" drk-inverse style="max-height: 90vh; overflow: auto;">
+                            <ul class="drk-lightbox-thumbnav drk-lightbox-thumbnav-vertical drk-thumbnav drk-thumbnav-vertical"></ul>
+                            <ul class="drk-lightbox-dotnav drk-dotnav drk-dotnav-vertical"></ul>
                         </div>
-                        <div class="uk-lightbox-counter uk-text-large uk-position-top-left uk-position-small uk-transition-fade" uk-inverse></div>
-                        <div class="uk-lightbox-caption uk-position-bottom uk-text-center uk-transition-slide-bottom uk-transition-opaque"></div>
+                        <div class="drk-lightbox-counter drk-text-large drk-position-top-left drk-position-small drk-transition-fade" drk-inverse></div>
+                        <div class="drk-lightbox-caption drk-position-bottom drk-text-center drk-transition-slide-bottom drk-transition-opaque"></div>
                     </div>`,
     }),
 
@@ -170,14 +170,14 @@ export default defineComponent<LightboxPanelInstance>()({
         }
         const navType = this.$props.nav;
 
-        remove($$(this.selNav, $el).filter((el) => !matches(el, `.uk-${navType}`)));
+        remove($$(this.selNav, $el).filter((el) => !matches(el, `.drk-${navType}`)));
 
         for (const [i, item] of this.items.entries()) {
             append(list, '<div>');
             if (navType === 'thumbnav') {
                 const nav = $(this.selNav, $el);
                 const navItem = nav
-                    ? append(nav, `<li uk-lightbox-item="${i}"><a href></a></li>`)
+                    ? append(nav, `<li drk-lightbox-item="${i}"><a href></a></li>`)
                     : undefined;
                 if (navItem instanceof Element) {
                     wrapAll(toThumbnavItem(item, this.videoAutoplay), navItem);
@@ -186,7 +186,7 @@ export default defineComponent<LightboxPanelInstance>()({
         }
 
         if (!this.slidenav) {
-            remove($$('.uk-lightbox-slidenav', $el));
+            remove($$('.drk-lightbox-slidenav', $el));
         }
 
         if (!this.counter) {
@@ -195,7 +195,7 @@ export default defineComponent<LightboxPanelInstance>()({
 
         addClass(list, this.clsFit);
 
-        const close = $('[uk-close]', $el);
+        const close = $('[drk-close]', $el);
         const closeLabel = this.t('close');
         if (close && closeLabel) {
             close.dataset.i18n = JSON.stringify({ label: closeLabel });
@@ -362,7 +362,7 @@ export default defineComponent<LightboxPanelInstance>()({
                 const { source: src, type } = item;
                 const attrs = toAttributes(item.attrs);
 
-                this.setItem(item, '<span uk-spinner uk-inverse></span>');
+                this.setItem(item, '<span drk-spinner drk-inverse></span>');
 
                 if (!src) {
                     return;
@@ -372,8 +372,8 @@ export default defineComponent<LightboxPanelInstance>()({
                 const iframeAttrs = {
                     allowfullscreen: '',
                     style: 'max-width: 100%; box-sizing: border-box;',
-                    'uk-responsive': '',
-                    'uk-video': Boolean(this.videoAutoplay),
+                    'drk-responsive': '',
+                    'drk-video': Boolean(this.videoAutoplay),
                 };
 
                 // Image
@@ -400,7 +400,7 @@ export default defineComponent<LightboxPanelInstance>()({
                         loop: inline ? '' : null,
                         muted: inline ? '' : null,
                         poster: this.videoAutoplay ? null : (item.poster ?? null),
-                        'uk-video': Boolean(this.videoAutoplay),
+                        'drk-video': Boolean(this.videoAutoplay),
                         ...attrs,
                     });
 
@@ -414,7 +414,7 @@ export default defineComponent<LightboxPanelInstance>()({
                         createEl('iframe', {
                             src,
                             allowfullscreen: '',
-                            class: 'uk-lightbox-iframe',
+                            class: 'drk-lightbox-iframe',
                             ...attrs,
                         }),
                     );
@@ -531,7 +531,7 @@ export default defineComponent<LightboxPanelInstance>()({
         },
 
         setError(item: LightboxItem) {
-            this.setItem(item, '<span uk-icon="icon: bolt; ratio: 2" uk-inverse></span>');
+            this.setItem(item, '<span drk-icon="icon: bolt; ratio: 2" drk-inverse></span>');
         },
 
         showControls() {
@@ -540,11 +540,11 @@ export default defineComponent<LightboxPanelInstance>()({
                 ? setTimeout(this.hideControls, this.delayControls)
                 : undefined;
 
-            addClass(this.$el, 'uk-active', 'uk-transition-active');
+            addClass(this.$el, 'drk-active', 'drk-transition-active');
         },
 
         hideControls() {
-            removeClass(this.$el, 'uk-active', 'uk-transition-active');
+            removeClass(this.$el, 'drk-active', 'drk-transition-active');
         },
     },
 });
@@ -572,7 +572,7 @@ function toThumbnavItem(item: LightboxItem, videoAutoplay: boolean | 'inline'): 
                     loop: '',
                     playsinline: '',
                     muted: '',
-                    'uk-video': videoAutoplay === 'inline',
+                    'drk-video': videoAutoplay === 'inline',
                 })
               : createEl('canvas');
 

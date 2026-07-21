@@ -2,204 +2,204 @@
     "schemaVersion": 1,
     "files": [
         {
-            "path": "dist/css/uikit-core-rtl.css",
-            "bytes": 397254,
-            "sha256": "3a3a04aab2152360284ad2d47644bb6180af59efce386984734e5fc44f2a47f0"
+            "path": "dist/css/drake-core-rtl.css",
+            "bytes": 407820,
+            "sha256": "56e79de46599816494f325b7fcc16626dd32f1e2764b718a5b7587b709fa08a6"
         },
         {
-            "path": "dist/css/uikit-core-rtl.min.css",
-            "bytes": 283206,
-            "sha256": "3550fc5dbcd04be8d8115a2fe609bd1671744836ff1031cb61198607a06c464c"
+            "path": "dist/css/drake-core-rtl.min.css",
+            "bytes": 293728,
+            "sha256": "e78c7a841840e17742f054cd98c3c6a8045c18edce6e86d5923513a210f06371"
         },
         {
-            "path": "dist/css/uikit-core.css",
-            "bytes": 397148,
-            "sha256": "5a22fe96a5e3839a4720203ce95c620ec728d0d52298421a2999e1c4b0a9d622"
+            "path": "dist/css/drake-core.css",
+            "bytes": 407714,
+            "sha256": "dc71b26b0ff355d7cde92409a7adc4f80df1a65022e64cc980ea38f6ea7bfbca"
         },
         {
-            "path": "dist/css/uikit-core.min.css",
-            "bytes": 283105,
-            "sha256": "f9a01532707d3bacf1a5c5d6fe749fefc3d9dd3595fd4b19fcdf1bb1107d5e30"
+            "path": "dist/css/drake-core.min.css",
+            "bytes": 293627,
+            "sha256": "164ed9e1687e3b4bc9bc09dbec82ca24a6c30a0d85f05a3b76899ac35f33cd02"
         },
         {
-            "path": "dist/css/uikit-inter.css",
+            "path": "dist/css/drake-inter.css",
             "bytes": 992568,
-            "sha256": "927cd0816c5f223625cebf156feb2f6637f0b268fc1664253daba55890d845a5"
+            "sha256": "3caff034027f007f8946ae738ab760a3ac5b404535003e51ee850a05410fd645"
         },
         {
-            "path": "dist/css/uikit-rtl.css",
-            "bytes": 415969,
-            "sha256": "bd716f758ade275a51c865c7f0444d22b203ac4437a695d7446d0710614b40bb"
+            "path": "dist/css/drake-rtl.css",
+            "bytes": 426954,
+            "sha256": "41a6dce42e43566bcc8bf334fe6fddadd17fe19d27f3c0089ed1e4e356e044cb"
         },
         {
-            "path": "dist/css/uikit-rtl.min.css",
-            "bytes": 298892,
-            "sha256": "69be6e59caf5ad45239b7a0db46407b6e690de2255b6650d12dc56406f36febc"
+            "path": "dist/css/drake-rtl.min.css",
+            "bytes": 309833,
+            "sha256": "39782e692e9c2196393c8be562062157c762372cfc6c21db5096652bdd2346f6"
         },
         {
-            "path": "dist/css/uikit-tabler-icons.css",
-            "bytes": 3994635,
-            "sha256": "6b26d52f1cd938a5c797d01a6c8b0edaf09f4b328e331a1b519330210f2a551f"
+            "path": "dist/css/drake-tabler-icons.css",
+            "bytes": 4005276,
+            "sha256": "df895a32fcd5f84c0a264293e742b11d456c88717ebc1b903e2cc944b6c4d948"
         },
         {
-            "path": "dist/css/uikit.css",
-            "bytes": 415855,
-            "sha256": "bca28b8e0c7adba52a7a244ba6fc3f993a0427544f5536789e0920a7b5d1ca15"
+            "path": "dist/css/drake.css",
+            "bytes": 426840,
+            "sha256": "8bc6cd5a1b5e35f528fe104749d5d03dae21172a491f43eea8d21486fb27b305"
         },
         {
-            "path": "dist/css/uikit.min.css",
-            "bytes": 298783,
-            "sha256": "277fd7ade410a194375f3e7175ba99dff9de315399c4909857c4d6b98cdb7893"
+            "path": "dist/css/drake.min.css",
+            "bytes": 309724,
+            "sha256": "5fdeec91c085d0d9c8d13390f60e9a04858c4b550afbe131cd7b63126486900c"
         },
         {
             "path": "dist/js/components/countdown.js",
-            "bytes": 4175,
-            "sha256": "0dd4a96100729490dbb479a7a174a44e8aea795c84b4564f955217c1bcf52849"
+            "bytes": 4200,
+            "sha256": "702c72b80e94fe797876835d1ade9dc28d82bd178dc39ce32a37fbc0c6a81cda"
         },
         {
             "path": "dist/js/components/countdown.min.js",
-            "bytes": 2167,
-            "sha256": "084fbd614e7b91f3c22be32ec1b4c7b4aae38736cc17c55ec2519f567270a41c"
+            "bytes": 2192,
+            "sha256": "a8fa98fa26c16a52996d5dd66a9451dea7de92b2d977903ee38b4b33996c2a9e"
         },
         {
             "path": "dist/js/components/filter.js",
-            "bytes": 24222,
-            "sha256": "96c439a4c668494c9a25eb011dac5f888a56fe400010fcc1f42def83578cde32"
+            "bytes": 24252,
+            "sha256": "7a7abe541fdf5d32d346e24c5f3181a266dac9ea098c0f7a8ff97e578f81862b"
         },
         {
             "path": "dist/js/components/filter.min.js",
-            "bytes": 10165,
-            "sha256": "f1bcbdcabcd7892933aee35c20b184b4c9edd19894f1ccbcac7b71612df8d54a"
+            "bytes": 10195,
+            "sha256": "eb369c43257787f24cd5371c2d54e4780d6b609fe3c1acba553ff5f3970fff07"
         },
         {
             "path": "dist/js/components/lightbox-panel.js",
-            "bytes": 91248,
-            "sha256": "a46d84d73bf153599d2b1380daa26cd61b4997a5c5be26bf066e15885e606740"
+            "bytes": 91357,
+            "sha256": "6ae896946fd00ab8a455d474a911379dc5c532ebbf67d2dc510c21037c4b4b55"
         },
         {
             "path": "dist/js/components/lightbox-panel.min.js",
-            "bytes": 42013,
-            "sha256": "89d272666ffa42a7f65113f083cb732230c35e88ccb3a2f10c0a434b3c81335e"
+            "bytes": 42122,
+            "sha256": "1fd1d3ed518678c63ba0036dc9e2aaa264c9bf94344fa7bccfbc3f26488adc0c"
         },
         {
             "path": "dist/js/components/lightbox.js",
-            "bytes": 95080,
-            "sha256": "52fe4b5f7f970adef6660df5408bfe86182ff6c32ad21be898542ff62eeae59f"
+            "bytes": 95191,
+            "sha256": "8ef6054c60e8f8371d15284c74d5eb119198cd3c6abb9e58db906eb4a740d20b"
         },
         {
             "path": "dist/js/components/lightbox.min.js",
-            "bytes": 43926,
-            "sha256": "98941c71db9834f65e7d5d6b59953f1949e3b60a037f5e614bb9b175b4ee1f67"
+            "bytes": 44037,
+            "sha256": "2910bd4a7eebf83734c620383a03ac89fdd9e16698bccc64adae524c04b091ea"
         },
         {
             "path": "dist/js/components/notification.js",
-            "bytes": 5721,
-            "sha256": "fb4e0f3c551c5105150f97ce29a281d70117a3295b7f70eaf23b7d3315d3bf88"
+            "bytes": 5749,
+            "sha256": "c5b1a74ac720862adec63fbd7df815f6f8a3aa04ce7569bf21457e6f40517d5c"
         },
         {
             "path": "dist/js/components/notification.min.js",
-            "bytes": 2878,
-            "sha256": "74479eaa678dcc52726f6632e66258c204add2f97d065c7f36cd246c808a044f"
+            "bytes": 2906,
+            "sha256": "e49f2bb08a7e3df2f0a55c762e1b234c4b584134be1e59fe3185410e554e6f04"
         },
         {
             "path": "dist/js/components/parallax.js",
-            "bytes": 30783,
-            "sha256": "a2a30f2ad59137fab84bf39f73fb545b3d8b5438505721aac4fe2c7e064927b5"
+            "bytes": 30808,
+            "sha256": "adca997af9e8d1842ed07707c8c052ef44e41b98e535be7d6abfdaaa1e911bad"
         },
         {
             "path": "dist/js/components/parallax.min.js",
-            "bytes": 12637,
-            "sha256": "a545ba4892082b196781180337a3f127a15a41929f8a1e372697924dfcab9258"
+            "bytes": 12662,
+            "sha256": "fb3f1febeadfcb50a64a326cda30fd41cfbdbd15f5e1a2e8408a051ca4cd6f0d"
         },
         {
             "path": "dist/js/components/slider-parallax.js",
-            "bytes": 27218,
-            "sha256": "2bf324f1eadbc77bf7042d05ebfaea32e81ad629081ed5976b6b8981503c19ce"
+            "bytes": 27243,
+            "sha256": "34d708cbd759c8ada58a72c83b6accb1e803bf5bb9ae2d2524b50c2be887ce12"
         },
         {
             "path": "dist/js/components/slider-parallax.min.js",
-            "bytes": 11329,
-            "sha256": "bd0c61f8ec6ce7732c2801a3df96ef3b2b08dd52fce7395fb16aca21098b174f"
+            "bytes": 11354,
+            "sha256": "b00a546b1dff293def7b7558525b1340eb8b93e5aa3fe6d64e40c3b268805a83"
         },
         {
             "path": "dist/js/components/slider.js",
-            "bytes": 72729,
-            "sha256": "990a727641b67c4257aab6ded3166c3af04aec1c199e3b4c634a4b97a061c8ce"
+            "bytes": 72765,
+            "sha256": "d616eb211467da30727b5038577101109d161da496d3e5db74255df6f51ce33b"
         },
         {
             "path": "dist/js/components/slider.min.js",
-            "bytes": 32698,
-            "sha256": "bfd9759e1064c18c69b752cb187d4d705498a5c8837e97560d3dcc5af5934196"
+            "bytes": 32734,
+            "sha256": "ee22b9f186b68a043e0a71c4c24ba25170e7990a3f4f508980630c9f1be7552d"
         },
         {
             "path": "dist/js/components/slideshow-parallax.js",
-            "bytes": 27227,
-            "sha256": "1a34381b99f8399ca935b4e1ab88aed6d1ebb1cdfa25ed8dc2276765c399232e"
+            "bytes": 27252,
+            "sha256": "86274cfd4ee65c4871cd87d23779c1c15250fd77cc4823dbd8dc9b0fb79fabad"
         },
         {
             "path": "dist/js/components/slideshow-parallax.min.js",
-            "bytes": 11338,
-            "sha256": "6bc51ef845b708389176df985e5ff33ab8fcf0750e615ebe27158b7ba1a9e9e2"
+            "bytes": 11363,
+            "sha256": "cbf856b62bef36072660a49e9b7f1b443a1da2da080f35ea4359c1f341de5bbb"
         },
         {
             "path": "dist/js/components/slideshow.js",
-            "bytes": 64261,
-            "sha256": "2b87aee8beafeac4928e9cff59cc6fd554e2b0f6a2aaccc6c0429f7720b9d786"
+            "bytes": 64297,
+            "sha256": "64a5b26cca55039a41f28740eaff728c432c715ff4dfe0b312da1f33a1f2d715"
         },
         {
             "path": "dist/js/components/slideshow.min.js",
-            "bytes": 28856,
-            "sha256": "52231a3dd4d4653b63c78802364c1ca840642f9070e29c7021c39f802d6facb2"
+            "bytes": 28892,
+            "sha256": "092d1d6711d528740f3d09a4ee3580eeacdcc5e2e0deff68f42cb8f413f96437"
         },
         {
             "path": "dist/js/components/sortable.js",
-            "bytes": 30130,
-            "sha256": "c63c6b67dae4cc0696675758f9298e98441059663b91a1d335aaa612fe4bc7d1"
+            "bytes": 30165,
+            "sha256": "9cf61c92e5509cacf5682adc460b9b9b0f16955e88fd956121754aa291ee8707"
         },
         {
             "path": "dist/js/components/sortable.min.js",
-            "bytes": 13170,
-            "sha256": "ba83284daf92f76f18826fe2d176bad7cd6cc392e614af3b92c316c9b53771ec"
+            "bytes": 13205,
+            "sha256": "2141581853d4549dccba9f2ee2fa1cff0f69ea3a2858e23507d0f6f16d4d59af"
         },
         {
             "path": "dist/js/components/tooltip.js",
-            "bytes": 17969,
-            "sha256": "94286221f2e352bfd1eed4aee9e70e58c01e0dc7c65195a59e063f7c48b961e0"
+            "bytes": 18003,
+            "sha256": "d24b012faa107276d654cf2dba083665796ddafa4df92c5284373770f3e6d329"
         },
         {
             "path": "dist/js/components/tooltip.min.js",
-            "bytes": 8466,
-            "sha256": "4a2d5e9ec621b0ca34a35d6f1e0937aff046fed693892ba536d531435373ea58"
+            "bytes": 8500,
+            "sha256": "5f11fbc111a5d1e641766db64e173263eab394b84467795f99389e7d53155a2d"
         },
         {
             "path": "dist/js/components/upload.js",
-            "bytes": 8576,
-            "sha256": "8257b7a7a7e85dde22e94db5e16dae1007e913da7896a36f504cfed988f9bd22"
+            "bytes": 8601,
+            "sha256": "aa199e69f9d3c7d2bb0b71be6a66845f37c0544b258c0ce1f4bc4319249268bd"
         },
         {
             "path": "dist/js/components/upload.min.js",
-            "bytes": 4212,
-            "sha256": "77944bd980e89adff8cb2c6b6a4401bb4374ea0935eb4ca9f83765659da2c24a"
+            "bytes": 4237,
+            "sha256": "00709a96a67d0438c2bcefcba591b70609df4a8474075e8f3fac56bcd668e357"
         },
         {
-            "path": "dist/js/uikit-core.js",
-            "bytes": 258569,
-            "sha256": "2ea9d819cdea96a43abe84a88a02f1c120c54ccb53db9ce96fd0ffdfdc83fa5f"
+            "path": "dist/js/drake-core.js",
+            "bytes": 258785,
+            "sha256": "e4e61dc848d8c0869cb107a296d8f251054b1fbed176091794642dce1683bed7"
         },
         {
-            "path": "dist/js/uikit-core.min.js",
-            "bytes": 110549,
-            "sha256": "3bd9f9d04233ae47f57d3317851f0d24231678df26458876beec325e6f54cc5e"
+            "path": "dist/js/drake-core.min.js",
+            "bytes": 110722,
+            "sha256": "294388f64066d4de2544b4f1d84920eda1191948e27be9e060b084a369a6ddb5"
         },
         {
-            "path": "dist/js/uikit.js",
-            "bytes": 391200,
-            "sha256": "6eb41a4003b258b89536b1f460ccf8458dc856c15881875f6d82c791dd778008"
+            "path": "dist/js/drake.js",
+            "bytes": 391527,
+            "sha256": "8a097b9ce4408c92e571cf7814d67bca0118963b1c63800e0dbd3ff180398a34"
         },
         {
-            "path": "dist/js/uikit.min.js",
-            "bytes": 169918,
-            "sha256": "15522662e8c626308bb4679f2304b38d0956580e9cd9e1d1a63883878d5d7a8b"
+            "path": "dist/js/drake.min.js",
+            "bytes": 170202,
+            "sha256": "69372669a3b44cbd76318f93d7c915d257900cc5568760230e70e3067e9a4318"
         }
     ]
 }

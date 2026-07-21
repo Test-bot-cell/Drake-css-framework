@@ -3,15 +3,15 @@
 // Name:            Sortable
 // Description:     Component to create sortable grids and lists
 //
-// Component:       `uk-sortable`
+// Component:       `drk-sortable`
 //
-// Sub-objects:     `uk-sortable-drag`
-//                  `uk-sortable-placeholder`
-//                  `uk-sortable-handle`
+// Sub-objects:     `drk-sortable-drag`
+//                  `drk-sortable-placeholder`
+//                  `drk-sortable-handle`
 //
-// Modifiers:       `uk-sortable-empty`
+// Modifiers:       `drk-sortable-empty`
 //
-// States:          `uk-drag`
+// States:          `drk-drag`
 //
 // ========================================================================
 
@@ -27,7 +27,7 @@
    Component: Sortable
  ========================================================================== */
 
-.uk-sortable {
+.drk-sortable {
     position: relative;
     @if(meta.mixin-exists(hook-sortable)) {@include hook-sortable();}
 }
@@ -36,13 +36,13 @@
  * Remove margin from the last-child
  */
 
-.uk-sortable > :last-child { margin-bottom: 0; }
+.drk-sortable > :last-child { margin-bottom: 0; }
 
 
 /* Drag
  ========================================================================== */
 
-.uk-sortable-drag {
+.drk-sortable-drag {
     position: fixed !important;
     z-index: $sortable-dragged-z-index !important;
     pointer-events: none;
@@ -53,7 +53,7 @@
 /* Placeholder
  ========================================================================== */
 
-.uk-sortable-placeholder {
+.drk-sortable-placeholder {
     opacity: $sortable-placeholder-opacity;
     pointer-events: none;
     @if(meta.mixin-exists(hook-sortable-placeholder)) {@include hook-sortable-placeholder();}
@@ -63,7 +63,7 @@
 /* Empty modifier
  ========================================================================== */
 
-.uk-sortable-empty {
+.drk-sortable-empty {
     min-height: $sortable-empty-height;
     @if(meta.mixin-exists(hook-sortable-empty)) {@include hook-sortable-empty();}
 }
@@ -73,7 +73,7 @@
  ========================================================================== */
 
 /* Hover */
-.uk-sortable-handle:hover { cursor: move; }
+.drk-sortable-handle:hover { cursor: move; }
 
 
 

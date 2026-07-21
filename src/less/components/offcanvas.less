@@ -1,21 +1,21 @@
 // Name:            Off-canvas
 // Description:     Component to create an off-canvas sidebar
 //
-// Component:       `uk-offcanvas`
+// Component:       `drk-offcanvas`
 //
-// Sub-objects:     `uk-offcanvas-bar`
-//                  `uk-offcanvas-container`
-//                  `uk-offcanvas-page`
+// Sub-objects:     `drk-offcanvas-bar`
+//                  `drk-offcanvas-container`
+//                  `drk-offcanvas-page`
 //
-// Adopted:         `uk-offcanvas-close`
+// Adopted:         `drk-offcanvas-close`
 //
-// Modifiers:       `uk-offcanvas-flip`
-//                  `uk-offcanvas-bar-animation`
-//                  `uk-offcanvas-reveal`
-//                  `uk-offcanvas-overlay`
-//                  `uk-offcanvas-container-animation`
+// Modifiers:       `drk-offcanvas-flip`
+//                  `drk-offcanvas-bar-animation`
+//                  `drk-offcanvas-reveal`
+//                  `drk-offcanvas-overlay`
+//                  `drk-offcanvas-container-animation`
 //
-// States:          `uk-open`
+// States:          `drk-open`
 //
 // ========================================================================
 
@@ -52,7 +52,7 @@
  * 2. Set position
  */
 
-.uk-offcanvas {
+.drk-offcanvas {
     /* 1 */
     display: none;
     /* 2 */
@@ -67,7 +67,7 @@
  * Flip modifier
  */
 
-.uk-offcanvas-flip .uk-offcanvas {
+.drk-offcanvas-flip .drk-offcanvas {
     right: 0;
     left: auto;
 }
@@ -82,8 +82,8 @@
  * 3. Allow scrolling
  */
 
-.uk-offcanvas-bar {
-    --uk-inverse: @offcanvas-bar-color-mode;
+.drk-offcanvas-bar {
+    --drk-inverse: @offcanvas-bar-color-mode;
     /* 1 */
     position: absolute;
     top: 0;
@@ -102,7 +102,7 @@
 /* Phone landscape and bigger */
 @media (min-width: @breakpoint-small) {
 
-    .uk-offcanvas-bar {
+    .drk-offcanvas-bar {
         left: -@offcanvas-bar-width-s;
         width: @offcanvas-bar-width-s;
         padding: @offcanvas-bar-padding-vertical-s @offcanvas-bar-padding-horizontal-s;
@@ -111,11 +111,11 @@
 }
 
 // Color Mode
-.uk-offcanvas-bar:extend(.uk-light all) when (@offcanvas-bar-color-mode = light) {}
-.uk-offcanvas-bar:extend(.uk-dark all) when (@offcanvas-bar-color-mode = dark) {}
+.drk-offcanvas-bar:extend(.drk-light all) when (@offcanvas-bar-color-mode = light) {}
+.drk-offcanvas-bar:extend(.drk-dark all) when (@offcanvas-bar-color-mode = dark) {}
 
 /* Flip modifier */
-.uk-offcanvas-flip .uk-offcanvas-bar {
+.drk-offcanvas-flip .drk-offcanvas-bar {
     left: auto;
     right: -@offcanvas-bar-width;
 }
@@ -123,7 +123,7 @@
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-small) {
 
-    .uk-offcanvas-flip .uk-offcanvas-bar { right: -@offcanvas-bar-width-s; }
+    .drk-offcanvas-flip .drk-offcanvas-bar { right: -@offcanvas-bar-width-s; }
 
 }
 
@@ -131,8 +131,8 @@
  * Open
  */
 
-.uk-open > .uk-offcanvas-bar { left: 0; }
-.uk-offcanvas-flip .uk-open > .uk-offcanvas-bar {
+.drk-open > .drk-offcanvas-bar { left: 0; }
+.drk-offcanvas-flip .drk-open > .drk-offcanvas-bar {
     left: auto;
     right: 0;
 }
@@ -141,8 +141,8 @@
  * Slide Animation (Used in slide and push mode)
  */
 
-.uk-offcanvas-bar-animation { transition: left 0.3s ease-out; }
-.uk-offcanvas-flip .uk-offcanvas-bar-animation { transition-property: right; }
+.drk-offcanvas-bar-animation { transition: left 0.3s ease-out; }
+.drk-offcanvas-flip .drk-offcanvas-bar-animation { transition-property: right; }
 
 /*
  * Reveal Animation
@@ -152,7 +152,7 @@
  * 4. Reset position
  */
 
-.uk-offcanvas-reveal {
+.drk-offcanvas-reveal {
     /* 1 */
     position: absolute;
     top: 0;
@@ -165,23 +165,23 @@
     transition: width 0.3s ease-out;
 }
 
-.uk-offcanvas-reveal .uk-offcanvas-bar {
+.drk-offcanvas-reveal .drk-offcanvas-bar {
     /* 4 */
     left: 0;
 }
 
-.uk-offcanvas-flip .uk-offcanvas-reveal .uk-offcanvas-bar {
+.drk-offcanvas-flip .drk-offcanvas-reveal .drk-offcanvas-bar {
     /* 4 */
     left: auto;
     right: 0;
 }
 
-.uk-open > .uk-offcanvas-reveal { width: @offcanvas-bar-width; }
+.drk-open > .drk-offcanvas-reveal { width: @offcanvas-bar-width; }
 
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-small) {
 
-    .uk-open > .uk-offcanvas-reveal { width: @offcanvas-bar-width-s; }
+    .drk-open > .drk-offcanvas-reveal { width: @offcanvas-bar-width-s; }
 
 }
 
@@ -189,17 +189,17 @@
  * Flip modifier
  */
 
-.uk-offcanvas-flip .uk-offcanvas-reveal {
+.drk-offcanvas-flip .drk-offcanvas-reveal {
     right: 0;
     left: auto;
 }
 
 
 /* Close
- * Adopts `uk-close`
+ * Adopts `drk-close`
  ========================================================================== */
 
-.uk-offcanvas-close {
+.drk-offcanvas-close {
     position: absolute;
     z-index: @offcanvas-z-index;
     top: @offcanvas-close-position;
@@ -211,7 +211,7 @@
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-small) {
 
-    .uk-offcanvas-close {
+    .drk-offcanvas-close {
         top: @offcanvas-close-position-s;
         right: @offcanvas-close-position-s;
     }
@@ -222,7 +222,7 @@
  * Remove margin from adjacent element
  */
 
-.uk-offcanvas-close:first-child + * { margin-top: 0; }
+.drk-offcanvas-close:first-child + * { margin-top: 0; }
 
 
 /* Overlay
@@ -234,7 +234,7 @@
  * 2. Allow for closing with swipe gesture on devices with pointer events.
  */
 
-.uk-offcanvas-overlay {
+.drk-offcanvas-overlay {
     /* 1 */
     width: 100vw;
     /* 2 */
@@ -246,7 +246,7 @@
  * 2. Fade-in transition
  */
 
-.uk-offcanvas-overlay::before {
+.drk-offcanvas-overlay::before {
     /* 1 */
     content: "";
     position: absolute;
@@ -261,7 +261,7 @@
     .hook-offcanvas-overlay();
 }
 
-.uk-offcanvas-overlay.uk-open::before { opacity: 1; }
+.drk-offcanvas-overlay.drk-open::before { opacity: 1; }
 
 
 /* Prevent scrolling
@@ -273,8 +273,8 @@
  * 1. `clip` is needed for `position: sticky` elements to keep their position
  */
 
-.uk-offcanvas-page,
-.uk-offcanvas-container {
+.drk-offcanvas-page,
+.drk-offcanvas-container {
     overflow-x: hidden;
     /* 1 */
     overflow-x: clip;
@@ -291,7 +291,7 @@
  * 1. Provide a fixed width and prevent shrinking
  */
 
-.uk-offcanvas-container {
+.drk-offcanvas-container {
     position: relative;
     left: 0;
     transition: left 0.3s ease-out;
@@ -304,16 +304,16 @@
  * Activate slide-out animation
  */
 
-:not(.uk-offcanvas-flip).uk-offcanvas-container-animation { left: @offcanvas-bar-width; }
+:not(.drk-offcanvas-flip).drk-offcanvas-container-animation { left: @offcanvas-bar-width; }
 
-.uk-offcanvas-flip.uk-offcanvas-container-animation { left: -@offcanvas-bar-width; }
+.drk-offcanvas-flip.drk-offcanvas-container-animation { left: -@offcanvas-bar-width; }
 
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-small) {
 
-    :not(.uk-offcanvas-flip).uk-offcanvas-container-animation { left: @offcanvas-bar-width-s; }
+    :not(.drk-offcanvas-flip).drk-offcanvas-container-animation { left: @offcanvas-bar-width-s; }
 
-    .uk-offcanvas-flip.uk-offcanvas-container-animation { left: -@offcanvas-bar-width-s; }
+    .drk-offcanvas-flip.drk-offcanvas-container-animation { left: -@offcanvas-bar-width-s; }
 
 }
 

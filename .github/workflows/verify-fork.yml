@@ -1,4 +1,4 @@
-name: Verify UIkit TS fork
+name: Verify Drake TS fork
 
 on:
   pull_request:

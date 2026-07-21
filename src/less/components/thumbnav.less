@@ -1,11 +1,11 @@
 // Name:            Thumbnav
 // Description:     Component to create thumbnail navigations
 //
-// Component:       `uk-thumbnav`
+// Component:       `drk-thumbnav`
 //
-// Modifier:        `uk-thumbnav-vertical`
+// Modifier:        `drk-thumbnav-vertical`
 //
-// States:          `uk-active`
+// States:          `drk-active`
 //
 // ========================================================================
 
@@ -27,7 +27,7 @@
  * 3. Gutter
  */
 
-.uk-thumbnav {
+.drk-thumbnav {
     display: flex;
     /* 1 */
     flex-wrap: wrap;
@@ -45,7 +45,7 @@
  * 1. Gutter
  */
 
-.uk-thumbnav > * {
+.drk-thumbnav > * {
     /* 1 */
     padding-left: @thumbnav-margin-horizontal;
 }
@@ -58,23 +58,23 @@
  * Items
  */
 
-.uk-thumbnav > * > * {
+.drk-thumbnav > * > * {
     display: inline-block;
     .hook-thumbnav-item();
 }
 
 /* Hover */
-.uk-thumbnav > * > :hover {
+.drk-thumbnav > * > :hover {
     .hook-thumbnav-item-hover();
 }
 
 /* Active */
-.uk-thumbnav > .uk-active > * {
+.drk-thumbnav > .drk-active > * {
     .hook-thumbnav-item-active();
 }
 
 
-/* Modifier: 'uk-thumbnav-vertical'
+/* Modifier: 'drk-thumbnav-vertical'
  ========================================================================== */
 
 /*
@@ -82,7 +82,7 @@
  * 2. Gutter
  */
 
-.uk-thumbnav-vertical {
+.drk-thumbnav-vertical {
     /* 1 */
     flex-direction: column;
     /* 2 */
@@ -91,7 +91,7 @@
 }
 
 /* 2 */
-.uk-thumbnav-vertical > * {
+.drk-thumbnav-vertical > * {
     padding-left: 0;
     padding-top: @thumbnav-margin-vertical;
 }
@@ -114,15 +114,15 @@
 
 .hook-inverse() {
 
-    .uk-thumbnav > * > * {
+    .drk-thumbnav > * > * {
         .hook-inverse-thumbnav-item();
     }
 
-    .uk-thumbnav > * > :hover {
+    .drk-thumbnav > * > :hover {
         .hook-inverse-thumbnav-item-hover();
     }
 
-    .uk-thumbnav > .uk-active > * {
+    .drk-thumbnav > .drk-active > * {
         .hook-inverse-thumbnav-item-active();
     }
 

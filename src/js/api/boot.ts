@@ -1,9 +1,9 @@
-import { apply, hasAttr, inBrowser, startsWith, trigger } from 'uikit-util';
-import type { UIkitStatic } from '../types';
+import { apply, hasAttr, inBrowser, startsWith, trigger } from 'drake-util';
+import type { DrakeStatic } from '../types';
 import { components, createComponent, getComponent, getComponents } from './component';
 import { callConnected, callDisconnected } from './hooks';
 
-export default function boot(App: UIkitStatic): void {
+export default function boot(App: DrakeStatic): void {
     if (!inBrowser || !window.MutationObserver) {
         return;
     }
@@ -19,8 +19,8 @@ export default function boot(App: UIkitStatic): void {
     }
 }
 
-function initialize(App: UIkitStatic): void {
-    trigger(document, 'uikit:init', App);
+function initialize(App: DrakeStatic): void {
+    trigger(document, 'drake:init', App);
     if (document.body) {
         apply(document.body, connect);
     }
