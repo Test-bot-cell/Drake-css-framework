@@ -100,7 +100,7 @@
 [4,"option",[],["value=light"],"Dark"]
 [4,"option",[],["value=dark"],"Light"]
 [3,"label",[],["style=margin: #px;"],""]
-[4,"input",["drk-checkbox"],["type=checkbox"],""]
+[4,"input",["drk-checkbox"],["style=width: #px; height: #px;","type=checkbox"],""]
 [4,"span",[],["style=margin: #px;"],"RTL"]
 [2,"div",["drk-container"],[],""]
 [3,"h1",[],[],"Badge"]

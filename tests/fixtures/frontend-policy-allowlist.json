@@ -140,6 +140,10 @@
             "reason": "Documents the legacy icon name mapping."
         },
         {
+            "file": "docs/fork/MIGRATION.md",
+            "reason": "Migration notes: carries the normative uk- to drk- rename table and upstream artefact names."
+        },
+        {
             "file": "docs/fork/ROADMAP.md",
             "reason": "Names the uk- to drk- migration table required by phase 9."
         },
@@ -164,36 +168,6 @@
             "reason": "Brand-icon alias yootheme kept by ICON_MIGRATION.md."
         },
         {
-            "file": "tests/base.html",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
-            "file": "tests/cover.html",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
-            "file": "tests/fixtures/compat/base.ltr.txt",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
-            "file": "tests/fixtures/compat/base.rtl.txt",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
-            "file": "tests/fixtures/compat/cover.ltr.txt",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
-            "file": "tests/fixtures/compat/cover.rtl.txt",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
             "file": "tests/fixtures/compat/icon.ltr.txt",
             "reason": "Captured trace of the yootheme brand-icon alias demo."
         },
@@ -202,72 +176,12 @@
             "reason": "Captured trace of the yootheme brand-icon alias demo."
         },
         {
-            "file": "tests/fixtures/compat/lightbox.ltr.txt",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
-            "file": "tests/fixtures/compat/lightbox.rtl.txt",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
-            "file": "tests/fixtures/compat/modal.ltr.txt",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
-            "file": "tests/fixtures/compat/modal.rtl.txt",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
-            "file": "tests/fixtures/compat/slideshow.ltr.txt",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
-            "file": "tests/fixtures/compat/slideshow.rtl.txt",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
-            "file": "tests/fixtures/compat/video.ltr.txt",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
-            "file": "tests/fixtures/compat/video.rtl.txt",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
             "file": "tests/icon.html",
             "reason": "Demonstrates the yootheme brand-icon alias."
         },
         {
             "file": "tests/js/compat/snapshot-collector.ts",
             "reason": "Generated-id normalisation regex covers legacy uk- ids in reference traces."
-        },
-        {
-            "file": "tests/lightbox.html",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
-            "file": "tests/modal.html",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
-            "file": "tests/slideshow.html",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
-        },
-        {
-            "file": "tests/video.html",
-            "reason": "Legacy demo video hosted on yootheme.com (and its captured traces); scheduled for removal by the D-017 catalogue debt resorption.",
-            "removal": "D-017 — replaced by a local media asset, then fixtures recaptured"
         },
         {
             "file": "THIRD_PARTY_NOTICES.md",

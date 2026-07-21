@@ -3,8 +3,8 @@
         "formControls": 0,
         "headings": {
             "h1": 1,
-            "h3": 8,
-            "h2": 1
+            "h2": 6,
+            "h3": 3
         },
         "imagesTotal": 0,
         "imagesWithoutAlt": 0,
@@ -41,8 +41,8 @@
         "formControls": 0,
         "headings": {
             "h1": 1,
-            "h3": 32,
-            "h2": 3
+            "h2": 19,
+            "h3": 16
         },
         "imagesTotal": 4,
         "imagesWithoutAlt": 0,
@@ -128,8 +128,8 @@
         "formControls": 0,
         "headings": {
             "h1": 1,
-            "h3": 41,
-            "h2": 5
+            "h2": 30,
+            "h3": 16
         },
         "imagesTotal": 12,
         "imagesWithoutAlt": 0,
@@ -153,8 +153,8 @@
         "formControls": 0,
         "headings": {
             "h1": 1,
-            "h3": 3,
-            "h2": 2
+            "h2": 3,
+            "h3": 2
         },
         "imagesTotal": 3,
         "imagesWithoutAlt": 0,
@@ -200,9 +200,9 @@
     "cover.html": {
         "formControls": 0,
         "headings": {
-            "h1": 9,
+            "h1": 1,
             "h2": 4,
-            "h3": 8
+            "h3": 16
         },
         "imagesTotal": 1,
         "imagesWithoutAlt": 0,
@@ -214,7 +214,7 @@
         "formControls": 0,
         "headings": {
             "h1": 1,
-            "h3": 2
+            "h2": 2
         },
         "imagesTotal": 0,
         "imagesWithoutAlt": 0,
@@ -261,8 +261,7 @@
         "formControls": 1,
         "headings": {
             "h1": 1,
-            "h3": 4,
-            "h2": 4
+            "h2": 8
         },
         "imagesTotal": 0,
         "imagesWithoutAlt": 0,
@@ -298,8 +297,8 @@
         "formControls": 1,
         "headings": {
             "h1": 1,
-            "h3": 6,
-            "h2": 2
+            "h2": 5,
+            "h3": 3
         },
         "imagesTotal": 0,
         "imagesWithoutAlt": 0,
@@ -385,8 +384,8 @@
         "formControls": 0,
         "headings": {
             "h1": 1,
-            "h3": 10,
-            "h2": 7
+            "h2": 8,
+            "h3": 9
         },
         "imagesTotal": 0,
         "imagesWithoutAlt": 0,
@@ -485,9 +484,9 @@
         "formControls": 24,
         "headings": {
             "h1": 7,
-            "h4": 2,
+            "h2": 3,
             "h3": 10,
-            "h2": 2,
+            "h4": 1,
             "h5": 1,
             "h6": 1
         },
@@ -659,7 +658,7 @@
         "formControls": 0,
         "headings": {
             "h1": 1,
-            "h3": 3
+            "h2": 3
         },
         "imagesTotal": 0,
         "imagesWithoutAlt": 0,
@@ -729,8 +728,8 @@
         "formControls": 1,
         "headings": {
             "h1": 1,
-            "h3": 6,
-            "h2": 1
+            "h2": 4,
+            "h3": 3
         },
         "imagesTotal": 0,
         "imagesWithoutAlt": 0,
@@ -746,7 +745,7 @@
             "h2": 14
         },
         "imagesTotal": 8,
-        "imagesWithoutAlt": 8,
+        "imagesWithoutAlt": 0,
         "links": 14,
         "linksWithoutHref": 0,
         "textLength": 8433
@@ -790,13 +789,13 @@
         "formControls": 4,
         "headings": {
             "h1": 60,
-            "h2": 8,
-            "h3": 10
+            "h2": 9,
+            "h3": 9
         },
         "imagesTotal": 35,
         "imagesWithoutAlt": 0,
-        "links": 14,
-        "linksWithoutHref": 14,
+        "links": 16,
+        "linksWithoutHref": 16,
         "textLength": 3195
     },
     "slideshow.html": {
@@ -839,7 +838,7 @@
         "formControls": 0,
         "headings": {
             "h1": 1,
-            "h3": 1
+            "h2": 1
         },
         "imagesTotal": 0,
         "imagesWithoutAlt": 0,
@@ -972,8 +971,7 @@
         "formControls": 10,
         "headings": {
             "h1": 1,
-            "h3": 10,
-            "h2": 1
+            "h2": 11
         },
         "imagesTotal": 0,
         "imagesWithoutAlt": 0,
