@@ -1,0 +1,34 @@
+# CI du fork : rejoue la validation officielle sur le dépôt privé.
+# Chaîne épinglée par la charte : Node.js 24.18.0 exact, pnpm 11.4.0 via corepack,
+# installation gelée. Les gates navigateur utilisent le Chrome des runners ubuntu.
+name: verify
+
+on:
+  push:
+    branches: [fork/main]
+  workflow_dispatch:
+
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  COREPACK_ENABLE_DOWNLOAD_PROMPT: '0'
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - run: corepack enable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.18.0
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm verify
+      - run: pnpm check-compat
+      - run: pnpm audit-heritage
+      - name: aucun diff après reconstruction (G9)
+        run: git diff --exit-code && test -z "$(git status --porcelain)"
