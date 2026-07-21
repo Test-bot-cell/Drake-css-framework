@@ -2,7 +2,7 @@
 // Amorcée depuis la cascade de référence (theme · visibility.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
-import { breakpoints, breakpointsMax } from '../tokens';
+import { breakpoints } from '../tokens';
 
 export const fragments: GlobalStyleObject[] = [
 {
@@ -39,28 +39,28 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    [`@media (max-width: ${breakpointsMax.s})`]: {
+    "@media (max-width: 639px)": {
         ".drk-visible\\40 s": {
             "display": "none !important"
         }
     }
 },
 {
-    [`@media (max-width: ${breakpointsMax.m})`]: {
+    "@media (max-width: 959px)": {
         ".drk-visible\\40 m": {
             "display": "none !important"
         }
     }
 },
 {
-    [`@media (max-width: ${breakpointsMax.l})`]: {
+    "@media (max-width: 1199px)": {
         ".drk-visible\\40 l": {
             "display": "none !important"
         }
     }
 },
 {
-    [`@media (max-width: ${breakpointsMax.xl})`]: {
+    "@media (max-width: 1599px)": {
         ".drk-visible\\40 xl": {
             "display": "none !important"
         }
