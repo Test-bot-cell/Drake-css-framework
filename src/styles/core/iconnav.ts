@@ -29,7 +29,10 @@ export const fragments: GlobalStyleObject[] = [
         "column-gap": "0.25em",
         "line-height": 0,
         "color": palette.muted,
-        "text-decoration": "none"
+        "text-decoration": "none",
+        "box-sizing": "border-box",
+        "min-width": "24px",
+        "min-height": "24px"
     },
     ".drk-iconnav > * > a:hover": {
         "color": palette.text

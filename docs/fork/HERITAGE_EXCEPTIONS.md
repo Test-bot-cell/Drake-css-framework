@@ -1,38 +1,24 @@
 # Registre des exceptions héritées (cibles < 24 px)
 
-Créé par D-017. La résorption de la dette héritée du catalogue est intégrale côté markup
-(débordements à 320 px, dimensions réservées, alternatives, hiérarchie de titres : zéro
-écart). Restent les cibles interactives < 24 px CSS (WCAG 2.5.8, hors liens en ligne)
-dont la taille est définie par la CSS des composants hérités : D-017 interdit de modifier
-cette CSS (le contrat de parité C0-C3 avec la référence pré-renommage n'est pas amendé),
-chaque résidu est donc consigné ici, avec sa contrepartie machine
-`tests/fixtures/heritage-exceptions.json` que `pnpm audit-heritage` applique — le nombre
-de cibles NON consignées doit rester zéro.
+Créé par D-017, **vidé par D-021** (2026-07-21). Les treize familles qui y étaient
+consignées (checkbox, radio, range, file-input, dotnav, thumbnav, pagination, subnav,
+iconnav, badge-lien, button-text et les deux fixtures de gates) ont reçu une zone de
+saisie >= 24 px CSS conforme WCAG 2.5.8, par les techniques normées dans la décision
+D-021 (`docs/fork/DECISIONS.md`) : zone de saisie compensée (padding, `background-clip`,
+marges négatives), anneaux convertis `border` → `box-shadow` inset, ou planchers
+`min-width`/`min-height` quand la croissance de boîte était acceptée.
 
-Chaque famille reste à trancher composant par composant par une décision ultérieure
-(agrandir la cible dans la CSS du fork = divergence assumée ; ou statu quo documenté).
+Le registre machine `tests/fixtures/heritage-exceptions.json` est conservé **vide** en
+garde-fou : `pnpm audit-heritage` mesure les 88 pages du catalogue à 320 px et échoue si
+une cible < 24 px apparaît sans y être consignée. L'état normal est zéro cible, zéro
+règle.
 
-| Famille           | Sélecteur              | Taille typique | Où (catalogue)                   |
-| ----------------- | ---------------------- | -------------- | -------------------------------- |
-| checkbox          | `input.drk-checkbox`   | 14-22 px       | form, table, utility, index      |
-| radio             | `input.drk-radio`      | 14-22 px       | form, index                      |
-| range             | `input.drk-range`      | piste 3 px     | form, index                      |
-| file-input        | `input[type="file"]`   | 21 px          | form                             |
-| dotnav            | `.drk-dotnav a`        | 10×10 px       | dotnav, slider, slideshow, index |
-| thumbnav          | `.drk-thumbnav a`      | variable       | thumbnav                         |
-| pagination        | `.drk-pagination a`    | 27×22 px       | pagination, index                |
-| subnav            | `.drk-subnav a`        | 20 px          | comment                          |
-| iconnav           | `.drk-iconnav a`       | 20 px          | iconnav, index                   |
-| badge (lien)      | `a.drk-badge`          | 18 px          | badge, index                     |
-| button-text       | `.drk-button-text`     | 21 px          | button                           |
-| fixtures de gates | liens/boutons de liste | 21 px          | fork-mobile-seo, fork-assets     |
+Procédure si une nouvelle exception devait naître (import amont, nouveau composant) :
 
-Notes :
+1. une décision au registre `DECISIONS.md` la justifie (jamais un silence de l'audit) ;
+2. une règle machine (`family`, `selector`, `reason`, `pages` éventuel) est ajoutée à
+   `tests/fixtures/heritage-exceptions.json` ;
+3. ce document la documente avec sa taille mesurée et son emplacement dans le catalogue.
 
-- les cases à cocher et boutons radio héritent des tailles de l'amont ; l'enveloppe
-  `<label>` agrandit la zone cliquable effective mais pas la boîte du contrôle mesurée ;
-- les points de dotnav (10 px) sont la famille la plus éloignée du seuil : candidate
-  prioritaire à une décision d'agrandissement dans le fork ;
-- le chrome du harnais de test (case RTL) a été porté à 24 px : il ne figure plus ici ;
-- toute nouvelle exception passe par ce registre et sa contrepartie machine, jamais par
-  un silence de l'audit.
+Historique : l'inventaire d'origine (13 familles, tailles 3-22 px) est lisible dans ce
+fichier au tag `v0.1.0`.

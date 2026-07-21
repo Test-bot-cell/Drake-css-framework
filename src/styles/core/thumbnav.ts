@@ -22,7 +22,9 @@ export const fragments: GlobalStyleObject[] = [
         "padding-left": "15px"
     },
     ".drk-thumbnav > * > *": {
-        "display": "inline-block"
+        "display": "inline-block",
+        "min-width": "24px",
+        "min-height": "24px"
     },
     ".drk-thumbnav-vertical": {
         "flex-direction": "column",

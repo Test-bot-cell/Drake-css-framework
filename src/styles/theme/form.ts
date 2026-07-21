@@ -180,22 +180,27 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-radio, .drk-checkbox": {
         "display": "inline-block",
-        "height": "16px",
-        "width": "16px",
+        "height": "24px",
+        "width": "24px",
         "overflow": "hidden",
-        "margin-top": "-4px",
+        "margin": "-8px -4px -4px -4px",
         "vertical-align": "middle",
         "-webkit-appearance": "none",
         "-moz-appearance": "none",
         "background-color": "transparent",
+        "background-clip": "padding-box",
         "background-size": "cover",
-        "border": "1px solid #cccccc",
+        "border": "4px solid transparent",
+        "box-shadow": "inset 0 0 0 1px #cccccc",
         "transition": "0.2s ease-in-out"
+    },
+    ".drk-table td > :is(.drk-radio, .drk-checkbox):last-child": {
+        "margin-bottom": "-4px"
     }
 },
 {
     ".drk-radio, .drk-checkbox": {
-        "transition-property": "background-color, border"
+        "transition-property": "background-color, box-shadow"
     }
 },
 {
@@ -205,11 +210,13 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-radio:focus, .drk-checkbox:focus": {
         "background-color": "rgba(0, 0, 0, 0)",
         "outline": "none",
-        "border-color": palette.primary
+        "box-shadow": `inset 0 0 0 1px ${palette.primary}`
     },
     ".drk-radio:checked, .drk-checkbox:checked, .drk-checkbox:indeterminate": {
         "background-color": palette.primary,
-        "border-color": "transparent"
+        "box-shadow": "none",
+        "background-size": "14px 14px",
+        "background-position": "center"
     },
     ".drk-radio:checked:focus, .drk-checkbox:checked:focus, .drk-checkbox:indeterminate:focus": {
         "background-color": "#0e6dcd"
@@ -227,7 +234,7 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-radio:disabled, .drk-checkbox:disabled": {
         "background-color": palette.mutedBackground,
-        "border-color": "#e5e5e5"
+        "box-shadow": "inset 0 0 0 1px #e5e5e5"
     },
     ".drk-radio:disabled:checked": {
         "background-image": "url(\\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23999%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%0A%3E%3Cpath%20stroke%3D%22none%22%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%20%2F%3E%3Cpath%20d%3D%22M8%2012a4%204%200%201%200%208%200a4%204%200%201%200%20-8%200%22%20%2F%3E%3C%2Fsvg%3E\\\")"
@@ -255,8 +262,13 @@ export const fragments: GlobalStyleObject[] = [
         "line-height": "28px"
     },
     ".drk-form-small:is(.drk-radio, .drk-checkbox)": {
-        "height": "14px",
-        "width": "14px"
+        "height": "24px",
+        "width": "24px",
+        "border-width": "5px",
+        "margin": "-9px -5px -5px -5px"
+    },
+    ".drk-form-small:is(.drk-radio, .drk-checkbox):checked, .drk-form-small.drk-checkbox:indeterminate": {
+        "background-size": "12px 12px"
     }
 },
 {
@@ -277,8 +289,13 @@ export const fragments: GlobalStyleObject[] = [
         "line-height": "53px"
     },
     ".drk-form-large:is(.drk-radio, .drk-checkbox)": {
-        "height": "22px",
-        "width": "22px"
+        "height": "24px",
+        "width": "24px",
+        "border-width": "1px",
+        "margin": "-5px -1px -1px -1px"
+    },
+    ".drk-form-large:is(.drk-radio, .drk-checkbox):checked, .drk-form-large.drk-checkbox:indeterminate": {
+        "background-size": "20px 20px"
     },
     ".drk-legend": {
         "width": "100%",
@@ -309,6 +326,11 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-form-custom input[type=\"file\"]": {
         "font-size": "500px",
         "overflow": "hidden"
+    },
+    "input[type=\"file\"]:not(.drk-form-custom input)": {
+        "min-height": "24px",
+        "padding-block": "1.5px",
+        "margin-block": "-1.5px"
     },
     ".drk-form-label": {
         "color": palette.emphasis,
@@ -374,6 +396,12 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-form-icon-flip ~ .drk-input": {
         "padding-right": "40px !important"
+    }
+},
+{
+    ".drk-range": {
+        "height": "24px",
+        "margin-block": "-10.5px"
     }
 },
 ];

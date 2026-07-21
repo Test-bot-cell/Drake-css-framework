@@ -84,6 +84,10 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-subnav > .drk-disabled > :first-child": {
         "color": palette.muted
+    },
+    ".drk-comment-meta.drk-subnav > * > a": {
+        "min-height": "24px",
+        "margin-block": "calc((1.4em - 24px) / 2)"
     }
 },
 ];

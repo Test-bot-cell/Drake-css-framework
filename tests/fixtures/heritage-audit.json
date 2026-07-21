@@ -7,8 +7,8 @@
         "horizontalOverflow": 0,
         "imagesWithoutAlt": 0,
         "imagesWithoutDimensions": 0,
-        "smallTargets": 251,
-        "smallTargetsAccounted": 251,
+        "smallTargets": 0,
+        "smallTargetsAccounted": 0,
         "smallTargetsUnaccounted": 0
     },
     "pages": {
@@ -84,10 +84,8 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsAccounted": {
-                "badge": 1
-            },
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
             "smallTargetsUnaccounted": [],
             "smallTargetsUnaccountedCount": 0
         },
@@ -119,10 +117,8 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsAccounted": {
-                "button-text": 1
-            },
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
             "smallTargetsUnaccounted": [],
             "smallTargetsUnaccountedCount": 0
         },
@@ -165,10 +161,8 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 2,
-            "smallTargetsAccounted": {
-                "subnav": 2
-            },
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
             "smallTargetsUnaccounted": [],
             "smallTargetsUnaccountedCount": 0
         },
@@ -233,10 +227,8 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 48,
-            "smallTargetsAccounted": {
-                "dotnav": 48
-            },
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
             "smallTargetsUnaccounted": [],
             "smallTargetsUnaccountedCount": 0
         },
@@ -312,10 +304,8 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 3,
-            "smallTargetsAccounted": {
-                "fixture-controls": 3
-            },
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
             "smallTargetsUnaccounted": [],
             "smallTargetsUnaccountedCount": 0
         },
@@ -325,10 +315,8 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 3,
-            "smallTargetsAccounted": {
-                "subnav": 3
-            },
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
             "smallTargetsUnaccounted": [],
             "smallTargetsUnaccountedCount": 0
         },
@@ -338,13 +326,8 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 60,
-            "smallTargetsAccounted": {
-                "radio": 24,
-                "checkbox": 33,
-                "range": 2,
-                "file-input": 1
-            },
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
             "smallTargetsUnaccounted": [],
             "smallTargetsUnaccountedCount": 0
         },
@@ -442,10 +425,8 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 4,
-            "smallTargetsAccounted": {
-                "iconnav": 4
-            },
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
             "smallTargetsUnaccounted": [],
             "smallTargetsUnaccountedCount": 0
         },
@@ -466,16 +447,8 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 13,
-            "smallTargetsAccounted": {
-                "badge": 1,
-                "pagination": 2,
-                "radio": 1,
-                "checkbox": 1,
-                "range": 1,
-                "dotnav": 6,
-                "iconnav": 1
-            },
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
             "smallTargetsUnaccounted": [],
             "smallTargetsUnaccountedCount": 0
         },
@@ -639,10 +612,8 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 12,
-            "smallTargetsAccounted": {
-                "pagination": 12
-            },
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
             "smallTargetsUnaccounted": [],
             "smallTargetsUnaccountedCount": 0
         },
@@ -751,10 +722,8 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 58,
-            "smallTargetsAccounted": {
-                "dotnav": 58
-            },
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
             "smallTargetsUnaccounted": [],
             "smallTargetsUnaccountedCount": 0
         },
@@ -764,10 +733,8 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 28,
-            "smallTargetsAccounted": {
-                "dotnav": 28
-            },
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
             "smallTargetsUnaccounted": [],
             "smallTargetsUnaccountedCount": 0
         },
@@ -876,10 +843,8 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 8,
-            "smallTargetsAccounted": {
-                "checkbox": 8
-            },
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
             "smallTargetsUnaccounted": [],
             "smallTargetsUnaccountedCount": 0
         },
@@ -977,10 +942,8 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 10,
-            "smallTargetsAccounted": {
-                "checkbox": 10
-            },
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
             "smallTargetsUnaccounted": [],
             "smallTargetsUnaccountedCount": 0
         },

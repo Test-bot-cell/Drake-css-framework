@@ -24,7 +24,10 @@ export const fragments: GlobalStyleObject[] = [
         "align-items": "center",
         "column-gap": "0.25em",
         "padding": "5px 10px",
-        "color": palette.muted
+        "color": palette.muted,
+        "box-sizing": "border-box",
+        "min-height": "24px",
+        "min-width": "24px"
     },
     ".drk-pagination > * > :hover": {
         "color": palette.text,

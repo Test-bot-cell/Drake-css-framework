@@ -23,6 +23,8 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-thumbnav > * > *": {
         "display": "inline-block",
+        "min-width": "24px",
+        "min-height": "24px",
         "position": "relative"
     },
     ".drk-thumbnav > * > *::after": {

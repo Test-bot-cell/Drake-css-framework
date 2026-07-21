@@ -160,15 +160,21 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-radio, .drk-checkbox": {
         "display": "inline-block",
-        "height": "16px",
-        "width": "16px",
+        "height": "24px",
+        "width": "24px",
         "overflow": "hidden",
-        "margin-top": "-4px",
+        "padding": "4px",
+        "margin": "-8px -4px -4px -4px",
         "vertical-align": "middle",
         "-webkit-appearance": "none",
         "-moz-appearance": "none",
         "background-color": "#ebebeb",
+        "background-origin": "content-box",
+        "background-clip": "content-box",
         "background-size": "cover"
+    },
+    ".drk-table td > :is(.drk-radio, .drk-checkbox):last-child": {
+        "margin-bottom": "-4px"
     }
 },
 {
@@ -225,8 +231,10 @@ export const fragments: GlobalStyleObject[] = [
         "line-height": "30px"
     },
     ".drk-form-small:is(.drk-radio, .drk-checkbox)": {
-        "height": "14px",
-        "width": "14px"
+        "height": "24px",
+        "width": "24px",
+        "padding": "5px",
+        "margin": "-9px -5px -5px -5px"
     }
 },
 {
@@ -247,8 +255,10 @@ export const fragments: GlobalStyleObject[] = [
         "line-height": "55px"
     },
     ".drk-form-large:is(.drk-radio, .drk-checkbox)": {
-        "height": "22px",
-        "width": "22px"
+        "height": "24px",
+        "width": "24px",
+        "padding": "1px",
+        "margin": "-5px -1px -1px -1px"
     },
     ".drk-legend": {
         "width": "100%",
@@ -279,6 +289,11 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-form-custom input[type=\"file\"]": {
         "font-size": "500px",
         "overflow": "hidden"
+    },
+    "input[type=\"file\"]:not(.drk-form-custom input)": {
+        "min-height": "24px",
+        "padding-block": "1.5px",
+        "margin-block": "-1.5px"
     },
     ".drk-form-stacked .drk-form-label": {
         "display": "block",
@@ -340,6 +355,12 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-form-icon-flip ~ .drk-input": {
         "padding-right": "40px !important"
+    }
+},
+{
+    ".drk-range": {
+        "height": "24px",
+        "margin-block": "-10.5px"
     }
 },
 ];
