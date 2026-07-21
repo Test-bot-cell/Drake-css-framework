@@ -3,6 +3,41 @@
 Journal des changements de Drake.css framework. L'historique du projet amont est archivé
 dans [`docs/fork/CHANGELOG-uikit-amont.md`](docs/fork/CHANGELOG-uikit-amont.md).
 
+## 0.1.1 — 2026-07-21
+
+### Ajouté
+
+- Cibles tactiles >= 24 px CSS (décision D-021) : les onze familles de composants du
+  registre d'exceptions et les deux pages fixtures reçoivent une zone de saisie
+  conforme WCAG 2.5.8 — huit familles à identité visuelle stricte (padding compensé,
+  `background-clip`, anneaux convertis en `box-shadow`), trois à croissance de boîte
+  mineure sans peinture nouvelle. Le registre d'exceptions est vidé ;
+  `pnpm audit-heritage` devient le gate de non-régression tactile (zéro cible).
+- Variante de fontes en fichiers (décision D-022, amendant D-006/D-009) : quatre WOFF2
+  Inter subsettés latin/latin-ext à axes variables (103-145 Kio) et feuille
+  `drake-inter-files.css` à `unicode-range` (2,9 Ko gzip contre 731 Ko pour l'option
+  mono-fichier conservée) — chargement recommandé ; empreintes épinglées, génération
+  déterministe prouvée.
+- Feuilles d'icônes réduites : option `--subset`/`--subset-output` du générateur Tabler
+  (3 icônes = 3,8 Ko contre 3,9 Mo de catalogue opt-in) ; coût de parse et limite
+  monochrome documentés.
+- Garde d'intégrité de distribution (G8) : tout fichier empaqueté par npm doit être
+  suivi par git — un artefact généré non versionné est inlivrable par les canaux git.
+- Section README « Comment c'est testé » cartographiant la chaîne de preuve CI.
+
+### Changé
+
+- Le dépôt est public (décision D-019) et la distribution est GitHub-first (décision
+  D-020) : release avec tarball npm attaché, installation `github:…#tag`, CDN jsDelivr ;
+  le registre npm reste optionnel. CI `verify` requise par la protection de branche.
+
+### Corrigé
+
+- Trente-deux artefacts empaquetés n'étaient pas versionnés (`drake-inter-files.css`,
+  `drake-core*.css`, bundles de composants) : présents dans le tarball de release mais
+  absents des installs git et du CDN. Tous suivis désormais, couverts par G9 et par la
+  nouvelle garde G8.
+
 ## 0.1.0 — 2026-07-21
 
 ### Changé
@@ -84,11 +119,8 @@ dans [`docs/fork/CHANGELOG-uikit-amont.md`](docs/fork/CHANGELOG-uikit-amont.md).
   amont (D-017).
 - Acceptation finale du mainteneur le 2026-07-21, gates re-prouvés verts sur checkout
   propre : tag annoté signé `v0.1.0`.
-- Distribution par GitHub (D-020, amendant D-018) : release `v0.1.0` avec tarball
-  `drake.css-0.1.0.tgz` attaché, installation `npm install github:…#v0.1.0`, CDN
-  jsDelivr au tag ; le registre npm reste optionnel et non bloquant.
-- Remote `origin` : dépôt GitHub `Test-bot-cell/Drake-css-framework`, public depuis
-  D-019, CI `verify` rejouant la chaîne complète de preuves à chaque push.
+- Remote `origin` : dépôt GitHub `Test-bot-cell/Drake-css-framework` (release `v0.1.0`
+  avec tarball attaché).
 
 ### Hérité
 

@@ -40,20 +40,25 @@ public (décision D-020), sans registre npm requis :
 
 ```sh
 # depuis la release GitHub (tarball npm signé par le tag) :
-npm install https://github.com/Test-bot-cell/Drake-css-framework/releases/download/v0.1.0/drake.css-0.1.0.tgz
+npm install https://github.com/Test-bot-cell/Drake-css-framework/releases/download/v0.1.1/drake.css-0.1.1.tgz
 
 # ou directement depuis git, au tag :
-npm install github:Test-bot-cell/Drake-css-framework#v0.1.0
+npm install github:Test-bot-cell/Drake-css-framework#v0.1.1
 ```
 
-Sans bundler, les artefacts se servent depuis le CDN jsDelivr au tag :
+Sans bundler, les artefacts se servent depuis le CDN jsDelivr au tag (la feuille de
+fontes référence `dist/fonts/` en relatif, le CDN les résout au même tag) :
 
 ```html
 <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/Test-bot-cell/Drake-css-framework@v0.1.0/dist/css/drake.min.css"
+    href="https://cdn.jsdelivr.net/gh/Test-bot-cell/Drake-css-framework@v0.1.1/dist/css/drake-inter-files.css"
 />
-<script src="https://cdn.jsdelivr.net/gh/Test-bot-cell/Drake-css-framework@v0.1.0/dist/js/drake.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Test-bot-cell/Drake-css-framework@v0.1.1/dist/css/drake.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/gh/Test-bot-cell/Drake-css-framework@v0.1.1/dist/js/drake.min.js"></script>
 ```
 
 Les feuilles du framework restent autonomes à l’exécution (fontes et icônes embarquées,
