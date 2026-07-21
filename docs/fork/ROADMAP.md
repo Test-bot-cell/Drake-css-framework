@@ -120,8 +120,9 @@ SVG d’icônes historiques et le registre d’icônes JavaScript hérité sont 
 `pnpm check-assets` audite également la packlist npm et ses notices.
 
 Note : la preuve initiale de cette phase a été apportée sous les noms de la référence
-pré-renommage ; les critères ci-dessous sont exprimés avec les noms D-012 et leur
-revalidation sous ces noms définitifs relève de la phase 7.
+pré-renommage. La revalidation sous les noms définitifs D-012 est acquise au 2026-07-21 :
+`pnpm check-assets` (contrats Tabler/Inter, packlist, empreintes) et `pnpm verify` passent
+sur checkout propre avec les artefacts `drake-*` régénérés à l’identique.
 
 ### Portée
 
@@ -154,11 +155,13 @@ revalidation sous ces noms définitifs relève de la phase 7.
 
 ## Phase 3 — Port intégral TypeScript
 
-- État : **En cours**
+- État : **Terminé**
 
-Avancement au 2026-07-21 : le port source est complet, `allowJs` est retiré, le typecheck strict
-et le gate sans JavaScript auteur sont verts. La phase reste ouverte uniquement sur son critère
-de comparaison comportementale C0 à C3 exhaustive, suivi par la phase 1.
+Preuves au 2026-07-21 : le port source est complet, `allowJs` est retiré, le typecheck strict
+et le gate sans JavaScript auteur (G10) sont verts. Le dernier critère ouvert — chaque bundle
+public produit depuis TypeScript sans différence C0 à C3 — est prouvé par la matrice G7
+(`pnpm check-compat` : 176 snapshots C0/C1 LTR/RTL, scénarios C2, boucle C3 de 58 composants)
+verte sur checkout propre.
 
 ### Portée
 
@@ -184,11 +187,15 @@ de comparaison comportementale C0 à C3 exhaustive, suivi par la phase 1.
 
 ## Phase 4 — Utilitaires et noyau
 
-- État : **En cours**
+- État : **Terminé**
 
-Avancement au 2026-07-21 : `src/js/util/` et `src/js/api/` sont intégralement typés et le smoke
-SSR/Node est automatisé. Les scénarios complets de reconnexion, destruction et plugins restent
-à étendre dans la matrice de compatibilité.
+Preuves au 2026-07-21 : `src/js/util/` et `src/js/api/` sont intégralement typés et le smoke
+SSR/Node est automatisé. Les scénarios d’ajout, retrait, reconnexion DOM, mutation d’attribut
+(montage, `$destroy`, `$reset`), composant custom et plugin `use()` sont couverts par la
+grappe C2 `lifecycle-group` de la matrice G7 (156 assertions vertes au total), qui épingle le
+contrat observé du runtime : un nœud retiré est déconnecté sans destruction, le retrait de
+l’attribut composant détruit, la mutation de valeur réinitialise les props sans recréer
+l’instance.
 
 ### Portée
 
@@ -212,8 +219,10 @@ SSR/Node est automatisé. Les scénarios complets de reconnexion, destruction et
 
 Avancement au 2026-07-21 : tous les mixins et composants core sont en TypeScript strict, les
 icônes internes utilisent les masques CSS et des régressions navigateur couvrent animation,
-props et cibles événement multiples. Les interactions C0 à C3 de chaque groupe restent le gate
-de sortie non atteint.
+props et cibles événement multiples. Les interactions C0 à C3 de chaque groupe sont prouvées
+par la matrice G7. Dernier critère ouvert : le reflow à 320 pixels CSS — l’inventaire
+`pnpm audit-heritage` recense 22 pages du catalogue avec débordement horizontal ; leur
+résorption relève de la politique D-017 (correction côté catalogue) et conditionne la clôture.
 
 ### Portée
 
@@ -274,8 +283,14 @@ des exemples indexables au profil complet restent à réaliser.
 
 - État : **En cours**
 
-Avancement au 2026-07-21 : phase ouverte par l’acceptation de D-012. Le renommage intégral du
-code, des documents et des artefacts est engagé ; aucun critère de sortie n’est encore prouvé.
+Avancement au 2026-07-21 : le renommage intégral est appliqué et prouvé — parité C0 à C3
+contre la référence pré-renommage (G7), `dist/` régénéré sous les noms D-012 sans diff au
+second build (G9), gates G0 à G14 verts sur checkout propre, notices amont préservées après
+minification (G8). Le contrôle automatisé d’identité est en place (audit G10 de
+`pnpm check-frontend`, allowlist des zones autorisées committée). Dernier critère ouvert :
+« zéro occurrence hors zones autorisées » n’est pas encore atteint — les pages vidéo du
+catalogue référencent `yootheme.com` (entrées temporaires de l’allowlist, condition de levée
+documentée) ; leur purge relève de la résorption D-017 et conditionne la clôture.
 
 ### Portée
 
