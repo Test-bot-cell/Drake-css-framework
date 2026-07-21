@@ -19,6 +19,21 @@
             .test > :nth-child(10n-1) > canvas { background: rgba(0,0,0,0.50); }
             .test > :nth-child(10n) > canvas { background: rgba(0,0,0,0.55); }
 
+            /* On phone widths the container gutter (15px) is smaller than the
+               25px offset bleed of .drk-slider-container-offset, which would
+               make the page scroll horizontally. Clamp the bleed to the gutter
+               below the @s breakpoint; from 640px up the demo is unchanged. */
+            @media (max-width: 639px) {
+
+                .drk-slider-container-offset {
+                    margin-left: -15px;
+                    margin-right: -15px;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                }
+
+            }
+
         </style>
     </head>
 
@@ -131,7 +146,7 @@
 
             </div>
 
-            <h3>Different Widths</h3>
+            <h2>Different Widths</h2>
 
             <div drk-slider>
 
@@ -398,8 +413,15 @@
 
                     </div>
 
-                    <a class="drk-position-center-left-out drk-position-small drk-hidden-hover" href drk-slidenav-previous drk-slider-item="previous"></a>
-                    <a class="drk-position-center-right-out drk-position-small drk-hidden-hover" href drk-slidenav-next drk-slider-item="next"></a>
+                    <div class="drk-hidden@xl">
+                        <a class="drk-position-center-left drk-position-small drk-hidden-hover" href drk-slidenav-previous drk-slider-item="previous"></a>
+                        <a class="drk-position-center-right drk-position-small drk-hidden-hover" href drk-slidenav-next drk-slider-item="next"></a>
+                    </div>
+
+                    <div class="drk-visible@xl">
+                        <a class="drk-position-center-left-out drk-position-small drk-hidden-hover" href drk-slidenav-previous drk-slider-item="previous"></a>
+                        <a class="drk-position-center-right-out drk-position-small drk-hidden-hover" href drk-slidenav-next drk-slider-item="next"></a>
+                    </div>
 
                 </div>
 
@@ -469,7 +491,7 @@
                 <div class="drk-slider-items drk-grid-large drk-grid-match drk-grid" drk-height-viewport="min: 200">
                     <div class="drk-width-2-3">
                         <div class="drk-cover-container">
-                            <img src="images/photo.jpg" alt="" drk-cover>
+                            <img src="images/photo.jpg" width="1800" height="1200" alt="" drk-cover>
                             <div class="drk-position-center drk-position-medium drk-text-center">
                                 <h1 class="drk-heading-xlarge" drk-slider-parallax="x: 200,-200">Heading</h1>
                                 <p class="drk-h1" drk-slider-parallax="x: 400,-400">Lorem ipsum dolor sit amet.</p>
@@ -478,7 +500,7 @@
                     </div>
                     <div class="drk-width-2-3">
                         <div class="drk-cover-container">
-                            <img src="images/dark.jpg" alt="" drk-cover>
+                            <img src="images/dark.jpg" width="1800" height="1200" alt="" drk-cover>
                             <div class="drk-position-center drk-position-medium drk-text-center">
                                 <h1 class="drk-heading-xlarge" drk-slider-parallax="x: 200,-200">Heading</h1>
                                 <p class="drk-h1" drk-slider-parallax="x: 400,-400">Lorem ipsum dolor sit amet.</p>
@@ -487,7 +509,7 @@
                     </div>
                     <div class="drk-width-2-3">
                         <div class="drk-cover-container">
-                            <img src="images/light.jpg" alt="" drk-cover>
+                            <img src="images/light.jpg" width="1800" height="1200" alt="" drk-cover>
                             <div class="drk-position-center drk-position-medium drk-text-center">
                                 <h1 class="drk-heading-xlarge" drk-slider-parallax="y: -100,0,0; opacity: 1,1,0">Heading</h1>
                                 <p class="drk-h1" drk-slider-parallax="y: 100,0,0; opacity: 1,1,0">Lorem ipsum dolor sit amet.</p>
@@ -496,7 +518,7 @@
                     </div>
                     <div class="drk-width-2-3">
                         <div class="drk-cover-container">
-                            <img src="images/photo2.jpg" alt="" drk-cover>
+                            <img src="images/photo2.jpg" width="1800" height="1200" alt="" drk-cover>
                             <div class="drk-position-center drk-position-medium drk-text-center">
                                 <h1 class="drk-heading-xlarge" drk-slider-parallax="x: 200,-200">Heading</h1>
                                 <p class="drk-h1" drk-slider-parallax="x: 400,-400">Lorem ipsum dolor sit amet.</p>
@@ -505,7 +527,7 @@
                     </div>
                     <div class="drk-width-2-3">
                         <div class="drk-cover-container">
-                            <img src="images/photo3.jpg" alt="" drk-cover>
+                            <img src="images/photo3.jpg" width="1800" height="1200" alt="" drk-cover>
                             <div class="drk-position-center drk-position-medium drk-text-center">
                                 <h1 class="drk-heading-xlarge" drk-slider-parallax="x: 200,-200">Heading</h1>
                                 <p class="drk-h1" drk-slider-parallax="x: 400,-400">Lorem ipsum dolor sit amet.</p>

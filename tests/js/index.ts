@@ -96,6 +96,9 @@ window.addEventListener('load', async () => {
 
     rtlCheckbox.type = 'checkbox';
     rtlCheckbox.className = 'drk-checkbox';
+    // Chrome de test : cible >= 24 px CSS (WCAG 2.5.8) sans toucher la CSS composant.
+    rtlCheckbox.style.width = '24px';
+    rtlCheckbox.style.height = '24px';
     rtlCheckbox.checked = direction === 'rtl';
     rtlText.textContent = 'RTL';
     rtlText.style.margin = '5px';

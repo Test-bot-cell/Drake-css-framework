@@ -12,9 +12,9 @@
     <body style="padding-bottom: 100vh;" class="drk-position-relative drk-position-z-index-zero">
 
         <div class="drk-section drk-section-primary drk-position-z-index-negative drk-flex drk-flex-center drk-flex-middle drk-text-center" drk-sticky="overflow-flip: true; end: 100%" drk-height-viewport>
-            <div class="drk-container">
+            <div class="drk-container" style="min-width: 0">
 
-                <h1 class="drk-heading-2xlarge" drk-parallax="target: !.drk-section +* +*; end: 100%; y: -400; easing: 0;">Sticky Section</h1>
+                <h1 class="drk-heading-2xlarge drk-text-break" drk-parallax="target: !.drk-section +* +*; end: 100%; y: -400; easing: 0;">Sticky Section</h1>
 
             </div>
         </div>
@@ -24,14 +24,14 @@
 
                 <div id="js-sticky-parallax-container" class="drk-position-relative drk-background-muted drk-text-center drk-height-viewport-3">
                     <div class="drk-flex drk-flex-center drk-flex-middle drk-height-viewport" drk-sticky="end: #js-sticky-parallax-container">
-                        <div>
+                        <div style="min-width: 0">
 
                             <img class="drk-position-relative drk-position-z-index" src="images/size-v.jpg" width="400" height="800" alt="" style="max-width: 50vw" drk-parallax="target: #js-sticky-parallax-container; y: 0,-250; easing: -1; start: 100vh; end: 100vh;">
 
                             <div style="margin-top: -200px">
-                                <h1 class="drk-heading-2xlarge">
-                                    <span class="drk-display-inline-block" drk-parallax="target: #js-sticky-parallax-container; x: 0,-15vw,-7vw,0; easing: -1; start: 60vh; end: 100vh;">Sticky</span>
-                                    <br><span class="drk-display-inline-block" drk-parallax="target: #js-sticky-parallax-container; x: 0,10vw,5vw,0; easing: -1; start: 60vh; end: 100vh;">Parallax</span>
+                                <h1 class="drk-heading-2xlarge drk-text-break">
+                                    <span class="drk-display-inline-block" style="max-width: 100%" drk-parallax="target: #js-sticky-parallax-container; x: 0,-15vw,-7vw,0; easing: -1; start: 60vh; end: 100vh;">Sticky</span>
+                                    <br><span class="drk-display-inline-block" style="max-width: 100%" drk-parallax="target: #js-sticky-parallax-container; x: 0,10vw,5vw,0; easing: -1; start: 60vh; end: 100vh;">Parallax</span>
                                 </h1>
                             </div>
 
@@ -77,27 +77,27 @@
             <div class="drk-light" style="margin-top: -100vh; padding: 30vh 0">
 
                 <div drk-parallax="start: 100%; end: 100%; opacity: 0,1 10%,1 30%,0; y: 2vh, 0 10%, 0 30%, -10vh">
-                    <h1 class="drk-heading-xlarge drk-margin-xlarge">Sticky Background</h1>
+                    <h1 class="drk-heading-xlarge drk-margin-xlarge drk-text-break">Sticky Background</h1>
                 </div>
 
                 <div drk-parallax="start: 100%; end: 100%; opacity: 0,1 10%,1 30%,0; y: 2vh, 0 10%, 0 30%, -10vh">
-                    <h1 class="drk-heading-xlarge drk-margin-xlarge">Sticky Background</h1>
+                    <h1 class="drk-heading-xlarge drk-margin-xlarge drk-text-break">Sticky Background</h1>
                 </div>
 
                 <div drk-parallax="start: 100%; end: 100%; opacity: 0,1 10%,1 30%,0; y: 2vh, 0 10%, 0 30%, -10vh">
-                    <h1 class="drk-heading-xlarge drk-margin-xlarge">Sticky Background</h1>
+                    <h1 class="drk-heading-xlarge drk-margin-xlarge drk-text-break">Sticky Background</h1>
                 </div>
 
                 <div drk-parallax="start: 100%; end: 100%; opacity: 0,1 10%,1 30%,0; y: 2vh, 0 10%, 0 30%, -10vh">
-                    <h1 class="drk-heading-xlarge drk-margin-xlarge">Sticky Background</h1>
+                    <h1 class="drk-heading-xlarge drk-margin-xlarge drk-text-break">Sticky Background</h1>
                 </div>
 
                 <div drk-parallax="start: 100%; end: 100%; opacity: 0,1 10%,1 30%,0; y: 2vh, 0 10%, 0 30%, -10vh">
-                    <h1 class="drk-heading-xlarge drk-margin-xlarge">Sticky Background</h1>
+                    <h1 class="drk-heading-xlarge drk-margin-xlarge drk-text-break">Sticky Background</h1>
                 </div>
 
                 <div drk-parallax="start: 100%; end: 100%; opacity: 0,1 10%,1 30%,0; y: 2vh, 0 10%, 0 30%, -10vh">
-                    <h1 class="drk-heading-xlarge drk-margin-xlarge-top drk-margin-remove-bottom">Sticky Background</h1>
+                    <h1 class="drk-heading-xlarge drk-margin-xlarge-top drk-margin-remove-bottom drk-text-break">Sticky Background</h1>
                 </div>
 
             </div>
@@ -171,19 +171,9 @@
                     <div style="height: 75vh;"></div>
 
                     <div class="drk-flex drk-flex-middle" style="height: 50vh;">
-                        <div>
+                        <div style="min-width: 0">
 
-                            <h1>Sticky Parallax Images 1</h1>
-
-                            <p class="drk-visible@s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-
-                        </div>
-                    </div>
-
-                    <div class="drk-flex drk-flex-middle" style="height: 50vh;">
-                        <div>
-
-                            <h1>Sticky Parallax Images 2</h1>
+                            <h1 class="drk-text-break">Sticky Parallax Images 1</h1>
 
                             <p class="drk-visible@s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
@@ -191,9 +181,19 @@
                     </div>
 
                     <div class="drk-flex drk-flex-middle" style="height: 50vh;">
-                        <div>
+                        <div style="min-width: 0">
 
-                            <h1>Sticky Parallax Images 3</h1>
+                            <h1 class="drk-text-break">Sticky Parallax Images 2</h1>
+
+                            <p class="drk-visible@s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+                        </div>
+                    </div>
+
+                    <div class="drk-flex drk-flex-middle" style="height: 50vh;">
+                        <div style="min-width: 0">
+
+                            <h1 class="drk-text-break">Sticky Parallax Images 3</h1>
 
                             <p class="drk-visible@s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
@@ -230,21 +230,21 @@
                     <div class="drk-height-viewport" drk-sticky="end: #js-sticky-parallax-images-all">
                         <div drk-parallax="target: #js-sticky-parallax-images-all; y: 55vh, 45vh;">
 
-                            <div class="drk-position-center-left" drk-parallax="target: #js-sticky-parallax-images-all; start: 100vh; end: 100% + 100vh - 150vh; opacity: 0,1 20%,1 80%,0">
+                            <div class="drk-position-center-left drk-text-break" style="max-width: 100%" drk-parallax="target: #js-sticky-parallax-images-all; start: 100vh; end: 100% + 100vh - 150vh; opacity: 0,1 20%,1 80%,0">
 
                                 <h1>Sticky Parallax Images All 1</h1>
 
                                 <p class="drk-visible@s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
                             </div>
-                            <div class="drk-position-center-left" drk-parallax="target: #js-sticky-parallax-images-all; start: 150vh; end: 100% + 100vh - 200vh; opacity: 0,1 20%,1 80%,0">
+                            <div class="drk-position-center-left drk-text-break" style="max-width: 100%" drk-parallax="target: #js-sticky-parallax-images-all; start: 150vh; end: 100% + 100vh - 200vh; opacity: 0,1 20%,1 80%,0">
 
                                 <h1>Sticky Parallax Images All 2</h1>
 
                                 <p class="drk-visible@s">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
                             </div>
-                            <div class="drk-position-center-left" drk-parallax="target: #js-sticky-parallax-images-all; start: 200vh; end: 100% + 100vh - 250vh; opacity: 0,1 20%,1">
+                            <div class="drk-position-center-left drk-text-break" style="max-width: 100%" drk-parallax="target: #js-sticky-parallax-images-all; start: 200vh; end: 100% + 100vh - 250vh; opacity: 0,1 20%,1">
 
                                 <h1>Sticky Parallax Images All 3</h1>
 
@@ -260,17 +260,17 @@
         </div>
 
         <div class="drk-section drk-section-muted drk-section-xlarge drk-flex drk-flex-center drk-flex-middle drk-text-center">
-            <div class="drk-container">
+            <div class="drk-container" style="min-width: 0">
 
-                <h1 class="drk-heading-2xlarge">Reveal Following Section</h1>
+                <h1 class="drk-heading-2xlarge drk-text-break">Reveal Following Section</h1>
 
             </div>
         </div>
 
         <div class="drk-section drk-section-primary drk-section-xlarge drk-flex drk-flex-center drk-flex-middle drk-text-center drk-position-z-index-negative" drk-sticky="position: bottom; overflow-flip: true; start: -100%; end: 0">
-            <div class="drk-container">
+            <div class="drk-container" style="min-width: 0">
 
-                <h1 class="drk-heading-2xlarge">Sticky Section</h1>
+                <h1 class="drk-heading-2xlarge drk-text-break">Sticky Section</h1>
 
             </div>
         </div>
