@@ -114,7 +114,10 @@ Avant livraison :
 - confirmer l’absence de fichiers `.svg` Tabler et `.woff`/`.woff2` autonomes distribués ;
 - confirmer l’absence de source JavaScript navigateur et de registre SVG JavaScript ;
 - confirmer l’absence de résurgence du préfixe hérité (`uk-`, `data-uk-`, `--uk-`, classes
-  `.uk-*`) dans les sources, les tests et la distribution ;
+  `.uk-*`) et des noms amont dans les sources, les tests et la distribution — contrôle
+  automatisé par l’audit d’identité de `pnpm check-frontend` (G10), allowlist des zones
+  autorisées dans `tests/fixtures/frontend-policy-allowlist.json`, bannières légales de
+  `dist/` décomptées ;
 - confirmer l’absence de nouveau mixin Less ou SCSS ;
 - relire le HTML sans runtime, la cascade mobile-first et les signaux SEO applicables ;
 - exécuter un second build et vérifier l’absence de diff inexpliqué.
@@ -398,7 +401,8 @@ Une release candidate exige en plus :
 6. vérification des 5 112 icônes Outline, des deux faces Inter et de l’absence de registre
    SVG JavaScript ;
 7. audit sans source JavaScript navigateur hors `dist/` ;
-8. audit sans résurgence du préfixe hérité `uk-` dans les sources, tests et `dist/` ;
+8. audit sans résurgence du préfixe hérité `uk-` ni des noms amont dans les sources, tests
+   et `dist/` (audit d’identité G10 automatisé) ;
 9. validation sans runtime, à 320 pixels CSS, des signaux SEO et du budget de performance ;
 10. notes de migration pour toute divergence ;
 11. version propre au fork, distincte de tout tag amont ;
