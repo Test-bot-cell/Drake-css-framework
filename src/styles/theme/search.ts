@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · search.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-search": {
@@ -30,7 +32,7 @@ export const fragments: GlobalStyleObject[] = [
 {
     ".drk-search-input": {
         "border": "none",
-        "color": "#666"
+        "color": palette.text
     }
 },
 {
@@ -38,7 +40,7 @@ export const fragments: GlobalStyleObject[] = [
         "outline": "none"
     },
     ".drk-search-input::placeholder": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-search .drk-search-icon": {
         "position": "absolute",
@@ -48,10 +50,10 @@ export const fragments: GlobalStyleObject[] = [
         "display": "inline-flex",
         "justify-content": "center",
         "align-items": "center",
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-search .drk-search-icon:hover": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-search .drk-search-icon:not(a):not(button):not(input)": {
         "pointer-events": "none"
@@ -72,7 +74,7 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-search-default .drk-search-input:focus": {
         "background-color": "rgba(0, 0, 0, 0)",
-        "border-color": "#1e87f0"
+        "border-color": palette.primary
     },
     ".drk-search-default .drk-search-icon": {
         "--drk-icon-width": "20px",
@@ -98,7 +100,7 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-search-navbar .drk-search-input:focus": {
         "background-color": "#fff",
-        "border-color": "#1e87f0"
+        "border-color": palette.primary
     },
     ".drk-search-navbar .drk-search-icon": {
         "--drk-icon-width": "20px",
@@ -125,7 +127,7 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-search-medium .drk-search-input:focus": {
         "background-color": "rgba(0, 0, 0, 0)",
-        "border-color": "#1e87f0"
+        "border-color": palette.primary
     },
     ".drk-search-medium .drk-search-icon": {
         "--drk-icon-width": "24px",
@@ -152,7 +154,7 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-search-large .drk-search-input:focus": {
         "background-color": "rgba(0, 0, 0, 0)",
-        "border-color": "#1e87f0"
+        "border-color": palette.primary
     },
     ".drk-search-large .drk-search-icon": {
         "--drk-icon-width": "40px",
@@ -167,10 +169,10 @@ export const fragments: GlobalStyleObject[] = [
         "padding-right": "80px"
     },
     ".drk-search-toggle": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-search-toggle:hover": {
-        "color": "#666"
+        "color": palette.text
     }
 },
 ];

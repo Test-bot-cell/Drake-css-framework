@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (core · pagination.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-pagination": {
@@ -22,17 +24,17 @@ export const fragments: GlobalStyleObject[] = [
         "align-items": "center",
         "column-gap": "0.25em",
         "padding": "5px 10px",
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-pagination > * > :hover": {
-        "color": "#666",
+        "color": palette.text,
         "text-decoration": "none"
     },
     ".drk-pagination > .drk-active > *": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-pagination > .drk-disabled > *": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-pagination-next, .drk-pagination-previous": {
         "--drk-icon-width": "7px",

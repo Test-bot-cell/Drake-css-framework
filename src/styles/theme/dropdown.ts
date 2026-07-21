@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · dropdown.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-dropdown": {
@@ -12,14 +14,14 @@ export const fragments: GlobalStyleObject[] = [
         "min-width": "200px",
         "padding": "25px",
         "background": "#fff",
-        "color": "#666",
+        "color": palette.text,
         "box-shadow": "0 5px 12px rgba(0, 0, 0, 0.15)"
     },
     ".drk-dropdown > :last-child": {
         "margin-bottom": "__DRK_RAW__0__"
     },
     ".drk-dropdown :focus-visible": {
-        "outline-color": "#333 !important"
+        "outline-color": `${palette.emphasis} !important`
     },
     ".drk-dropdown-large": {
         "padding": "40px"
@@ -34,14 +36,14 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-dropdown-dropbar": {
             "--drk-position-viewport-offset": "30px"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-dropdown-dropbar": {
             "--drk-position-viewport-offset": "40px"
         }
@@ -56,25 +58,25 @@ export const fragments: GlobalStyleObject[] = [
         "font-size": "0.875rem"
     },
     ".drk-dropdown-nav > li > a": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-dropdown-nav > li > a:hover, .drk-dropdown-nav > li.drk-active > a": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-dropdown-nav .drk-nav-subtitle": {
         "font-size": "12px"
     },
     ".drk-dropdown-nav .drk-nav-header": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-dropdown-nav .drk-nav-divider": {
         "border-top": "1px solid #e5e5e5"
     },
     ".drk-dropdown-nav .drk-nav-sub a": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-dropdown-nav .drk-nav-sub a:hover, .drk-dropdown-nav .drk-nav-sub li.drk-active > a": {
-        "color": "#666"
+        "color": palette.text
     }
 },
 ];

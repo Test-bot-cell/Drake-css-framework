@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (core · column.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     "[class*=\"drk-column-\"]": {
@@ -9,7 +11,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         "[class*=\"drk-column-\"]": {
             "column-gap": "40px"
         }
@@ -25,7 +27,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-column-divider": {
             "column-gap": "80px"
         }
@@ -49,140 +51,140 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-column-1-2\\40 s": {
             "column-count": 2
         }
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-column-1-3\\40 s": {
             "column-count": 3
         }
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-column-1-4\\40 s": {
             "column-count": 4
         }
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-column-1-5\\40 s": {
             "column-count": 5
         }
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-column-1-6\\40 s": {
             "column-count": 6
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-column-1-2\\40 m": {
             "column-count": 2
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-column-1-3\\40 m": {
             "column-count": 3
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-column-1-4\\40 m": {
             "column-count": 4
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-column-1-5\\40 m": {
             "column-count": 5
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-column-1-6\\40 m": {
             "column-count": 6
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-column-1-2\\40 l": {
             "column-count": 2
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-column-1-3\\40 l": {
             "column-count": 3
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-column-1-4\\40 l": {
             "column-count": 4
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-column-1-5\\40 l": {
             "column-count": 5
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-column-1-6\\40 l": {
             "column-count": 6
         }
     }
 },
 {
-    "@media (min-width: 1600px)": {
+    [`@media (min-width: ${breakpoints.xl})`]: {
         ".drk-column-1-2\\40 xl": {
             "column-count": 2
         }
     }
 },
 {
-    "@media (min-width: 1600px)": {
+    [`@media (min-width: ${breakpoints.xl})`]: {
         ".drk-column-1-3\\40 xl": {
             "column-count": 3
         }
     }
 },
 {
-    "@media (min-width: 1600px)": {
+    [`@media (min-width: ${breakpoints.xl})`]: {
         ".drk-column-1-4\\40 xl": {
             "column-count": 4
         }
     }
 },
 {
-    "@media (min-width: 1600px)": {
+    [`@media (min-width: ${breakpoints.xl})`]: {
         ".drk-column-1-5\\40 xl": {
             "column-count": 5
         }
     }
 },
 {
-    "@media (min-width: 1600px)": {
+    [`@media (min-width: ${breakpoints.xl})`]: {
         ".drk-column-1-6\\40 xl": {
             "column-count": 6
         }

@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (core · iconnav.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-iconnav": {
@@ -26,14 +28,14 @@ export const fragments: GlobalStyleObject[] = [
         "align-items": "center",
         "column-gap": "0.25em",
         "line-height": 0,
-        "color": "#999",
+        "color": palette.muted,
         "text-decoration": "none"
     },
     ".drk-iconnav > * > a:hover": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-iconnav > .drk-active > a": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-iconnav-vertical": {
         "flex-direction": "column",

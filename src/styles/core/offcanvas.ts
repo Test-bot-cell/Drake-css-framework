@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (core · offcanvas.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-offcanvas": {
@@ -25,12 +27,12 @@ export const fragments: GlobalStyleObject[] = [
         "box-sizing": "border-box",
         "width": "270px",
         "padding": "20px 20px",
-        "background": "#222",
+        "background": palette.secondary,
         "overflow-y": "auto"
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-offcanvas-bar": {
             "left": "-350px",
             "width": "350px",
@@ -45,7 +47,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-offcanvas-flip .drk-offcanvas-bar": {
             "right": "-350px"
         }
@@ -86,7 +88,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-open > .drk-offcanvas-reveal": {
             "width": "350px"
         }
@@ -106,7 +108,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-offcanvas-close": {
             "top": "10px",
             "right": "10px"
@@ -160,14 +162,14 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ":not(.drk-offcanvas-flip).drk-offcanvas-container-animation": {
             "left": "350px"
         }
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-offcanvas-flip.drk-offcanvas-container-animation": {
             "left": "-350px"
         }

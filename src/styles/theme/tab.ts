@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · tab.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-tab": {
@@ -31,22 +33,22 @@ export const fragments: GlobalStyleObject[] = [
         "column-gap": "0.25em",
         "justify-content": "center",
         "padding": "5px 10px",
-        "color": "#999",
+        "color": palette.muted,
         "border-bottom": "1px solid transparent",
         "font-size": "0.875rem",
         "text-transform": "uppercase",
         "transition": "color 0.1s ease-in-out"
     },
     ".drk-tab > * > a:hover": {
-        "color": "#666",
+        "color": palette.text,
         "text-decoration": "none"
     },
     ".drk-tab > .drk-active > a": {
-        "color": "#333",
-        "border-color": "#1e87f0"
+        "color": palette.emphasis,
+        "border-color": palette.primary
     },
     ".drk-tab > .drk-disabled > a": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-tab-bottom::before": {
         "top": "__DRK_RAW__0__",

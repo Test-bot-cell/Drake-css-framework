@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (core · modal.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-modal": {
@@ -20,14 +22,14 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-modal": {
             "padding": "50px 30px"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-modal": {
             "padding-left": "40px",
             "padding-right": "40px"
@@ -83,30 +85,30 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-modal-header": {
         "display": "flow-root",
         "padding": "10px 20px",
-        "background": "#f8f8f8"
+        "background": palette.mutedBackground
     },
     ".drk-modal-footer": {
         "display": "flow-root",
         "padding": "10px 20px",
-        "background": "#f8f8f8"
+        "background": palette.mutedBackground
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-modal-body": {
             "padding": "30px 30px"
         }
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-modal-header": {
             "padding": "15px 30px"
         }
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-modal-footer": {
             "padding": "15px 30px"
         }
@@ -141,7 +143,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-modal-close-outside": {
             "right": "__DRK_RAW__0__",
             "transform": "translate(100%, -100%)"

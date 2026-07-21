@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (core · tile.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-tile": {
@@ -15,7 +17,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-tile": {
             "padding-left": "30px",
             "padding-right": "30px"
@@ -23,7 +25,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-tile": {
             "padding-left": "40px",
             "padding-right": "40px",
@@ -50,7 +52,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-tile-large": {
             "padding-top": "140px",
             "padding-bottom": "140px"
@@ -64,7 +66,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-tile-xlarge": {
             "padding-top": "210px",
             "padding-bottom": "210px"
@@ -78,15 +80,15 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-tile-muted": {
         "--drk-inverse": "dark",
-        "background-color": "#f8f8f8"
+        "background-color": palette.mutedBackground
     },
     ".drk-tile-primary": {
         "--drk-inverse": "light",
-        "background-color": "#1e87f0"
+        "background-color": palette.primary
     },
     ".drk-tile-secondary": {
         "--drk-inverse": "light",
-        "background-color": "#222"
+        "background-color": palette.secondary
     }
 },
 ];

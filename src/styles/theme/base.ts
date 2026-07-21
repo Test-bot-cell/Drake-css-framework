@@ -2,23 +2,25 @@
 // Amorcée depuis la cascade de référence (theme · base.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, fontFamilies, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     "html": {
-        "font-family": "\"InterVariable\", Inter, \"Inter Fallback\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "font-family": fontFamilies.body,
         "font-size": "16px",
         "font-weight": "normal",
         "font-optical-sizing": "auto",
         "line-height": 1.5,
         "-webkit-text-size-adjust": "100%",
         "background": "#fff",
-        "color": "#666"
+        "color": palette.text
     },
     "body": {
         "margin": "__DRK_RAW__0__"
     },
     "a, .drk-link": {
-        "color": "#1e87f0",
+        "color": palette.primary,
         "text-decoration": "none",
         "cursor": "pointer"
     },
@@ -39,22 +41,22 @@ export const fragments: GlobalStyleObject[] = [
     ":not(pre) > code, :not(pre) > kbd, :not(pre) > samp": {
         "font-family": "Consolas, monaco, monospace",
         "font-size": "0.875rem",
-        "color": "#f0506e",
+        "color": palette.danger,
         "white-space": "nowrap",
         "padding": "2px 6px",
-        "background": "#f8f8f8"
+        "background": palette.mutedBackground
     },
     "em": {
-        "color": "#f0506e"
+        "color": palette.danger
     },
     "ins": {
         "background": "#ffd",
-        "color": "#666",
+        "color": palette.text,
         "text-decoration": "none"
     },
     "mark": {
         "background": "#ffd",
-        "color": "#666"
+        "color": palette.text
     },
     "q": {
         "font-style": "italic"
@@ -103,9 +105,9 @@ export const fragments: GlobalStyleObject[] = [
     },
     "h1, .drk-h1, h2, .drk-h2, h3, .drk-h3, h4, .drk-h4, h5, .drk-h5, h6, .drk-h6, .drk-heading-small, .drk-heading-medium, .drk-heading-large, .drk-heading-xlarge, .drk-heading-2xlarge, .drk-heading-3xlarge": {
         "margin": "0 0 20px 0",
-        "font-family": "\"InterVariable\", Inter, \"Inter Fallback\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "font-family": fontFamilies.body,
         "font-weight": "normal",
-        "color": "#333",
+        "color": palette.emphasis,
         "text-transform": "none"
     },
     "* + h1, * + .drk-h1, * + h2, * + .drk-h2, * + h3, * + .drk-h3, * + h4, * + .drk-h4, * + h5, * + .drk-h5, * + h6, * + .drk-h6, * + .drk-heading-small, * + .drk-heading-medium, * + .drk-heading-large, * + .drk-heading-xlarge, * + .drk-heading-2xlarge, * + .drk-heading-3xlarge": {
@@ -139,14 +141,14 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         "h1, .drk-h1": {
             "font-size": "2.625rem"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         "h2, .drk-h2": {
             "font-size": "2rem"
         }
@@ -189,7 +191,7 @@ export const fragments: GlobalStyleObject[] = [
         "font-size": "1.25rem",
         "line-height": 1.5,
         "font-style": "italic",
-        "color": "#333"
+        "color": palette.emphasis
     },
     "* + blockquote": {
         "margin-top": "20px"
@@ -201,14 +203,14 @@ export const fragments: GlobalStyleObject[] = [
         "margin-top": "10px",
         "font-size": "0.875rem",
         "line-height": 1.5,
-        "color": "#666"
+        "color": palette.text
     },
     "blockquote footer::before": {
         "content": "\"— \""
     },
     "pre": {
         "font": "0.875rem / 1.5 Consolas, monaco, monospace",
-        "color": "#666",
+        "color": palette.text,
         "-moz-tab-size": "__DRK_RAW__4__",
         "tab-size": 4,
         "overflow": "auto",
@@ -230,7 +232,7 @@ export const fragments: GlobalStyleObject[] = [
         "outline": "none"
     },
     ":focus-visible": {
-        "outline": "2px dotted #333"
+        "outline": `2px dotted ${palette.emphasis}`
     },
     "::selection": {
         "background": "#39f",

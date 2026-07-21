@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · grid.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-grid": {
@@ -30,21 +32,21 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid": {
             "margin-left": "-40px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid > *": {
             "padding-left": "40px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid + .drk-grid, .drk-grid > .drk-grid-margin, * + .drk-grid-margin": {
             "margin-top": "40px"
         }
@@ -80,21 +82,21 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid-large, .drk-grid-column-large": {
             "margin-left": "-70px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid-large > *, .drk-grid-column-large > *": {
             "padding-left": "70px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid + .drk-grid-large, .drk-grid + .drk-grid-row-large, .drk-grid-large > .drk-grid-margin, .drk-grid-row-large > .drk-grid-margin, * + .drk-grid-margin-large": {
             "margin-top": "70px"
         }
@@ -147,35 +149,35 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid-divider": {
             "margin-left": "-80px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid-divider > *": {
             "padding-left": "80px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid-divider > :not(.drk-first-column)::before": {
             "left": "40px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid-divider.drk-grid-stack > .drk-grid-margin": {
             "margin-top": "80px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid-divider.drk-grid-stack > .drk-grid-margin::before": {
             "top": "-40px",
             "left": "80px"
@@ -251,35 +253,35 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid-divider.drk-grid-large, .drk-grid-divider.drk-grid-column-large": {
             "margin-left": "-140px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid-divider.drk-grid-large > *, .drk-grid-divider.drk-grid-column-large > *": {
             "padding-left": "140px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid-divider.drk-grid-large > :not(.drk-first-column)::before, .drk-grid-divider.drk-grid-column-large > :not(.drk-first-column)::before": {
             "left": "70px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid-divider.drk-grid-large.drk-grid-stack > .drk-grid-margin, .drk-grid-divider.drk-grid-row-large.drk-grid-stack > .drk-grid-margin": {
             "margin-top": "140px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid-divider.drk-grid-large.drk-grid-stack > .drk-grid-margin::before": {
             "top": "-70px",
             "left": "140px"
@@ -287,14 +289,14 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid-divider.drk-grid-row-large.drk-grid-stack > .drk-grid-margin::before": {
             "top": "-70px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-grid-divider.drk-grid-column-large.drk-grid-stack > .drk-grid-margin::before": {
             "left": "140px"
         }

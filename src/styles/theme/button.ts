@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · button.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-button": {
@@ -47,21 +49,21 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-button-default": {
         "background-color": "transparent",
-        "color": "#333",
+        "color": palette.emphasis,
         "border": "1px solid #e5e5e5"
     },
     ".drk-button-default:hover": {
         "background-color": "transparent",
-        "color": "#333",
+        "color": palette.emphasis,
         "border-color": "#b2b2b2"
     },
     ".drk-button-default:active, .drk-button-default.drk-active": {
         "background-color": "transparent",
-        "color": "#333",
+        "color": palette.emphasis,
         "border-color": "#999999"
     },
     ".drk-button-primary": {
-        "background-color": "#1e87f0",
+        "background-color": palette.primary,
         "color": "#fff",
         "border": "1px solid transparent"
     },
@@ -74,7 +76,7 @@ export const fragments: GlobalStyleObject[] = [
         "color": "#fff"
     },
     ".drk-button-secondary": {
-        "background-color": "#222",
+        "background-color": palette.secondary,
         "color": "#fff",
         "border": "1px solid transparent"
     },
@@ -87,7 +89,7 @@ export const fragments: GlobalStyleObject[] = [
         "color": "#fff"
     },
     ".drk-button-danger": {
-        "background-color": "#f0506e",
+        "background-color": palette.danger,
         "color": "#fff",
         "border": "1px solid transparent"
     },
@@ -101,7 +103,7 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-button-default:disabled, .drk-button-primary:disabled, .drk-button-secondary:disabled, .drk-button-danger:disabled": {
         "background-color": "transparent",
-        "color": "#999",
+        "color": palette.muted,
         "border-color": "#e5e5e5"
     },
     ".drk-button-small": {
@@ -118,7 +120,7 @@ export const fragments: GlobalStyleObject[] = [
         "padding": "__DRK_RAW__0__",
         "line-height": 1.5,
         "background": "none",
-        "color": "#333",
+        "color": palette.emphasis,
         "position": "relative"
     },
     ".drk-button-text::before": {
@@ -131,13 +133,13 @@ export const fragments: GlobalStyleObject[] = [
         "transition": "right 0.3s ease-out"
     },
     ".drk-button-text:hover": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-button-text:hover::before": {
         "right": "__DRK_RAW__0__"
     },
     ".drk-button-text:disabled": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-button-text:disabled::before": {
         "display": "none"
@@ -146,14 +148,14 @@ export const fragments: GlobalStyleObject[] = [
         "padding": "__DRK_RAW__0__",
         "line-height": 1.5,
         "background": "none",
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-button-link:hover": {
-        "color": "#999",
+        "color": palette.muted,
         "text-decoration": "none"
     },
     ".drk-button-link:disabled": {
-        "color": "#999",
+        "color": palette.muted,
         "text-decoration": "none"
     },
     ".drk-button-group": {

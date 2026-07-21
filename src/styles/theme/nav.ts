@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · nav.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-nav, .drk-nav ul": {
@@ -57,19 +59,19 @@ export const fragments: GlobalStyleObject[] = [
         "line-height": 1.5
     },
     ".drk-nav-default > li > a": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-nav-default > li > a:hover": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-nav-default > li.drk-active > a": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-nav-default .drk-nav-subtitle": {
         "font-size": "12px"
     },
     ".drk-nav-default .drk-nav-header": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-nav-default .drk-nav-divider": {
         "border-top": "1px solid #e5e5e5"
@@ -79,32 +81,32 @@ export const fragments: GlobalStyleObject[] = [
         "line-height": 1.5
     },
     ".drk-nav-default .drk-nav-sub a": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-nav-default .drk-nav-sub a:hover": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-nav-default .drk-nav-sub li.drk-active > a": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-nav-primary": {
         "font-size": "1.5rem",
         "line-height": 1.5
     },
     ".drk-nav-primary > li > a": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-nav-primary > li > a:hover": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-nav-primary > li.drk-active > a": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-nav-primary .drk-nav-subtitle": {
         "font-size": "1.25rem"
     },
     ".drk-nav-primary .drk-nav-header": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-nav-primary .drk-nav-divider": {
         "border-top": "1px solid #e5e5e5"
@@ -114,13 +116,13 @@ export const fragments: GlobalStyleObject[] = [
         "line-height": 1.5
     },
     ".drk-nav-primary .drk-nav-sub a": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-nav-primary .drk-nav-sub a:hover": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-nav-primary .drk-nav-sub li.drk-active > a": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-nav-secondary": {
         "font-size": "16px",
@@ -130,29 +132,29 @@ export const fragments: GlobalStyleObject[] = [
         "margin-top": "__DRK_RAW__0__"
     },
     ".drk-nav-secondary > li > a": {
-        "color": "#333",
+        "color": palette.emphasis,
         "padding": "10px 10px"
     },
     ".drk-nav-secondary > li > a:hover": {
-        "color": "#333",
-        "background-color": "#f8f8f8"
+        "color": palette.emphasis,
+        "background-color": palette.mutedBackground
     },
     ".drk-nav-secondary > li.drk-active > a": {
-        "color": "#333",
-        "background-color": "#f8f8f8"
+        "color": palette.emphasis,
+        "background-color": palette.mutedBackground
     },
     ".drk-nav-secondary .drk-nav-subtitle": {
         "font-size": "0.875rem",
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-nav-secondary > li > a:hover .drk-nav-subtitle": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-nav-secondary > li.drk-active > a .drk-nav-subtitle": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-nav-secondary .drk-nav-header": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-nav-secondary .drk-nav-divider": {
         "border-top": "1px solid #e5e5e5"
@@ -162,13 +164,13 @@ export const fragments: GlobalStyleObject[] = [
         "line-height": 1.5
     },
     ".drk-nav-secondary .drk-nav-sub a": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-nav-secondary .drk-nav-sub a:hover": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-nav-secondary .drk-nav-sub li.drk-active > a": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-nav-medium": {
         "font-size": "2.8875rem",
@@ -184,42 +186,42 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-nav-medium": {
             "font-size": "3.5rem"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-nav-large": {
             "font-size": "4rem"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-nav-xlarge": {
             "font-size": "6rem"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-nav-medium": {
             "font-size": "4rem"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-nav-large": {
             "font-size": "6rem"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-nav-xlarge": {
             "font-size": "8rem"
         }

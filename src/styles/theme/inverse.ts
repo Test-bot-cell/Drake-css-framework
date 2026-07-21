@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · inverse.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-light, .drk-section-primary:not(.drk-preserve-color), .drk-section-secondary:not(.drk-preserve-color), .drk-tile-primary:not(.drk-preserve-color), .drk-tile-secondary:not(.drk-preserve-color), .drk-card-primary.drk-card-body, .drk-card-primary > :not([class*=\"drk-card-media\"]), .drk-card-secondary.drk-card-body, .drk-card-secondary > :not([class*=\"drk-card-media\"]), .drk-overlay-primary, .drk-offcanvas-bar": {
@@ -235,27 +237,27 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-light .drk-button-primary, .drk-section-primary:not(.drk-preserve-color) .drk-button-primary, .drk-section-secondary:not(.drk-preserve-color) .drk-button-primary, .drk-tile-primary:not(.drk-preserve-color) .drk-button-primary, .drk-tile-secondary:not(.drk-preserve-color) .drk-button-primary, .drk-card-primary.drk-card-body .drk-button-primary, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-button-primary, .drk-card-secondary.drk-card-body .drk-button-primary, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-button-primary, .drk-overlay-primary .drk-button-primary, .drk-offcanvas-bar .drk-button-primary": {
         "background-color": "#fff",
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-light .drk-button-primary:hover, .drk-section-primary:not(.drk-preserve-color) .drk-button-primary:hover, .drk-section-secondary:not(.drk-preserve-color) .drk-button-primary:hover, .drk-tile-primary:not(.drk-preserve-color) .drk-button-primary:hover, .drk-tile-secondary:not(.drk-preserve-color) .drk-button-primary:hover, .drk-card-primary.drk-card-body .drk-button-primary:hover, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-button-primary:hover, .drk-card-secondary.drk-card-body .drk-button-primary:hover, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-button-primary:hover, .drk-overlay-primary .drk-button-primary:hover, .drk-offcanvas-bar .drk-button-primary:hover": {
         "background-color": "#f2f2f2",
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-light .drk-button-primary:active, .drk-light .drk-button-primary.drk-active, .drk-section-primary:not(.drk-preserve-color) .drk-button-primary:active, .drk-section-primary:not(.drk-preserve-color) .drk-button-primary.drk-active, .drk-section-secondary:not(.drk-preserve-color) .drk-button-primary:active, .drk-section-secondary:not(.drk-preserve-color) .drk-button-primary.drk-active, .drk-tile-primary:not(.drk-preserve-color) .drk-button-primary:active, .drk-tile-primary:not(.drk-preserve-color) .drk-button-primary.drk-active, .drk-tile-secondary:not(.drk-preserve-color) .drk-button-primary:active, .drk-tile-secondary:not(.drk-preserve-color) .drk-button-primary.drk-active, .drk-card-primary.drk-card-body .drk-button-primary:active, .drk-card-primary.drk-card-body .drk-button-primary.drk-active, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-button-primary:active, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-button-primary.drk-active, .drk-card-secondary.drk-card-body .drk-button-primary:active, .drk-card-secondary.drk-card-body .drk-button-primary.drk-active, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-button-primary:active, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-button-primary.drk-active, .drk-overlay-primary .drk-button-primary:active, .drk-overlay-primary .drk-button-primary.drk-active, .drk-offcanvas-bar .drk-button-primary:active, .drk-offcanvas-bar .drk-button-primary.drk-active": {
         "background-color": "#e6e6e6",
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-light .drk-button-secondary, .drk-section-primary:not(.drk-preserve-color) .drk-button-secondary, .drk-section-secondary:not(.drk-preserve-color) .drk-button-secondary, .drk-tile-primary:not(.drk-preserve-color) .drk-button-secondary, .drk-tile-secondary:not(.drk-preserve-color) .drk-button-secondary, .drk-card-primary.drk-card-body .drk-button-secondary, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-button-secondary, .drk-card-secondary.drk-card-body .drk-button-secondary, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-button-secondary, .drk-overlay-primary .drk-button-secondary, .drk-offcanvas-bar .drk-button-secondary": {
         "background-color": "#fff",
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-light .drk-button-secondary:hover, .drk-section-primary:not(.drk-preserve-color) .drk-button-secondary:hover, .drk-section-secondary:not(.drk-preserve-color) .drk-button-secondary:hover, .drk-tile-primary:not(.drk-preserve-color) .drk-button-secondary:hover, .drk-tile-secondary:not(.drk-preserve-color) .drk-button-secondary:hover, .drk-card-primary.drk-card-body .drk-button-secondary:hover, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-button-secondary:hover, .drk-card-secondary.drk-card-body .drk-button-secondary:hover, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-button-secondary:hover, .drk-overlay-primary .drk-button-secondary:hover, .drk-offcanvas-bar .drk-button-secondary:hover": {
         "background-color": "#f2f2f2",
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-light .drk-button-secondary:active, .drk-light .drk-button-secondary.drk-active, .drk-section-primary:not(.drk-preserve-color) .drk-button-secondary:active, .drk-section-primary:not(.drk-preserve-color) .drk-button-secondary.drk-active, .drk-section-secondary:not(.drk-preserve-color) .drk-button-secondary:active, .drk-section-secondary:not(.drk-preserve-color) .drk-button-secondary.drk-active, .drk-tile-primary:not(.drk-preserve-color) .drk-button-secondary:active, .drk-tile-primary:not(.drk-preserve-color) .drk-button-secondary.drk-active, .drk-tile-secondary:not(.drk-preserve-color) .drk-button-secondary:active, .drk-tile-secondary:not(.drk-preserve-color) .drk-button-secondary.drk-active, .drk-card-primary.drk-card-body .drk-button-secondary:active, .drk-card-primary.drk-card-body .drk-button-secondary.drk-active, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-button-secondary:active, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-button-secondary.drk-active, .drk-card-secondary.drk-card-body .drk-button-secondary:active, .drk-card-secondary.drk-card-body .drk-button-secondary.drk-active, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-button-secondary:active, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-button-secondary.drk-active, .drk-overlay-primary .drk-button-secondary:active, .drk-overlay-primary .drk-button-secondary.drk-active, .drk-offcanvas-bar .drk-button-secondary:active, .drk-offcanvas-bar .drk-button-secondary.drk-active": {
         "background-color": "#e6e6e6",
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-light .drk-button-text, .drk-section-primary:not(.drk-preserve-color) .drk-button-text, .drk-section-secondary:not(.drk-preserve-color) .drk-button-text, .drk-tile-primary:not(.drk-preserve-color) .drk-button-text, .drk-tile-secondary:not(.drk-preserve-color) .drk-button-text, .drk-card-primary.drk-card-body .drk-button-text, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-button-text, .drk-card-secondary.drk-card-body .drk-button-text, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-button-text, .drk-overlay-primary .drk-button-text, .drk-offcanvas-bar .drk-button-text": {
         "color": "#fff"
@@ -277,7 +279,7 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-light.drk-card-badge, .drk-section-primary:not(.drk-preserve-color).drk-card-badge, .drk-section-secondary:not(.drk-preserve-color).drk-card-badge, .drk-tile-primary:not(.drk-preserve-color).drk-card-badge, .drk-tile-secondary:not(.drk-preserve-color).drk-card-badge, .drk-card-primary.drk-card-body.drk-card-badge, .drk-card-primary > :not([class*=\"drk-card-media\"]).drk-card-badge, .drk-card-secondary.drk-card-body.drk-card-badge, .drk-card-secondary > :not([class*=\"drk-card-media\"]).drk-card-badge, .drk-overlay-primary.drk-card-badge, .drk-offcanvas-bar.drk-card-badge": {
         "background-color": "#fff",
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-light .drk-close, .drk-section-primary:not(.drk-preserve-color) .drk-close, .drk-section-secondary:not(.drk-preserve-color) .drk-close, .drk-tile-primary:not(.drk-preserve-color) .drk-close, .drk-tile-secondary:not(.drk-preserve-color) .drk-close, .drk-card-primary.drk-card-body .drk-close, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-close, .drk-card-secondary.drk-card-body .drk-close, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-close, .drk-overlay-primary .drk-close, .drk-offcanvas-bar .drk-close": {
         "color": "rgba(255, 255, 255, 0.5)"
@@ -295,19 +297,19 @@ export const fragments: GlobalStyleObject[] = [
         "color": "#fff"
     },
     ".drk-light .drk-marker, .drk-section-primary:not(.drk-preserve-color) .drk-marker, .drk-section-secondary:not(.drk-preserve-color) .drk-marker, .drk-tile-primary:not(.drk-preserve-color) .drk-marker, .drk-tile-secondary:not(.drk-preserve-color) .drk-marker, .drk-card-primary.drk-card-body .drk-marker, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-marker, .drk-card-secondary.drk-card-body .drk-marker, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-marker, .drk-overlay-primary .drk-marker, .drk-offcanvas-bar .drk-marker": {
-        "background": "#f8f8f8",
-        "color": "#666"
+        "background": palette.mutedBackground,
+        "color": palette.text
     },
     ".drk-light .drk-marker:hover, .drk-section-primary:not(.drk-preserve-color) .drk-marker:hover, .drk-section-secondary:not(.drk-preserve-color) .drk-marker:hover, .drk-tile-primary:not(.drk-preserve-color) .drk-marker:hover, .drk-tile-secondary:not(.drk-preserve-color) .drk-marker:hover, .drk-card-primary.drk-card-body .drk-marker:hover, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-marker:hover, .drk-card-secondary.drk-card-body .drk-marker:hover, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-marker:hover, .drk-overlay-primary .drk-marker:hover, .drk-offcanvas-bar .drk-marker:hover": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-light .drk-badge, .drk-section-primary:not(.drk-preserve-color) .drk-badge, .drk-section-secondary:not(.drk-preserve-color) .drk-badge, .drk-tile-primary:not(.drk-preserve-color) .drk-badge, .drk-tile-secondary:not(.drk-preserve-color) .drk-badge, .drk-card-primary.drk-card-body .drk-badge, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-badge, .drk-card-secondary.drk-card-body .drk-badge, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-badge, .drk-overlay-primary .drk-badge, .drk-offcanvas-bar .drk-badge": {
         "background-color": "#fff",
-        "color": "#666 !important"
+        "color": `${palette.text} !important`
     },
     ".drk-light .drk-label, .drk-section-primary:not(.drk-preserve-color) .drk-label, .drk-section-secondary:not(.drk-preserve-color) .drk-label, .drk-tile-primary:not(.drk-preserve-color) .drk-label, .drk-tile-secondary:not(.drk-preserve-color) .drk-label, .drk-card-primary.drk-card-body .drk-label, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-label, .drk-card-secondary.drk-card-body .drk-label, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-label, .drk-overlay-primary .drk-label, .drk-offcanvas-bar .drk-label": {
         "background-color": "#fff",
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-light .drk-article-meta, .drk-section-primary:not(.drk-preserve-color) .drk-article-meta, .drk-section-secondary:not(.drk-preserve-color) .drk-article-meta, .drk-tile-primary:not(.drk-preserve-color) .drk-article-meta, .drk-tile-secondary:not(.drk-preserve-color) .drk-article-meta, .drk-card-primary.drk-card-body .drk-article-meta, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-article-meta, .drk-card-secondary.drk-card-body .drk-article-meta, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-article-meta, .drk-overlay-primary .drk-article-meta, .drk-offcanvas-bar .drk-article-meta": {
         "color": "rgba(255, 255, 255, 0.5)"
@@ -518,7 +520,7 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-light .drk-subnav-pill > .drk-active > a, .drk-section-primary:not(.drk-preserve-color) .drk-subnav-pill > .drk-active > a, .drk-section-secondary:not(.drk-preserve-color) .drk-subnav-pill > .drk-active > a, .drk-tile-primary:not(.drk-preserve-color) .drk-subnav-pill > .drk-active > a, .drk-tile-secondary:not(.drk-preserve-color) .drk-subnav-pill > .drk-active > a, .drk-card-primary.drk-card-body .drk-subnav-pill > .drk-active > a, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-subnav-pill > .drk-active > a, .drk-card-secondary.drk-card-body .drk-subnav-pill > .drk-active > a, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-subnav-pill > .drk-active > a, .drk-overlay-primary .drk-subnav-pill > .drk-active > a, .drk-offcanvas-bar .drk-subnav-pill > .drk-active > a": {
         "background-color": "#fff",
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-light .drk-subnav > .drk-disabled > a, .drk-section-primary:not(.drk-preserve-color) .drk-subnav > .drk-disabled > a, .drk-section-secondary:not(.drk-preserve-color) .drk-subnav > .drk-disabled > a, .drk-tile-primary:not(.drk-preserve-color) .drk-subnav > .drk-disabled > a, .drk-tile-secondary:not(.drk-preserve-color) .drk-subnav > .drk-disabled > a, .drk-card-primary.drk-card-body .drk-subnav > .drk-disabled > a, .drk-card-primary > :not([class*=\"drk-card-media\"]) .drk-subnav > .drk-disabled > a, .drk-card-secondary.drk-card-body .drk-subnav > .drk-disabled > a, .drk-card-secondary > :not([class*=\"drk-card-media\"]) .drk-subnav > .drk-disabled > a, .drk-overlay-primary .drk-subnav > .drk-disabled > a, .drk-offcanvas-bar .drk-subnav > .drk-disabled > a": {
         "color": "rgba(255, 255, 255, 0.5)"

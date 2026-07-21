@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · position.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ":root": {
@@ -120,7 +122,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-position-large": {
             "margin": "50px",
             "--drk-position-margin-offset": "50px"

@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · tooltip.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-tooltip": {
@@ -14,7 +16,7 @@ export const fragments: GlobalStyleObject[] = [
         "box-sizing": "border-box",
         "max-width": "200px",
         "padding": "3px 6px",
-        "background": "#666",
+        "background": palette.text,
         "border-radius": "2px",
         "color": "#fff",
         "font-size": "12px"

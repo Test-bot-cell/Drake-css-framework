@@ -2,10 +2,12 @@
 // Amorcée depuis la cascade de référence (core · description-list.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-description-list > dt": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-description-list > dt:nth-child(n+2)": {
         "margin-top": "20px"

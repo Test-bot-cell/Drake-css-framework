@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · navbar.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, fontFamilies, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-navbar": {
@@ -9,7 +11,7 @@ export const fragments: GlobalStyleObject[] = [
         "position": "relative"
     },
     ".drk-navbar-container:not(.drk-navbar-transparent)": {
-        "background": "#f8f8f8"
+        "background": palette.mutedBackground
     },
     ".drk-navbar-left, .drk-navbar-right, [class*=\"drk-navbar-center\"]": {
         "display": "flex",
@@ -73,7 +75,7 @@ export const fragments: GlobalStyleObject[] = [
         "box-sizing": "border-box",
         "min-height": "80px",
         "font-size": "0.875rem",
-        "font-family": "\"InterVariable\", Inter, \"Inter Fallback\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "font-family": fontFamilies.body,
         "text-decoration": "none"
     }
 },
@@ -81,7 +83,7 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-navbar-nav > li > a": {
         "height": "100%",
         "padding": "0 0",
-        "color": "#999",
+        "color": palette.muted,
         "text-transform": "uppercase",
         "transition": "0.1s ease-in-out"
     }
@@ -93,13 +95,13 @@ export const fragments: GlobalStyleObject[] = [
 },
 {
     ".drk-navbar-nav > li:hover > a, .drk-navbar-nav > li > a[aria-expanded=\"true\"]": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-navbar-nav > li > a:active": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-navbar-nav > li.drk-active > a": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-navbar-parent-icon": {
         "--drk-icon-width": "12px",
@@ -112,17 +114,17 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-navbar-item": {
         "padding": "0 0",
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-navbar-item > :last-child": {
         "margin-bottom": "__DRK_RAW__0__"
     },
     ".drk-navbar-toggle": {
         "padding": "0 0",
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-navbar-toggle:hover, .drk-navbar-toggle[aria-expanded=\"true\"]": {
-        "color": "#666",
+        "color": palette.text,
         "text-decoration": "none"
     },
     ".drk-navbar-toggle-icon": {
@@ -148,14 +150,14 @@ export const fragments: GlobalStyleObject[] = [
         "width": "200px",
         "padding": "25px",
         "background": "#fff",
-        "color": "#666",
+        "color": palette.text,
         "box-shadow": "0 5px 12px rgba(0, 0, 0, 0.15)"
     },
     ".drk-navbar-dropdown > :last-child": {
         "margin-bottom": "__DRK_RAW__0__"
     },
     ".drk-navbar-dropdown :focus-visible": {
-        "outline-color": "#333 !important"
+        "outline-color": `${palette.emphasis} !important`
     },
     ".drk-navbar-dropdown .drk-drop-grid": {
         "margin-left": "-30px"
@@ -193,14 +195,14 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-navbar-dropdown-dropbar": {
             "--drk-position-viewport-offset": "30px"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-navbar-dropdown-dropbar": {
             "--drk-position-viewport-offset": "40px"
         }
@@ -216,31 +218,31 @@ export const fragments: GlobalStyleObject[] = [
         "font-size": "0.875rem"
     },
     ".drk-navbar-dropdown-nav > li > a": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-navbar-dropdown-nav > li > a:hover": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-navbar-dropdown-nav > li.drk-active > a": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-navbar-dropdown-nav .drk-nav-subtitle": {
         "font-size": "12px"
     },
     ".drk-navbar-dropdown-nav .drk-nav-header": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-navbar-dropdown-nav .drk-nav-divider": {
         "border-top": "1px solid #e5e5e5"
     },
     ".drk-navbar-dropdown-nav .drk-nav-sub a": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-navbar-dropdown-nav .drk-nav-sub a:hover": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-navbar-dropdown-nav .drk-nav-sub li.drk-active > a": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-navbar-container": {
         "transition": "0.1s ease-in-out"
@@ -252,28 +254,28 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-navbar-left, .drk-navbar-right, [class*=\"drk-navbar-center\"]": {
             "gap": "30px"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-navbar-center-left": {
             "right": "calc(100% + 30px)"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-navbar-center-right": {
             "left": "calc(100% + 30px)"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-navbar-nav": {
             "gap": "30px"
         }

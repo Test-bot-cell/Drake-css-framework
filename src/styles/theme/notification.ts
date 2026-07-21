@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · notification.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-notification": {
@@ -20,7 +22,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-notification": {
             "right": "auto",
             "width": "350px"
@@ -28,7 +30,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-notification-top-right, .drk-notification-bottom-right": {
             "left": "auto",
             "right": "10px"
@@ -36,7 +38,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-notification-top-center, .drk-notification-bottom-center": {
             "left": "50%",
             "margin-left": "-175px"
@@ -47,8 +49,8 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-notification-message": {
         "position": "relative",
         "padding": "15px",
-        "background": "#f8f8f8",
-        "color": "#666",
+        "background": palette.mutedBackground,
+        "color": palette.text,
         "font-size": "1.25rem",
         "line-height": 1.4,
         "cursor": "pointer"
@@ -66,16 +68,16 @@ export const fragments: GlobalStyleObject[] = [
         "display": "block"
     },
     ".drk-notification-message-primary": {
-        "color": "#1e87f0"
+        "color": palette.primary
     },
     ".drk-notification-message-success": {
-        "color": "#32d296"
+        "color": palette.success
     },
     ".drk-notification-message-warning": {
-        "color": "#faa05a"
+        "color": palette.warning
     },
     ".drk-notification-message-danger": {
-        "color": "#f0506e"
+        "color": palette.danger
     }
 },
 ];
