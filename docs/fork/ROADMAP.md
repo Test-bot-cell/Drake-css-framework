@@ -252,8 +252,12 @@ résorption relève de la politique D-017 (correction côté catalogue) et condi
 
 Avancement au 2026-07-21 : les composants optionnels et les sources du catalogue navigateur
 sont portés en TypeScript ; la fixture mobile/SEO, les gates G10 à G13 et les bundles séparés
-sont présents. Les déclarations consommateur `.d.ts`, une éventuelle sortie ESM et la conversion
-des exemples indexables au profil complet restent à réaliser.
+sont présents. Les déclarations consommateur sont livrées et testées : `dist/types/` est émis
+par `pnpm compile-types` (entrée `types` de package.json, alias `drake-util` réécrit en
+relatif, global UMD `window.Drake` déclaré) et le test de consommation `tests/types/`
+compile sous tsc strict dans `pnpm typecheck` (G3). La sortie ESM est close par D-017 (non
+livrée en 0.1.0). Dernier critère ouvert : le passage de tous les exemples du catalogue au
+profil `MOBILE_FIRST_SEO.md`, porté par la résorption D-017.
 
 ### Portée
 
