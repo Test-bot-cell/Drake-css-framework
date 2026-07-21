@@ -1,5 +1,5 @@
 import alias from '@rollup/plugin-alias';
-import CleanCSS from 'clean-css';
+import { transform } from 'lightningcss';
 import minimist from 'minimist';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -47,14 +47,18 @@ export async function logFile(file) {
 }
 
 export async function minify(file) {
-    const { styles } = await limit(() =>
-        new CleanCSS({
-            advanced: false,
-            keepSpecialComments: 0,
-            rebase: false,
-            returnPromise: true,
-        }).minify([file]),
-    );
+    const styles = await limit(async () => {
+        const source = await read(file);
+        // Lightning CSS supprime tous les commentaires : les bannières légales de tête
+        // (/*! … */) sont extraites puis re-préfixées à la sortie minifiée (D-015).
+        const banners = source.match(/^(?:\/\*![\s\S]*?\*\/\s*)+/)?.[0] ?? '';
+        const { code } = transform({
+            filename: file,
+            code: Buffer.from(source),
+            minify: true,
+        });
+        return `${banners.trimEnd()}${banners ? '\n' : ''}${code.toString()}`;
+    });
 
     await write(`${path.join(path.dirname(file), path.basename(file, '.css'))}.min.css`, styles);
 
