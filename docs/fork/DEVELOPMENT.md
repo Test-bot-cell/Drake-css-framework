@@ -42,6 +42,7 @@ Le contributeur identifie :
 - les surfaces C0 à C3 concernées ;
 - les sources canoniques et sorties générées touchées ;
 - les licences ou versions épinglées éventuellement affectées.
+- l'impact HTML initial, mobile-first, SEO, accessibilité et Core Web Vitals.
 
 Un changement constitutionnel s’arrête ici jusqu’à acceptation d’un amendement.
 
@@ -53,15 +54,23 @@ Avant de modifier le code :
 - exécuter ou documenter le test qui caractérise l’état actuel ;
 - conserver un exemple minimal de la régression ou du comportement ;
 - identifier l’équivalent dans UIkit 3.25.20 pour un changement de compatibilité.
+- capturer le HTML avant runtime et caractériser le comportement sans JavaScript lorsque le
+  composant expose du contenu, une navigation ou une action essentielle.
 
 ### Étape 3 — Implémenter au bon niveau
 
 - Modifier `src/less/` pour les styles UIkit.
 - Modifier les générateurs pour les CSS Tabler ou Inter.
-- Modifier le TypeScript pour le runtime déjà migré.
-- Lorsqu’un fichier runtime JavaScript doit évoluer, le migrer vers TypeScript dans un
-  changement comportementalement neutre avant ou séparément de l’évolution.
-- Ne jamais corriger directement `src/scss/`, `dist/` ou `tests/js/test.js`.
+- Modifier exclusivement le TypeScript pour le runtime navigateur.
+- Lorsqu’un fichier runtime JavaScript amont doit évoluer, porter le module complet vers
+  TypeScript dans un changement comportementalement neutre avant ou séparément de l’évolution.
+  Ne jamais introduire de coexistence JavaScript/TypeScript.
+- Rendre le contenu et la navigation dans le HTML serveur ou prérendu ; réserver le
+  TypeScript à l'amélioration progressive.
+- Écrire la mise en page de base pour 320 pixels CSS, puis les enrichissements avec
+  `min-width`.
+- Ne jamais corriger directement `src/scss/` ou `dist/`. Supprimer la sortie historique
+  `tests/js/test.js` en portant ses sources en TypeScript et sa sortie sous `dist/`.
 
 ### Étape 4 — Tester au plus près
 
@@ -75,6 +84,10 @@ composant interactif, il couvre selon le cas :
 - focus, rôles, noms et états ARIA ;
 - LTR et RTL ;
 - réduction de mouvement ou autres préférences pertinentes ;
+- exécution désactivée : contenu, liens et actions essentielles ;
+- reflow à 320 pixels CSS, cibles tactiles et parité mobile/bureau ;
+- HTML initial, métadonnées, données structurées et statuts HTTP lorsque applicables ;
+- impact LCP, INP et CLS ou leurs mesures de laboratoire applicables ;
 - destruction sans listener, observer ou nœud résiduel.
 
 ### Étape 5 — Exécuter les gates
@@ -90,6 +103,8 @@ Avant livraison :
 - rechercher un changement hors périmètre ;
 - vérifier les bannières de licence ;
 - confirmer l’absence de fichiers `.svg` Tabler et `.woff`/`.woff2` autonomes distribués ;
+- confirmer l'absence de source JavaScript navigateur et de registre SVG JavaScript ;
+- relire le HTML sans runtime, la cascade mobile-first et les signaux SEO applicables ;
 - exécuter un second build et vérifier l’absence de diff inexpliqué.
 
 ### Étape 7 — Documenter
@@ -101,12 +116,14 @@ les décisions éventuellement ajoutées.
 
 ### 5.1 Principe
 
-La migration est incrémentale. `allowJs` permet la coexistence transitoire ; chaque fichier
-migré rejoint immédiatement le contrôle strict. esbuild continue de produire les bundles,
-et `tsc --noEmit` est l’autorité de type.
+Le port est découpé en unités de revue, mais aucun état publiable ne permet la coexistence de
+sources JavaScript et TypeScript pour le navigateur. Un module historique est converti en
+entier avant d'être modifié. esbuild produit le JavaScript compilé exclusivement sous
+`dist/`, et `tsc --noEmit` est l’autorité de type.
 
 Le dépôt **DOIT** activer les options compatibles avec la compilation isolée par esbuild,
-notamment `isolatedModules`. Les imports de types doivent être explicites.
+notamment `isolatedModules`. Les imports de types doivent être explicites et `allowJs` ne
+doit pas inclure le runtime navigateur.
 
 ### 5.2 Modèle de composants
 
@@ -129,7 +146,7 @@ Des helpers du type `defineComponent` et `defineMixin` **DEVRAIENT** fournir le 
 
 L’ordre recommandé est :
 
-1. types communs et configuration ;
+1. configuration TypeScript-only et gate d'absence de source JavaScript navigateur ;
 2. `src/js/util/`, des fonctions pures vers les utilitaires DOM ;
 3. `src/js/api/` : état, options, props, cycle de vie, boot et scheduler ;
 4. mixins transverses ;
@@ -140,10 +157,12 @@ L’ordre recommandé est :
    - drop, dropdown et dropnav ;
    - sticky, sortable et upload ;
 7. composants optionnels et entrées de bundle ;
-8. types publics et sortie ESM additionnelle.
+8. types publics et sortie ESM additionnelle ;
+9. suppression de toute entrée, fixture ou bundle navigateur historique hors de `dist/`.
 
-Les modules JavaScript et TypeScript peuvent s’importer pendant la transition. Une phase
-n’est close que lorsque ses tests et son typecheck sont verts.
+Les ports peuvent être livrés par lots cohérents, mais un module TypeScript **NE DOIT PAS**
+importer un doublon JavaScript navigateur. Une phase n’est close que lorsque ses tests, son
+typecheck et l'audit des sources sont verts.
 
 ### 5.4 Séparation des changements
 
@@ -170,6 +189,9 @@ test d’échec.
 - génère la classe de base `.uk-ti` et les classes `.uk-ti-{nom}` ;
 - conserve la bannière MIT ;
 - ne copie aucun fichier SVG dans la distribution.
+- produit les alias de compatibilité nécessaires pour les anciennes icônes UIkit exclusivement
+  en CSS ;
+- remplace les icônes internes sans registre, bundle ou injection SVG JavaScript.
 
 Un changement de tri doit produire une sortie déterministe.
 
@@ -211,6 +233,10 @@ minimum dans les modes suivants pour une release candidate :
 | Accessibilité | focus, nom, rôle, état, ordre clavier |
 | Responsive | petit et grand viewport, resize |
 | Assets | icône courante, `brand-*` Outline, roman, italic |
+| Sans runtime | HTML, contenu, liens, navigation et replis natifs |
+| Mobile-first | reflow 320 px, zoom 400 %, cibles et enrichissements `min-width` |
+| SEO | metadata, canonical, robots, statuts, href, titres, images et données structurées |
+| Performance | LCP, CLS, proxy INP en laboratoire et données terrain disponibles |
 
 La comparaison visuelle ne remplace pas les assertions de comportement et d’accessibilité.
 
@@ -228,6 +254,11 @@ La comparaison visuelle ne remplace pas les assertions de comportement et d’ac
 | G7 — Compatibilité | tests ciblés puis catalogue `tests/` LTR/RTL | runtime et release |
 | G8 — Légal | versions, empreintes et notices contrôlées | assets et release |
 | G9 — Reproductibilité | second build puis `git diff --exit-code` | release |
+| G10 — Sources frontend | audit automatisé : TypeScript source uniquement, JavaScript navigateur seulement dans `dist/` | runtime et release |
+| G11 — HTML et SEO | HTML HTTP/prérendu, sans runtime, statuts, liens, métadonnées et données structurées | composants, exemples et release |
+| G12 — Mobile-first | reflow 320 px/400 %, cibles, LTR/RTL et parité mobile/bureau | styles, composants et release |
+| G13 — Performance | comparaison LCP/CLS/TBT laboratoire et revue LCP/INP/CLS terrain disponible | composants et release |
+| G14 — Icônes héritées | aucun registre SVG JS ; toutes les icônes livrées résolues vers Tabler CSS | assets, composants et release |
 
 Un changement documentaire seul exécute G0 et une revue de cohérence. Il n’a pas à
 régénérer les artefacts s’il ne modifie aucune règle consommée par un générateur.
@@ -242,6 +273,9 @@ Une modification est terminée lorsque :
 - tous les gates applicables sont verts ;
 - les sorties sont déterministes ;
 - la compatibilité est préservée ou la divergence est acceptée et documentée ;
+- le HTML initial reste complet, indexable et utilisable sans runtime ;
+- le reflow mobile-first, le SEO technique et les budgets de performance applicables sont
+  démontrés ;
 - les licences sont intactes ;
 - aucun commentaire `TODO` non suivi ni contournement de type n’est ajouté ;
 - le compte rendu permet à une autre personne de reproduire la validation.
@@ -252,10 +286,13 @@ Une release candidate exige en plus :
 
 1. checkout propre depuis `fork/main` ;
 2. installation gelée sous la chaîne officielle ;
-3. suite complète des gates G1 à G9 ;
+3. suite complète des gates G1 à G14 ;
 4. validation du catalogue historique LTR et RTL ;
 5. inventaire de `dist/` sans `*.svg` Tabler, `*.woff` ni `*.woff2` ;
-6. vérification des 5 112 icônes Outline et des deux faces Inter ;
-7. notes de migration pour toute divergence ;
-8. version propre au fork, distincte du tag amont ;
-9. tag annoté et immuable après acceptation.
+6. vérification des 5 112 icônes Outline, des deux faces Inter et de l'absence de registre SVG
+   JavaScript ;
+7. audit sans source JavaScript navigateur hors `dist/` ;
+8. validation sans runtime, à 320 pixels CSS, des signaux SEO et du budget de performance ;
+9. notes de migration pour toute divergence ;
+10. version propre au fork, distincte du tag amont ;
+11. tag annoté et immuable après acceptation.
