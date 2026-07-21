@@ -1,7 +1,7 @@
 # Drake.css framework
 
 Drake.css framework (forme courte autorisée : Drake.css) est un framework d’interface
-HTML-first, maintenu comme fork local, privé et traçable du projet amont (voir
+HTML-first, maintenu comme fork public et traçable du projet amont (voir
 [FORK.md](FORK.md)). Depuis la décision D-012 du 2026-07-21, son identité publique est
 entièrement renommée : API globale `Drake` (`window.Drake`), préfixe universel `drk-`
 (classes `.drk-*`, attributs `drk-*` et `data-drk-*`, custom properties `--drk-*`) et
