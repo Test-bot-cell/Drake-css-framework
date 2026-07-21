@@ -1,26 +1,20 @@
 ---
-name: Feature Request 🌟
-about: Suggest an idea for a new feature.
+name: Demande de fonctionnalité 🌟
+about: Proposer une évolution de Drake.css framework.
 labels: '! Feature'
 assignees: ''
 ---
 
-<!--
+### Résumé
 
-👋 Hi, thank you for using UIKit!
+_Quelle fonctionnalité ? Quel problème résout-elle ?_
 
-Please open an issues only for a bug report or feature request. Make sure no one else has already opened a similar issue. If you need help or have questions about UIkit, there are few places to start:
+### Impact sur la charte
 
-- Search our public documentation: https://getuikit.com/docs
-- Ask the community in the Discord chat: https://discord.gg/NEt4Pv7
-- Look for an answer on Stack Overflow: https://stackoverflow.com/questions/ask?tags=getuikit
+_Classer le changement : ordinaire, sensible ou constitutionnel (voir
+`docs/fork/CHARTER.md` §6). Un changement constitutionnel exige un amendement via
+`docs/fork/DECISIONS.md` avant toute implémentation._
 
--->
+### Priorité
 
-### Summary
-
-_What feature are you requesting? What problem does it solve?_
-
-### Priority
-
-_On a scale of 1-5, how important is this feature to you? Please explain._
+_Sur une échelle de 1 à 5, expliquer l'importance._

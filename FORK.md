@@ -1,9 +1,13 @@
-# UIkit TS — cadre du fork
+# Drake.css framework — cadre du fork
 
 ## Statut du document
 
 Ce document est le point d’entrée du fork. Il résume son identité et son contrat public.
 Les règles détaillées et la procédure d’amendement se trouvent dans `docs/fork/`.
+
+Depuis D-012, ce document est le **seul document racine** autorisé à nommer le projet amont.
+Les autres emplacements autorisés sont énumérés dans « Règle de nommage documentaire »
+ci-dessous ; partout ailleurs, on écrit « l’amont » ou « le projet amont (voir FORK.md) ».
 
 ## Provenance
 
@@ -14,25 +18,95 @@ Le fork est établi à partir de :
 - commit de base immuable :
   `45cc430052ba967de8e9972507dee4d37701552d` ;
 - licence du code amont : MIT ;
-- remote amont réservé : `upstream=https://github.com/uikit/uikit.git`.
+- remote amont réservé : `upstream=https://github.com/uikit/uikit.git` ;
+- tag local annoté : `fork-base/uikit-v3.25.20`.
 
 Le tag amont est un tag léger non signé. Son identité repose donc sur le couple version et
 SHA ci-dessus. Le fork **DOIT** conserver cette provenance et ne jamais déplacer ni réutiliser
 le tag amont.
 
+## Identité et renommage
+
+### Nom du produit
+
+Le fork s’appelle officiellement **Drake.css framework** ; la forme courte **Drake.css** est
+autorisée. Cette identité a été décidée par le mainteneur le 2026-07-21 et enregistrée comme
+D-012 dans `docs/fork/DECISIONS.md`.
+
+### Table de renommage normative
+
+Le renommage couvre l’intégralité des espaces publics. Il est normatif : un nom hérité de
+l’amont qui subsiste dans une surface publique est une non-conformité.
+
+| Espace public             | Avant (amont)                     | Après (fork)                      |
+| ------------------------- | --------------------------------- | --------------------------------- |
+| API globale JS/UMD        | `UIkit` (`window.UIkit`)          | `Drake` (`window.Drake`)          |
+| Types internes            | `UIkit*`                          | `Drake*`                          |
+| Classes CSS               | `.uk-*`                           | `.drk-*`                          |
+| Attributs de composants   | `uk-*`                            | `drk-*`                           |
+| Attributs data            | `data-uk-*`                       | `data-drk-*`                      |
+| Custom properties         | `--uk-*`                          | `--drk-*`                         |
+| Icônes, classe de base    | `.uk-ti`                          | `.drk-ti`                         |
+| Icônes, classes unitaires | `.uk-ti-{nom}`                    | `.drk-ti-{nom}`                   |
+| Catalogue d’icônes        | `src/icons/uikit-tabler.json`     | `src/icons/drake-tabler.json`     |
+| CSS des icônes            | `dist/css/uikit-tabler-icons.css` | `dist/css/drake-tabler-icons.css` |
+| CSS de la typographie     | `dist/css/uikit-inter.css`        | `dist/css/drake-inter.css`        |
+| CSS principale            | `dist/css/uikit.css`              | `dist/css/drake.css`              |
+| CSS minifiée              | `dist/css/uikit.min.css`          | `dist/css/drake.min.css`          |
+| CSS RTL                   | `dist/css/uikit-rtl.css`          | `dist/css/drake-rtl.css`          |
+| CSS RTL minifiée          | `dist/css/uikit-rtl.min.css`      | `dist/css/drake-rtl.min.css`      |
+| JS principal              | `dist/js/uikit.js`                | `dist/js/drake.js`                |
+| JS minifié                | `dist/js/uikit.min.js`            | `dist/js/drake.min.js`            |
+| Composants JS             | `dist/js/components/`             | `dist/js/components/` (inchangé)  |
+| Source d’entrée           | `src/js/uikit.ts`                 | `src/js/drake.ts`                 |
+| Source du noyau           | `src/js/uikit-core.ts`            | `src/js/drake-core.ts`            |
+| Paquet npm                | `uikit`                           | `drake.css`                       |
+
+Tout artefact résiduel préfixé `uikit-` non listé ci-dessus, par exemple les variantes core
+de la distribution, suit la même règle : `uikit-*` devient `drake-*`.
+
+### Contrat de compatibilité redéfini par D-012
+
+D-012 redéfinit la référence de parité : ce n’est plus l’API publique littérale de l’amont,
+mais la **référence interne pré-renommage**, c’est-à-dire le dernier état vert de `fork/main`
+avant D-012. Le fork **DOIT** maintenir la parité comportementale aux niveaux C0 à C3 avec
+cette référence, modulo la table de renommage ci-dessus.
+
+D-012 remplace D-004 et amende D-005 (espace de noms `.drk-ti`) et D-011 (noms des
+artefacts).
+
+### Règle de nommage documentaire
+
+Le nom « UIkit », le domaine getuikit.com et le nom YOOtheme ne peuvent plus apparaître que
+dans :
+
+- `FORK.md`, le présent document ;
+- `docs/fork/UPSTREAM.md` ;
+- `docs/fork/DECISIONS.md` ;
+- `docs/fork/CHANGELOG-uikit-amont.md` ;
+- `LICENSE.md`, `THIRD_PARTY_NOTICES.md` et le répertoire `licenses/` ;
+- les bannières légales générées ;
+- la métadonnée de provenance de `package.json` ;
+- le remote git `upstream`.
+
+Partout ailleurs, documents et sources écrivent « l’amont » ou « le projet amont (voir
+FORK.md) » sans le nommer. Les obligations légales MIT, dont le copyright de l’éditeur
+amont, ne sont **JAMAIS** supprimées.
+
 ## Intention
 
-UIkit TS impose un modèle HTML-first de progressive enhancement : la réponse serveur ou le
+Drake.css impose un modèle HTML-first de progressive enhancement : la réponse serveur ou le
 document prérendu contient déjà tout le contenu, la navigation, les liens et les métadonnées.
-Les attributs `uk-*` ou `data-uk-*` déclarent les comportements facultatifs que le runtime
+Les attributs `drk-*` ou `data-drk-*` déclarent les comportements facultatifs que le runtime
 TypeScript initialise, met à jour et détruit selon les mutations du DOM. Le chargement ou
 l'échec du runtime ne conditionne jamais l'accès au contenu ni la navigation essentielle.
 
 Le fork poursuit six objectifs :
 
 1. porter intégralement le runtime navigateur en TypeScript strict, sans source JavaScript ;
-2. préserver la compatibilité utile avec UIkit 3.25.20 ;
-3. remplacer toutes les anciennes icônes UIkit par Tabler Icons Outline 3.45.0 en CSS ;
+2. préserver la parité comportementale C0 à C3 avec la référence interne pré-renommage
+   (D-012) ;
+3. remplacer toutes les anciennes icônes de l'amont par Tabler Icons Outline 3.45.0 en CSS ;
 4. adopter Inter 4.1 variable roman et italic comme typographie du framework, en CSS ;
 5. construire les styles depuis une base mobile de 320 pixels CSS avec enrichissements
    `min-width` ;
@@ -51,11 +125,11 @@ Le port ne constitue pas à lui seul une autorisation de réécriture fonctionne
 conserve :
 
 - l’initialisation automatique par observation du DOM ;
-- les attributs, classes et options de composants ;
+- les attributs, classes et options de composants, sous leurs noms renommés (D-012) ;
 - les événements DOM et les méthodes d’instance ;
-- l’API globale `UIkit` et les composants programmatiques ;
-- les bundles historiques nécessaires aux consommateurs existants, sauf les catalogues
-  d'icônes JavaScript explicitement remplacés par D-011.
+- l’API globale `Drake` et les composants programmatiques ;
+- les bundles nécessaires aux consommateurs existants, sous leurs noms renommés, sauf les
+  catalogues d'icônes JavaScript explicitement remplacés par D-011.
 
 Aucun fichier JavaScript source navigateur ne peut cohabiter avec TypeScript, même pendant
 la migration. Un changement qui touche un module historique le porte d'abord en TypeScript
@@ -64,11 +138,32 @@ et les gates de release vérifient qu'aucune source JavaScript frontend ne subsi
 Les déclarations de types et une sortie ESM **PEUVENT** compléter les sorties historiques,
 mais elles ne les remplacent pas sans décision de compatibilité.
 
+## Cap des styles : Panda.css
+
+D-013 fixe la cible : les styles quittent Less/SCSS pour
+[Panda.css](https://github.com/chakra-ui/panda). La génération est pilotée par
+`panda.config.ts` et des modules TypeScript de styles : tokens, semantic tokens, recettes,
+fonctions de style typées remplaçant les mixins Less, et `globalCss` pour la cascade
+héritée. La CSS distribuée reste statique, générée et déterministe : deux générations
+successives produisent des sorties identiques.
+
+Transition normative :
+
+- `src/less` reste la source canonique et `src/scss` reste généré **TANT QUE** le port Panda
+  n'est pas achevé composant par composant, chaque composant porté apportant une preuve de
+  parité par diff CSS normalisé ;
+- les mixins Less restants sont une dette qui bloque la release finale ;
+- la dépendance `@pandacss/dev` est épinglée en version exacte lors de son introduction.
+
+D-013 amende D-007 et D-011 sur la source canonique des styles.
+
 ## Place d’Elm
 
-Elm n’est pas un langage source du cœur du fork. Son modèle d’application propriétaire d’un
-arbre DOM, ses frontières d’interop et l’absence de FFI JavaScript arbitraire ne permettent
-pas de remplacer le runtime UIkit sans changer de produit.
+Elm n’est pas un langage source du cœur du fork. Le réexamen du 2026-07-21, mené à la
+demande du mainteneur, reconduit les raisons de D-003 et est enregistré comme D-014 : le
+modèle d’application d’Elm, propriétaire d’un arbre DOM, ses frontières d’interop et
+l’absence de FFI JavaScript arbitraire restent incompatibles avec le progressive enhancement
+HTML-first du fork. Aucune pertinence n’a été identifiée dans le cœur.
 
 Après stabilisation du fork, un adaptateur Elm **POURRA** être créé dans un paquet et un
 cycle de versions séparés. Il devra consommer l’API publique et le CSS du fork ; il ne devra
@@ -76,42 +171,50 @@ pas introduire Elm, des ports ou une seconde autorité d’état dans le runtime
 
 ## Contrat de compatibilité
 
+### Référence de parité
+
+Depuis D-012, la référence de compatibilité est la référence interne pré-renommage : le
+dernier état vert de `fork/main` avant D-012. Une différence observable par rapport à cette
+référence, une fois la table de renommage appliquée, est une régression, sauf si elle est
+enregistrée comme divergence acceptée.
+
 ### Surfaces protégées
 
 Le fork protège, dans cet ordre :
 
-1. le rendu et la cascade des classes UIkit ;
-2. le balisage déclaratif `uk-*` et `data-uk-*` ;
+1. le rendu et la cascade des classes `.drk-*` ;
+2. le balisage déclaratif `drk-*` et `data-drk-*` ;
 3. les comportements, événements et transitions des composants ;
 4. le clavier, le focus, les rôles et états ARIA ;
 5. le mode RTL et les breakpoints ;
-6. l’API programmatique et le système de plugins documentés.
-
-Une différence observable par rapport à UIkit 3.25.20 est une régression, sauf si elle est
-enregistrée comme divergence acceptée.
+6. l’API programmatique `Drake` et le système de plugins documentés.
 
 ### Divergences assumées
 
-Les mécanismes de livraison suivants changent volontairement :
+Les mécanismes de livraison suivants changent volontairement par rapport à l’amont :
 
-- toutes les icônes historiques UIkit, y compris celles utilisées en interne par les
+- toutes les icônes historiques de l’amont, y compris celles utilisées en interne par les
   composants, sont remplacées par des classes ou alias CSS Tabler Outline ;
-- aucun fichier `uikit-icons.js`, registre SVG JavaScript ou catalogue de chemins injectés
-  par le runtime n'est distribué ;
-- l’API de registre `UIkit.icon.add(name, svg)` est supprimée ; une extension fournit ses
-  propres masques CSS, selon `docs/fork/ICON_MIGRATION.md` ;
+- aucun bundle d’icônes JavaScript, registre SVG JavaScript ou catalogue de chemins injectés
+  par le runtime n’est distribué ;
+- l’API de registre d’icônes héritée, `icon.add(name, svg)` sur l’objet global, est
+  supprimée ; une extension fournit ses propres masques CSS, selon
+  `docs/fork/ICON_MIGRATION.md` ;
 - la police du framework est Inter 4.1 variable, roman et italic ;
 - le source du runtime est exclusivement TypeScript ;
 - les styles suivent une progression mobile-first et le contrat HTML-first/SEO décrit dans
-  `docs/fork/MOBILE_FIRST_SEO.md`.
+  `docs/fork/MOBILE_FIRST_SEO.md` ;
+- les espaces publics sont intégralement renommés selon la table normative du présent
+  document (D-012) ;
+- la source des styles migre vers Panda.css selon D-013.
 
 Ces divergences **NE DOIVENT PAS** dégrader l’accessibilité. Les noms d'icônes historiques
 éventuellement maintenus comme compatibilité sont des alias CSS vers Tabler, jamais un second
 catalogue.
 
 Un utilitaire générique opérant sur un SVG fourni par l'application peut subsister s'il ne
-contient et ne distribue aucun registre d'icônes UIkit. Il ne constitue pas une dérogation au
-remplacement intégral du catalogue livré.
+contient et ne distribue aucun registre d'icônes hérité de l'amont. Il ne constitue pas une
+dérogation au remplacement intégral du catalogue livré.
 
 ## Contrat HTML-first, mobile-first et SEO
 
@@ -137,11 +240,12 @@ mais ne constitue pas une promesse de classement dans les moteurs de recherche.
 - version : 3.45.0 exacte ;
 - variante : Outline uniquement ;
 - cardinalité attendue : 5 112 icônes ;
-- sortie : `dist/css/uikit-tabler-icons.css` ;
+- catalogue épinglé : `src/icons/drake-tabler.json` ;
+- sortie : `dist/css/drake-tabler-icons.css` ;
 - technique : `mask` et `-webkit-mask` avec `data:image/svg+xml` percent-encodé ;
-- classes : `.uk-ti` et `.uk-ti-{nom}` ;
+- classes : `.drk-ti` et `.drk-ti-{nom}` ;
 - fichiers interdits dans la distribution : tout asset Tabler `.svg` autonome, registre SVG
-  JavaScript et bundle `uikit-icons.js`.
+  JavaScript et bundle d'icônes JavaScript hérité.
 
 La CSS contient donc des **données** SVG, mais la distribution ne contient aucun **fichier**
 SVG Tabler.
@@ -150,7 +254,7 @@ SVG Tabler.
 
 - version : 4.1 exacte ;
 - faces : variable roman et variable italic ;
-- sortie : `dist/css/uikit-inter.css` ;
+- sortie : `dist/css/drake-inter.css` ;
 - technique : deux sources WOFF2 encodées dans des `data:` URI ;
 - fichiers interdits dans la distribution : `.woff` et `.woff2` autonomes.
 
@@ -174,18 +278,18 @@ Inter et les styles du framework sont chargés explicitement afin que le navigat
 la fonte sans imposer le catalogue complet d'icônes à chaque page :
 
 ```html
-<link rel="stylesheet" href="/dist/css/uikit-inter.css" />
-<link rel="stylesheet" href="/dist/css/uikit.css" />
+<link rel="stylesheet" href="/dist/css/drake-inter.css" />
+<link rel="stylesheet" href="/dist/css/drake.css" />
 ```
 
-`uikit.css` contient les masques Tabler utilisés par les composants du noyau. Une page qui
-emploie directement les classes publiques `.uk-ti-*` ajoute, et elle seule, le catalogue :
+`drake.css` contient les masques Tabler utilisés par les composants du noyau. Une page qui
+emploie directement les classes publiques `.drk-ti-*` ajoute, et elle seule, le catalogue :
 
 ```html
-<link rel="stylesheet" href="/dist/css/uikit-tabler-icons.css" />
+<link rel="stylesheet" href="/dist/css/drake-tabler-icons.css" />
 ```
 
-L'amélioration progressive peut ensuite charger `/dist/js/uikit.js`, artefact compilé depuis
+L'amélioration progressive peut ensuite charger `/dist/js/drake.js`, artefact compilé depuis
 les seules sources TypeScript. Aucun bundle d'icônes JavaScript n'est requis.
 
 ## Licences
@@ -207,6 +311,9 @@ Références légales conservées :
 - [licence MIT de Tabler Icons](licenses/Tabler-Icons-MIT.txt) ;
 - [licence SIL OFL 1.1 d’Inter](licenses/Inter-OFL-1.1.txt).
 
+Le renommage D-012 ne retire aucune mention légale : les bannières générées et les fichiers
+listés ci-dessus continuent de nommer les ayants droit amont et tiers.
+
 ## Reproductibilité
 
 Une release doit pouvoir être reconstruite depuis :
@@ -218,7 +325,9 @@ Une release doit pouvoir être reconstruite depuis :
 - les sources et versions tierces épinglées ;
 - les générateurs versionnés.
 
-Après génération, un second passage ne doit produire aucun diff. Les sorties non
+La chaîne officielle est inchangée : Node.js 24.18.0 exact, pnpm 11.4.0, `pnpm verify` et
+les gates G0 à G14. Après génération, un second passage ne doit produire aucun diff ; cette
+exigence s'applique aussi à la CSS générée par Panda.css (D-013). Les sorties non
 reproductibles ou dont la provenance ne peut être démontrée bloquent la release.
 
 ## Carte documentaire
@@ -226,14 +335,23 @@ reproductibles ou dont la provenance ne peut être démontrée bloquent la relea
 - `AGENTS.md` : règles immédiates pour toute intervention ;
 - `docs/fork/CHARTER.md` : constitution et invariants ;
 - `docs/fork/DEVELOPMENT.md` : cycle de développement et gates ;
-- `docs/fork/ICON_MIGRATION.md` : alias UIkit, usage Tabler CSS et rupture du registre SVG ;
+- `docs/fork/ICON_MIGRATION.md` : alias hérités, usage Tabler CSS et rupture du registre
+  SVG ;
 - `docs/fork/MOBILE_FIRST_SEO.md` : profil HTML-first, mobile-first et SEO technique ;
-- `docs/fork/UPSTREAM.md` : synchronisation avec UIkit ;
+- `docs/fork/UPSTREAM.md` : synchronisation avec l’amont ;
 - `docs/fork/DECISIONS.md` : registre des décisions acceptées ;
+- `docs/fork/CHANGELOG-uikit-amont.md` : journal des changements hérité de l’amont, conservé
+  pour référence ;
 - `docs/fork/ROADMAP.md` : séquence de livraison et critères de passage.
+
+La hiérarchie normative reste : `CHARTER.md` > `DECISIONS.md` > `AGENTS.md` > documents
+spécialisés > `ROADMAP.md` et le présent document.
 
 ## Publication
 
-Tant qu’un nom de paquet, un schéma de version et un remote `origin` propres au fork ne sont
-pas décidés, le paquet **DOIT** rester privé et ne doit pas être publié sous l’identité
-`uikit` de l’amont.
+Le paquet npm porte le nom `drake.css`, le titre « Drake.css framework » et la version
+propre au fork `0.1.0`. La base amont 3.25.20 est conservée comme métadonnée de provenance
+dans `package.json`.
+
+Tant qu’un remote `origin` propre au fork n’est pas décidé, le paquet **DOIT** rester
+`private: true` et ne doit être publié ni sous l’identité du fork ni sous celle de l’amont.

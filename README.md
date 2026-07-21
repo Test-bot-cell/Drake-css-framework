@@ -1,13 +1,31 @@
-# UIkit TS
+# Drake.css framework
 
-UIkit TS est un fork local, privé et traçable de
-[UIkit 3.25.20](https://github.com/uikit/uikit/releases/tag/v3.25.20). Il conserve le modèle
-de composants UIkit tout en imposant quatre choix de distribution :
+Drake.css framework (forme courte autorisée : Drake.css) est un framework d’interface
+HTML-first, maintenu comme fork local, privé et traçable du projet amont (voir
+[FORK.md](FORK.md)). Depuis la décision D-012 du 2026-07-21, son identité publique est
+entièrement renommée : API globale `Drake` (`window.Drake`), préfixe universel `drk-`
+(classes `.drk-*`, attributs `drk-*` et `data-drk-*`, custom properties `--drk-*`) et
+artefacts `dist/css/drake*.css` et `dist/js/drake*.js`. Le contrat de compatibilité est la
+parité comportementale C0–C3 avec la référence interne pré-renommage, définie dans
+[`docs/fork/DECISIONS.md`](docs/fork/DECISIONS.md).
+
+Le fork conserve le modèle de composants hérité tout en imposant quatre piliers de
+distribution :
 
 - runtime navigateur entièrement écrit en TypeScript strict ;
-- Tabler Icons 3.45.0 Outline livré sous forme de masques CSS ;
-- Inter 4.1 variable roman et italic embarquée dans une CSS ;
+- Tabler Icons 3.45.0 Outline livré sous forme de masques CSS `data:image/svg+xml`
+  (classe de base `.drk-ti`, icônes `.drk-ti-{nom}`, zéro fichier SVG distribué) ;
+- Inter 4.1 variable roman et italic embarquée en `data:` URI WOFF2 dans une CSS, sans
+  fichier `.woff`/`.woff2` autonome ;
 - HTML-first, mise en page mobile-first à 320 px et gates SEO/performance.
+
+À ces piliers s’ajoute un nouveau cap sur les styles (décision D-013) : la source des
+styles quitte Less/SCSS pour [Panda.css](https://github.com/chakra-ui/panda), piloté par
+`panda.config.ts` et des modules TypeScript de styles (tokens, semantic tokens, recettes,
+fonctions de style typées remplaçant les mixins Less, `globalCss` pour la cascade
+héritée). La CSS distribuée reste statique, générée et déterministe : deux générations
+successives **DOIVENT** produire un résultat identique. Ce port est en transition ; voir
+la section Développement.
 
 Le contrat complet, les divergences et les licences sont décrits dans [FORK.md](FORK.md).
 Le cycle de contribution sanctuarisé commence dans [AGENTS.md](AGENTS.md) et
@@ -15,59 +33,72 @@ Le cycle de contribution sanctuarisé commence dans [AGENTS.md](AGENTS.md) et
 
 ## Statut de distribution
 
-Ce dépôt n’est pas le paquet npm officiel `uikit`. Il reste `private: true` tant qu’un nom,
-une version et un remote propres au fork ne sont pas décidés. Il ne faut donc ni le publier
-sous l’identité amont, ni charger ses assets depuis le CDN UIkit officiel.
+Le paquet npm s’appelle `drake.css` (titre : « Drake.css framework ») et porte la version
+propre au fork `0.1.0` ; la base amont `3.25.20` n’est conservée qu’en métadonnée de
+provenance de `package.json`. Le dépôt reste `private: true` tant qu’un remote `origin`
+n’est pas décidé : il **NE DOIT PAS** être publié, ni voir ses assets chargés depuis un
+CDN tiers ou amont.
 
-Le JavaScript présent dans `dist/js/` est l’artefact compilé indispensable aux navigateurs ;
-aucune source JavaScript frontend n’est maintenue hors de `dist/`.
+Le JavaScript présent dans `dist/js/` est l’artefact compilé indispensable aux
+navigateurs ; aucune source JavaScript frontend n’est maintenue hors de `dist/`. Les
+composants individuels sont livrés sous `dist/js/components/`.
 
 ## Installation locale
 
-La chaîne de référence utilise Node.js 24.18.0 et pnpm 11.4.0 :
+La chaîne de référence utilise Node.js 24.18.0 exact et pnpm 11.4.0 :
 
 ```sh
 pnpm install --frozen-lockfile
 pnpm verify
 ```
 
-`pnpm watch` reconstruit les bundles TypeScript sans minification et la CSS Less pendant le
-développement. La commande ne remplace pas la validation complète `pnpm verify`.
+`pnpm verify` exécute les gates G0 à G14 et reste la seule validation faisant foi.
+`pnpm watch` reconstruit les bundles TypeScript sans minification et la CSS pendant le
+développement ; la commande ne remplace pas `pnpm verify`.
 
 ## Chargement recommandé
 
 ```html
-<link rel="stylesheet" href="/dist/css/uikit-inter.css" />
-<link rel="stylesheet" href="/dist/css/uikit.css" />
-<script src="/dist/js/uikit.js" defer></script>
+<link rel="stylesheet" href="/dist/css/drake-inter.css" />
+<link rel="stylesheet" href="/dist/css/drake.css" />
+<script src="/dist/js/drake.js" defer></script>
 ```
 
-La CSS principale contient les icônes Tabler internes utilisées par les composants. Une page
-qui emploie directement le catalogue public ajoute explicitement :
+Des variantes `drake.min.css`, `drake-rtl.css`, `drake-rtl.min.css` et `drake.min.js`
+sont produites pour la minification et l’écriture droite-gauche.
+
+La CSS principale contient les icônes Tabler internes utilisées par les composants. Une
+page qui emploie directement le catalogue public (5112 icônes `.drk-ti-{nom}`) ajoute
+explicitement :
 
 ```html
-<link rel="stylesheet" href="/dist/css/uikit-tabler-icons.css" />
+<link rel="stylesheet" href="/dist/css/drake-tabler-icons.css" />
 ```
 
-Les alias historiques et la suppression volontaire de `UIkit.icon.add` sont détaillés dans
-[`docs/fork/ICON_MIGRATION.md`](docs/fork/ICON_MIGRATION.md).
+Les alias historiques et la suppression volontaire de `Drake.icon.add` sont détaillés
+dans [`docs/fork/ICON_MIGRATION.md`](docs/fork/ICON_MIGRATION.md).
 
 ## Développement
 
 Les sources canoniques sont :
 
-- `src/js/**/*.ts` pour le runtime ;
-- `src/less/` pour les styles ;
-- `src/icons/uikit-tabler.json` et les générateurs sous `build/fork/` pour les assets.
+- `src/js/**/*.ts` pour le runtime, avec les points d’entrée `src/js/drake.ts` et
+  `src/js/drake-core.ts` ;
+- `src/less/` pour les styles, **TANT QUE** le port Panda.css (D-013) n’est pas achevé
+  composant par composant avec preuve de parité (diff CSS normalisé) ; `panda.config.ts`
+  et les modules TypeScript de styles deviennent la source canonique à mesure du port,
+  et les mixins Less restants sont une dette qui bloque la release finale ;
+- `src/icons/drake-tabler.json` et les générateurs sous `build/fork/` pour les assets.
 
-`src/scss/` et `dist/` sont générés. Ils ne doivent jamais recevoir une correction manuelle.
+`src/scss/` et `dist/` sont générés. Ils **NE DOIVENT** jamais recevoir une correction
+manuelle. La dépendance `@pandacss/dev` est épinglée en version exacte.
 
-## Provenance et licence
+## Provenance et licences
 
-UIkit est un projet open source développé par
-[YOOtheme](https://yootheme.com), distribué sous licence MIT. Ce fork part exactement du
-commit `45cc430052ba967de8e9972507dee4d37701552d` de UIkit 3.25.20 et préserve sa licence dans
-[LICENSE.md](LICENSE.md).
+Ce fork provient d’un projet amont sous licence MIT ; son identité, sa version, son
+commit de base et le contrat de traçabilité sont consignés dans [FORK.md](FORK.md) et
+[`docs/fork/UPSTREAM.md`](docs/fork/UPSTREAM.md). La licence d’origine et ses mentions de
+copyright sont intégralement préservées dans [LICENSE.md](LICENSE.md).
 
 Tabler Icons reste sous MIT et Inter sous SIL Open Font License 1.1. Les attributions et
 textes applicables se trouvent dans [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) et

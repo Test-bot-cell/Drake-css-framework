@@ -88,7 +88,8 @@ le fork comme progressive enhancement compatible UIkit.
 ## D-004 — Compatibilité avant modernisation
 
 - Date : 2026-07-21
-- Statut : **Acceptée**
+- Statut : **Remplacée**
+- Remplacée par : D-012, le 2026-07-21
 
 ### Décision
 
@@ -108,6 +109,7 @@ ne sont supprimés qu’après une décision de rupture et un plan de migration.
 
 - Date : 2026-07-21
 - Statut : **Acceptée**
+- Amendée par : D-012 (espace de noms .drk-ti), le 2026-07-21
 
 ### Décision
 
@@ -249,6 +251,7 @@ Toute modification passe par :
 - Statut : **Acceptée**
 - Remplace : D-002 et D-007
 - Complète : D-004 et D-005
+- Amendée par : D-012 (identité et préfixes) et D-013 (source des styles), le 2026-07-21
 
 ### Contexte
 
@@ -299,6 +302,195 @@ la seconde changerait le modèle DOM et nécessiterait une interopération contr
   technique et les budgets de performance.
 - Les divergences avec UIkit amont sont assumées et doivent être réappliquées lors de chaque
   synchronisation.
+
+## D-012 — Identité Drake.css framework et renommage des espaces publics
+
+- Date : 2026-07-21
+- Statut : **Acceptée**
+- Remplace : D-004
+- Amende : D-005 et D-011
+
+### Contexte
+
+Le fork s'est doté de piliers propres qui le distinguent durablement de l'amont. Conserver le
+nom amont, le préfixe `uk-` et l'API globale `UIkit` entretient une confusion de provenance,
+suggère une interchangeabilité qui n'est plus garantie et attache le contrat de compatibilité
+de D-004 à une API publique littérale que le fork ne souhaite plus exposer. Le mainteneur a
+arrêté le 2026-07-21 l'identité « Drake.css framework », forme courte autorisée
+« Drake.css ».
+
+### Options examinées
+
+1. Conserver le nom et les préfixes amont, statu quo de D-004.
+2. Renommer le paquet npm et les artefacts seulement, en conservant `uk-*` et `UIkit`.
+3. Renommer intégralement les espaces publics selon une table normative unique et redéfinir la
+   compatibilité comme une parité comportementale avec la référence interne pré-renommage.
+
+La troisième option est retenue. La première fige la confusion d'identité ; la deuxième
+produit un hybride dont les classes contredisent le nom et dont la surface publique reste
+celle de l'amont.
+
+### Décision
+
+Le fork s'appelle officiellement « Drake.css framework » ; la forme courte « Drake.css » est
+autorisée. La table de renommage suivante est normative :
+
+| Surface                 | Avant          | Après           |
+| ----------------------- | -------------- | --------------- |
+| API globale JS et UMD   | `window.UIkit` | `window.Drake`  |
+| Types internes          | `UIkit*`       | `Drake*`        |
+| Classes CSS             | `.uk-*`        | `.drk-*`        |
+| Attributs de composants | `uk-*`         | `drk-*`         |
+| Attributs data          | `data-uk-*`    | `data-drk-*`    |
+| Custom properties       | `--uk-*`       | `--drk-*`       |
+| Icônes, classe de base  | `.uk-ti`       | `.drk-ti`       |
+| Icônes, entrées         | `.uk-ti-{nom}` | `.drk-ti-{nom}` |
+
+Les noms de fichiers et de paquet suivent la même identité :
+
+- catalogue d'icônes `src/icons/drake-tabler.json`, sortie `dist/css/drake-tabler-icons.css` ;
+  le catalogue reste Tabler Icons 3.45.0 Outline, 5 112 icônes, masques CSS
+  `data:image/svg+xml`, zéro fichier SVG distribué ;
+- typographie Inter 4.1 variable roman et italic, encodée WOFF2 en `data:` URI dans
+  `dist/css/drake-inter.css`, zéro fichier `.woff` ou `.woff2` autonome, inchangée sur le
+  fond ;
+- artefacts `dist/css/drake.css`, `drake.min.css`, `drake-rtl.css`, `drake-rtl.min.css`,
+  `drake-tabler-icons.css` et `drake-inter.css` ; `dist/js/drake.js`, `drake.min.js` et les
+  composants sous `dist/js/components/` ;
+- sources `src/js/drake.ts` et `src/js/drake-core.ts` ;
+- paquet npm `name` « drake.css », `title` « Drake.css framework », version propre au fork
+  `0.1.0`, base amont `3.25.20` conservée en métadonnée de provenance, `private: true` tant
+  que le remote `origin` n'est pas décidé.
+
+Tout autre nom public hérité de l'amont, dont les variantes `-core`, suit le même schéma de
+correspondance.
+
+Le contrat de compatibilité est redéfini : la parité comportementale C0 à C3 s'évalue contre
+la référence interne pré-renommage, définie comme le dernier état vert de `fork/main` avant
+l'application de D-012, et non plus contre l'API publique amont littérale.
+
+Le nom amont UIkit, ainsi que getuikit.com et YOOtheme, n'apparaît plus que dans `FORK.md`,
+`docs/fork/UPSTREAM.md`, `docs/fork/DECISIONS.md`, `docs/fork/CHANGELOG-uikit-amont.md`,
+`LICENSE.md`, `THIRD_PARTY_NOTICES.md`, `licenses/`, les bannières légales générées, la
+métadonnée de provenance de `package.json` et le remote git `upstream`. Partout ailleurs, les
+textes écrivent « l'amont » ou « le projet amont (voir FORK.md) » sans le nommer. Les
+obligations légales MIT, dont le copyright YOOtheme, ne sont jamais supprimées.
+
+La chaîne officielle est inchangée : Node.js 24.18.0 exact, pnpm 11.4.0, `pnpm verify` et les
+gates G0 à G14.
+
+### Conséquences
+
+- D-004 est remplacée ; D-005 est amendée sur l'espace de noms `.drk-ti` ; D-011 est amendée
+  sur l'identité, les préfixes et les noms d'artefacts.
+- Les validations C0 à C3 s'exécutent contre la référence pré-renommage ; toute divergence
+  comportementale intentionnelle reste documentée.
+- Un gate vérifie l'absence du nom et des préfixes amont hors des emplacements autorisés.
+- Les alias d'icônes admis par D-011 pointent vers `.drk-ti-{nom}`, sans second catalogue.
+- L'alias d'icône historique qui portait le nom de l'amont est renommé `drake` dans
+  `src/icons/drake-tabler.json` ; les autres noms d'alias hérités sont conservés tels
+  quels et le compte de 162 alias publics reste inchangé.
+- Le renommage ne touche ni les licences ni les notices ; les mentions MIT amont sont
+  conservées à l'identique.
+- La version `0.1.0` ouvre un versionnage propre au fork ; `3.25.20` ne subsiste qu'en
+  métadonnée de provenance.
+- Chaque synchronisation amont réapplique la table de renommage avant toute validation.
+
+## D-013 — Styles portés vers Panda.css
+
+- Date : 2026-07-21
+- Statut : **Acceptée**
+- Amende : D-007 et D-011, sur la source canonique des styles
+
+### Contexte
+
+Les styles sont maintenus en Less, avec une duplication SCSS générée. Ce DSL non typé est le
+dernier espace auteur du fork hors TypeScript : les mixins Less concentrent une logique de
+style que ni le compilateur ni les gates ne peuvent typer, et contredisent l'esprit du pilier
+TypeScript-only appliqué au reste des sources.
+
+### Options examinées
+
+1. Rester en Less : statu quo sans coût de migration, mais la logique de style demeure dans
+   un langage non typé, invérifiable par le typage, adossé à un écosystème en déclin.
+2. Passer à Sass : moderniserait la syntaxe sans changer le fond ; la logique de style
+   resterait dans un DSL non typé parallèle au TypeScript.
+3. Adopter vanilla-extract : zéro runtime et auteur TypeScript, mais pensé pour des feuilles
+   par composant applicatif ; tokens sémantiques, recettes et génération d'une cascade
+   complète de framework y sont moins riches.
+4. Adopter Tailwind CSS : imposerait une surface utilitaire au lieu des classes de composants
+   `.drk-*`, changerait l'API CSS publique et contredirait le contrat de parité de D-012.
+5. Adopter Panda.css : configuration TypeScript typée, tokens et tokens sémantiques,
+   recettes, fonctions de style typées, codegen statique et zéro runtime.
+
+La cinquième option est retenue : elle aligne la source des styles sur le pilier
+TypeScript-only tout en conservant une CSS distribuée statique et une surface publique
+inchangée.
+
+### Décision
+
+Les styles quittent Less et SCSS pour Panda.css (`github.com/chakra-ui/panda`) :
+
+- la génération est pilotée par `panda.config.ts` et des modules TypeScript de styles :
+  tokens, tokens sémantiques, recettes, fonctions de style typées remplaçant les mixins Less
+  et `globalCss` pour la cascade héritée ;
+- la CSS distribuée reste statique, générée et déterministe : deux générations successives
+  produisent des sorties identiques ;
+- la dépendance `@pandacss/dev` est épinglée en version exacte lors de son introduction.
+
+Transition : `src/less/` reste la source canonique et `src/scss/` reste généré tant que le
+port Panda n'est pas achevé composant par composant avec preuve de parité par diff CSS
+normalisé. Les mixins Less restants sont une dette bloquant la release finale.
+
+### Conséquences
+
+- D-007 et D-011 sont amendées sur la source canonique des styles ; leurs autres règles
+  demeurent applicables.
+- Chaque composant porté fournit un diff CSS normalisé vide, ou aux divergences documentées,
+  avant que sa source d'autorité ne bascule vers Panda.
+- Un gate de déterminisme compare deux générations complètes ; toute différence bloque.
+- Pendant la transition, une correction de style est faite dans la source canonique du
+  composant concerné, jamais dans une sortie générée.
+- La release finale est bloquée tant qu'il subsiste un mixin Less ou une source Less ou SCSS
+  canonique.
+- L'introduction de `@pandacss/dev` suit D-008 : version exacte, lockfile gelé et
+  reproductibilité vérifiée.
+
+## D-014 — Elm reconduit hors du cœur après réexamen
+
+- Date : 2026-07-21
+- Statut : **Acceptée**
+- Complète : D-003
+
+### Contexte
+
+À la demande du mainteneur, la place d'Elm a été réexaminée le 2026-07-21, à la lumière de la
+nouvelle identité (D-012) et du port des styles vers Panda.css (D-013). La question posée
+était de savoir si ces évolutions ouvrent une pertinence nouvelle pour Elm dans le cœur.
+
+### Options examinées
+
+1. Porter le cœur en Elm.
+2. Introduire un adaptateur Elm dans le dépôt principal.
+3. Reconduire D-003 : Elm hors du cœur, adaptateur possible en paquet séparé après
+   stabilisation.
+
+La troisième option est retenue.
+
+### Décision
+
+Les raisons de D-003 sont reconduites : la possession du DOM par Elm reste incompatible avec
+le progressive enhancement HTML-first du fork. Ni D-012 ni D-013 ne changent ce constat, et
+aucune pertinence d'Elm dans le cœur n'a été identifiée.
+
+Un adaptateur Elm reste possible en paquet séparé après stabilisation du cœur, aux conditions
+de la charte.
+
+### Conséquences
+
+- D-003 demeure applicable sans modification ; le réexamen est tracé sans changer la règle.
+- Aucun composant, gate ou script de build ne dépend d'Elm.
+- Un nouveau réexamen n'intervient que sur demande explicite du mainteneur.
 
 ## Modèle d’une nouvelle décision
 
