@@ -886,6 +886,24 @@ async function validatePackageContents() {
             );
         }
 
+        // npm pack empaquette le répertoire de travail, pas l'arbre git : un artefact
+        // généré mais non versionné satisferait la packlist sans être livrable par
+        // aucun canal git (tarball de release, install git, CDN). Tout fichier
+        // empaqueté DOIT être suivi.
+        const { stdout: trackedRaw } = await execFileAsync('git', ['ls-files', '-z'], {
+            cwd: PROJECT_ROOT,
+            maxBuffer: 16 * 1024 * 1024,
+        });
+        const tracked = new Set(trackedRaw.split('\0'));
+        const untracked = files.filter((file) => !tracked.has(file));
+        if (untracked.length) {
+            throw new Error(
+                `Packed but not git-tracked (undeliverable by git channels): ${untracked
+                    .slice(0, 10)
+                    .join(', ')}`,
+            );
+        }
+
         const requiredFiles = [
             'LICENSE.md',
             'THIRD_PARTY_NOTICES.md',
