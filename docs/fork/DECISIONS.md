@@ -657,6 +657,43 @@ phase 6 laisse en outre ouverte la question d'une sortie ESM.
   elles ne relèvent pas de la présente décision (aucun arbitrage nécessaire).
 - Aucun impact licences ni assets ; le catalogue n'est pas distribué dans `dist/`.
 
+## D-018 — Publication npm publique de drake.css
+
+- Date : 2026-07-21
+- Statut : **Acceptée** (directive du mainteneur du 2026-07-21 : « tout ça dans le bon
+  ordre, pertinent », en réponse à l'arbitrage explicitement posé sur la publication)
+- Complète : D-017
+
+### Contexte
+
+D-017 conservait `private: true` comme garde-fou en l'absence de décision de publication.
+L'acceptation finale `v0.1.0` est donnée, le nom `drake.css` est libre sur le registre
+public npm (vérifié le 2026-07-21), et la packlist est auditée en continu (G8 : fichiers
+autorisés, notices MIT et SIL OFL, empreintes).
+
+### Options
+
+1. Statu quo : paquet privé, consommation par le dépôt git uniquement.
+2. Registre npm privé (GitHub Packages) adossé au dépôt.
+3. Registre npm public sous le compte du mainteneur.
+
+### Décision
+
+- Publier `drake.css` sur le registre public npm sous le compte du mainteneur ;
+  `private: true` est levé dans le même changement.
+- Toute version publiée correspond à un tag annoté signé du fork ; `prepack` (chaîne
+  complète de build et d'audits) reste le garde-fou d'intégrité à l'empaquetage.
+- Le `npm publish` effectif est exécuté par le mainteneur authentifié ; l'agent prépare
+  tout (dry-run, packlist, version) mais ne manipule jamais de credentials.
+
+### Conséquences
+
+- Une version publiée est un engagement public : la politique de dépublication npm est
+  restrictive, et une version ne se republie jamais (immutabilité SemVer).
+- Les notices légales voyagent dans le paquet (`licenses/`, `THIRD_PARTY_NOTICES.md`,
+  bannières `/*!` préservées par la minification).
+- La provenance amont reste documentée dans les métadonnées du paquet.
+
 ## Modèle d’une nouvelle décision
 
     ## D-NNN — Titre

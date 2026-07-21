@@ -397,7 +397,10 @@ Le remote `origin` est décidé (D-017) et câblé sur feu vert du mainteneur le
 dépôt GitHub **privé** `Test-bot-cell/Drake-css-framework` (nom effectif du dépôt retenu
 par le mainteneur à la création). Y sont poussés la branche `fork/main` et les seuls tags
 du fork (`v0.1.0-rc.1`, `fork-base/uikit-v3.25.20`) ; les tags amont restent locaux, et
-tout push reste soumis à un feu vert explicite du mainteneur, action par action. Le paquet
-**DOIT** rester `private: true` tant qu'une publication npm n'est pas explicitement
-décidée ; il ne doit être publié ni sous l'identité du fork ni sous celle de l'amont sans
-cette décision.
+tout push reste soumis à un feu vert explicite du mainteneur, action par action.
+
+La publication npm publique est décidée par D-018 (2026-07-21) : `private: true` est levé,
+le paquet `drake.css` se publie sur le registre public sous le compte du mainteneur, toute
+version publiée correspond à un tag annoté signé du fork, et `prepack` (build complet et
+audits) reste le garde-fou d'intégrité à l'empaquetage. Le `npm publish` effectif est
+exécuté par le mainteneur authentifié.

@@ -1,12 +1,26 @@
 # CI du fork : rejoue la validation officielle sur le dépôt privé.
-# Chaîne épinglée par la charte : Node.js 24.18.0 exact, pnpm 11.4.0 via corepack,
-# installation gelée. Les gates navigateur utilisent le Chrome des runners ubuntu.
+# Chaîne épinglée par la charte : Node.js 24.18.0 exact, pnpm 11.4.0 (corepack lit le
+# champ packageManager). Les gates navigateur utilisent le Chrome des runners ubuntu.
 name: verify
 
 on:
+  pull_request:
   push:
-    branches: [fork/main]
+    branches:
+      - 'fork/main'
+      - 'ci/**'
+      - 'chore/**'
+      - 'docs/**'
+      - 'feat/**'
+      - 'fix/**'
+      - 'refactor/**'
+      - 'release/**'
+      - 'sync/**'
+      - 'test/**'
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 concurrency:
   group: verify-${{ github.ref }}
@@ -26,9 +40,13 @@ jobs:
         with:
           node-version: 24.18.0
           cache: pnpm
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm verify
-      - run: pnpm check-compat
-      - run: pnpm audit-heritage
-      - name: aucun diff après reconstruction (G9)
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Constitutional gates (G0-G14)
+        run: pnpm verify
+      - name: Compatibility matrix (G7, C0-C3)
+        run: pnpm check-compat
+      - name: Heritage audit (exceptions register)
+        run: pnpm audit-heritage
+      - name: No diff after rebuild (G9)
         run: git diff --exit-code && test -z "$(git status --porcelain)"
