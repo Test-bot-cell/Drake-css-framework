@@ -694,6 +694,45 @@ autorisés, notices MIT et SIL OFL, empreintes).
   bannières `/*!` préservées par la minification).
 - La provenance amont reste documentée dans les métadonnées du paquet.
 
+## D-019 — Visibilité publique du dépôt
+
+- Date : 2026-07-21
+- Statut : **Acceptée** (arbitrage explicite du mainteneur du 2026-07-21, « Public après
+  CI verte »)
+- Complète : D-017 (remote), D-018 (publication npm)
+
+### Contexte
+
+D-017 a établi le remote `origin` comme dépôt GitHub privé. D-018 publie ensuite le
+paquet `drake.css` sur le registre npm public, dont la packlist embarque les sources
+TypeScript : la confidentialité du dépôt ne protège plus rien de substantiel. Le dépôt
+est légalement prêt pour l'exposition : licence MIT amont conservée à l'identique,
+notices Tabler et Inter, provenance documentée, historique intégralement signé, identités
+de commit en adresses noreply.
+
+### Options
+
+1. Rester privé (statu quo D-017), cohérent seulement si la publication npm est reportée.
+2. Rendre le dépôt public immédiatement.
+3. Rendre le dépôt public après une exécution CI verte de bout en bout sur `fork/main`.
+
+### Décision
+
+Le dépôt `Test-bot-cell/Drake-css-framework` devient **public**, après la preuve CI verte
+sur `fork/main` (correctif de la course de capture du harnais fusionné). Le README cesse
+de qualifier le fork de « privé ». Tout push reste soumis au feu vert du mainteneur,
+action par action (D-017 inchangée sur ce point).
+
+### Conséquences
+
+- L'historique complet est exposé ; un retour au privé resterait possible mais ne
+  rappellerait pas les clones existants — la décision s'assume comme quasi définitive.
+- Les runs GitHub Actions deviennent publics, y compris le run rouge historique du
+  commit tagué `v0.1.0` (course de harnais documentée, produit prouvé par ailleurs) :
+  la transparence est préférée à la réécriture.
+- Issues et pull requests publiques : leur triage suit AGENTS.md et le registre des
+  décisions ; aucune gouvernance nouvelle n'est créée par la visibilité.
+
 ## Modèle d’une nouvelle décision
 
     ## D-NNN — Titre
