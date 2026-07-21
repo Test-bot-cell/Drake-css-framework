@@ -68,9 +68,8 @@ Avant de modifier le code :
 
 ### Étape 3 — Implémenter au bon niveau
 
-- Modifier `src/less/` pour les styles des composants non encore portés vers Panda.css.
-- Modifier `panda.config.ts` et les modules de styles TypeScript pour les composants portés
-  (section 6).
+- Modifier `panda.config.ts` et les modules de styles TypeScript sous `src/styles/`
+  (section 6) ; le port Panda.css est achevé, `src/less/` et `src/scss/` n’existent plus.
 - Modifier les générateurs pour les CSS Tabler ou Inter.
 - Modifier exclusivement le TypeScript pour le runtime navigateur. Le port TypeScript est
   achevé : aucune source JavaScript navigateur **NE DOIT** être introduite, ni aucune
@@ -79,7 +78,7 @@ Avant de modifier le code :
   TypeScript à l’amélioration progressive.
 - Écrire la mise en page de base pour 320 pixels CSS, puis les enrichissements avec
   `min-width`.
-- Ne jamais corriger directement `src/scss/`, `dist/` ni une CSS générée par Panda.
+- Ne jamais corriger directement `dist/`, `src/styles/tabler.ts` ni une CSS générée par Panda.
 - Ne jamais ajouter de mixin Less ou SCSS (section 6.4).
 
 ### Étape 4 — Tester au plus près
@@ -171,40 +170,31 @@ test d’échec.
 
 ## 6. Port Panda.css (D-013)
 
-### 6.1 Sources et transition
+### 6.1 Sources canoniques
 
-Les styles quittent Less/SCSS pour Panda.css, piloté par `panda.config.ts` et des modules
-TypeScript de styles sous `src/styles/` : tokens, semantic tokens, recettes, fonctions de
-style typées remplaçant les mixins Less, et `globalCss` pour la cascade héritée.
+Le port est **achevé depuis le 2026-07-21** : `panda.config.ts` et les modules TypeScript
+de `src/styles/` (tokens dans `tokens.ts`, fragments ordonnés `core/` et `theme/`,
+module généré `tabler.ts`) sont l’unique source canonique des styles. `src/less/` et
+`src/scss/` ont été supprimés ; la preuve de parité du port est consignée dans
+`tests/fixtures/panda-parity-proof.json`.
 
-Pendant la transition :
+- la CSS distribuée reste statique, générée par `build/panda.js` et déterministe ;
+- `@pandacss/dev` est épinglée en version exacte (1.11.4) et suit la même discipline de
+  lockfile que le reste de la chaîne ;
+- l’ordre des fragments dans `core/index.ts` et `theme/index.ts` **EST** l’ordre de
+  cascade : tout déplacement est un changement sensible.
 
-- `src/less/` reste la source canonique des styles et `src/scss/` reste généré **TANT QUE**
-  le port n’est pas achevé composant par composant avec preuve de parité ;
-- la CSS distribuée reste statique, générée et déterministe, quel que soit le générateur ;
-- `@pandacss/dev` est épinglée en version exacte dès son introduction et suit la même
-  discipline de lockfile que le reste de la chaîne.
+### 6.2 Parité et évolutions
 
-### 6.2 Méthode composant par composant
+Le port initial a été réalisé cascade entière, avec un diff CSS normalisé vide sur les
+quatre artefacts (`drake.css`, `drake-core.css` et leurs variantes RTL) face à la
+référence pré-Panda. L’outil de comparaison est conservé : `build/fork/css-parity.js`
+compare deux feuilles par séquence (contexte, sélecteur, propriété, valeur) avec tri
+canonique commutatif. Tout refactor de la génération ou des fragments **DOIT** fournir un
+diff de parité vide (G15) face à la dernière sortie verte, ou documenter les écarts
+acceptés dans `DECISIONS.md`.
 
-Le port suit l’ordre suivant, sans étape sautée :
-
-1. **Tokens d’abord.** Les tokens et semantic tokens globaux (couleurs, typographie,
-   espacements, breakpoints `min-width`, direction) sont portés et validés avant tout
-   composant.
-2. **Recette ou `globalCss` par composant.** Chaque composant est porté isolément : une
-   recette typée et, si la cascade héritée l’exige, un bloc `globalCss` reproduisent le
-   sélecteur et la spécificité d’origine.
-3. **Diff CSS normalisé.** La CSS générée par Panda pour le composant est comparée à la
-   sortie Less de référence (dernier état vert avant le port du composant) après
-   normalisation : formatage canonique, tri stable des règles équivalentes, résolution
-   identique des variables. Le diff **DOIT** être vide ou ne contenir que des écarts
-   acceptés et documentés dans `DECISIONS.md`.
-4. **Suppression du Less à parité prouvée.** Le fichier Less correspondant est supprimé dans
-   le même changement que la preuve de parité ; le composant devient Panda-canonique et ne
-   doit plus être modifié côté Less.
-
-Un changement de port Panda ne modifie ni comportement runtime, ni HTML, ni valeur par
+Un changement de styles ne modifie ni comportement runtime, ni HTML, ni valeur par
 défaut ; toute évolution visuelle voulue est un commit séparé postérieur à la parité.
 
 ### 6.3 Déterminisme Panda
@@ -216,10 +206,9 @@ port du composant concerné.
 
 ### 6.4 Interdictions
 
-- Aucun nouveau mixin Less ou SCSS **NE DOIT** être introduit ; les mixins Less existants
-  sont une dette technique qui bloque la release finale.
+- Aucune source Less ou SCSS (mixin compris) **NE DOIT** être réintroduite.
 - La CSS générée par Panda n’est jamais éditée à la main.
-- Un composant porté **NE DOIT PAS** conserver de doublon Less actif.
+- Aucun doublon de cascade hors `src/styles/` **NE DOIT** exister.
 
 ## 7. Développement des assets
 
@@ -248,8 +237,8 @@ Le générateur Inter :
 - part des deux fichiers officiels 4.1 intacts, roman et italic ;
 - vérifie leur empreinte ;
 - les encode en WOFF2 `data:` URI dans deux règles `@font-face` de `dist/css/drake-inter.css` ;
-- configure Inter comme police par défaut du framework à la source canonique des styles
-  (Less pendant la transition D-013, tokens Panda ensuite) ;
+- configure Inter comme police par défaut du framework via les tokens Panda
+  (`src/styles/tokens.ts`) et la cascade de `src/styles/` ;
 - conserve la notice SIL OFL 1.1 ;
 - ne copie aucun fichier WOFF ou WOFF2 autonome dans la distribution.
 
@@ -273,8 +262,8 @@ La commande canonique avant revue est :
     pnpm verify
 
 Elle contrôle le formatage, exécute le lint JavaScript/TypeScript et le typecheck strict sans
-émission, puis la génération SCSS, la génération Panda des composants portés et des assets
-CSS, les builds LTR/RTL, les contrôles d’assets et les gates frontend dans Chrome aux
+émission, puis la génération des assets CSS, la génération Panda des feuilles LTR/RTL, les
+contrôles d’assets et les gates frontend dans Chrome aux
 largeurs 320 et 1 440 pixels. Le serveur utilisé par ce dernier contrôle écoute uniquement
 sur une adresse locale et est arrêté après la mesure.
 

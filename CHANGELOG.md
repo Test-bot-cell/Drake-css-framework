@@ -14,9 +14,11 @@ dans [`docs/fork/CHANGELOG-uikit-amont.md`](docs/fork/CHANGELOG-uikit-amont.md).
 - Le contrat de compatibilité devient la parité comportementale C0–C3 avec la référence
   interne pré-renommage (D-012) ; le registre des surfaces héritées est documenté dans
   `FORK.md`.
-- Les styles quittent Less/SCSS pour Panda.css (décision D-013) ; transition composant par
-  composant avec preuve de parité, `src/less/` restant canonique jusqu'à l'achèvement du
-  port.
+- Les styles ont intégralement quitté Less/SCSS pour Panda.css (décision D-013, port
+  achevé) : `panda.config.ts` + `src/styles/` (tokens, fragments `globalCss` ordonnés)
+  sont la source canonique, la parité avec la référence Less est prouvée par diff CSS
+  normalisé sur les quatre artefacts (`tests/fixtures/panda-parity-proof.json`) et
+  `src/less/`, `src/scss/` ainsi que les mixins sont supprimés.
 - Elm demeure hors du cœur après réexamen (décision D-014).
 
 ### Hérité

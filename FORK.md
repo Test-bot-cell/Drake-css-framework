@@ -138,22 +138,20 @@ et les gates de release vérifient qu'aucune source JavaScript frontend ne subsi
 Les déclarations de types et une sortie ESM **PEUVENT** compléter les sorties historiques,
 mais elles ne les remplacent pas sans décision de compatibilité.
 
-## Cap des styles : Panda.css
+## Styles : Panda.css
 
-D-013 fixe la cible : les styles quittent Less/SCSS pour
+Le port D-013 est **achevé depuis le 2026-07-21** : les styles ont quitté Less/SCSS pour
 [Panda.css](https://github.com/chakra-ui/panda). La génération est pilotée par
-`panda.config.ts` et des modules TypeScript de styles : tokens, semantic tokens, recettes,
-fonctions de style typées remplaçant les mixins Less, et `globalCss` pour la cascade
-héritée. La CSS distribuée reste statique, générée et déterministe : deux générations
-successives produisent des sorties identiques.
+`panda.config.ts` et les modules TypeScript de `src/styles/` : tokens (`tokens.ts`),
+fragments ordonnés de la cascade héritée (`core/` et `theme/`, via `globalCss`), module
+d’icônes généré (`tabler.ts`). Aucune source Less ou SCSS (mixin compris) ne subsiste ni ne
+peut être réintroduite. La CSS distribuée reste statique, générée par `build/panda.js` et
+déterministe : deux générations successives produisent des sorties identiques.
 
-Transition normative :
-
-- `src/less` reste la source canonique et `src/scss` reste généré **TANT QUE** le port Panda
-  n'est pas achevé composant par composant, chaque composant porté apportant une preuve de
-  parité par diff CSS normalisé ;
-- les mixins Less restants sont une dette qui bloque la release finale ;
-- la dépendance `@pandacss/dev` est épinglée en version exacte lors de son introduction.
+La parité du port avec la référence pré-Panda est prouvée par diff CSS normalisé sur les
+quatre artefacts (`tests/fixtures/panda-parity-proof.json`, outil
+`build/fork/css-parity.js`). La dépendance `@pandacss/dev` est épinglée en version exacte
+(1.11.4).
 
 D-013 amende D-007 et D-011 sur la source canonique des styles.
 

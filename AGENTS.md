@@ -169,17 +169,15 @@ pas décidé.
 
 ## Sources canoniques et fichiers générés
 
-- Transition D-013 : `src/less/` reste la source canonique des styles **TANT QUE** le port
-  vers Panda.css n’est pas achevé composant par composant avec preuve de parité (diff CSS
-  normalisé). `src/scss/` et `dist/` sont générés et **NE DOIVENT PAS** être modifiés
+- Le port Panda.css (D-013) est achevé : `panda.config.ts` et les modules TypeScript de
+  `src/styles/` (tokens, fragments ordonnés `core/` et `theme/`, `globalCss` de la cascade
+  héritée) sont l’unique source canonique des styles. `src/less/` et `src/scss/` n’existent
+  plus ; la preuve de parité vit dans `tests/fixtures/panda-parity-proof.json`.
+- `dist/` et `src/styles/tabler.ts` sont générés et **NE DOIVENT PAS** être modifiés
   manuellement.
-- Au fil du port, `panda.config.ts` et les modules TypeScript de styles sous `src/styles/`
-  (tokens, semantic tokens, recettes, fonctions de style typées remplaçant les mixins Less,
-  `globalCss` pour la cascade héritée) deviennent la source canonique des composants portés.
 - La CSS distribuée reste statique, générée et déterministe : deux générations successives
   **DOIVENT** produire des sorties identiques.
-- Les mixins Less restants sont une dette qui bloque la release finale. Aucun mixin Less ou
-  SCSS nouveau **NE DOIT** être introduit.
+- Aucune source Less ou SCSS (mixin compris) **NE DOIT** être réintroduite.
 - La dépendance `@pandacss/dev` **DOIT** être épinglée en version exacte.
 - Les points d’entrée du runtime sont `src/js/drake.ts` et `src/js/drake-core.ts`. Les
   artefacts sont `dist/css/drake.css`, `drake.min.css`, `drake-rtl.css`, `drake-rtl.min.css`,

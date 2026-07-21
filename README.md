@@ -19,13 +19,12 @@ distribution :
   fichier `.woff`/`.woff2` autonome ;
 - HTML-first, mise en page mobile-first à 320 px et gates SEO/performance.
 
-À ces piliers s’ajoute un nouveau cap sur les styles (décision D-013) : la source des
-styles quitte Less/SCSS pour [Panda.css](https://github.com/chakra-ui/panda), piloté par
-`panda.config.ts` et des modules TypeScript de styles (tokens, semantic tokens, recettes,
-fonctions de style typées remplaçant les mixins Less, `globalCss` pour la cascade
-héritée). La CSS distribuée reste statique, générée et déterministe : deux générations
-successives **DOIVENT** produire un résultat identique. Ce port est en transition ; voir
-la section Développement.
+À ces piliers s’ajoute le socle des styles (décision D-013, port achevé) : la cascade
+est générée par [Panda.css](https://github.com/chakra-ui/panda), pilotée par
+`panda.config.ts` et les modules TypeScript de `src/styles/` (tokens, fragments ordonnés
+de la cascade héritée en `globalCss`). Aucune source Less ou SCSS ne subsiste. La CSS
+distribuée reste statique, générée et déterministe : deux générations successives
+**DOIVENT** produire un résultat identique.
 
 Le contrat complet, les divergences et les licences sont décrits dans [FORK.md](FORK.md).
 Le cycle de contribution sanctuarisé commence dans [AGENTS.md](AGENTS.md) et
@@ -84,14 +83,12 @@ Les sources canoniques sont :
 
 - `src/js/**/*.ts` pour le runtime, avec les points d’entrée `src/js/drake.ts` et
   `src/js/drake-core.ts` ;
-- `src/less/` pour les styles, **TANT QUE** le port Panda.css (D-013) n’est pas achevé
-  composant par composant avec preuve de parité (diff CSS normalisé) ; `panda.config.ts`
-  et les modules TypeScript de styles deviennent la source canonique à mesure du port,
-  et les mixins Less restants sont une dette qui bloque la release finale ;
+- `panda.config.ts` et `src/styles/**/*.ts` pour les styles (tokens dans
+  `src/styles/tokens.ts`, cascade dans `src/styles/core/` et `src/styles/theme/`) ;
 - `src/icons/drake-tabler.json` et les générateurs sous `build/fork/` pour les assets.
 
-`src/scss/` et `dist/` sont générés. Ils **NE DOIVENT** jamais recevoir une correction
-manuelle. La dépendance `@pandacss/dev` est épinglée en version exacte.
+`dist/` et `src/styles/tabler.ts` sont générés. Ils **NE DOIVENT** jamais recevoir une
+correction manuelle. La dépendance `@pandacss/dev` est épinglée en version exacte (1.11.4).
 
 ## Provenance et licences
 
