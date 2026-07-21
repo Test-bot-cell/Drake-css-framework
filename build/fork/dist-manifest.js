@@ -17,7 +17,7 @@ if (unknown.length) {
 const files = (await walk(DIST_ROOT))
     .filter(
         (file) =>
-            ['.css', '.js'].includes(extname(file)) &&
+            ['.css', '.js', '.woff2'].includes(extname(file)) &&
             !relative(PROJECT_ROOT, file).startsWith('dist/js/tests/'),
     )
     .sort((left, right) => left.localeCompare(right, 'en'));

@@ -5,6 +5,7 @@ import { mkdir, readFile, rename, stat, unlink, writeFile } from 'node:fs/promis
 import { dirname, join, resolve } from 'node:path';
 import process from 'node:process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import subsetFont from 'subset-font';
 
 const INTER_VERSION = '4.1';
 const INTER_RELEASE_COMMIT = 'e3a3d4c57d5ecc01453a575621882a384c1995a3';
@@ -16,7 +17,24 @@ const MAX_OFFICIAL_SOURCE_CSS_BYTES = 128 * 1024;
 const MAX_CUSTOM_SOURCE_CSS_BYTES = 2 * 1024 * 1024;
 const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const DEFAULT_OUTPUT = join(PROJECT_ROOT, 'dist/css/drake-inter.css');
+const DEFAULT_FILES_OUTPUT = join(PROJECT_ROOT, 'dist/css/drake-inter-files.css');
+const DEFAULT_FONTS_DIRECTORY = join(PROJECT_ROOT, 'dist/fonts');
 const DEFAULT_CACHE = join(PROJECT_ROOT, '.cache/fork-assets/inter-4.1');
+// Variante fichiers (D-022) : subsets latin et latin-ext, axes variables conservés.
+// Les plages sont la source de vérité unique : elles alimentent à la fois le subsetter
+// (via les codepoints) et la déclaration unicode-range émise.
+const SUBSET_RANGES = {
+    latin: 'U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD',
+    'latin-ext':
+        'U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF',
+};
+const FONT_FILE_NAMES = {
+    normal: { latin: 'InterVariable-latin.woff2', 'latin-ext': 'InterVariable-latin-ext.woff2' },
+    italic: {
+        latin: 'InterVariable-Italic-latin.woff2',
+        'latin-ext': 'InterVariable-Italic-latin-ext.woff2',
+    },
+};
 const FACE_DEFINITIONS = {
     normal: {
         fileName: 'InterVariable.woff2',
@@ -169,9 +187,37 @@ const output = resolve(options.output || DEFAULT_OUTPUT);
 await writeAtomic(output, renderCss(faces));
 console.log(`Generated Inter ${INTER_VERSION} variable roman and italic faces in ${output}`);
 
+// Variante fichiers (D-022) : quatre WOFF2 subsettés + feuille unicode-range.
+const fontsDirectory = resolve(options.fontsDir || DEFAULT_FONTS_DIRECTORY);
+const filesOutput = resolve(options.filesOutput || DEFAULT_FILES_OUTPUT);
+const subsetFiles = {};
+for (const style of ['normal', 'italic']) {
+    for (const subset of Object.keys(SUBSET_RANGES)) {
+        const text = codepointsText(SUBSET_RANGES[subset]);
+        const woff2 = await subsetFont(faces[style], text, { targetFormat: 'woff2' });
+        const fileName = FONT_FILE_NAMES[style][subset];
+        await writeAtomic(join(fontsDirectory, fileName), woff2);
+        subsetFiles[fileName] = {
+            sha256: createHash('sha256').update(woff2).digest('hex'),
+            size: woff2.length,
+            style,
+            subset,
+        };
+    }
+}
+await writeAtomic(filesOutput, renderFilesCss(subsetFiles));
+console.log(
+    `Generated Inter ${INTER_VERSION} subsetted files variant in ${filesOutput}: ` +
+        Object.entries(subsetFiles)
+            .map(([name, meta]) => `${name} (${Math.round(meta.size / 1024)} KiB)`)
+            .join(', '),
+);
+
 function parseArguments(argv) {
     const result = {
         cache: null,
+        filesOutput: null,
+        fontsDir: null,
         help: false,
         output: null,
         refresh: false,
@@ -191,7 +237,9 @@ function parseArguments(argv) {
         }
 
         const [name, inlineValue] = argument.split('=', 2);
-        if (!['--source-css', '--output', '--cache'].includes(name)) {
+        if (
+            !['--source-css', '--output', '--cache', '--files-output', '--fonts-dir'].includes(name)
+        ) {
             throw new Error(`Unknown argument: ${argument}`);
         }
 
@@ -216,6 +264,8 @@ Usage:
 Options:
   --source-css <path|url>  Local or remote Inter CSS source
   --output <path>          Output CSS file (default: dist/css/drake-inter.css)
+  --files-output <path>    Files-variant CSS (default: dist/css/drake-inter-files.css)
+  --fonts-dir <path>       Subsetted WOFF2 directory (default: dist/fonts)
   --cache <path>           Verified download cache
   --refresh                Ignore valid cached sources and fetch again
   -h, --help               Show this help
@@ -507,6 +557,69 @@ ${legal}
     font-display: swap;
     src: url("data:font/woff2;base64,${italic}") format("woff2");
 }
+
+@font-face {
+    font-family: "Inter Fallback";
+    font-style: normal;
+    font-weight: 100 900;
+    src: local("Arial"), local("Liberation Sans"), local("Helvetica");
+    size-adjust: 107%;
+    ascent-override: 90%;
+    descent-override: 22%;
+    line-gap-override: 0%;
+}
+`;
+}
+
+// Décode une déclaration unicode-range en texte de codepoints pour le subsetter.
+function codepointsText(ranges) {
+    const characters = [];
+    for (const token of ranges.split(',').map((part) => part.trim())) {
+        const match = token.match(/^U\+([0-9A-F]{1,6})(?:-([0-9A-F]{1,6}))?$/i);
+        if (!match) {
+            throw new Error(`Invalid unicode-range token: ${token}`);
+        }
+        const start = parseInt(match[1], 16);
+        const end = match[2] ? parseInt(match[2], 16) : start;
+        if (end < start) {
+            throw new Error(`Descending unicode-range token: ${token}`);
+        }
+        for (let codepoint = start; codepoint <= end; codepoint++) {
+            characters.push(String.fromCodePoint(codepoint));
+        }
+    }
+    return characters.join('');
+}
+
+function renderFilesCss(subsetFiles) {
+    const legal = INTER_LICENSE.split('\n')
+        .map((line) => ` * ${line}`.trimEnd())
+        .join('\n');
+    const marker = Object.entries(subsetFiles)
+        .map(([name, meta]) => `${name}-sha256=${meta.sha256}`)
+        .join(' ');
+    const blocks = Object.entries(subsetFiles)
+        .map(
+            ([name, meta]) => `@font-face {
+    font-family: "InterVariable";
+    font-style: ${meta.style};
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("../fonts/${name}") format("woff2");
+    unicode-range: ${SUBSET_RANGES[meta.subset]};
+}`,
+        )
+        .join('\n\n');
+
+    return `/*!
+ * Inter ${INTER_VERSION} variable roman and italic — subsetted files variant (D-022).
+ * Modified Versions of the official WOFF2 files (latin and latin-ext subsets, variable
+ * axes preserved); Inter declares no Reserved Font Name. Do not edit by hand.
+${legal}
+ */
+/* @drake-fork-asset inter-files version=${INTER_VERSION} files=${Object.keys(subsetFiles).length} ${marker} */
+
+${blocks}
 
 @font-face {
     font-family: "Inter Fallback";

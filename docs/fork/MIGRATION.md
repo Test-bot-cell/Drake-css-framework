@@ -25,15 +25,15 @@ instances `__drake__`. Les événements de composants non préfixés (`show`, `h
 
 ## Artefacts distribués
 
-| Avant (amont)    | Après                                          |
-| ---------------- | ---------------------------------------------- |
-| `uikit.css`      | `dist/css/drake.css` (`drake.min.css`)         |
-| `uikit-core.css` | `dist/css/drake-core.css`                      |
-| RTL              | `dist/css/drake-rtl.css`, `drake-core-rtl.css` |
-| `uikit.js`       | `dist/js/drake.js` (`drake.min.js`)            |
-| `uikit-core.js`  | `dist/js/drake-core.js`                        |
-| `uikit-icons.js` | `dist/css/drake-tabler-icons.css` (CSS pur)    |
-| fontes du thème  | `dist/css/drake-inter.css` (Inter intégrée)    |
+| Avant (amont)    | Après                                                                                                                                      |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `uikit.css`      | `dist/css/drake.css` (`drake.min.css`)                                                                                                     |
+| `uikit-core.css` | `dist/css/drake-core.css`                                                                                                                  |
+| RTL              | `dist/css/drake-rtl.css`, `drake-core-rtl.css`                                                                                             |
+| `uikit.js`       | `dist/js/drake.js` (`drake.min.js`)                                                                                                        |
+| `uikit-core.js`  | `dist/js/drake-core.js`                                                                                                                    |
+| `uikit-icons.js` | `dist/css/drake-tabler-icons.css` (CSS pur)                                                                                                |
+| fontes du thème  | `dist/css/drake-inter-files.css` + `dist/fonts/*.woff2` (subsets `unicode-range`, recommandé) ou `dist/css/drake-inter.css` (mono-fichier) |
 
 Deux différences de fond, décidées avant le renommage :
 
