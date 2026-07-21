@@ -8,8 +8,8 @@
         },
         {
             "path": "dist/css/drake-core-rtl.min.css",
-            "bytes": 300988,
-            "sha256": "fb2404221da470a4c70a983875c04ec45b4b2f46325c17f22fbb1630643ed279"
+            "bytes": 290414,
+            "sha256": "4685e7fc6755735c5262533124e8b443be5515899416905880371fac39fdea8d"
         },
         {
             "path": "dist/css/drake-core.css",
@@ -18,8 +18,8 @@
         },
         {
             "path": "dist/css/drake-core.min.css",
-            "bytes": 300887,
-            "sha256": "6167f5d796f95c1c19e08886c7140f5ebe4b853791339d9bc1c8d1b5adc1293b"
+            "bytes": 290316,
+            "sha256": "a664e80404171a0fa78568ac9da8ad872df7224578e26b2288959d217e77dc61"
         },
         {
             "path": "dist/css/drake-inter.css",
@@ -33,8 +33,8 @@
         },
         {
             "path": "dist/css/drake-rtl.min.css",
-            "bytes": 317683,
-            "sha256": "b73caf35375c265ac89c974a6be553fa02ba8fa006395485bb77d5a2605dda8f"
+            "bytes": 305853,
+            "sha256": "b1c7602332b348065935ea841e3027fe9853270242e3b0eed90994a110f8e384"
         },
         {
             "path": "dist/css/drake-tabler-icons.css",
@@ -48,8 +48,8 @@
         },
         {
             "path": "dist/css/drake.min.css",
-            "bytes": 317574,
-            "sha256": "62772f079f18e2e1202601564066a86466a2b12874c66177bc7f0e09e9069497"
+            "bytes": 305732,
+            "sha256": "183ed1c86e82218b91479d1e9eceb534f78e822f6b881f97dfcf75e7a7b70af2"
         },
         {
             "path": "dist/js/components/countdown.js",
