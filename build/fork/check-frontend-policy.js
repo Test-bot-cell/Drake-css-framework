@@ -29,14 +29,16 @@ try {
     ]);
     const browserJavaScript = await auditBrowserJavaScript();
     const legacyIcons = await auditLegacyIconRegistries();
+    const legacyIdentity = await auditLegacyIdentity(allowlist);
     const mediaQueries = await auditMediaQueries(allowlist);
     const html = await auditHtmlFixture(expectations, options.baseUrl);
     const performance = await auditPerformance(expectations, metricsFile, desktopMetricsFile);
 
     const gates = {
-        G10: createGate('Sources frontend et registres d’icônes', [
+        G10: createGate('Sources frontend, identité D-012 et registres d’icônes', [
             ...browserJavaScript.errors,
             ...legacyIcons.errors,
+            ...legacyIdentity.errors,
         ]),
         G11: createGate('HTML-first et SEO technique', html.errors),
         G12: createGate('CSS mobile-first', mediaQueries.errors),
@@ -51,6 +53,7 @@ try {
         evidence: {
             browserJavaScript,
             legacyIcons,
+            legacyIdentity,
             mediaQueries,
             html,
             performance,
@@ -849,6 +852,125 @@ async function readJson(file, { optional = false } = {}) {
             cause: error,
         });
     }
+}
+
+// Identité D-012 (critère de sortie de la phase 7) : zéro occurrence du préfixe hérité
+// `uk-` (y compris `data-uk-*`, `--uk-*`) et des noms amont (uikit, getuikit, yootheme)
+// hors des zones autorisées de l'allowlist committée. Les bannières légales `/*!` en tête
+// des artefacts `dist/` conservent la provenance amont exigée par la licence : elles sont
+// décomptées avant le scan, pas allowlistées, pour que le corps des artefacts reste couvert.
+async function auditLegacyIdentity(allowlist) {
+    const skippedDirectories = new Set(['.cache', '.git', 'node_modules', 'reports']);
+    const skippedExtensions = new Set([
+        '.gif',
+        '.ico',
+        '.jpeg',
+        '.jpg',
+        '.mp4',
+        '.png',
+        '.webm',
+        '.webp',
+        '.woff',
+        '.woff2',
+    ]);
+    const prefixPattern = /(?:^|[^a-z0-9])uk-/i;
+    const namePattern = /uikit|yootheme/i;
+    const allowed = new Map((allowlist.legacyIdentity ?? []).map((entry) => [entry.file, entry]));
+
+    const entries = [];
+    for (const entry of (await readdir(PROJECT_ROOT, { withFileTypes: true })).sort((left, right) =>
+        left.name.localeCompare(right.name, 'en'),
+    )) {
+        if (entry.isDirectory()) {
+            if (!skippedDirectories.has(entry.name)) {
+                entries.push(...(await walk(join(PROJECT_ROOT, entry.name))));
+            }
+        } else if (entry.isFile()) {
+            entries.push(join(PROJECT_ROOT, entry.name));
+        }
+    }
+
+    const violations = [];
+    const allowedMatches = [];
+    for (const file of entries) {
+        if (skippedExtensions.has(extname(file))) {
+            continue;
+        }
+        if (resolve(file) === resolve(fileURLToPath(import.meta.url))) {
+            continue;
+        }
+        // La configuration du contrôle nomme les motifs interdits dans ses justifications.
+        if (resolve(file) === allowlistFile) {
+            continue;
+        }
+        const path = toProjectPath(file);
+        // Le renvoi vers l'archive amont autorisée n'est pas une résurgence d'identité.
+        let source = (await readFile(file, 'utf8')).replaceAll('CHANGELOG-uikit-amont', '');
+        if (path.startsWith('dist/')) {
+            source = stripLeadingLegalBanners(source);
+        }
+        if (!prefixPattern.test(source) && !namePattern.test(source)) {
+            continue;
+        }
+        if (allowed.has(path)) {
+            allowedMatches.push(path);
+            continue;
+        }
+        const lines = source.split('\n');
+        const samples = [];
+        for (const [index, line] of lines.entries()) {
+            if (prefixPattern.test(line) || namePattern.test(line)) {
+                samples.push(`${path}:${index + 1}`);
+                if (samples.length === 3) {
+                    break;
+                }
+            }
+        }
+        violations.push({ file: path, samples });
+    }
+
+    violations.sort((left, right) => left.file.localeCompare(right.file, 'en'));
+    allowedMatches.sort((left, right) => left.localeCompare(right, 'en'));
+    const staleAllowlist = [...allowed.keys()]
+        .filter((file) => !allowedMatches.includes(file))
+        .sort((left, right) => left.localeCompare(right, 'en'));
+
+    const errors = [];
+    if (violations.length) {
+        errors.push(
+            `Identité héritée hors zones autorisées (D-012): ${violations.length} fichier(s) — ` +
+                violations
+                    .slice(0, 5)
+                    .map(({ samples, file }) => samples[0] ?? file)
+                    .join(', '),
+        );
+    }
+    if (staleAllowlist.length) {
+        errors.push(
+            `Entrée(s) d'allowlist identité sans occurrence: ${staleAllowlist.join(', ')} — les retirer.`,
+        );
+    }
+
+    return {
+        status: errors.length ? 'fail' : 'pass',
+        violations,
+        allowedMatches,
+        staleAllowlist,
+        errors,
+    };
+}
+
+// Décompte les bannières légales successives `/*! … */` en tête d'un artefact distribué.
+function stripLeadingLegalBanners(source) {
+    let rest = source;
+    while (rest.startsWith('/*!')) {
+        const end = rest.indexOf('*/');
+        if (end === -1) {
+            break;
+        }
+        rest = rest.slice(end + 2).replace(/^\s*/, '');
+    }
+    return rest;
 }
 
 async function walk(directory) {
