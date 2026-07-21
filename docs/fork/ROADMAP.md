@@ -417,6 +417,10 @@ mainteneur (charte, autorité de release).
 
 - État : **Planifié**
 
+Veille au 2026-07-21 : la dernière release amont est la v3.25.20 (publiée le 2026-07-14),
+c'est-à-dire exactement la base du fork — aucun delta à synchroniser. Le pilote de
+synchronisation se déclenche à la première release amont postérieure, selon `UPSTREAM.md`.
+
 ### Portée
 
 - exécuter une synchronisation amont pilote selon `UPSTREAM.md` ;

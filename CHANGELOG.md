@@ -3,7 +3,7 @@
 Journal des changements de Drake.css framework. L'historique du projet amont est archivé
 dans [`docs/fork/CHANGELOG-uikit-amont.md`](docs/fork/CHANGELOG-uikit-amont.md).
 
-## 0.1.0 (non publié)
+## 0.1.0 — 2026-07-21
 
 ### Changé
 
@@ -78,10 +78,17 @@ dans [`docs/fork/CHANGELOG-uikit-amont.md`](docs/fork/CHANGELOG-uikit-amont.md).
   --frozen-lockfile` + `pnpm verify` verts, zéro diff des artefacts suivis après
   reconstruction.
 
-### Release candidate
+### Release
 
-- Tag annoté signé `v0.1.0-rc.1` (2026-07-21), local, distinct des tags amont (D-017).
-  L'acceptation finale `v0.1.0` relève du mainteneur (charte, autorité de release).
+- Release candidate : tag annoté signé `v0.1.0-rc.1` (2026-07-21), distinct des tags
+  amont (D-017).
+- Acceptation finale du mainteneur le 2026-07-21, gates re-prouvés verts sur checkout
+  propre : tag annoté signé `v0.1.0`.
+- Publication npm publique décidée (D-018) : `private: true` levé, nom `drake.css`
+  vérifié libre sur le registre ; le `npm publish` est exécuté par le mainteneur
+  authentifié.
+- Remote `origin` : dépôt GitHub privé `Test-bot-cell/Drake-css-framework`, CI `verify`
+  rejouant la chaîne complète de preuves à chaque push.
 
 ### Hérité
 
