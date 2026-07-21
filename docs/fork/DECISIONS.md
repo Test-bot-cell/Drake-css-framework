@@ -541,6 +541,55 @@ plus rapide, sortie plus compacte, cohérent avec l'écosystème Panda déjà ad
 - Une mise à jour de `lightningcss` est un changement sensible : preuves de gates et
   contrôles ciblés exigés.
 
+## D-016 — Theming par propriétés personnalisées (proposition)
+
+- Date : 2026-07-21
+- Statut : **Proposée**
+- Complète : D-013
+
+### Contexte
+
+Depuis B1 (D-013), les fragments de `src/styles/` consomment les tokens de `tokens.ts` à la
+génération : changer un token et régénérer suffit à rethémer la distribution, et la
+substitution est prouvée neutre par le diff de parité G15. Ce theming est cependant
+uniquement _build-time_ : une intégration ne peut pas rethémer sans reconstruire, et il
+n'existe pas de chemin standard vers un mode sombre. La mécanique héritée `.drk-light` /
+`.drk-dark` (inversion locale) reste distincte d'un theming global.
+
+### Options examinées
+
+1. Statu quo : tokens build-time uniquement ; tout theming passe par une régénération.
+2. Exposer le sous-ensemble sémantique (les ~15 tokens de `tokens.ts` : couleurs, pile
+   typographique) en propriétés personnalisées `var(--drk-color-*, …)` émises dans
+   `:root`, avec les valeurs actuelles en repli ; les fragments référencent la variable.
+3. Généraliser les propriétés personnalisées à toutes les valeurs (espacements, tailles,
+   rayons…), à la manière d'un design system complet.
+
+L'option 1 limite l'adoption ; l'option 3 grossit la feuille et multiplie les surfaces de
+compatibilité sans besoin établi. L'option 2 est proposée : bornée, alignée sur la
+sémantique déjà nommée par `tokens.ts`, et convergente avec `--drk-breakpoint-*` que le
+runtime lit déjà.
+
+### Décision proposée
+
+- Émettre dans `:root` les propriétés `--drk-color-{nom}` et `--drk-font-body` depuis les
+  tokens, et faire consommer `var(--drk-…, <valeur actuelle>)` par les fragments.
+- Documenter le contrat de surcharge (une intégration redéfinit les variables, sans CDN ni
+  runtime) et le chemin mode sombre : un bloc `@media (prefers-color-scheme: dark)` opt-in
+  redéfinissant le sous-ensemble, cohérent avec `.drk-light`/`.drk-dark`.
+- Périmètre CSP inchangé (aucune ressource nouvelle) ; surcoût estimé ≤ 2 Ko avant
+  compression.
+
+### Conséquences
+
+- La CSS distribuée change textuellement : la preuve de parité G15 ne s'applique pas telle
+  quelle ; la migration exige une comparaison de valeurs calculées (les `var()` avec repli
+  résolvent aux valeurs actuelles) et les gates complets G0-G15, dont G12/G13 navigateur.
+- Le contrat public s'étend : les noms `--drk-*` exposés deviennent des surfaces protégées
+  (tout retrait ou renommage exigera une décision et une migration).
+- L'implémentation n'est pas autorisée tant que la présente décision n'est pas **Acceptée**
+  par le mainteneur.
+
 ## Modèle d’une nouvelle décision
 
     ## D-NNN — Titre

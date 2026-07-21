@@ -21,6 +21,18 @@ dans [`docs/fork/CHANGELOG-uikit-amont.md`](docs/fork/CHANGELOG-uikit-amont.md).
   `src/less/`, `src/scss/` ainsi que les mixins sont supprimés.
 - Elm demeure hors du cœur après réexamen (décision D-014).
 
+### Ajouté
+
+- Gate G7 outillé (`pnpm check-compat`) : matrice de compatibilité C0-C3 contre la
+  référence pré-renommage — 176 snapshots structurels du catalogue (LTR/RTL), scénarios
+  d'interaction des grappes prioritaires, boucle API programmatique avec destruction
+  vérifiée ; fixtures sous `tests/fixtures/compat/`.
+- Les fragments de `src/styles/` consomment les tokens (`palette`, `breakpoints`,
+  `fontFamilies`) à la génération, à sortie CSS strictement identique (preuve par
+  empreintes et diff de parité G15).
+- Proposition D-016 (theming par propriétés personnalisées) enregistrée au statut
+  Proposée, en attente d'arbitrage du mainteneur.
+
 ### Hérité
 
 - Runtime navigateur intégralement TypeScript strict, sans source JavaScript frontend.
