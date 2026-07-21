@@ -68,9 +68,14 @@ pnpm 11.4.0.
 
 - État : **En cours**
 
-Avancement au 2026-07-21 : les régressions critiques du fork, le chargement Node sans globals
-navigateur et deux fixtures Chrome sont automatisés. La matrice interactive C0 à C3 de chaque
-page historique, notamment destruction/focus/RTL, reste à compléter avant release.
+Avancement au 2026-07-21 : la matrice C0 à C3 est outillée et verte via `pnpm check-compat`
+(G7) — C0/C1 : 176 snapshots structurels (88 pages × LTR/RTL) conformes aux fixtures
+capturées depuis la référence pré-renommage ; C2 : scénarios d'interaction des grappes
+prioritaires (modal/offcanvas/lightbox/tooltip, drop, slider, sticky) avec clavier, ARIA et
+destruction sans résidu ; C3 : 58 composants du registre montés et détruits
+programmatiquement sans résidu. Restent ouverts avant release : l'attente documentée par
+composant avec JavaScript désactivé, et l'inventaire exhaustif des écarts mobile-first/SEO
+hérités au-delà de l'allowlist existante.
 
 Depuis D-012, cette référence est figée comme référence pré-renommage : le dernier état vert
 de `fork/main` avant renommage sert de comparaison C0 à C3 pour toutes les phases suivantes.
