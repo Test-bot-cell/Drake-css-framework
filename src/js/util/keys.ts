@@ -9,4 +9,4 @@ export const keyMap = {
     UP: 38,
     RIGHT: 39,
     DOWN: 40,
-};
+} as const;

@@ -72,8 +72,13 @@ function getBundleTasks() {
 async function getComponentTasks() {
     const components = {};
 
-    for (const file of await glob('src/js/components/*.js', ['**/index.js'])) {
-        const name = path.basename(file, '.js');
+    const files = [
+        ...(await glob('src/js/components/*.js', ['**/index.js'])),
+        ...(await glob('src/js/components/*.ts', ['**/index.ts'])),
+    ];
+
+    for (const file of files) {
+        const name = path.basename(file, path.extname(file));
 
         components[name] = () =>
             compile('src/js/component.js', `dist/js/components/${name}`, {
