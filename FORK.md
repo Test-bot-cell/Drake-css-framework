@@ -369,6 +369,9 @@ reproductibles ou dont la provenance ne peut être démontrée bloquent la relea
 - `docs/fork/DEVELOPMENT.md` : cycle de développement et gates ;
 - `docs/fork/ICON_MIGRATION.md` : alias hérités, usage Tabler CSS et rupture du registre
   SVG ;
+- `docs/fork/HERITAGE_EXCEPTIONS.md` : registre des cibles < 24 px inhérentes aux
+  composants hérités (D-017) ;
+- `docs/fork/MIGRATION.md` : notes de migration depuis l’amont, table `uk-` vers `drk-` ;
 - `docs/fork/MOBILE_FIRST_SEO.md` : profil HTML-first, mobile-first et SEO technique ;
 - `docs/fork/NO_RUNTIME.md` : attentes par composant avec JavaScript désactivé ;
 - `docs/fork/UPSTREAM.md` : synchronisation avec l’amont ;

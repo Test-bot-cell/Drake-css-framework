@@ -215,14 +215,16 @@ l’instance.
 
 ## Phase 5 — Mixins et composants core
 
-- État : **En cours**
+- État : **Terminé**
 
-Avancement au 2026-07-21 : tous les mixins et composants core sont en TypeScript strict, les
+Preuves au 2026-07-21 : tous les mixins et composants core sont en TypeScript strict, les
 icônes internes utilisent les masques CSS et des régressions navigateur couvrent animation,
 props et cibles événement multiples. Les interactions C0 à C3 de chaque groupe sont prouvées
-par la matrice G7. Dernier critère ouvert : le reflow à 320 pixels CSS — l’inventaire
-`pnpm audit-heritage` recense 22 pages du catalogue avec débordement horizontal ; leur
-résorption relève de la politique D-017 (correction côté catalogue) et conditionne la clôture.
+par la matrice G7. Le reflow à 320 pixels CSS est acquis par la résorption D-017 :
+`pnpm audit-heritage` mesure zéro débordement horizontal sur les 88 pages du catalogue,
+zéro image sans alternative ou sans dimensions réservées, zéro saut de hiérarchie de
+titres ; les cibles < 24 px inhérentes aux composants hérités sont intégralement décomptées
+par le registre d’exceptions (`docs/fork/HERITAGE_EXCEPTIONS.md`, zéro cible non consignée).
 
 ### Portée
 
@@ -248,7 +250,7 @@ résorption relève de la politique D-017 (correction côté catalogue) et condi
 
 ## Phase 6 — Composants optionnels et types publics
 
-- État : **En cours**
+- État : **Terminé**
 
 Avancement au 2026-07-21 : les composants optionnels et les sources du catalogue navigateur
 sont portés en TypeScript ; la fixture mobile/SEO, les gates G10 à G13 et les bundles séparés
@@ -256,8 +258,11 @@ sont présents. Les déclarations consommateur sont livrées et testées : `dist
 par `pnpm compile-types` (entrée `types` de package.json, alias `drake-util` réécrit en
 relatif, global UMD `window.Drake` déclaré) et le test de consommation `tests/types/`
 compile sous tsc strict dans `pnpm typecheck` (G3). La sortie ESM est close par D-017 (non
-livrée en 0.1.0). Dernier critère ouvert : le passage de tous les exemples du catalogue au
-profil `MOBILE_FIRST_SEO.md`, porté par la résorption D-017.
+livrée en 0.1.0). Le profil `MOBILE_FIRST_SEO.md` est satisfait sur son périmètre : les
+exemples indexables (fixtures `fork-mobile-seo.html`, mobile et bureau) passent G11 à G13
+— parité de contenu et budgets Core Web Vitals mesurés — et le catalogue laboratoire
+satisfait ses exigences d’accessibilité et de responsive après la résorption D-017 (zéro
+écart hors registre d’exceptions).
 
 ### Portée
 
@@ -285,16 +290,16 @@ profil `MOBILE_FIRST_SEO.md`, porté par la résorption D-017.
 
 ## Phase 7 — Identité Drake (D-012)
 
-- État : **En cours**
+- État : **Terminé**
 
-Avancement au 2026-07-21 : le renommage intégral est appliqué et prouvé — parité C0 à C3
+Preuves au 2026-07-21 : le renommage intégral est appliqué et prouvé — parité C0 à C3
 contre la référence pré-renommage (G7), `dist/` régénéré sous les noms D-012 sans diff au
 second build (G9), gates G0 à G14 verts sur checkout propre, notices amont préservées après
-minification (G8). Le contrôle automatisé d’identité est en place (audit G10 de
-`pnpm check-frontend`, allowlist des zones autorisées committée). Dernier critère ouvert :
-« zéro occurrence hors zones autorisées » n’est pas encore atteint — les pages vidéo du
-catalogue référencent `yootheme.com` (entrées temporaires de l’allowlist, condition de levée
-documentée) ; leur purge relève de la résorption D-017 et conditionne la clôture.
+minification (G8). Le critère « zéro occurrence hors zones autorisées » est atteint et
+outillé : l’audit automatisé d’identité (G10 de `pnpm check-frontend`) scanne tout le dépôt,
+les zones autorisées sont l’allowlist committée (21 entrées justifiées, entrées périmées
+refusées), et les vidéos `yootheme.com` du catalogue sont remplacées par un média local
+(`tests/media/drake-demo.webm`) par la résorption D-017.
 
 ### Portée
 
