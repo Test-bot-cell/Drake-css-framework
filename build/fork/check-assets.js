@@ -55,6 +55,28 @@ const EXPECTED_INTER_FACES = {
     },
 };
 
+// Variante fichiers (D-022) : seuls ces quatre WOFF2 subsettés sont autorisés dans la
+// distribution, épinglés par empreinte. À re-épingler après toute mise à jour d'Inter
+// ou de subset-font (changement sensible).
+const EXPECTED_INTER_FONT_FILES = {
+    'InterVariable-latin.woff2': {
+        sha256: 'a46c4efe99af9e94ea5bb51114f62b4dd4c56c2d3f91522c622b3823418817d5',
+        size: 105148,
+    },
+    'InterVariable-latin-ext.woff2': {
+        sha256: 'c4425342c8811347d149d5b79c85281abe562bf9a023e03fc6208f614d92964a',
+        size: 135588,
+    },
+    'InterVariable-Italic-latin.woff2': {
+        sha256: '3a4a80645d1ca99f9582ffd373ae0beeb41042348d92543bcf7f8f35b774c7fc',
+        size: 115968,
+    },
+    'InterVariable-Italic-latin-ext.woff2': {
+        sha256: '8e65a663d4362ae38b227aecd94d0070395327fdf4df0485b55846f678c06f68',
+        size: 148544,
+    },
+};
+
 const options = parseArguments(process.argv.slice(2));
 
 if (options.help) {
@@ -75,6 +97,10 @@ try {
     await validateCoreLess(coreLessFile, mapping, nativeIcons);
     await validateStyleSources();
     await validateInterCss(interFile);
+    await validateInterFilesCss(
+        resolve(join(dist, 'css/drake-inter-files.css')),
+        resolve(join(dist, 'fonts')),
+    );
     await validateDistFiles(dist);
     await validateBuiltCoreCss(dist);
     await validateDistManifest();
@@ -82,7 +108,9 @@ try {
 
     console.log(
         `Asset checks passed: ${EXPECTED_ICON_COUNT} Tabler outline masks, ` +
-            `two Inter ${INTER_VERSION} variable faces, no distributed SVG/WOFF files.`,
+            `two Inter ${INTER_VERSION} variable faces, ` +
+            `${Object.keys(EXPECTED_INTER_FONT_FILES).length} pinned subsetted WOFF2 files ` +
+            `(D-022), no other standalone SVG/WOFF file.`,
     );
 } catch (error) {
     console.error(`Asset check failed: ${error.message}`);
@@ -667,6 +695,85 @@ async function validateInterCss(file) {
     }
 }
 
+// Variante fichiers (D-022) : feuille unicode-range + quatre WOFF2 subsettés épinglés.
+async function validateInterFilesCss(file, fontsDirectory) {
+    const css = await readFile(file, 'utf8');
+    const marker = readMarker(css, 'inter-files');
+    assertEqual(marker.version, INTER_VERSION, 'Inter files variant version');
+    assertEqual(
+        marker.files,
+        String(Object.keys(EXPECTED_INTER_FONT_FILES).length),
+        'Inter files count',
+    );
+
+    rejectExternalOrUnexpectedCss(css, 'Inter files variant');
+    const blocks = [...css.matchAll(/@font-face\s*\{([^}]+)\}/g)].map((match) => match[1]);
+    if (blocks.length !== 5) {
+        throw new Error(`Expected exactly five @font-face rules in the Inter files CSS.`);
+    }
+
+    const seen = new Set();
+    for (const block of blocks.filter(
+        (candidate) => unquote(readDeclaration(candidate, 'font-family')) === 'InterVariable',
+    )) {
+        assertDeclarationNames(
+            block,
+            ['font-family', 'font-style', 'font-weight', 'font-display', 'src', 'unicode-range'],
+            'Inter files face',
+        );
+        assertEqual(readDeclaration(block, 'font-weight'), '100 900', 'Inter files weight');
+        assertEqual(readDeclaration(block, 'font-display'), 'swap', 'Inter files display');
+        if (!/^U\+[0-9A-F]/i.test(readDeclaration(block, 'unicode-range') ?? '')) {
+            throw new Error(`Inter files face is missing its unicode-range.`);
+        }
+
+        const source = readDeclaration(block, 'src');
+        const match = source?.match(/^url\("\.\.\/fonts\/([^"]+)"\) format\("woff2"\)$/);
+        const expected = match && EXPECTED_INTER_FONT_FILES[match[1]];
+        if (!expected || seen.has(match[1])) {
+            throw new Error(`Unexpected or duplicate Inter files source: ${source}`);
+        }
+        seen.add(match[1]);
+        assertEqual(marker[`${match[1]}-sha256`], expected.sha256, `${match[1]} marker hash`);
+
+        const buffer = await readFile(join(fontsDirectory, match[1]));
+        const actualHash = createHash('sha256').update(buffer).digest('hex');
+        if (
+            buffer.length !== expected.size ||
+            buffer.subarray(0, 4).toString('ascii') !== 'wOF2' ||
+            actualHash !== expected.sha256
+        ) {
+            throw new Error(`${match[1]} failed WOFF2 integrity verification.`);
+        }
+    }
+    if (seen.size !== Object.keys(EXPECTED_INTER_FONT_FILES).length) {
+        throw new Error(`The Inter files CSS does not reference every pinned subset.`);
+    }
+
+    const fallbackBlocks = blocks.filter(
+        (block) => unquote(readDeclaration(block, 'font-family')) === 'Inter Fallback',
+    );
+    if (fallbackBlocks.length !== 1) {
+        throw new Error(`Expected one metric-compatible Inter Fallback rule (files variant).`);
+    }
+    validateFallback(fallbackBlocks[0]);
+
+    const urls = readCssUrls(css);
+    if (
+        urls.length !== seen.size ||
+        urls.some((url) => !EXPECTED_INTER_FONT_FILES[url.replace(/^\.\.\/fonts\//, '')])
+    ) {
+        throw new Error(`The Inter files CSS references an unexpected URL.`);
+    }
+
+    // Aucun autre fichier que les subsets épinglés dans dist/fonts.
+    for (const entry of await readdir(fontsDirectory)) {
+        if (!EXPECTED_INTER_FONT_FILES[entry]) {
+            throw new Error(`Unexpected file in dist/fonts: ${entry}`);
+        }
+    }
+}
+
 function validateWoff2(buffer, style) {
     const expected = EXPECTED_INTER_FACES[style];
     const actualHash = createHash('sha256').update(buffer).digest('hex');
@@ -764,7 +871,10 @@ async function validatePackageContents() {
                 /(?:^|\/)\.cache\/fork-assets\//.test(file) ||
                 /(?:^|\/)reports\//.test(file) ||
                 /\.metrics\.json$/i.test(file) ||
-                /\.(?:svg|woff2?)$/i.test(file) ||
+                (/\.(?:svg|woff2?)$/i.test(file) &&
+                    !Object.keys(EXPECTED_INTER_FONT_FILES).some(
+                        (name) => file === `dist/fonts/${name}`,
+                    )) ||
                 /^src\/images\/(?:backgrounds|components|icons)\/.*\.svg$/i.test(file) ||
                 /(?:^|\/)uikit-icons(?:-[^/]+)?(?:\.min)?\.js(?:\.map)?$/i.test(file),
         );
@@ -787,6 +897,8 @@ async function validatePackageContents() {
             'dist/css/drake-core-rtl.css',
             'dist/css/drake-core-rtl.min.css',
             'dist/css/drake-inter.css',
+            'dist/css/drake-inter-files.css',
+            ...Object.keys(EXPECTED_INTER_FONT_FILES).map((name) => `dist/fonts/${name}`),
             'dist/css/drake-tabler-icons.css',
             'dist/css/drake.css',
             'dist/css/drake.min.css',
@@ -818,9 +930,12 @@ async function walk(directory, prohibited) {
 
     for (const entry of entries) {
         const file = join(directory, entry.name);
+        const isPinnedFontFile =
+            EXPECTED_INTER_FONT_FILES[entry.name] && file.endsWith(join('dist/fonts', entry.name));
         if (
-            /\.(?:svg|woff2?)$/i.test(entry.name) ||
-            /^uikit-icons(?:-[^/]+)?(?:\.min)?\.js(?:\.map)?$/i.test(entry.name)
+            !isPinnedFontFile &&
+            (/\.(?:svg|woff2?)$/i.test(entry.name) ||
+                /^uikit-icons(?:-[^/]+)?(?:\.min)?\.js(?:\.map)?$/i.test(entry.name))
         ) {
             prohibited.push(file);
         }
@@ -840,7 +955,8 @@ function readMarker(css, asset) {
 
     const parts = matches[0][1].trim().split(/\s+/);
     const entries = parts.map((part) => {
-        const match = part.match(/^([a-z][a-z0-9-]*)=([^=\s]+)$/);
+        // Les clés portent aussi des noms de fichiers (D-022) : casse et points admis.
+        const match = part.match(/^([A-Za-z][A-Za-z0-9.-]*)=([^=\s]+)$/);
         if (!match) {
             throw new Error(`Malformed ${asset} asset marker field: ${part}.`);
         }

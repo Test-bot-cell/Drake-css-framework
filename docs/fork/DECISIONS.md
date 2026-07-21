@@ -777,6 +777,60 @@ sur les installations git/tarball).
 - Chaque release future répète le geste : tag signé, tarball packé et attaché, liens CDN
   au tag.
 
+## D-022 — Variante de fontes en fichiers WOFF2 subsettés
+
+- Date : 2026-07-21
+- Statut : **Acceptée** (« go » du mainteneur du 2026-07-21 sur la proposition P1
+  explicitement soumise, à la suite d'une revue de performance externe)
+- Amende : le contrat d'assets Inter (D-005/D-012, FORK.md « fichiers interdits :
+  `.woff` et `.woff2` autonomes »)
+
+### Contexte — la règle actuelle et le problème vérifiable
+
+La règle actuelle impose l'unique livraison d'Inter en `data:` URI
+(`dist/css/drake-inter.css`) et interdit tout fichier de fonte autonome dans la
+distribution. Mesuré sur la 0.1.0 : **731 Ko gzip** pour cette feuille (le base64 d'un
+WOFF2 déjà compressé Brotli ne se recomprime pas), render-blocking, téléchargée
+en tout-ou-rien — sans `unicode-range`, sans cache séparé des fontes, sans chargement
+progressif. C'est le principal écart entre le contrat mobile-first affiché et le coût
+réel au premier rendu.
+
+### Options
+
+1. Statu quo : mono-fichier uniquement (écart de performance assumé).
+2. Fichiers WOFF2 subsettés uniquement (perd la distribution mono-fichier sans gestion
+   de chemins, qui reste utile hors bundler).
+3. **Double livraison** : la feuille `data:` URI est conservée comme option
+   mono-fichier ; une variante `dist/css/drake-inter-files.css` + quatre fichiers
+   `dist/fonts/*.woff2` subsettés (latin et latin-ext, roman et italique, axes
+   variables conservés) avec `unicode-range` devient le **chargement recommandé**.
+
+### Décision
+
+L'option 3 est retenue. Concrètement :
+
+- le subsetting est produit à la génération par la dépendance `subset-font` (HarfBuzz
+  WebAssembly), épinglée en version exacte (D-008), depuis les WOFF2 officiels déjà
+  vérifiés par empreinte — aucune chaîne système nouvelle ;
+- les quatre fichiers produits sont des artefacts suivis, épinglés par empreinte
+  SHA-256 dans `check-assets` ; tout autre fichier de fonte reste interdit ;
+- licence : Inter ne déclare **aucun Reserved Font Name** (en-tête OFL vérifié) — le
+  subset est une « Modified Version » licite sans renommage ; la bannière légale
+  générée l'indique et embarque l'OFL complète, `licenses/Inter-OFL-1.1.txt` reste
+  dans la packlist ; les fichiers légaux épinglés ne sont pas modifiés ;
+- la documentation (FORK.md, README, MOBILE_FIRST_SEO) recommande la variante
+  fichiers ; la feuille `data:` URI reste documentée comme option mono-fichier.
+
+### Conséquences
+
+- Une page latin réelle charge ~100-150 Ko de fontes au lieu de 731 Ko de CSS
+  bloquante ; le cache des fontes devient indépendant des feuilles.
+- Aucun impact sur les artefacts existants (aucun n'est modifié ni renommé) ; aucun
+  impact CSP (mêmes origines) ; G9 couvre le déterminisme de la génération des
+  subsets (double génération identique exigée).
+- Le contrat « aucune requête tierce à l'exécution » est inchangé : les fichiers sont
+  auto-hébergés à côté des feuilles.
+
 ## Modèle d’une nouvelle décision
 
     ## D-NNN — Titre

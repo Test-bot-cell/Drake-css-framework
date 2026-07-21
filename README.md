@@ -15,8 +15,9 @@ distribution :
 - runtime navigateur entièrement écrit en TypeScript strict ;
 - Tabler Icons 3.45.0 Outline livré sous forme de masques CSS `data:image/svg+xml`
   (classe de base `.drk-ti`, icônes `.drk-ti-{nom}`, zéro fichier SVG distribué) ;
-- Inter 4.1 variable roman et italic embarquée en `data:` URI WOFF2 dans une CSS, sans
-  fichier `.woff`/`.woff2` autonome ;
+- Inter 4.1 variable roman et italic auto-hébergée, en double livraison (D-022) :
+  fichiers WOFF2 subsettés `unicode-range` recommandés (~100-150 Ko réellement chargés),
+  ou feuille mono-fichier en `data:` URI — zéro requête tierce dans les deux cas ;
 - HTML-first, mise en page mobile-first à 320 px et gates SEO/performance.
 
 À ces piliers s’ajoute le socle des styles (décision D-013, port achevé) : la cascade
@@ -77,10 +78,16 @@ développement ; la commande ne remplace pas `pnpm verify`.
 ## Chargement recommandé
 
 ```html
-<link rel="stylesheet" href="/dist/css/drake-inter.css" />
+<link rel="stylesheet" href="/dist/css/drake-inter-files.css" />
 <link rel="stylesheet" href="/dist/css/drake.css" />
 <script src="/dist/js/drake.js" defer></script>
 ```
+
+`drake-inter-files.css` référence les WOFF2 subsettés de `dist/fonts/` (latin et
+latin-ext, `unicode-range`) : le navigateur ne télécharge que les subsets réellement
+utilisés, avec un cache de fontes indépendant. L'option mono-fichier
+`drake-inter.css` (fontes en `data:` URI, ~731 Ko gzip) reste disponible quand la
+distribution en un seul fichier CSS prime sur la performance de premier rendu.
 
 Des variantes `drake.min.css`, `drake-rtl.css`, `drake-rtl.min.css` et `drake.min.js`
 sont produites pour la minification et l’écriture droite-gauche.
@@ -92,6 +99,11 @@ explicitement :
 ```html
 <link rel="stylesheet" href="/dist/css/drake-tabler-icons.css" />
 ```
+
+Le catalogue complet coûte ~3,9 Mo de CSS à parser (pour ~285 Ko de transfert) : une
+intégration qui connaît ses icônes génère plutôt une feuille réduite avec
+`generate-tabler-icons.js --subset` (voir `docs/fork/ICON_MIGRATION.md`). Les icônes
+sont des masques `currentColor`, monochromes par construction.
 
 Les alias historiques et la suppression volontaire de `Drake.icon.add` sont détaillés
 dans [`docs/fork/ICON_MIGRATION.md`](docs/fork/ICON_MIGRATION.md).
@@ -108,6 +120,29 @@ Les sources canoniques sont :
 
 `dist/` et `src/styles/tabler.ts` sont générés. Ils **NE DOIVENT** jamais recevoir une
 correction manuelle. La dépendance `@pandacss/dev` est épinglée en version exacte (1.11.4).
+
+## Comment c’est testé
+
+Chaque push sur `fork/main` rejoue l’intégralité des preuves en CI GitHub Actions
+(workflow `verify`, check requis par la protection de branche) :
+
+- `pnpm verify` — les gates constitutionnels G0 à G14 : format, lint, TypeScript strict
+  (+ test de consommation des déclarations publiées), builds CSS/JS/RTL/types,
+  manifeste, audits d’assets (empreintes épinglées, licences) et de politique frontend
+  (identité D-012, HTML-first/SEO, mobile-first, budgets de performance) — code sous
+  `build/fork/` ;
+- `pnpm check-compat` — la matrice de compatibilité C0-C3 en Chrome headless
+  (`tests/js/compat/`) : contrat sans-JavaScript des 88 pages du catalogue, 176
+  snapshots structurels LTR/RTL comparés à fixtures committées, 156 assertions
+  d’interaction (clavier, focus, ARIA, reconnexion DOM, plugins), montage et
+  destruction programmatiques de 58 composants sans résidu ;
+- `pnpm audit-heritage` — l’audit à 320 px CSS : zéro débordement, zéro image sans
+  alternative ou dimensions, hiérarchie de titres, cibles tactiles décomptées contre le
+  registre d’exceptions (`docs/fork/HERITAGE_EXCEPTIONS.md`) ;
+- un second build en fin de run prouve l’absence de diff (reproductibilité G9).
+
+Les résultats sont publics dans l’onglet Actions du dépôt ; `docs/fork/DEVELOPMENT.md`
+détaille chaque gate.
 
 ## Provenance et licences
 

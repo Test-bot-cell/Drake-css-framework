@@ -22,6 +22,11 @@
             "sha256": "d876e4491cc7b9c0eef12b2a17bcaa4ec0a5d76ad73663a40411a18e1cee5baa"
         },
         {
+            "path": "dist/css/drake-inter-files.css",
+            "bytes": 7189,
+            "sha256": "a898f98042e3736b5614acf590e8b569908cda009ebeb2e879835df41dc74a4a"
+        },
+        {
             "path": "dist/css/drake-inter.css",
             "bytes": 992568,
             "sha256": "3caff034027f007f8946ae738ab760a3ac5b404535003e51ee850a05410fd645"
@@ -50,6 +55,26 @@
             "path": "dist/css/drake.min.css",
             "bytes": 312039,
             "sha256": "2beef8f8a9384d0fbbd4636472c73fdb16f7992ddb674f4589a4ccc5282ea424"
+        },
+        {
+            "path": "dist/fonts/InterVariable-Italic-latin-ext.woff2",
+            "bytes": 148544,
+            "sha256": "8e65a663d4362ae38b227aecd94d0070395327fdf4df0485b55846f678c06f68"
+        },
+        {
+            "path": "dist/fonts/InterVariable-Italic-latin.woff2",
+            "bytes": 115968,
+            "sha256": "3a4a80645d1ca99f9582ffd373ae0beeb41042348d92543bcf7f8f35b774c7fc"
+        },
+        {
+            "path": "dist/fonts/InterVariable-latin-ext.woff2",
+            "bytes": 135588,
+            "sha256": "c4425342c8811347d149d5b79c85281abe562bf9a023e03fc6208f614d92964a"
+        },
+        {
+            "path": "dist/fonts/InterVariable-latin.woff2",
+            "bytes": 105148,
+            "sha256": "a46c4efe99af9e94ea5bb51114f62b4dd4c56c2d3f91522c622b3823418817d5"
         },
         {
             "path": "dist/js/components/countdown.js",

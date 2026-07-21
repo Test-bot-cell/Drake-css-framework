@@ -15,6 +15,7 @@
 !/dist/js/components/.gitkeep
 !/dist/js/drake.js
 !/dist/js/drake.min.js
+!/dist/fonts/
 !/dist/types/
 /node_modules
 /tests/js/test*

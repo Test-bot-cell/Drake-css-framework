@@ -8,6 +8,7 @@
     "style": "dist/css/drake.css",
     "files": [
         "dist/css/*.css",
+        "dist/fonts/*.woff2",
         "dist/js/*.js",
         "dist/js/components/*.js",
         "dist/types/**/*.d.ts",
@@ -87,6 +88,7 @@
         "rollup-plugin-esbuild": "^6.2.1",
         "rtlcss": "^4.3.0",
         "strip-css-comments": "^5.0.0",
+        "subset-font": "2.5.0",
         "svgo": "^4.0.0",
         "typescript": "5.5.2",
         "typescript-eslint": "8.65.0"
