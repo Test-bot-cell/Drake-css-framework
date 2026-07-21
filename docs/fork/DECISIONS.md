@@ -492,6 +492,55 @@ de la charte.
 - Aucun composant, gate ou script de build ne dépend d'Elm.
 - Un nouveau réexamen n'intervient que sur demande explicite du mainteneur.
 
+## D-015 — Minification des feuilles par Lightning CSS
+
+- Date : 2026-07-21
+- Statut : **Acceptée**
+- Complète : D-013
+
+### Contexte
+
+La minification CSS reposait sur clean-css, hérité de l'amont. Le projet est en
+quasi-hibernation et le build utilisait une option obsolète depuis clean-css v4
+(`keepSpecialComments`), silencieusement ignorée. Depuis D-013, la génération des feuilles
+est pilotée par l'écosystème Panda, qui embarque déjà Lightning CSS
+(`@pandacss/plugin-lightningcss`) dans l'arbre de dépendances épinglé.
+
+### Options examinées
+
+1. Conserver clean-css en corrigeant l'option obsolète.
+2. Passer à cssnano (PostCSS).
+3. Passer à Lightning CSS pour la seule minification.
+
+La première option garde un outil non maintenu ; la deuxième ajoute une chaîne PostCSS
+supplémentaire sans gain décisif. La troisième est retenue : outil activement maintenu,
+plus rapide, sortie plus compacte, cohérent avec l'écosystème Panda déjà adopté.
+
+### Décision
+
+- La minification des huit feuilles `dist/css/*.min.css` est produite par `lightningcss`,
+  épinglé en version exacte, appelé par `minify()` dans `build/util.js`.
+- Le périmètre est STRICTEMENT la minification : aucune transpilation vers des cibles
+  navigateurs et aucun ajout ou retrait de préfixe vendeur ne sont activés, afin de ne pas
+  modifier la sémantique de la cascade protégée par la parité D-013/G15.
+- Lightning CSS supprimant tous les commentaires, les bannières légales de tête
+  (`/*! … */` Drake et Tabler) sont extraites de la feuille source et re-préfixées à la
+  sortie minifiée ; le gate `check-assets` continue d'exiger leur présence dans chaque
+  feuille distribuée.
+- clean-css est retiré des dépendances.
+
+### Conséquences
+
+- La minification peut restructurer les règles (fusions sémantiquement équivalentes) : les
+  fichiers `.min.css` ne sont plus comparables règle à règle aux feuilles non minifiées ;
+  la confiance repose sur les gates (bannières, comptes d'assets, G9 déterminisme,
+  navigateur G10-G13) et des contrôles ciblés (`@property`, `@-moz-document`, séquences
+  d'échappement) après tout changement de version.
+- `lightningcss` embarque un binaire natif par plateforme ; sa version est épinglée exacte
+  et l'installation reste hors ligne depuis le store pnpm.
+- Une mise à jour de `lightningcss` est un changement sensible : preuves de gates et
+  contrôles ciblés exigés.
+
 ## Modèle d’une nouvelle décision
 
     ## D-NNN — Titre
