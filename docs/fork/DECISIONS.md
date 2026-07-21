@@ -593,6 +593,70 @@ runtime lit déjà.
   et références consommées (`var(--drk-…, <valeur héritée>)`) ; équivalence calculée
   prouvée par les gates navigateur (G10-G13) et la matrice G7.
 
+## D-017 — Cap de stabilisation 0.1.0 (release candidate)
+
+- Date : 2026-07-21
+- Statut : **Acceptée** (arbitrage explicite du mainteneur du 2026-07-21, quatre réponses
+  au questionnaire de stabilisation)
+- Complète : D-012 (identité et version initiale), D-016 (surfaces `--drk-*`)
+
+### Contexte
+
+Les phases 0, 1, 2 et 8 sont terminées et la matrice C0-C3 (G7) est verte. La phase 9
+(stabilisation et release candidate) exige des arbitrages qui n'appartiennent qu'au
+mainteneur : le remote `origin`, le sort de `private: true`, le schéma de version, et la
+politique de résorption de la dette héritée inventoriée
+(`tests/fixtures/heritage-audit.json` : 22 débordements à 320 px, 337 cibles < 24 px hors
+liens en ligne, 8 images sans alt, 50 sans dimensions réservées, 19 sauts de titres). La
+phase 6 laisse en outre ouverte la question d'une sortie ESM.
+
+### Options
+
+1. Remote : aucun (local), GitHub privé, GitHub public.
+2. Version : SemVer avec tags release candidate, SemVer direct, CalVer.
+3. Dette : résorption côté catalogue avec registre d'exceptions, résorption totale y
+   compris CSS des composants (divergence du contrat C0-C3), catégories objectives seules.
+4. npm : conserver `private: true`, préparer une publication.
+5. ESM : différer, livrer en 0.1.0.
+
+### Décision
+
+- **Remote** : `origin` sera un dépôt GitHub **privé** `drake-css`. La création du dépôt
+  et tout push restent soumis à un feu vert explicite du mainteneur, action par action ;
+  jusque-là le dépôt reste purement local. Cette décision clôt le critère « décider le
+  remote `origin` » de la phase 9.
+- **Version** : SemVer strict propre au fork. La stabilisation produit des tags annotés
+  signés `v0.1.0-rc.N` ; l'acceptation finale produit `v0.1.0`. Les tags du fork restent
+  distincts des tags amont (`fork-base/uikit-v3.25.20`).
+- **Dette héritée** : résorption intégrale **côté catalogue** (markup des pages de
+  `tests/` et chrome injecté par le harnais de test) : alternatives, dimensions réservées,
+  hiérarchie de titres, débordements à 320 px et cibles corrigibles au markup. Le CSS des
+  composants reste conforme à la référence pré-renommage : le contrat C0-C3 n'est pas
+  amendé. Chaque résidu < 24 px inhérent à un composant hérité, ou à ce qu'une page
+  démontre (les variantes small restent démontrées), est consigné avec justification dans
+  le registre d'exceptions `docs/fork/HERITAGE_EXCEPTIONS.md`, à trancher composant par
+  composant par des décisions ultérieures. Les fixtures C0/C1 et sans-runtime divergent
+  par la présente décision : leur recapture est autorisée uniquement pour les pages
+  corrigées, divergence documentée dans le changement livré.
+- **npm** : `private: true` est conservé tant qu'une publication npm n'est pas
+  explicitement décidée (garde-fou anti-publication accidentelle). Le critère « lever
+  `private: true` » de la phase 9 est traité par la présente décision : il ne sera levé
+  que par une décision de publication dédiée.
+- **ESM** : aucune sortie ESM en 0.1.0. Le critère de la phase 6 (« l'ESM, s'il est
+  livré, ne duplique pas inutilement le runtime ») est clos : il n'est pas livré.
+  Réexamen possible après stabilisation, sans bloquer une release.
+
+### Conséquences
+
+- La phase 9 peut se clore sans remote effectif ni publication npm ; le tag release
+  candidate est local, annoté et signé.
+- Les corrections du catalogue sont des changements sensibles sur les surfaces C0/C1 :
+  recapture décidée des fixtures concernées, re-inventaire `pnpm audit-heritage`, et
+  scénarios C2/boucle C3 exigés verts sans recapture.
+- Les déclarations `.d.ts` de la phase 6 restent exigées avant la clôture de cette phase ;
+  elles ne relèvent pas de la présente décision (aucun arbitrage nécessaire).
+- Aucun impact licences ni assets ; le catalogue n'est pas distribué dans `dist/`.
+
 ## Modèle d’une nouvelle décision
 
     ## D-NNN — Titre

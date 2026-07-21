@@ -347,7 +347,13 @@ est vert de bout en bout, gates Chrome G10-G13 compris.
 
 ## Phase 9 — Stabilisation et release candidate
 
-- État : **Planifié**
+- État : **En cours**
+
+Avancement au 2026-07-21 : D-017 acte les arbitrages du mainteneur — remote `origin` =
+dépôt GitHub privé (création et push différés à un feu vert explicite), versionnage SemVer
+avec tags annotés signés `v0.1.0-rc.N` puis `v0.1.0`, résorption de la dette héritée côté
+catalogue avec registre d'exceptions (`docs/fork/HERITAGE_EXCEPTIONS.md`), `private: true`
+conservé tant qu'une publication npm n'est pas décidée, pas de sortie ESM en 0.1.0.
 
 ### Portée
 
