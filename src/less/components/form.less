@@ -113,11 +113,11 @@
 @form-icon-color:                               @global-muted-color;
 @form-icon-hover-color:                         @global-color;
 
-@internal-form-select-image:                     "../../images/backgrounds/form-select.svg";
-@internal-form-datalist-image:                   "../../images/backgrounds/form-datalist.svg";
-@internal-form-radio-image:                      "../../images/backgrounds/form-radio.svg";
-@internal-form-checkbox-image:                   "../../images/backgrounds/form-checkbox.svg";
-@internal-form-checkbox-indeterminate-image:     "../../images/backgrounds/form-checkbox-indeterminate.svg";
+@internal-form-select-image:                     @tabler-icon-selector;
+@internal-form-datalist-image:                   @tabler-icon-chevron-down;
+@internal-form-radio-image:                      @tabler-icon-point;
+@internal-form-checkbox-image:                   @tabler-icon-check;
+@internal-form-checkbox-indeterminate-image:     @tabler-icon-minus;
 
 
 /* ========================================================================
@@ -415,7 +415,7 @@ select.uk-form-width-xsmall { width: (@form-width-xsmall + 25px); }
     -moz-appearance: none;
     /* 2 */
     padding-right: @form-select-padding-right;
-    .svg-fill(@internal-form-select-image, "#000", @form-select-icon-color);
+    .tabler-background(@internal-form-select-image, @form-select-icon-color);
     background-repeat: no-repeat;
     background-position: 100% 50%;
 }
@@ -427,7 +427,7 @@ select.uk-form-width-xsmall { width: (@form-width-xsmall + 25px); }
  * Disabled
  */
 
-.uk-select:not([multiple]):not([size]):disabled { .svg-fill(@internal-form-select-image, "#000", @form-select-disabled-icon-color); }
+.uk-select:not([multiple]):not([size]):disabled { .tabler-background(@internal-form-select-image, @form-select-disabled-icon-color); }
 
 
 /* Datalist
@@ -444,7 +444,7 @@ select.uk-form-width-xsmall { width: (@form-width-xsmall + 25px); }
 }
 
 .uk-input[list]:hover,
-.uk-input[list]:focus { .svg-fill(@internal-form-datalist-image, "#000", @form-datalist-icon-color); }
+.uk-input[list]:focus { .tabler-background(@internal-form-datalist-image, @form-datalist-icon-color); }
 
 /* 1 */
 .uk-input[list]::-webkit-calendar-picker-indicator { display: none !important; }
@@ -516,9 +516,9 @@ select.uk-form-width-xsmall { width: (@form-width-xsmall + 25px); }
  * Icons
  */
 
-.uk-radio:checked { .svg-fill(@internal-form-radio-image, "#000", @form-radio-checked-icon-color); }
-.uk-checkbox:checked { .svg-fill(@internal-form-checkbox-image, "#000", @form-radio-checked-icon-color); }
-.uk-checkbox:indeterminate { .svg-fill(@internal-form-checkbox-indeterminate-image, "#000", @form-radio-checked-icon-color); }
+.uk-radio:checked { .tabler-background(@internal-form-radio-image, @form-radio-checked-icon-color); }
+.uk-checkbox:checked { .tabler-background(@internal-form-checkbox-image, @form-radio-checked-icon-color); }
+.uk-checkbox:indeterminate { .tabler-background(@internal-form-checkbox-indeterminate-image, @form-radio-checked-icon-color); }
 
 /*
  * Disabled
@@ -530,9 +530,9 @@ select.uk-form-width-xsmall { width: (@form-width-xsmall + 25px); }
     .hook-form-radio-disabled();
 }
 
-.uk-radio:disabled:checked { .svg-fill(@internal-form-radio-image, "#000", @form-radio-disabled-icon-color); }
-.uk-checkbox:disabled:checked { .svg-fill(@internal-form-checkbox-image, "#000", @form-radio-disabled-icon-color); }
-.uk-checkbox:disabled:indeterminate { .svg-fill(@internal-form-checkbox-indeterminate-image, "#000", @form-radio-disabled-icon-color); }
+.uk-radio:disabled:checked { .tabler-background(@internal-form-radio-image, @form-radio-disabled-icon-color); }
+.uk-checkbox:disabled:checked { .tabler-background(@internal-form-checkbox-image, @form-radio-disabled-icon-color); }
+.uk-checkbox:disabled:indeterminate { .tabler-background(@internal-form-checkbox-indeterminate-image, @form-radio-disabled-icon-color); }
 
 
 /* Style modifier (`uk-input`, `uk-select`, `uk-textarea`, `uk-radio`, `uk-checkbox`)
@@ -694,16 +694,11 @@ select.uk-form-width-xsmall { width: (@form-width-xsmall + 25px); }
  * Horizontal
  */
 
-/* Tablet portrait and smaller */
-@media (max-width: @breakpoint-small-max) {
-
-    /* Behave like `uk-form-stacked` */
-    .uk-form-horizontal .uk-form-label {
-        display: block;
-        margin-bottom: @form-stacked-margin-bottom;
-        .hook-form-stacked-label();
-    }
-
+/* Mobile baseline: behave like `uk-form-stacked` */
+.uk-form-horizontal .uk-form-label {
+    display: block;
+    margin-bottom: @form-stacked-margin-bottom;
+    .hook-form-stacked-label();
 }
 
 /* Tablet landscape and bigger */
@@ -712,6 +707,7 @@ select.uk-form-width-xsmall { width: (@form-width-xsmall + 25px); }
     .uk-form-horizontal .uk-form-label {
         width: @form-horizontal-label-width;
         margin-top: @form-horizontal-label-margin-top;
+        margin-bottom: 0;
         float: left;
         .hook-form-horizontal-label();
     }
@@ -862,14 +858,14 @@ select.uk-form-width-xsmall { width: (@form-width-xsmall + 25px); }
     // Select
     //
 
-    .uk-select:not([multiple]):not([size]) { .svg-fill(@internal-form-select-image, "#000", @inverse-form-select-icon-color); }
+    .uk-select:not([multiple]):not([size]) { .tabler-background(@internal-form-select-image, @inverse-form-select-icon-color); }
 
     //
     // Datalist
     //
 
     .uk-input[list]:hover,
-    .uk-input[list]:focus { .svg-fill(@internal-form-datalist-image, "#000", @inverse-form-datalist-icon-color); }
+    .uk-input[list]:focus { .tabler-background(@internal-form-datalist-image, @inverse-form-datalist-icon-color); }
 
     //
     // Radio and checkbox
@@ -905,9 +901,9 @@ select.uk-form-width-xsmall { width: (@form-width-xsmall + 25px); }
     }
 
     // Icon
-    .uk-radio:checked { .svg-fill(@internal-form-radio-image, "#000", @inverse-form-radio-checked-icon-color); }
-    .uk-checkbox:checked { .svg-fill(@internal-form-checkbox-image, "#000", @inverse-form-radio-checked-icon-color); }
-    .uk-checkbox:indeterminate { .svg-fill(@internal-form-checkbox-indeterminate-image, "#000", @inverse-form-radio-checked-icon-color); }
+    .uk-radio:checked { .tabler-background(@internal-form-radio-image, @inverse-form-radio-checked-icon-color); }
+    .uk-checkbox:checked { .tabler-background(@internal-form-checkbox-image, @inverse-form-radio-checked-icon-color); }
+    .uk-checkbox:indeterminate { .tabler-background(@internal-form-checkbox-indeterminate-image, @inverse-form-radio-checked-icon-color); }
 
     // Label
     .uk-form-label {

@@ -40,7 +40,7 @@ for (const file of (await glob('src/less/**/*.less'))
         .replace(/fade(in|out)\((\$[\w-]*), ([0-9]+)%\)/g, (match, p1, p2, p3) => {
             return `fade-${p1}(${p2}, ${p3 / 100})`;
         }) // replace Less function fadeout with fade-out
-        .replace(/\.svg-fill/g, '@include svg-fill') // include svg-fill mixin
+        .replace(/\.tabler-background/g, '@include tabler-background')
         .replace(
             /(.*):extend\((\.[\w\\@-]*) all\) when \((\$[\w-]*) = (\w+)\) {}/g,
             '@if ( $3 == $4 ) { $1 { @extend $2 !optional;} }',
@@ -110,7 +110,8 @@ for (const [vars, file] of [
     [coreMixins, 'mixins'],
     [themeMixins, 'mixins-theme'],
 ]) {
-    delete vars['svg-fill'];
+    // The portable Sass implementation lives in build/scss/mixin.scss.
+    delete vars['tabler-background'];
 
     await write(`src/scss/${file}.scss`, useSassModules(Object.values(vars).join('\n')));
 }
@@ -206,32 +207,11 @@ function getMixinsFromFile(file, source) {
 
 /*
  * Extract all variables from a given file with its data.
- * @return an updated data where the icons have been replaced by the actual SVG data.
+ * @return an updated data where variables are ordered by dependency.
  */
 async function getVariablesFromFile(file, source) {
     for (let [, name, value] of source.matchAll(/(\$[\w-]*)\s*:\s*(.*);/g)) {
-        let dependencies = [];
-
-        /* check if variable is a background icon, if so replace it directly by the SVG */
-        if (value.includes('../../images/backgrounds')) {
-            const svg = (await read(`src/${value.match(/images\/backgrounds\/[\w./-]+/)}`))
-                .replace(/\r?\n|\r/g, '%0A')
-                .replace(/"/g, "'")
-                .replace(/\s/g, '%20')
-                .replace(/</g, '%3C')
-                .replace(/=/g, '%3D')
-                .replace(/'/g, '%22')
-                .replace(/:/g, '%3A')
-                .replace(/\//g, '%2F')
-                .replace(/>/g, '%3E')
-                .replace(/%3Csvg/, 'data:image/svg+xml;charset=UTF-8,%3Csvg');
-
-            value = `"${svg}" !default`;
-
-            /* if it's not an SVG add the variable and search for its dependencies */
-        } else {
-            dependencies = Array.from(value.matchAll(/\$[\w-]+/g)).map(([value]) => value);
-        }
+        const dependencies = Array.from(value.matchAll(/\$[\w-]+/g)).map(([value]) => value);
 
         themeVariables[name] = { value: `${value};`, dependencies };
 

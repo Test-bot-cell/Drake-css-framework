@@ -355,7 +355,7 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
     -moz-appearance: none;
     /* 2 */
     padding-right: $form-select-padding-right;
-    @include svg-fill($internal-form-select-image, "#000", $form-select-icon-color);
+    @include tabler-background($internal-form-select-image, $form-select-icon-color);
     background-repeat: no-repeat;
     background-position: 100% 50%;
 }
@@ -367,7 +367,7 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
  * Disabled
  */
 
-.uk-select:not([multiple]):not([size]):disabled { @include svg-fill($internal-form-select-image, "#000", $form-select-disabled-icon-color); }
+.uk-select:not([multiple]):not([size]):disabled { @include tabler-background($internal-form-select-image, $form-select-disabled-icon-color); }
 
 
 /* Datalist
@@ -384,7 +384,7 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
 }
 
 .uk-input[list]:hover,
-.uk-input[list]:focus { @include svg-fill($internal-form-datalist-image, "#000", $form-datalist-icon-color); }
+.uk-input[list]:focus { @include tabler-background($internal-form-datalist-image, $form-datalist-icon-color); }
 
 /* 1 */
 .uk-input[list]::-webkit-calendar-picker-indicator { display: none !important; }
@@ -456,9 +456,9 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
  * Icons
  */
 
-.uk-radio:checked { @include svg-fill($internal-form-radio-image, "#000", $form-radio-checked-icon-color); }
-.uk-checkbox:checked { @include svg-fill($internal-form-checkbox-image, "#000", $form-radio-checked-icon-color); }
-.uk-checkbox:indeterminate { @include svg-fill($internal-form-checkbox-indeterminate-image, "#000", $form-radio-checked-icon-color); }
+.uk-radio:checked { @include tabler-background($internal-form-radio-image, $form-radio-checked-icon-color); }
+.uk-checkbox:checked { @include tabler-background($internal-form-checkbox-image, $form-radio-checked-icon-color); }
+.uk-checkbox:indeterminate { @include tabler-background($internal-form-checkbox-indeterminate-image, $form-radio-checked-icon-color); }
 
 /*
  * Disabled
@@ -470,9 +470,9 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
     @if(meta.mixin-exists(hook-form-radio-disabled)) {@include hook-form-radio-disabled();}
 }
 
-.uk-radio:disabled:checked { @include svg-fill($internal-form-radio-image, "#000", $form-radio-disabled-icon-color); }
-.uk-checkbox:disabled:checked { @include svg-fill($internal-form-checkbox-image, "#000", $form-radio-disabled-icon-color); }
-.uk-checkbox:disabled:indeterminate { @include svg-fill($internal-form-checkbox-indeterminate-image, "#000", $form-radio-disabled-icon-color); }
+.uk-radio:disabled:checked { @include tabler-background($internal-form-radio-image, $form-radio-disabled-icon-color); }
+.uk-checkbox:disabled:checked { @include tabler-background($internal-form-checkbox-image, $form-radio-disabled-icon-color); }
+.uk-checkbox:disabled:indeterminate { @include tabler-background($internal-form-checkbox-indeterminate-image, $form-radio-disabled-icon-color); }
 
 
 /* Style modifier (`uk-input`, `uk-select`, `uk-textarea`, `uk-radio`, `uk-checkbox`)
@@ -634,16 +634,11 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
  * Horizontal
  */
 
-/* Tablet portrait and smaller */
-@media (max-width: $breakpoint-small-max) {
-
-    /* Behave like `uk-form-stacked` */
-    .uk-form-horizontal .uk-form-label {
-        display: block;
-        margin-bottom: $form-stacked-margin-bottom;
-        @if(meta.mixin-exists(hook-form-stacked-label)) {@include hook-form-stacked-label();}
-    }
-
+/* Mobile baseline: behave like `uk-form-stacked` */
+.uk-form-horizontal .uk-form-label {
+    display: block;
+    margin-bottom: $form-stacked-margin-bottom;
+    @if(meta.mixin-exists(hook-form-stacked-label)) {@include hook-form-stacked-label();}
 }
 
 /* Tablet landscape and bigger */
@@ -652,6 +647,7 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
     .uk-form-horizontal .uk-form-label {
         width: $form-horizontal-label-width;
         margin-top: $form-horizontal-label-margin-top;
+        margin-bottom: 0;
         float: left;
         @if(meta.mixin-exists(hook-form-horizontal-label)) {@include hook-form-horizontal-label();}
     }

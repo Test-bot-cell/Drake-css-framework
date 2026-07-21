@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Lightbox - UIkit tests</title>
-        <script src="js/test.js"></script>
+        <script src="../dist/js/tests/test.js"></script>
     </head>
 
     <body>
@@ -662,28 +662,6 @@
 
         </div>
 
-        <script>
-
-            const {attr, $$, on} = UIkit.util;
-
-            for (const attribute of ['animation', 'bg-close', 'delay-controls', 'counter', 'video-autoplay']) {
-                on(`#js-${attribute}-switcher`, 'change', e =>
-                    attr($$('[uk-lightbox]'), attribute, e.target.value)
-                );
-            }
-
-            on('#js-lightbox', 'click', (e) => {
-                e.preventDefault();
-
-                UIkit.lightboxPanel({
-                    items: [
-                        {source: 'images/size1.jpg', caption: '900x600'},
-                        {source: 'images/size2.jpg', caption: '700x500'},
-                    ]
-                }).show();
-            });
-
-        </script>
 
     </body>
 </html>

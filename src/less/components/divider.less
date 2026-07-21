@@ -21,7 +21,7 @@
 @divider-icon-line-border-width:                @global-border-width;
 @divider-icon-line-border:                      @global-border;
 
-@internal-divider-icon-image:                   "../../images/backgrounds/divider-icon.svg";
+@internal-divider-icon-image:                   @tabler-icon-circle;
 
 @divider-small-width:                           100px;
 @divider-small-border-width:                    @global-border-width;
@@ -58,7 +58,7 @@
 .uk-divider-icon {
     position: relative;
     height: @divider-icon-height;
-    .svg-fill(@internal-divider-icon-image, "#000", @divider-icon-color);
+    .tabler-background(@internal-divider-icon-image, @divider-icon-color);
     background-repeat: no-repeat;
     background-position: 50% 50%;
     .hook-divider-icon();
@@ -148,7 +148,7 @@
 .hook-inverse() {
 
     .uk-divider-icon {
-        .svg-fill(@internal-divider-icon-image, "#000", @inverse-divider-icon-color);
+        .tabler-background(@internal-divider-icon-image, @inverse-divider-icon-color);
         .hook-inverse-divider-icon();
     }
 

@@ -12,6 +12,27 @@
                 color: #1e87f0;
                 font-size: 3rem;
             }
+
+            .fork-assets-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+                align-items: center;
+            }
+
+            .fork-animated-filter-list {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 0.5rem;
+                padding: 0;
+                list-style: none;
+            }
+
+            .fork-animated-filter-list > li {
+                min-height: 32px;
+                padding: 0.5rem;
+                background: #f8f8f8;
+            }
         </style>
     </head>
     <body>
@@ -27,6 +48,120 @@
                 ></span>
                 <span>Icône Tabler décorative, libellé texte distinct.</span>
             </p>
+            <section
+                data-testid="animated-filter"
+                uk-filter="target: .fork-animated-filter-list; animation: delayed-fade; duration: 160"
+            >
+                <h2>Régression animation fade échelonnée</h2>
+                <button
+                    class="uk-button uk-button-default"
+                    type="button"
+                    uk-filter-control="[data-tone='cool']"
+                    data-testid="animated-filter-trigger"
+                >
+                    Afficher les tons froids
+                </button>
+                <ul class="fork-animated-filter-list" data-testid="animated-filter-target">
+                    <li data-tone="cool">Bleu</li>
+                    <li data-tone="warm">Rouge</li>
+                    <li data-tone="cool">Vert</li>
+                    <li data-tone="warm">Orange</li>
+                </ul>
+            </section>
+            <section aria-labelledby="runtime-bindings-title">
+                <h2 id="runtime-bindings-title">Régressions de liaison TypeScript</h2>
+                <button
+                    class="uk-button uk-button-default"
+                    type="button"
+                    uk-toggle="target: #fork-toggle-target"
+                    data-testid="null-prop-toggle"
+                >
+                    Afficher la cible explicite
+                </button>
+                <p id="fork-toggle-target" data-testid="null-prop-target" hidden>
+                    Cible déclarée par une prop dont le type runtime est null.
+                </p>
+                <ul
+                    class="uk-tab"
+                    uk-switcher="connect: #fork-event-targets"
+                    data-testid="array-event-switcher"
+                >
+                    <li><button type="button">Premier panneau</button></li>
+                    <li><button type="button">Second panneau</button></li>
+                </ul>
+                <ul id="fork-event-targets" class="uk-switcher">
+                    <li>
+                        <button
+                            type="button"
+                            uk-switcher-item="next"
+                            data-testid="array-event-trigger"
+                        >
+                            Avancer depuis le panneau
+                        </button>
+                    </li>
+                    <li data-testid="array-event-result">Événement lié à une cible tableau.</li>
+                </ul>
+            </section>
+            <section aria-labelledby="compatibility-icons">
+                <h2 id="compatibility-icons">Compatibilité des icônes UIkit</h2>
+                <div class="fork-assets-list">
+                    <span>
+                        <span uk-icon="icon: apple" data-testid="legacy-apple"></span>
+                        Alias Apple vers Tabler brand-apple
+                    </span>
+                    <span>
+                        <span
+                            class="uk-ti uk-ti-brand-apple"
+                            data-testid="brand-apple-reference"
+                            aria-hidden="true"
+                        ></span>
+                        Référence brand-apple
+                    </span>
+                    <span>
+                        <span
+                            class="uk-ti uk-ti-apple"
+                            data-testid="fruit-apple-reference"
+                            aria-hidden="true"
+                        ></span>
+                        Référence apple (fruit)
+                    </span>
+                    <button
+                        class="uk-close"
+                        uk-close
+                        type="button"
+                        aria-label="Fermer"
+                        data-testid="close-icon"
+                    ></button>
+                    <span
+                        uk-spinner
+                        role="status"
+                        aria-label="Chargement"
+                        data-testid="spinner-icon"
+                    ></span>
+                    <span dir="rtl">
+                        <a
+                            href="#compatibility-icons"
+                            uk-slidenav-next
+                            aria-label="Élément suivant"
+                            data-testid="rtl-next-icon"
+                        ></a>
+                    </span>
+                    <span dir="ltr">
+                        <a
+                            href="#compatibility-icons"
+                            uk-slidenav-next
+                            aria-label="Référence suivante LTR"
+                            data-testid="ltr-next-reference"
+                        ></a>
+                        <a
+                            href="#compatibility-icons"
+                            uk-slidenav-previous
+                            aria-label="Référence précédente LTR"
+                            data-testid="ltr-previous-reference"
+                        ></a>
+                    </span>
+                </div>
+            </section>
         </main>
         <script src="../dist/js/uikit.js"></script>
     </body>

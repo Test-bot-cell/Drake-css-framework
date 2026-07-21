@@ -1,7 +1,7 @@
 # Third-party notices
 
 This local fork retains UIkit's MIT notice in `LICENSE.md` and adds the
-following first-party assets to the distribution.
+following third-party assets to the distribution.
 
 ## Tabler Icons 3.45.0 — Outline
 

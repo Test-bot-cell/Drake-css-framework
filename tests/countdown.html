@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Countdown - UIkit tests</title>
-        <script src="js/test.js"></script>
+        <script src="../dist/js/tests/test.js"></script>
     </head>
 
     <body>
@@ -701,16 +701,5 @@
 
         </div>
 
-        <script>
-
-            let date = new Date(Date.now());
-            date.setDate(date.getDate() + 7);
-            date = date.toISOString();
-
-            for (const el of UIkit.util.$$('[uk-countdown]')) {
-                el.setAttribute('date', date);
-            }
-
-        </script>
     </body>
 </html>

@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Modal - UIkit tests</title>
-        <script src="js/test.js"></script>
+        <script src="../dist/js/tests/test.js"></script>
     </head>
 
     <body>
@@ -456,42 +456,6 @@
             </div>
         </div>
 
-        <script>
-            const { modal, util: { on } } = UIkit;
-
-            on('#js-modal-dialog', 'click', e => {
-                e.preventDefault();
-                e.target.blur();
-                modal.dialog('<p class="uk-modal-body">UIkit dialog!</p>');
-            });
-
-            on('#js-modal-alert', 'click', async e => {
-                e.preventDefault();
-                e.target.blur();
-                await modal.alert('UIkit alert!');
-                console.log('Alert closed.');
-            });
-
-            on('#js-modal-confirm', 'click', async e => {
-                e.preventDefault();
-                e.target.blur();
-
-                try {
-                    await modal.confirm('UIkit confirm!');
-                    console.log('Confirmed.');
-                } catch (e) {
-                    console.log('Rejected.')
-                }
-            });
-
-            on('#js-modal-prompt', 'click', async e => {
-                e.preventDefault();
-                e.target.blur();
-                const name = await modal.prompt('Name:', 'Your name');
-                console.log('Prompted:', name);
-            });
-
-          </script>
 
     </body>
 </html>

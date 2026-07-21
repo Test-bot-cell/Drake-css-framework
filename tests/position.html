@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Position - UIkit tests</title>
-        <script src="js/test.js"></script>
+        <script src="../dist/js/tests/test.js"></script>
         <style>
 
             /* JavaScript */
@@ -367,70 +367,6 @@
 
         </div>
 
-        <script>
-
-            const {$, $$, css, getEventPos, on, offset, positionAt} = UIkit.util;
-            let boundary = $('#js-boundary');
-            let element = $('#js-element');
-            let target = $('#js-target');
-            let offsetX;
-            let offsetY;
-
-            function position() {
-                positionAt(
-                    element,
-                    target,
-                    {
-                        boundary,
-                        attach:{
-                            element: [$('#js-element_x').value, $('#js-element_y').value],
-                            target: [$('#js-target_x').value, $('#js-target_y').value]
-                        },
-                        offset: [$('#js-offset_x').value, $('#js-offset_y').value],
-                        placement: [$('#js-placement_x').value, $('#js-placement_y').value]
-                    }
-                );
-            }
-
-            on(window, 'dragstart', e => {
-                e.dataTransfer.setDragImage(new Image(), 0, 0);
-
-                offsetX = Math.round(e.pageX - offset(target).left);
-                offsetY = Math.round(e.pageY - offset(target).top);
-
-            });
-
-            let lastPos;
-            on(window, 'dragover', e => {
-
-                const pos = getEventPos(e);
-
-                if (lastPos?.x === pos.x && lastPos?.y === pos.y) {
-                    return;
-                }
-                lastPos = pos;
-
-                e.preventDefault();
-
-                // positions target at mouse cursor
-                positionAt(
-                    target,
-                    boundary,
-                    {
-                        offset: [e.pageX - offset(boundary).left - offsetX, e.pageY - offset(boundary).top - offsetY]
-                    }
-                );
-
-                // positions element at target
-                position();
-            });
-
-            on($$('select,input'), 'change', position);
-            on(window, 'scroll', position, { passive: true });
-
-            position();
-
-        </script>
 
     </body>
 </html>

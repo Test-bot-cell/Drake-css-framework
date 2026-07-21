@@ -1,7 +1,7 @@
 import camelize from 'camelcase';
 import path from 'node:path';
 import pLimit from 'p-limit';
-import { args, compile, glob, icons } from './util.js';
+import { args, compile, glob } from './util.js';
 
 const limit = pLimit(Number(process.env.cpus || 2));
 
@@ -20,8 +20,8 @@ if (args.h || args.help) {
 
         examples:
 
-        build.js // builds all of uikit, including icons, components and does minification (implies 'all')
-        build.js uikit icons -d // builds uikit and the icons, skipping the minification and components
+        build.js // builds all of uikit and its components, including minification (implies 'all')
+        build.js uikit tests -d // builds uikit and the test harness without minification
         build.js core lightbox -d // builds uikit-core and the lightbox, skipping the minification
 
         available components:
@@ -49,20 +49,12 @@ await Promise.all(Object.values(tasks).map((task) => limit(task)));
 
 function getBundleTasks() {
     return {
-        core: () => compile('src/js/uikit-core.js', 'dist/js/uikit-core'),
+        core: () => compile('src/js/uikit-core.ts', 'dist/js/uikit-core'),
 
-        uikit: () => compile('src/js/uikit.js', 'dist/js/uikit'),
-
-        icons: async () =>
-            compile('src/js/uikit-icons.js', 'dist/js/uikit-icons', {
-                name: 'icons',
-                virtualModules: {
-                    'virtual:icons': await icons('custom/icons/*.svg', 'src/images/icons/*.svg'),
-                },
-            }),
+        uikit: () => compile('src/js/uikit.ts', 'dist/js/uikit'),
 
         tests: async () =>
-            compile('tests/js/index.js', 'tests/js/test', {
+            compile('tests/js/index.ts', 'dist/js/tests/test', {
                 name: 'test',
                 virtualModules: { 'virtual:tests': await getTestFiles() },
             }),
@@ -72,20 +64,17 @@ function getBundleTasks() {
 async function getComponentTasks() {
     const components = {};
 
-    const files = [
-        ...(await glob('src/js/components/*.js', ['**/index.js'])),
-        ...(await glob('src/js/components/*.ts', ['**/index.ts'])),
-    ];
+    const files = await glob('src/js/components/*.ts', ['**/index.ts']);
 
     for (const file of files) {
         const name = path.basename(file, path.extname(file));
 
         components[name] = () =>
-            compile('src/js/component.js', `dist/js/components/${name}`, {
+            compile('src/js/component.ts', `dist/js/components/${name}`, {
                 name,
                 external: ['uikit', 'uikit-util'],
                 globals: { uikit: 'UIkit', 'uikit-util': 'UIkit.util' },
-                aliases: { component: path.resolve('src/js/components', name) },
+                aliases: { component: path.resolve('src/js/components', `${name}.ts`) },
                 virtualModules: { 'virtual:name': `'${camelize(name)}'` },
             });
     }

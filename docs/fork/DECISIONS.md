@@ -38,7 +38,8 @@ Le tag amont étant léger et non signé, le fork enregistre le SHA et crée un 
 ## D-002 — TypeScript pour le runtime navigateur
 
 - Date : 2026-07-21
-- Statut : **Acceptée**
+- Statut : **Remplacée**
+- Remplacée par : D-011, le 2026-07-21
 
 ### Décision
 
@@ -163,7 +164,8 @@ Aucun fichier `.woff` ou `.woff2` autonome n’est distribué.
 ## D-007 — Sources de styles et artefacts générés
 
 - Date : 2026-07-21
-- Statut : **Acceptée**
+- Statut : **Remplacée**
+- Remplacée par : D-011, le 2026-07-21
 
 ### Décision
 
@@ -240,6 +242,63 @@ Toute modification passe par :
 
 - Un changement de code contradictoire avec la charte reste non conforme même s’il compile.
 - Ce registre conserve l’historique des décisions remplacées.
+
+## D-011 — Frontend TypeScript-only, HTML-first, mobile-first et Tabler-only
+
+- Date : 2026-07-21
+- Statut : **Acceptée**
+- Remplace : D-002 et D-007
+- Complète : D-004 et D-005
+
+### Contexte
+
+La coexistence transitoire de sources JavaScript et TypeScript, le catalogue SVG historique
+et une compatibilité centrée sur le rendu client ne garantissent ni une architecture sans
+JavaScript source frontend, ni l'indexabilité du HTML initial, ni une conception réellement
+mobile-first. UIkit amont doit donc être adapté à ces contraintes, et pas seulement recompilé.
+
+### Options examinées
+
+1. Conserver la migration incrémentale avec `allowJs` et repousser les garanties à la release.
+2. Réécrire le cœur en Elm avec une couche d'interopération JavaScript.
+3. Imposer TypeScript comme unique source navigateur, HTML rendu ou prérendu comme autorité
+   de contenu, CSS mobile-first et Tabler CSS comme unique catalogue livré.
+
+La troisième option est retenue. La première autoriserait durablement deux sources frontend ;
+la seconde changerait le modèle DOM et nécessiterait une interopération contraire au but.
+
+### Décision
+
+- Toute source exécutée par un navigateur est en TypeScript strict. Le JavaScript compilé
+  indispensable est distribué exclusivement sous `dist/`. Les scripts Node.js de build
+  peuvent rester en JavaScript lorsqu'ils ne sont pas du frontend.
+- `src/less/` reste la source canonique des styles ; `src/scss/` et `dist/` sont générés et
+  jamais corrigés manuellement. Le bundle historique `tests/js/test.js` est supprimé au
+  profit de sources de test TypeScript et de sorties navigateur sous `dist/`.
+- L'intégralité du contenu, de la navigation, des liens, titres, métadonnées, canonical,
+  directives robots et données structurées est présente dans la réponse HTTP ou le HTML
+  prérendu. Le TypeScript est une amélioration progressive non bloquante.
+- La CSS part d'une base fonctionnelle à 320 pixels CSS et enrichit la mise en page par
+  media queries `min-width`. Mobile et bureau conservent un contenu et une sémantique
+  équivalents.
+- Le profil SEO technique couvre les statuts HTTP, liens `<a href>`, données structurées,
+  images, titres et Core Web Vitals, conformément à `MOBILE_FIRST_SEO.md`.
+- Tabler Icons Outline 3.45.0 en CSS remplace toutes les icônes UIkit livrées. Aucun registre,
+  bundle ou catalogue SVG JavaScript n'est distribué.
+
+### Conséquences
+
+- La coexistence historique permise par D-002 cesse d'être conforme ; toutes les sources
+  JavaScript navigateur restantes sont une dette bloquant la release.
+- Les composants qui fabriquent du contenu indispensable côté client doivent être refondus
+  autour d'un HTML initial complet et d'un repli natif.
+- Les anciens noms d'icônes peuvent survivre uniquement comme alias CSS documentés vers
+  Tabler, sans second catalogue.
+- Les gates vérifient l'absence de source JavaScript navigateur et de registre SVG JS, le
+  fonctionnement sans runtime, le reflow à 320 pixels CSS, la parité mobile/bureau, le SEO
+  technique et les budgets de performance.
+- Les divergences avec UIkit amont sont assumées et doivent être réappliquées lors de chaque
+  synchronisation.
 
 ## Modèle d’une nouvelle décision
 

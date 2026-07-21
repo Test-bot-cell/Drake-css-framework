@@ -47,7 +47,10 @@ Avant d’ouvrir une branche de sync :
 2. inventorier les commits sur `src/js/`, `src/less/`, le build, le packaging et les tests ;
 3. relever les changements d’API, d’accessibilité, de navigateurs et de licences ;
 4. vérifier si l’amont modifie les icônes, les fontes ou leur mécanisme de build ;
-5. décider si la mise à jour est utile et proportionnée au coût de portage TypeScript.
+5. relever tout changement de rendu client, app shell, navigation, métadonnées ou SEO ;
+6. relever les styles desktop-first, `max-width` de mise en page et écarts de reflow à
+   320 pixels CSS ;
+7. décider si la mise à jour est utile et proportionnée au coût de portage TypeScript.
 
 Une version amont n’est jamais adoptée seulement parce qu’elle est plus récente.
 
@@ -106,18 +109,26 @@ Lorsque le fichier amont est encore JavaScript et son équivalent du fork TypeSc
 4. conserver les noms publics et l’ordre des effets ;
 5. relire séparément le port fonctionnel et les adaptations de types.
 
-Le code généré par comparaison textuelle ne remplace pas cette revue sémantique.
+Le JavaScript amont n'est jamais ajouté comme source transitoire : le port TypeScript et ses
+tests sont une condition d'intégration. Le code généré par comparaison textuelle ne remplace
+pas cette revue sémantique.
 
 ### 5.6 Régénérer
 
 Les sources canoniques sont modifiées, puis les sorties sont entièrement régénérées.
 
 - `src/less/` est canonique pour les styles.
-- `src/scss/`, `dist/` et `tests/js/test.js` sont générés.
+- `src/scss/` et `dist/` sont générés.
+- La sortie historique `tests/js/test.js` n'est pas restaurée ; ses changements sont portés
+  dans les sources TypeScript de test et compilés sous `dist/`.
 - Les CSS Tabler et Inter proviennent exclusivement de leurs générateurs.
 
 Les sorties amont ne doivent pas être conservées si elles contredisent les sources du fork ou
 réintroduisent des assets interdits.
+
+Le même principe s'applique aux divergences constitutionnelles : une mise à jour ne peut
+réintroduire un registre SVG JavaScript, rendre du contenu indispensable côté client,
+restaurer une cascade desktop-first ou différencier le contenu mobile et bureau.
 
 ### 5.7 Valider
 
@@ -133,22 +144,26 @@ La branche de sync exécute au minimum :
     git diff --exit-code
 
 Ces commandes sont exécutées sous Node.js 24.18.0 et pnpm 11.4.0. Le catalogue `tests/` est
-ensuite vérifié en LTR et RTL, avec un smoke test visuel et les tests d’interaction touchés.
+ensuite vérifié en LTR et RTL, avec les gates G10 à G14 : sources frontend, HTML/SEO sans
+runtime, mobile-first, performance et absence d'icônes héritées. Le contrôle inclut un smoke
+test visuel et les tests d’interaction touchés.
 
 `git diff --exit-code` s’exécute après un second passage de génération ou depuis l’état
 attendu qui inclut les sorties régénérées. Tout diff résiduel non expliqué bloque la sync.
 
 ## 6. Zones de conflit connues
 
-| Zone | Risque | Règle |
-| --- | --- | --- |
-| `src/js/api/` | cycle de vie et types centraux | préserver le comportement puis adapter les types |
-| `src/js/util/` | très grand rayon d’impact | tests ciblés et conversion isolée |
-| `src/js/core/icon*` et `src/js/mixin/svg*` | mécanisme d’icônes divergent | ne pas réintroduire le catalogue SVG JS |
-| `src/less/components/variables.less` | Inter comme police globale | conserver la variable du fork |
-| `build/` et `package.json` | TypeScript et générateurs d’assets | fusion manuelle, versions épinglées |
-| `src/scss/` et `dist/` | fichiers générés | résoudre dans les sources puis régénérer |
-| `tests/js/test.js` | bundle généré | ne pas éditer |
+| Zone                                       | Risque                                      | Règle                                                            |
+| ------------------------------------------ | ------------------------------------------- | ---------------------------------------------------------------- |
+| `src/js/api/`                              | cycle de vie et types centraux              | préserver le comportement puis adapter les types                 |
+| `src/js/util/`                             | très grand rayon d’impact                   | tests ciblés et conversion isolée                                |
+| `src/js/core/icon*` et `src/js/mixin/svg*` | mécanisme d’icônes divergent                | ne pas réintroduire le catalogue SVG JS                          |
+| `src/less/components/variables.less`       | Inter comme police globale                  | conserver la variable du fork                                    |
+| `src/less/` et breakpoints                 | cascade amont potentiellement desktop-first | préserver la base 320 px et les enrichissements `min-width`      |
+| exemples et gabarits                       | contenu ou navigation dépendants du runtime | préserver HTML initial, href, métadonnées et données structurées |
+| `build/` et `package.json`                 | TypeScript et générateurs d’assets          | fusion manuelle, versions épinglées                              |
+| `src/scss/` et `dist/`                     | fichiers générés                            | résoudre dans les sources puis régénérer                         |
+| `tests/js/test.js`                         | bundle navigateur historique hors `dist/`   | ne pas restaurer ; porter les tests en TypeScript                |
 
 ## 7. Discipline visant à réduire la divergence
 
@@ -161,7 +176,8 @@ Les contributions propres au fork **DEVRAIENT** :
 - garder un lien vers l’issue ou le commit amont lorsqu’une correction est portée ;
 - proposer à l’amont les correctifs génériques qui ne dépendent pas des choix du fork.
 
-Réduire la divergence ne permet pas de violer les décisions TypeScript, Tabler ou Inter.
+Réduire la divergence ne permet pas de violer les décisions TypeScript, Tabler, Inter,
+HTML-first, mobile-first ou SEO.
 
 ## 8. Acceptation, report ou rejet
 
@@ -184,7 +200,9 @@ accélérée. Il ne peut toutefois contourner :
 - le contrôle de types ;
 - la compilation ;
 - les tests ciblés ;
-- la vérification des assets interdits.
+- la vérification des assets interdits ;
+- l'audit des sources frontend et des registres SVG JavaScript ;
+- le fonctionnement sans runtime, le reflow 320 pixels CSS et le SEO technique ciblé.
 
 Les gates plus larges éventuellement différés doivent être exécutés avant la release suivante
 et faire l’objet d’un suivi explicite.

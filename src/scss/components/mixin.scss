@@ -6,7 +6,7 @@
 //
 // ========================================================================
 
-// SVG
+// Tabler CSS masks
 // ========================================================================
 
 /// Replace `$search` with `$replace` in `$string`
@@ -26,9 +26,9 @@
     @return $string;
 }
 
-@mixin svg-fill($src, $color-default, $color-new) {
-    $replace-src: str-replace($src, $color-default, $color-new) !default;
+@mixin tabler-background($src, $color, $property: background-image) {
+    $replace-src: str-replace($src, '%23000', $color) !default;
     $replace-src: str-replace($replace-src, '#', '%23');
     $replace-src: string.quote($replace-src);
-    background-image: url($replace-src);
+    #{$property}: url($replace-src);
 }

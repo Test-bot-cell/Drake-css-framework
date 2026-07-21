@@ -30,6 +30,8 @@
  */
 
 .uk-slidenav {
+    --uk-icon-width: 14px;
+    --uk-icon-height: 24px;
     padding: $slidenav-padding-vertical $slidenav-padding-horizontal;
     color: $slidenav-color;
     @if(meta.mixin-exists(hook-slidenav)) {@include hook-slidenav();}
@@ -72,6 +74,8 @@
  ========================================================================== */
 
 .uk-slidenav-large {
+    --uk-icon-width: 25px;
+    --uk-icon-height: 40px;
     padding: $slidenav-large-padding-vertical $slidenav-large-padding-horizontal;
     @if(meta.mixin-exists(hook-slidenav-large)) {@include hook-slidenav-large();}
 }

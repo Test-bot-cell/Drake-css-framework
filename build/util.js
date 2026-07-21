@@ -11,8 +11,10 @@ import { default as esbuild, minify as esbuildMinify } from 'rollup-plugin-esbui
 import { optimize } from 'svgo';
 
 const limit = pLimit(Number(process.env.cpus || 2));
+const COPYRIGHT_END_YEAR = 2026;
 
-export const banner = `/*! UIkit ${await getVersion()} | https://www.getuikit.com | (c) 2014 - ${new Date().getFullYear()} YOOtheme | MIT License */\n`;
+// Keep generated output byte-for-byte stable. A reviewed legal update may advance this year.
+export const banner = `/*! UIkit ${await getVersion()} | https://www.getuikit.com | (c) 2014 - ${COPYRIGHT_END_YEAR} YOOtheme | MIT License */\n`;
 
 const argv = minimist(process.argv.slice(2));
 
@@ -88,7 +90,7 @@ export async function compile(
 
             alias({
                 entries: {
-                    'uikit-util': path.resolve('./src/js/util/index.js'),
+                    'uikit-util': path.resolve('./src/js/util/index.ts'),
                     ...aliases,
                 },
             }),
@@ -171,26 +173,8 @@ export async function compile(
             }
         });
 
-        await watcher.close();
+        return watcher;
     }
-}
-
-export async function icons(...src) {
-    let files = {};
-    for (const pattern of src) {
-        for await (const file of fs.glob(pattern)) {
-            files[path.basename(file, '.svg')] ??= limit(
-                async () => await optimizeSvg(await read(file)),
-            );
-        }
-    }
-
-    const sorted = {};
-    for (const key of Object.keys(files).sort()) {
-        sorted[key] = await files[key];
-    }
-
-    return JSON.stringify(sorted, null, '    ');
 }
 
 function ucfirst(str) {

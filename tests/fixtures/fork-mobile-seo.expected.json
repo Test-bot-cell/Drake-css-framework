@@ -1,0 +1,38 @@
+{
+    "schemaVersion": 1,
+    "page": {
+        "file": "tests/fork-mobile-seo.html",
+        "route": "/tests/fork-mobile-seo.html",
+        "status": 200,
+        "language": "fr",
+        "title": "UIkit TS — démonstration HTML-first et mobile-first",
+        "description": "Page de référence UIkit TS rendue en HTML complet, navigable sans JavaScript et conçue mobile-first.",
+        "canonical": "https://uikit-ts.example/tests/fork-mobile-seo.html",
+        "robots": "index,follow,max-image-preview:large"
+    },
+    "missingRoute": {
+        "route": "/tests/fixtures/does-not-exist.html",
+        "status": 404
+    },
+    "viewports": [
+        {
+            "width": 320,
+            "height": 640
+        },
+        {
+            "width": 960,
+            "height": 900
+        },
+        {
+            "width": 1440,
+            "height": 1000
+        }
+    ],
+    "performanceBudgets": {
+        "percentile": 75,
+        "lcpMs": 2500,
+        "inpMs": 200,
+        "cls": 0.1,
+        "labTbtMs": 200
+    }
+}

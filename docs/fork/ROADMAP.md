@@ -22,8 +22,11 @@ sortie doivent être vérifiés sur un checkout propre.
 2. Le système de types précède la migration massive.
 3. Les changements d’assets sont isolés des changements de runtime.
 4. Les composants simples valident le modèle avant les grappes complexes.
-5. La compatibilité complète précède la première release stable.
-6. L’adaptateur Elm éventuel vient après la stabilité et ne bloque aucun jalon du cœur.
+5. Le HTML sans runtime, la base 320 pixels CSS et le SEO sont caractérisés à chaque phase,
+   pas ajoutés en fin de migration.
+6. Aucun lot publiable ne conserve une source JavaScript navigateur ni un registre SVG JS.
+7. La compatibilité complète précède la première release stable.
+8. L’adaptateur Elm éventuel vient après la stabilité et ne bloque aucun jalon du cœur.
 
 ## Phase 0 — Fondation et gouvernance
 
@@ -44,7 +47,7 @@ pnpm 11.4.0.
 
 ### Critères de sortie
 
-- les sept documents normatifs sont cohérents et suivis ;
+- les neuf documents normatifs sont cohérents et suivis ;
 - `git rev-parse v3.25.20^{commit}` retourne le SHA de base ;
 - le tag de base local annoté est présent ;
 - la chaîne officielle est déclarée dans les fichiers de configuration ;
@@ -53,7 +56,11 @@ pnpm 11.4.0.
 
 ## Phase 1 — Référence de compatibilité
 
-- État : **Planifié**
+- État : **En cours**
+
+Avancement au 2026-07-21 : les régressions critiques du fork, le chargement Node sans globals
+navigateur et deux fixtures Chrome sont automatisés. La matrice interactive C0 à C3 de chaque
+page historique, notamment destruction/focus/RTL, reste à compléter avant release.
 
 ### Portée
 
@@ -62,6 +69,11 @@ pnpm 11.4.0.
 - établir les scénarios critiques automatisables ;
 - enregistrer tailles et empreintes des bundles de référence ;
 - créer les tests de mutation DOM, destruction, clavier, focus, ARIA et RTL.
+- inventorier le contenu, la navigation et les replis disponibles sans JavaScript ;
+- auditer la cascade à 320 pixels CSS et les breakpoints desktop-first à remplacer ;
+- capturer le HTML initial, les statuts, liens, métadonnées, données structurées, images et
+  titres ;
+- établir les mesures de référence LCP, CLS et TBT des pages représentatives.
 
 ### Critères de sortie
 
@@ -71,13 +83,17 @@ pnpm 11.4.0.
 - les comportements connus qui semblent anormaux sont enregistrés et non « corrigés » sans
   décision ;
 - la référence peut comparer un build du fork au comportement amont.
+- chaque composant possède une attente documentée avec JavaScript désactivé ;
+- les écarts mobile-first et SEO de l'amont sont inventoriés comme divergences à corriger.
 
 ## Phase 2 — Pipeline d’assets
 
-- État : **En cours**
+- État : **Terminé**
 
-Avancement au 2026-07-21 : les deux CSS, leurs générateurs et le gate d’intégrité sont en
-place. L’adaptation des composants internes au nouveau mécanisme d’icônes reste à faire.
+Preuves au 2026-07-21 : 5 112 masques Outline et 184 alias CSS sont générés, les 190 fichiers
+SVG d'icônes historiques et `uikit-icons.js` sont supprimés, les 14 masques core gardent leur
+notice MIT après minification, Inter roman/italic est intégré, et `pnpm check-assets` audite
+également la packlist npm et ses notices.
 
 ### Portée
 
@@ -86,6 +102,8 @@ place. L’adaptation des composants internes au nouveau mécanisme d’icônes 
 - relier Inter à la source Less canonique ;
 - ajouter les contrôles de versions, nombres, empreintes, licences et fichiers interdits ;
 - documenter les besoins CSP.
+- cartographier chaque ancienne icône UIkit vers Tabler et générer les alias CSS nécessaires ;
+- supprimer `uikit-icons.js` et tout registre, objet de glyphes ou injection SVG d'icônes.
 
 ### Critères de sortie
 
@@ -98,40 +116,51 @@ place. L’adaptation des composants internes au nouveau mécanisme d’icônes 
 - les bannières MIT et SIL OFL applicables sont conservées ;
 - `pnpm check-assets` vérifie les versions et empreintes ;
 - deux builds successifs sont identiques ;
-- les composants internes restent accessibles avec le nouveau mécanisme d’icônes.
+- les composants internes restent accessibles avec le nouveau mécanisme d’icônes ;
+- chaque ancienne icône livrée résout vers Tabler CSS ou possède une migration documentée ;
+- aucun registre ou bundle d'icônes SVG JavaScript n'est présent dans la distribution.
 
-## Phase 3 — Fondation TypeScript
+## Phase 3 — Port intégral TypeScript
 
 - État : **En cours**
 
-Avancement au 2026-07-21 : le mode strict avec coexistence JavaScript est actif et deux
-utilitaires pilotes sont migrés. Le modèle typé central des composants reste à construire.
+Avancement au 2026-07-21 : le port source est complet, `allowJs` est retiré, le typecheck strict
+et le gate sans JavaScript auteur sont verts. La phase reste ouverte uniquement sur son critère
+de comparaison comportementale C0 à C3 exhaustive, suivi par la phase 1.
 
 ### Portée
 
-- ajouter la configuration TypeScript stricte et la coexistence `allowJs` ;
+- établir une configuration TypeScript stricte sans `allowJs` pour le frontend ;
 - connecter `tsc --noEmit` aux gates ;
+- ajouter le gate automatisé qui refuse toute source JavaScript navigateur ;
+- porter mécaniquement toutes les sources navigateur restantes de `.js` vers `.ts`, sans
+  changement fonctionnel ;
 - définir les types du runtime, du DOM et des composants ;
 - créer `defineComponent` et `defineMixin` ou leurs équivalents ;
 - adapter Rollup/esbuild aux entrées `.ts` sans changer les bundles publics.
 
 ### Critères de sortie
 
-- un fichier TypeScript et un fichier JavaScript historique peuvent cohabiter dans un même
-  bundle ;
 - le typecheck strict est vert ;
+- aucune source JavaScript destinée au navigateur n'existe hors des sorties compilées de
+  `dist/` ;
 - aucun `any` structurel ne masque le modèle de composants ;
 - les sorties UMD de référence démarrent et s’initialisent automatiquement ;
-- un composant pilote est migré sans différence C0 à C3.
+- chaque bundle public est produit exclusivement depuis des sources TypeScript sans
+  différence C0 à C3.
 
 ## Phase 4 — Utilitaires et noyau
 
-- État : **Planifié**
+- État : **En cours**
+
+Avancement au 2026-07-21 : `src/js/util/` et `src/js/api/` sont intégralement typés et le smoke
+SSR/Node est automatisé. Les scénarios complets de reconnexion, destruction et plugins restent
+à étendre dans la matrice de compatibilité.
 
 ### Portée
 
-- migrer `src/js/util/` ;
-- migrer `src/js/api/` ;
+- affiner les types de `src/js/util/` ;
+- affiner les types de `src/js/api/` ;
 - typer l’expando DOM, les options, la coercition, les observers et le scheduler ;
 - conserver le cycle de vie et les hooks.
 
@@ -141,22 +170,28 @@ utilitaires pilotes sont migrés. Le modèle typé central des composants reste 
 - le contrôle strict est vert sans exception globale ;
 - les tests d’ajout, retrait, reconnexion et mutation d’attribut réussissent ;
 - les plugins et composants customisés documentés restent utilisables ;
+- le contenu et la navigation essentiels du noyau restent disponibles sans runtime ;
 - les bundles restent dans le budget de taille décidé à partir de la référence.
 
 ## Phase 5 — Mixins et composants core
 
-- État : **Planifié**
+- État : **En cours**
+
+Avancement au 2026-07-21 : tous les mixins et composants core sont en TypeScript strict, les
+icônes internes utilisent les masques CSS et des régressions navigateur couvrent animation,
+props et cibles événement multiples. Les interactions C0 à C3 de chaque groupe restent le gate
+de sortie non atteint.
 
 ### Portée
 
-- migrer les mixins transverses ;
-- migrer d’abord les composants stateless ou simples ;
-- migrer ensuite les groupes :
-  - modal, offcanvas, lightbox et tooltip ;
-  - drop, dropdown et dropnav ;
-  - slider, slideshow et parallax ;
-  - sticky, sortable et upload ;
-- migrer les entrées core.
+- typer les mixins transverses ;
+- adapter d’abord les composants stateless ou simples ;
+- adapter ensuite les groupes :
+    - modal, offcanvas, lightbox et tooltip ;
+    - drop, dropdown et dropnav ;
+    - slider, slideshow et parallax ;
+    - sticky, sortable et upload ;
+- typer les entrées core.
 
 ### Critères de sortie
 
@@ -164,19 +199,32 @@ utilitaires pilotes sont migrés. Le modèle typé central des composants reste 
 - le clavier, le focus, ARIA et RTL sont validés ;
 - aucun listener, observer ou nœud résiduel n’est détecté après destruction ;
 - les conversions sont séparées des corrections fonctionnelles ;
-- les composants core ne contiennent plus de JavaScript source historique.
+- les composants core ne contiennent plus de JavaScript source historique ;
+- chaque composant contient son HTML utile avant runtime, reflow à 320 pixels CSS et expose
+  un repli natif pour l'action essentielle ;
+- aucun composant core ne fabrique une icône depuis un registre SVG JavaScript.
 
 ## Phase 6 — Composants optionnels et types publics
 
-- État : **Planifié**
+- État : **En cours**
+
+Avancement au 2026-07-21 : les composants optionnels et les sources du catalogue navigateur
+sont portés en TypeScript ; la fixture mobile/SEO, les gates G10 à G13 et les bundles séparés
+sont présents. Les déclarations consommateur `.d.ts`, une éventuelle sortie ESM et la conversion
+des exemples indexables au profil complet restent à réaliser.
 
 ### Portée
 
-- migrer les composants optionnels ;
+- typer les composants optionnels ;
 - publier des déclarations `.d.ts` cohérentes ;
 - ajouter une sortie ESM si elle ne modifie pas les sorties historiques ;
 - typer l’API globale, les méthodes de composants et les plugins ;
-- documenter les imports modulaires.
+- documenter les imports modulaires ;
+- convertir les exemples et tests navigateur en sources TypeScript avec sorties sous `dist/` ;
+- rendre les exemples côté serveur ou les prérendre avec contenu, navigation et métadonnées
+  complets ;
+- refondre la cascade en base 320 pixels CSS et enrichissements `min-width` ;
+- ajouter les assertions SEO, sans runtime, reflow, cibles et budgets de performance.
 
 ### Critères de sortie
 
@@ -184,7 +232,9 @@ utilitaires pilotes sont migrés. Le modèle typé central des composants reste 
 - les déclarations passent des tests de consommation ;
 - UMD, global et composants séparés restent compatibles ;
 - l’ESM, s’il est livré, ne duplique pas inutilement le runtime ;
-- aucun consommateur historique couvert par la matrice ne régresse.
+- aucun consommateur historique couvert par la matrice ne régresse ;
+- tous les exemples passent le profil `MOBILE_FIRST_SEO.md` ;
+- la parité du contenu mobile/bureau et les objectifs Core Web Vitals sont démontrés.
 
 ## Phase 7 — Stabilisation et release candidate
 
@@ -201,9 +251,13 @@ utilitaires pilotes sont migrés. Le modèle typé central des composants reste 
 
 ### Critères de sortie
 
-- gates G1 à G9 verts sous Node.js 24.18.0 et pnpm 11.4.0 ;
+- gates G1 à G14 verts sous Node.js 24.18.0 et pnpm 11.4.0 ;
 - catalogue `tests/` validé en LTR et RTL ;
 - distribution conforme aux contrats Tabler et Inter ;
+- aucune source JavaScript navigateur hors `dist/` et aucun registre SVG JS ;
+- HTML initial complet, navigation sans runtime, statuts HTTP et SEO technique validés ;
+- reflow 320 pixels CSS, cibles et parité mobile/bureau validés ;
+- budgets LCP/INP/CLS validés avec les preuves disponibles ;
 - notices légales présentes après minification ;
 - deuxième build sans diff ;
 - aucun blocage constitutionnel ou exception de release ouverte ;

@@ -185,12 +185,19 @@ ul.uk-nav-sub {
  ========================================================================== */
 
 .uk-nav-parent-icon {
+    --uk-icon-width: 12px;
+    --uk-icon-height: 12px;
     flex: none;
     margin-left: auto;
     transition: transform 0.3s ease-out;
 }
 
 .uk-nav > li.uk-open > a .uk-nav-parent-icon { transform: rotateX(180deg); }
+
+.uk-nav-primary .uk-nav-parent-icon {
+    --uk-icon-width: 14px;
+    --uk-icon-height: 14px;
+}
 
 
 /* Header

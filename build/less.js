@@ -19,10 +19,6 @@ for await (const src of glob('custom/*.less')) {
 
     themes[theme] = { css: `../${dist}` };
 
-    if (fs.existsSync(`dist/js/uikit-icons-${theme}.js`)) {
-        themes[theme].icons = `../dist/js/uikit-icons-${theme}.js`;
-    }
-
     sources.push({ src, dist });
 }
 

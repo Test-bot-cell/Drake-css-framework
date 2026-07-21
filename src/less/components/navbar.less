@@ -294,6 +294,8 @@
  ========================================================================== */
 
 .uk-navbar-parent-icon {
+    --uk-icon-width: 12px;
+    --uk-icon-height: 12px;
     margin-left: @navbar-parent-icon-margin-left;
     transition: transform 0.3s ease-out;
 }
@@ -339,7 +341,16 @@
  */
 
 .uk-navbar-toggle-icon {
+    --uk-icon-width: 20px;
+    --uk-icon-height: 20px;
+    transition: transform 0.2s ease-in-out;
     .hook-navbar-toggle-icon();
+}
+
+.uk-navbar-toggle-icon[aria-expanded="true"],
+[aria-expanded="true"] .uk-navbar-toggle-icon {
+    --uk-ti-mask: var(--uk-tabler-icon-x);
+    transform: rotate(90deg);
 }
 
 /* Hover */

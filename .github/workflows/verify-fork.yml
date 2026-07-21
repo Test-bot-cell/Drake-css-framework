@@ -1,0 +1,43 @@
+name: Verify UIkit TS fork
+
+on:
+  pull_request:
+  push:
+    branches:
+      - 'fork/main'
+      - 'feat/**'
+      - 'fix/**'
+      - 'refactor/**'
+      - 'sync/**'
+      - 'test/**'
+      - 'docs/**'
+      - 'chore/**'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install pnpm 11.4.0
+        uses: pnpm/action-setup@v6
+        with:
+          version: 11.4.0
+
+      - name: Install Node.js 24.18.0
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24.18.0
+          cache: pnpm
+
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run constitutional gates
+        run: pnpm verify
+
+      - name: Verify generated outputs are reproducible
+        run: git diff --exit-code

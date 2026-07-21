@@ -9,6 +9,10 @@ Le fork vise un framework de progressive enhancement :
 
 - compatible avec UIkit 3.25.20 ;
 - maintenu en TypeScript strict ;
+- sans source JavaScript destinée au navigateur ;
+- fondé sur un HTML complet rendu côté serveur ou prérendu ;
+- conçu mobile-first à partir de 320 pixels CSS ;
+- protecteur des fondamentaux du SEO technique ;
 - autonome à l’exécution ;
 - reproductible ;
 - accessible ;
@@ -23,6 +27,10 @@ Le fork vise un framework de progressive enhancement :
 - **Source canonique** : fichier humainement modifié à partir duquel une sortie est générée.
 - **Distribution** : contenu de `dist/` et contenu destiné à un paquet ou une release.
 - **Compatibilité** : absence de différence observable non annoncée sur une surface protégée.
+- **HTML initial** : corps de la réponse HTTP ou document prérendu avant toute exécution du
+  runtime navigateur.
+- **Intégration conforme** : page, exemple ou gabarit utilisant le framework et respectant le
+  profil obligatoire de `MOBILE_FIRST_SEO.md`.
 
 ## 3. Base et traçabilité
 
@@ -41,17 +49,23 @@ Cette base **DOIT** rester identifiable dans l’historique. Une mise à jour am
 
 ### 4.1 TypeScript comme langage source
 
-Le runtime navigateur du fork **DOIT** converger vers TypeScript strict.
+Le runtime navigateur du fork **DOIT** être intégralement écrit en TypeScript strict.
 
-- Toute fonction runtime nouvelle **DOIT** être TypeScript.
-- Le JavaScript source historique est une dette de migration, pas une seconde option.
-- Le JavaScript généré reste le format d’exécution navigateur.
+- Toute source exécutée dans un navigateur **DOIT** être TypeScript avant compilation.
+- Aucun fichier JavaScript source navigateur **NE DOIT** subsister, y compris pendant la
+  migration ou dans les tests exécutés par un navigateur.
+- Le JavaScript compilé sous `dist/` reste le format d’exécution navigateur indispensable et
+  la seule forme JavaScript frontend distribuable.
+- Les scripts de build Node.js **PEUVENT** rester en JavaScript s'ils ne sont pas exécutés par
+  un navigateur et ne sont pas distribués comme runtime.
+- `allowJs` **NE DOIT PAS** couvrir le runtime navigateur.
 - Les types publics **DOIVENT** décrire la réalité runtime ; ils ne peuvent promettre une
   sûreté que l’implémentation ne respecte pas.
 - Le build **DOIT** séparer transpilation et contrôle de types.
 
-La migration **DOIT** être progressive et comportementalement neutre. Une conversion et une
-évolution fonctionnelle ne doivent pas être confondues dans le même changement.
+Le port **DOIT** être découpé en unités comportementalement neutres, sans instaurer de
+coexistence JavaScript/TypeScript. Une conversion et une évolution fonctionnelle ne doivent
+pas être confondues dans le même changement.
 
 ### 4.2 Elm hors du cœur
 
@@ -79,6 +93,11 @@ Les surfaces suivantes sont protégées :
 - LTR, RTL, responsive et préférences utilisateur ;
 - API globale et usage programmatique documentés.
 
+Cette compatibilité s'arrête lorsqu'un comportement historique contredit les piliers
+HTML-first, mobile-first, TypeScript-only ou Tabler-only. La divergence **DOIT** alors être
+inventoriée, couverte par une migration et ne peut jamais réintroduire la dépendance du
+contenu au runtime, une source JavaScript navigateur ou un registre d'icônes SVG.
+
 Une amélioration peut être acceptée si elle corrige un défaut démontré, mais elle **DOIT**
 posséder un test, une note de migration lorsqu’elle est incompatible et une décision lorsque
 le contrat change.
@@ -89,6 +108,12 @@ Le catalogue d’icônes **DOIT** être Tabler Icons 3.45.0 Outline, soit 5 112 
 est une CSS de masques contenant les tracés en données SVG encodées. Aucun fichier Tabler
 SVG autonome n’est distribué.
 
+Toutes les icônes UIkit historiques livrées, publiques comme internes, **DOIVENT** être
+remplacées par une classe Tabler ou un alias CSS vers Tabler. Aucun bundle `uikit-icons.js`,
+registre SVG JavaScript, objet de glyphes ou mécanisme d'injection d'un catalogue SVG
+**NE DOIT** être distribué. Un utilitaire générique manipulant un SVG fourni par l'application
+reste admissible s'il n'embarque aucun catalogue d'icônes.
+
 La typographie **DOIT** être Inter 4.1 avec ses faces variables roman et italic intactes. Sa
 sortie est une CSS monofichier contenant deux fontes WOFF2 encodées. Aucun fichier WOFF ou
 WOFF2 autonome n’est distribué.
@@ -96,20 +121,55 @@ WOFF2 autonome n’est distribué.
 Les assets **NE DOIVENT PAS** nécessiter de réseau à l’exécution. Les versions, nombres de
 faces, nombres d’icônes et empreintes **DOIVENT** être contrôlés automatiquement.
 
-### 4.5 Accessibilité et internationalisation
+### 4.5 HTML-first, mobile-first et SEO technique
+
+Le HTML initial d'une intégration conforme **DOIT** contenir tout ce qui est nécessaire pour
+lire, comprendre, parcourir et indexer la page : contenu principal et secondaire, navigation,
+liens réels, titres, métadonnées, URL canonique et données structurées. Le runtime TypeScript
+**DOIT** rester une amélioration progressive non bloquante ; un app shell vide, une route
+exclusivement cliente ou un contenu chargé seulement après interaction est interdit.
+
+La CSS **DOIT** être conçue depuis une base fonctionnelle à 320 pixels CSS. Les changements
+de mise en page pour les largeurs supérieures **DOIVENT** utiliser des media queries
+`min-width`. Les préférences utilisateur, l'impression et les capacités d'entrée peuvent
+utiliser les requêtes adaptées à leur sémantique.
+
+Mobile et bureau **DOIVENT** exposer le même contenu, les mêmes actions, titres, métadonnées,
+données structurées et textes alternatifs. L'ordre DOM **DOIT** rester sémantique ; une
+présentation différente ne peut pas masquer une information primaire sur mobile.
+
+Le profil normatif `MOBILE_FIRST_SEO.md` **DOIT** couvrir et tester :
+
+- `<title>`, meta description, canonical et robots ;
+- statuts HTTP réels et absence de soft 404 ;
+- liens `<a href>` explorables et navigation utilisable sans runtime ;
+- données structurées cohérentes avec le contenu visible ;
+- images stables, dimensionnées, responsives et correctement alternatives ;
+- titres et régions sémantiques ;
+- reflow, tailles de cibles et parité mobile/bureau ;
+- Core Web Vitals sur mobile et bureau.
+
+Les objectifs de référence, mesurés au 75e percentile, sont LCP ≤ 2,5 s, INP ≤ 200 ms et
+CLS ≤ 0,1. Leur définition officielle évolue ; une modification des métriques stables ou de
+leurs seuils est traitée comme une mise à jour normative documentée, jamais silencieuse.
+
+### 4.6 Accessibilité et internationalisation
 
 L’accessibilité est un gate de release :
 
 - les composants interactifs **DOIVENT** rester utilisables au clavier ;
 - les rôles, noms et états ARIA **DOIVENT** rester corrects ;
 - un changement d’icône **NE DOIT PAS** supprimer un nom accessible ;
+- les contenus horizontaux **DOIVENT** reflow à 320 pixels CSS, hors exceptions WCAG ;
+- une cible interactive **DOIT** mesurer au moins 24 par 24 pixels CSS ou satisfaire une
+  exception d'espacement WCAG 2.2 explicitement testée ;
 - les animations **DOIVENT** respecter les choix du framework et les préférences prises en
   charge ;
 - les comportements LTR et RTL **DOIVENT** être validés.
 
 Une différence visuelle acceptable n’autorise pas une régression sémantique.
 
-### 4.6 Reproductibilité
+### 4.7 Reproductibilité
 
 La chaîne officielle repose sur Node.js 24.18.0 exact et pnpm 11.4.0. Le lockfile **DOIT** être
 respecté avec une installation gelée.
@@ -122,7 +182,7 @@ Une release **DOIT** :
 - contenir les bannières et notices légales requises ;
 - ne contenir aucun fichier autonome interdit par le contrat d’assets.
 
-### 4.7 Licences
+### 4.8 Licences
 
 Le fork **DOIT** préserver :
 
@@ -138,12 +198,12 @@ essentielles.
 
 Les validations utilisent quatre niveaux :
 
-| Niveau | Surface | Exigence |
-| --- | --- | --- |
-| C0 | CSS statique et balisage | Rendu et cascade sans runtime |
-| C1 | Déclaration `uk-*` | Initialisation et options équivalentes |
-| C2 | Interaction | Événements, clavier, focus, observers et transitions |
-| C3 | Programmation | API globale, méthodes, plugins et extensions documentés |
+| Niveau | Surface                  | Exigence                                                |
+| ------ | ------------------------ | ------------------------------------------------------- |
+| C0     | CSS statique et balisage | Rendu et cascade sans runtime                           |
+| C1     | Déclaration `uk-*`       | Initialisation et options équivalentes                  |
+| C2     | Interaction              | Événements, clavier, focus, observers et transitions    |
+| C3     | Programmation            | API globale, méthodes, plugins et extensions documentés |
 
 Une fonctionnalité n’est dite compatible que si tous les niveaux qui lui sont applicables
 sont validés.

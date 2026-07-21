@@ -22,29 +22,44 @@ le tag amont.
 
 ## Intention
 
-UIkit TS conserve le modèle de progressive enhancement de UIkit : un document HTML peut
-déclarer ses composants avec les attributs `uk-*` ou `data-uk-*`, puis le runtime les
-initialise, met à jour et détruit selon les mutations du DOM.
+UIkit TS impose un modèle HTML-first de progressive enhancement : la réponse serveur ou le
+document prérendu contient déjà tout le contenu, la navigation, les liens et les métadonnées.
+Les attributs `uk-*` ou `data-uk-*` déclarent les comportements facultatifs que le runtime
+TypeScript initialise, met à jour et détruit selon les mutations du DOM. Le chargement ou
+l'échec du runtime ne conditionne jamais l'accès au contenu ni la navigation essentielle.
 
-Le fork poursuit quatre objectifs :
+Le fork poursuit six objectifs :
 
-1. convertir progressivement le runtime navigateur en TypeScript strict ;
+1. porter intégralement le runtime navigateur en TypeScript strict, sans source JavaScript ;
 2. préserver la compatibilité utile avec UIkit 3.25.20 ;
-3. remplacer le catalogue d’icônes livré par Tabler Icons Outline 3.45.0 en CSS ;
-4. adopter Inter 4.1 variable roman et italic comme typographie du framework, en CSS.
+3. remplacer toutes les anciennes icônes UIkit par Tabler Icons Outline 3.45.0 en CSS ;
+4. adopter Inter 4.1 variable roman et italic comme typographie du framework, en CSS ;
+5. construire les styles depuis une base mobile de 320 pixels CSS avec enrichissements
+   `min-width` ;
+6. fournir des composants et exemples qui protègent l'indexabilité, l'accessibilité et les
+   Core Web Vitals sans dépendre du JavaScript.
 
 ## Ce que « TypeScript » signifie
 
-TypeScript est le langage source du runtime. Les navigateurs exécutent les fichiers
-JavaScript générés dans `dist/js/` ; ces fichiers restent une sortie officielle et attendue.
+TypeScript strict est l'unique langage source du runtime navigateur. Les navigateurs
+exécutent nécessairement les fichiers JavaScript compilés dans `dist/js/` ; ces fichiers
+sont une sortie officielle et attendue, pas une source à maintenir. Les scripts Node.js qui
+pilotent le build peuvent rester en JavaScript puisqu'ils ne sont ni exécutés ni distribués
+comme frontend.
 
-La migration ne constitue pas une réécriture fonctionnelle. Elle conserve :
+Le port ne constitue pas à lui seul une autorisation de réécriture fonctionnelle. Il
+conserve :
 
 - l’initialisation automatique par observation du DOM ;
 - les attributs, classes et options de composants ;
 - les événements DOM et les méthodes d’instance ;
 - l’API globale `UIkit` et les composants programmatiques ;
-- les bundles historiques nécessaires aux consommateurs existants.
+- les bundles historiques nécessaires aux consommateurs existants, sauf les catalogues
+  d'icônes JavaScript explicitement remplacés par D-011.
+
+Aucun fichier JavaScript source navigateur ne peut cohabiter avec TypeScript, même pendant
+la migration. Un changement qui touche un module historique le porte d'abord en TypeScript
+et les gates de release vérifient qu'aucune source JavaScript frontend ne subsiste.
 
 Les déclarations de types et une sortie ESM **PEUVENT** compléter les sorties historiques,
 mais elles ne les remplacent pas sans décision de compatibilité.
@@ -79,17 +94,41 @@ enregistrée comme divergence acceptée.
 
 Les mécanismes de livraison suivants changent volontairement :
 
-- le catalogue d’icônes applicatives est fourni par une CSS Tabler Outline, pas par un
-  fichier `uikit-icons.js` contenant un registre SVG ;
+- toutes les icônes historiques UIkit, y compris celles utilisées en interne par les
+  composants, sont remplacées par des classes ou alias CSS Tabler Outline ;
+- aucun fichier `uikit-icons.js`, registre SVG JavaScript ou catalogue de chemins injectés
+  par le runtime n'est distribué ;
+- l’API de registre `UIkit.icon.add(name, svg)` est supprimée ; une extension fournit ses
+  propres masques CSS, selon `docs/fork/ICON_MIGRATION.md` ;
 - la police du framework est Inter 4.1 variable, roman et italic ;
-- le source du runtime migre de JavaScript vers TypeScript.
+- le source du runtime est exclusivement TypeScript ;
+- les styles suivent une progression mobile-first et le contrat HTML-first/SEO décrit dans
+  `docs/fork/MOBILE_FIRST_SEO.md`.
 
-Ces divergences **NE DOIVENT PAS** dégrader l’accessibilité ni modifier sans migration les
-composants UIkit qui consomment des icônes internes.
+Ces divergences **NE DOIVENT PAS** dégrader l’accessibilité. Les noms d'icônes historiques
+éventuellement maintenus comme compatibilité sont des alias CSS vers Tabler, jamais un second
+catalogue.
 
-Le composant générique `uk-svg` et les SVG historiques nécessaires à d’autres fonctions
-peuvent subsister comme compatibilité UIkit. Ils ne font pas partie du catalogue Tabler
-distribué.
+Un utilitaire générique opérant sur un SVG fourni par l'application peut subsister s'il ne
+contient et ne distribue aucun registre d'icônes UIkit. Il ne constitue pas une dérogation au
+remplacement intégral du catalogue livré.
+
+## Contrat HTML-first, mobile-first et SEO
+
+Une intégration conforme doit rester utile lorsque JavaScript est désactivé : contenu,
+navigation par liens `<a href>`, titres, métadonnées, URL canonique et données structurées
+sont présents dans le HTML initial. Le TypeScript ajoute uniquement des interactions non
+bloquantes et conserve un repli HTML natif.
+
+La CSS de base cible 320 pixels CSS et doit reflow sans défilement horizontal non essentiel.
+Les dispositions plus larges sont des enrichissements exprimés avec `min-width`. Mobile et
+bureau utilisent le même contenu, les mêmes titres, métadonnées, données structurées et
+textes alternatifs ; seule la présentation diffère.
+
+Le profil complet couvre les statuts HTTP, robots, canonical, liens explorables, données
+structurées, images, titres, cibles tactiles et objectifs LCP/INP/CLS. Il est normatif dans
+`docs/fork/MOBILE_FIRST_SEO.md`. Ce socle technique améliore l'explorabilité et l'expérience,
+mais ne constitue pas une promesse de classement dans les moteurs de recherche.
 
 ## Contrat des assets
 
@@ -101,7 +140,8 @@ distribué.
 - sortie : `dist/css/uikit-tabler-icons.css` ;
 - technique : `mask` et `-webkit-mask` avec `data:image/svg+xml` percent-encodé ;
 - classes : `.uk-ti` et `.uk-ti-{nom}` ;
-- fichiers interdits dans la distribution : tout asset Tabler `.svg` autonome.
+- fichiers interdits dans la distribution : tout asset Tabler `.svg` autonome, registre SVG
+  JavaScript et bundle `uikit-icons.js`.
 
 La CSS contient donc des **données** SVG, mais la distribution ne contient aucun **fichier**
 SVG Tabler.
@@ -128,14 +168,34 @@ Le fork **NE DOIT PAS** contourner une CSP avec un CDN ou une récupération ré
 intégration plus restrictive doit pouvoir reconstruire les assets selon sa propre politique,
 sans modifier le contrat par défaut.
 
+### Chargement recommandé
+
+Inter et les styles du framework sont chargés explicitement afin que le navigateur découvre
+la fonte sans imposer le catalogue complet d'icônes à chaque page :
+
+```html
+<link rel="stylesheet" href="/dist/css/uikit-inter.css" />
+<link rel="stylesheet" href="/dist/css/uikit.css" />
+```
+
+`uikit.css` contient les masques Tabler utilisés par les composants du noyau. Une page qui
+emploie directement les classes publiques `.uk-ti-*` ajoute, et elle seule, le catalogue :
+
+```html
+<link rel="stylesheet" href="/dist/css/uikit-tabler-icons.css" />
+```
+
+L'amélioration progressive peut ensuite charger `/dist/js/uikit.js`, artefact compilé depuis
+les seules sources TypeScript. Aucun bundle d'icônes JavaScript n'est requis.
+
 ## Licences
 
-| Élément | Version | Licence | Obligation principale |
-| --- | --- | --- | --- |
-| UIkit | 3.25.20 | MIT | Conserver le copyright et le texte MIT amont |
-| Tabler Icons | 3.45.0 | MIT | Conserver la licence et l’attribution dans les sorties ou notices |
-| Inter | 4.1 | SIL OFL 1.1 | Conserver l’OFL et respecter le nom réservé « Inter » |
-| Modifications du fork | version du fork | MIT, sauf mention contraire | Ne pas retirer les droits amont ou tiers |
+| Élément               | Version         | Licence                     | Obligation principale                                             |
+| --------------------- | --------------- | --------------------------- | ----------------------------------------------------------------- |
+| UIkit                 | 3.25.20         | MIT                         | Conserver le copyright et le texte MIT amont                      |
+| Tabler Icons          | 3.45.0          | MIT                         | Conserver la licence et l’attribution dans les sorties ou notices |
+| Inter                 | 4.1             | SIL OFL 1.1                 | Conserver l’OFL et respecter le nom réservé « Inter »             |
+| Modifications du fork | version du fork | MIT, sauf mention contraire | Ne pas retirer les droits amont ou tiers                          |
 
 Les fontes Inter ne sont ni modifiées ni sous-ensemblées. Une fonte dérivée devrait porter
 un autre nom et ferait l’objet d’un amendement avant distribution.
@@ -166,6 +226,8 @@ reproductibles ou dont la provenance ne peut être démontrée bloquent la relea
 - `AGENTS.md` : règles immédiates pour toute intervention ;
 - `docs/fork/CHARTER.md` : constitution et invariants ;
 - `docs/fork/DEVELOPMENT.md` : cycle de développement et gates ;
+- `docs/fork/ICON_MIGRATION.md` : alias UIkit, usage Tabler CSS et rupture du registre SVG ;
+- `docs/fork/MOBILE_FIRST_SEO.md` : profil HTML-first, mobile-first et SEO technique ;
 - `docs/fork/UPSTREAM.md` : synchronisation avec UIkit ;
 - `docs/fork/DECISIONS.md` : registre des décisions acceptées ;
 - `docs/fork/ROADMAP.md` : séquence de livraison et critères de passage.

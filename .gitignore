@@ -1,4 +1,5 @@
 /dist/*
+!/dist/fork-manifest.json
 !/dist/css/
 /dist/css/*
 !/dist/css/uikit.css
@@ -14,8 +15,6 @@
 !/dist/js/components/.gitkeep
 !/dist/js/uikit.js
 !/dist/js/uikit.min.js
-!/dist/js/uikit-icons.js
-!/dist/js/uikit-icons.min.js
 /node_modules
 /tests/js/test*
 /tests/css/*
@@ -26,3 +25,5 @@ themes.json
 /.vscode
 /.cachebro
 /.cache/fork-assets/
+/reports/
+/tests/fixtures/*.metrics.json

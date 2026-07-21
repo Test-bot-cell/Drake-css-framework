@@ -5,16 +5,14 @@
 // ========================================================================
 
 
-// SVG
+// Tabler CSS masks
 // ========================================================================
 
-.svg-fill(@src, @color-default, @color-new, @property: background-image) {
+// Tabler mask encoded as a CSS data URI with #000 as its color placeholder.
+.tabler-background(@src, @color, @property: background-image) {
 
-    @escape-color-default: escape(@color-default);
-    @escape-color-new: escape("@{color-new}");
+    @escape-color: escape("@{color}");
+    @replace-src: replace("@{src}", "%23000", "@{escape-color}", "g");
 
-    @data-uri: data-uri('image/svg+xml;charset=UTF-8', "@{src}");
-    @replace-src: replace("@{data-uri}", "@{escape-color-default}", "@{escape-color-new}", "g");
-
-    @{property}: e(@replace-src);
+    @{property}: e("url(\"@{replace-src}\")");
 }
