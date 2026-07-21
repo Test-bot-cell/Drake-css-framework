@@ -344,8 +344,8 @@ La comparaison visuelle ne remplace pas les assertions de comportement et d’ac
 | G0 — Périmètre         | `git status` et diff relu                                                                     | toute contribution              |
 | G1 — Dépendances       | `pnpm install --frozen-lockfile` sous Node.js 24.18.0                                         | build et release                |
 | G2 — Lint              | `pnpm exec eslint .`                                                                          | code et scripts                 |
-| G3 — Types             | `pnpm exec tsc --noEmit`                                                                      | runtime TypeScript              |
-| G4 — Build             | `pnpm compile` : `drake.css`, `drake.min.css`, `drake.js`, `drake.min.js`                     | code, styles et release         |
+| G3 — Types             | `pnpm typecheck` : `tsc --noEmit` + test de consommation des déclarations (`tests/types/`)    | runtime TypeScript              |
+| G4 — Build             | `pnpm compile` : `drake.css`, `drake.min.css`, `drake.js`, `drake.min.js`, `dist/types/`      | code, styles et release         |
 | G5 — RTL               | `pnpm compile-rtl` : `drake-rtl.css`, `drake-rtl.min.css`                                     | styles, composants et release   |
 | G6 — Assets            | `pnpm build-assets` puis `pnpm check-assets` : `drake-tabler-icons.css`, `drake-inter.css`    | assets, packaging et release    |
 | G7 — Compatibilité     | `pnpm check-compat` : snapshots C0/C1 du catalogue (LTR/RTL), scénarios C2, boucle C3         | runtime et release              |

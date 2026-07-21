@@ -1,0 +1,45 @@
+import type { ComponentInternalInstance, CssProperties } from '../types';
+type RawStop = string | number;
+type RawStops = RawStop[];
+type ParsedStop<T> = [T, number];
+type ParsedStops<T> = Array<ParsedStop<T>>;
+type NumericStops = ParsedStops<number>;
+type StopCollection = Record<string, RawStops | NumericStops | undefined>;
+type CssSetter = (styles: CssProperties, percent: number) => void;
+declare const propertyFactories: {
+    x: typeof transformFn;
+    y: typeof transformFn;
+    rotate: typeof transformFn;
+    scale: typeof transformFn;
+    color: typeof colorFn;
+    backgroundColor: typeof colorFn;
+    borderColor: typeof colorFn;
+    blur: typeof filterFn;
+    hue: typeof filterFn;
+    fopacity: typeof filterFn;
+    grayscale: typeof filterFn;
+    invert: typeof filterFn;
+    saturate: typeof filterFn;
+    sepia: typeof filterFn;
+    opacity: typeof cssPropFn;
+    stroke: typeof strokeFn;
+    bgx: typeof backgroundFn;
+    bgy: typeof backgroundFn;
+};
+type ParallaxProperty = keyof typeof propertyFactories;
+type ResolvedParallaxProperties = Partial<Record<ParallaxProperty, CssSetter>>;
+interface ParallaxInstance extends ComponentInternalInstance {
+    readonly $el: HTMLElement;
+    props: ResolvedParallaxProperties;
+    reset(): void;
+    getCss(percent: number): CssProperties;
+}
+declare const _default: import("../api/options").ExplicitComponentOptionsFor<ParallaxInstance>;
+export default _default;
+declare function transformFn(property: string, el: HTMLElement, inputStops: RawStops): CssSetter;
+declare function colorFn(property: string, el: HTMLElement, inputStops: RawStops): CssSetter;
+declare function filterFn(property: string, _el: HTMLElement, inputStops: RawStops): CssSetter;
+declare function cssPropFn(property: string, el: HTMLElement, inputStops: RawStops): CssSetter;
+declare function strokeFn(_property: string, el: HTMLElement, inputStops: RawStops): CssSetter;
+declare function backgroundFn(property: string, el: HTMLElement, inputStops: RawStops, properties: StopCollection): CssSetter;
+export declare function ease(percent: number, easing: number): number;

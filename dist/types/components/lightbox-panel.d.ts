@@ -1,0 +1,65 @@
+import { wrapInPicture } from '../core/img';
+import type { SliderIndex, SliderInstance } from '../mixin/types';
+import type { ComponentValueMap } from '../types';
+import Animations from './internal/lightbox-animations';
+type AttributeValue = string | number | boolean | null;
+type ElementAttributes = Record<string, AttributeValue>;
+type PictureSources = Parameters<typeof wrapInPicture>[1];
+interface LightboxItem extends Record<string, unknown> {
+    source?: string;
+    type?: string;
+    attrs?: ElementAttributes;
+    sources?: PictureSources;
+    alt?: string;
+    srcset?: string;
+    sizes?: string;
+    poster?: string;
+    caption?: string;
+    thumb?: string;
+    thumbRatio?: number;
+}
+interface LightboxPanelInstance extends SliderInstance {
+    readonly $el: HTMLElement;
+    $props: ComponentValueMap & {
+        nav: string | false;
+        draggable: boolean;
+        index: SliderIndex;
+    };
+    container: Element;
+    counter: boolean;
+    preload: number;
+    nav: string | false;
+    slidenav: boolean;
+    delayControls: number;
+    videoAutoplay: boolean | 'inline';
+    items: LightboxItem[];
+    cls: string;
+    clsPage: string;
+    clsFit: string;
+    clsZoom: string;
+    attrItem: string;
+    selList: string;
+    selClose: string;
+    selNav: string;
+    selCaption: string;
+    selCounter: string;
+    template: string;
+    bgClose: boolean;
+    draggable: boolean;
+    animation: (typeof Animations)['scale'];
+    controlsTimer: number | undefined;
+    list: HTMLElement;
+    slides: HTMLElement[];
+    isToggled(element?: Element): boolean;
+    toggleElement(element: Element, toggled: boolean, animate?: boolean): Promise<boolean>;
+    hide(): Promise<boolean>;
+    loadItem(index?: SliderIndex): void;
+    getItem(index?: SliderIndex): LightboxItem;
+    setItem(item: LightboxItem, content: string | Node): void;
+    getSlide(item: LightboxItem): HTMLElement;
+    setError(item: LightboxItem): void;
+    showControls(): void;
+    hideControls(): void;
+}
+declare const _default: import("../api/options").ExplicitComponentOptionsFor<LightboxPanelInstance>;
+export default _default;

@@ -1,0 +1,15 @@
+import type { ElementInput } from '../types';
+export declare function isVoidElement(element: ElementInput): boolean;
+export declare function isVisible(element: ElementInput): boolean;
+export declare const selInput = "input,select,textarea,button";
+export declare function isInput(element: ElementInput): boolean;
+export declare const selFocusable = "input,select,textarea,button,a[href],[tabindex]";
+export declare function isFocusable(element: ElementInput): boolean;
+export declare function parent(element: ElementInput): HTMLElement | null | undefined;
+export declare function filter<T extends Element>(elements: ElementInput<T>, selector: string): T[];
+export declare function matches(element: ElementInput, selector: string): boolean;
+export declare function parents(element: ElementInput, selector?: string): HTMLElement[];
+export declare function children(element: ElementInput, selector?: string): Element[];
+export declare function index(element: ElementInput, reference?: ElementInput): number;
+export declare function isSameSiteAnchor(element: ElementInput): element is HTMLAnchorElement;
+export declare function getTargetedElement(element: ElementInput): Element | undefined;

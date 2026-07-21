@@ -1,0 +1,14 @@
+import type { EventListenerOptions, EventTargetInput, FrameworkEvent, Point } from '../types';
+export type FrameworkListener<E extends FrameworkEvent = FrameworkEvent> = (event: E, ...detail: unknown[]) => unknown;
+type Capture = boolean | EventListenerOptions;
+export declare function on<E extends FrameworkEvent = FrameworkEvent>(targets: EventTargetInput, types: string | readonly string[], listener: FrameworkListener<E>, capture?: Capture): () => void;
+export declare function on<E extends FrameworkEvent = FrameworkEvent>(targets: EventTargetInput, types: string | readonly string[], selector: string | false, listener: FrameworkListener<E>, capture?: Capture): () => void;
+export declare function off(targets: EventTargetInput, types: string | readonly string[], listener: EventListener, capture?: boolean | EventListenerOptions): void;
+export declare function once<E extends FrameworkEvent = FrameworkEvent>(targets: EventTargetInput, types: string | readonly string[], listener: FrameworkListener<E>, capture?: Capture, condition?: (event: E) => unknown): () => void;
+export declare function once<E extends FrameworkEvent = FrameworkEvent>(targets: EventTargetInput, types: string | readonly string[], selector: string | false, listener: FrameworkListener<E>, capture?: Capture, condition?: (event: E) => unknown): () => void;
+export declare function trigger(targets: EventTargetInput, event: string | Event, detail?: unknown): boolean;
+export declare function createEvent(event: string | Event, bubbles?: boolean, cancelable?: boolean, detail?: unknown): Event;
+export declare function toEventTargets(target: EventTargetInput): EventTarget[];
+export declare function isTouch(event: unknown): boolean;
+export declare function getEventPos(event: FrameworkEvent | MouseEvent | TouchEvent): Point;
+export {};

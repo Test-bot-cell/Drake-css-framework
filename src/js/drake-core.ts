@@ -9,3 +9,5 @@ each(components, (component, name) => Drake.component(name, component));
 boot(Drake);
 
 export default Drake;
+// Types publics consommateur (phase 6) : ré-exportation type-only, sans effet bundle.
+export type * from './types';
