@@ -1,0 +1,1081 @@
+{
+    "accordion.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h3": 8,
+            "h2": 1
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 15,
+        "linksWithoutHref": 15,
+        "textLength": 7390
+    },
+    "alert.html": {
+        "formControls": 5,
+        "headings": {
+            "h1": 1,
+            "h2": 3,
+            "h3": 5
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 19,
+        "linksWithoutHref": 7,
+        "textLength": 2362
+    },
+    "align.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 4
+        },
+        "imagesTotal": 10,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 4492
+    },
+    "animation.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h3": 32,
+            "h2": 3
+        },
+        "imagesTotal": 4,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 4299
+    },
+    "article.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 8
+        },
+        "imagesTotal": 2,
+        "imagesWithoutAlt": 0,
+        "links": 31,
+        "linksWithoutHref": 7,
+        "textLength": 4647
+    },
+    "background.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 3,
+            "h2": 2
+        },
+        "imagesTotal": 1,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 166
+    },
+    "badge.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 4
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 19,
+        "linksWithoutHref": 0,
+        "textLength": 161
+    },
+    "base.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 2,
+            "h2": 2,
+            "h3": 9,
+            "h4": 2,
+            "h5": 2,
+            "h6": 2
+        },
+        "imagesTotal": 3,
+        "imagesWithoutAlt": 0,
+        "links": 3,
+        "linksWithoutHref": 1,
+        "textLength": 8303
+    },
+    "breadcrumb.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 13,
+        "linksWithoutHref": 4,
+        "textLength": 314
+    },
+    "button.html": {
+        "formControls": 71,
+        "headings": {
+            "h1": 1,
+            "h2": 6
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 20,
+        "linksWithoutHref": 0,
+        "textLength": 1090
+    },
+    "card.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h3": 41,
+            "h2": 5
+        },
+        "imagesTotal": 12,
+        "imagesWithoutAlt": 0,
+        "links": 74,
+        "linksWithoutHref": 0,
+        "textLength": 5089
+    },
+    "close.html": {
+        "formControls": 2,
+        "headings": {
+            "h1": 1,
+            "h2": 2
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 2,
+        "linksWithoutHref": 2,
+        "textLength": 198
+    },
+    "column.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h3": 3,
+            "h2": 2
+        },
+        "imagesTotal": 3,
+        "imagesWithoutAlt": 0,
+        "links": 1,
+        "linksWithoutHref": 1,
+        "textLength": 4255
+    },
+    "comment.html": {
+        "formControls": 0,
+        "headings": {
+            "h3": 1,
+            "h4": 9
+        },
+        "imagesTotal": 9,
+        "imagesWithoutAlt": 0,
+        "links": 27,
+        "linksWithoutHref": 0,
+        "textLength": 2896
+    },
+    "container.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 6
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 20611
+    },
+    "countdown.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 4
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 1,
+        "linksWithoutHref": 0,
+        "textLength": 789
+    },
+    "cover.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 9,
+            "h2": 4,
+            "h3": 8
+        },
+        "imagesTotal": 1,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 338
+    },
+    "description-list.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h3": 2
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 744
+    },
+    "divider.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 7
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 2603
+    },
+    "dotnav.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 3
+        },
+        "imagesTotal": 3,
+        "imagesWithoutAlt": 0,
+        "links": 54,
+        "linksWithoutHref": 0,
+        "textLength": 410
+    },
+    "drop.html": {
+        "formControls": 77,
+        "headings": {
+            "h1": 1,
+            "h2": 3
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 11017
+    },
+    "dropbar.html": {
+        "formControls": 1,
+        "headings": {
+            "h1": 1,
+            "h3": 4,
+            "h2": 4
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 105,
+        "linksWithoutHref": 11,
+        "textLength": 1711
+    },
+    "dropdown.html": {
+        "formControls": 14,
+        "headings": {
+            "h1": 1,
+            "h2": 1
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 59,
+        "linksWithoutHref": 0,
+        "textLength": 799
+    },
+    "dropnav.html": {
+        "formControls": 3,
+        "headings": {
+            "h1": 1,
+            "h2": 3
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 232,
+        "linksWithoutHref": 20,
+        "textLength": 5001
+    },
+    "filter.html": {
+        "formControls": 1,
+        "headings": {
+            "h1": 1,
+            "h3": 6,
+            "h2": 2
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 42,
+        "linksWithoutHref": 42,
+        "textLength": 808
+    },
+    "flex.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 4,
+            "h3": 11
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 557
+    },
+    "fork-assets.html": {
+        "formControls": 6,
+        "headings": {
+            "h1": 1,
+            "h2": 3
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 3,
+        "linksWithoutHref": 0,
+        "textLength": 440
+    },
+    "fork-mobile-seo.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 3
+        },
+        "imagesTotal": 1,
+        "imagesWithoutAlt": 0,
+        "links": 7,
+        "linksWithoutHref": 0,
+        "textLength": 890
+    },
+    "form.html": {
+        "formControls": 129,
+        "headings": {
+            "h1": 1,
+            "h2": 9,
+            "h3": 2
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 2,
+        "linksWithoutHref": 0,
+        "textLength": 1824
+    },
+    "grid-masonry.html": {
+        "formControls": 1,
+        "headings": {
+            "h1": 25,
+            "h2": 1
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 90
+    },
+    "grid-parallax.html": {
+        "formControls": 5,
+        "headings": {
+            "h1": 13,
+            "h2": 3
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 129
+    },
+    "grid.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h3": 10,
+            "h2": 7
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 2642
+    },
+    "heading.html": {
+        "formControls": 1,
+        "headings": {
+            "h1": 5,
+            "h2": 4,
+            "h3": 4,
+            "h4": 4,
+            "h5": 4,
+            "h6": 4
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 27791
+    },
+    "height-expand.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 477
+    },
+    "height-viewport.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 19,
+            "h2": 1
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 1244
+    },
+    "height.html": {
+        "formControls": 0,
+        "headings": {
+            "h2": 2,
+            "h3": 5
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 1,
+        "linksWithoutHref": 0,
+        "textLength": 951
+    },
+    "icon.html": {
+        "formControls": 5,
+        "headings": {
+            "h1": 1,
+            "h2": 8
+        },
+        "imagesTotal": 2,
+        "imagesWithoutAlt": 0,
+        "links": 325,
+        "linksWithoutHref": 2,
+        "textLength": 1692
+    },
+    "iconnav.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 2
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 10,
+        "linksWithoutHref": 0,
+        "textLength": 39
+    },
+    "image.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 17,
+            "h2": 8
+        },
+        "imagesTotal": 72,
+        "imagesWithoutAlt": 0,
+        "links": 4,
+        "linksWithoutHref": 4,
+        "textLength": 1169
+    },
+    "index.html": {
+        "formControls": 24,
+        "headings": {
+            "h1": 7,
+            "h4": 2,
+            "h3": 10,
+            "h2": 2,
+            "h5": 1,
+            "h6": 1
+        },
+        "imagesTotal": 9,
+        "imagesWithoutAlt": 0,
+        "links": 151,
+        "linksWithoutHref": 10,
+        "textLength": 5637
+    },
+    "label.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 1820
+    },
+    "leader.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 1
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 471
+    },
+    "lightbox.html": {
+        "formControls": 6,
+        "headings": {
+            "h1": 1,
+            "h2": 7,
+            "h3": 2
+        },
+        "imagesTotal": 32,
+        "imagesWithoutAlt": 0,
+        "links": 36,
+        "linksWithoutHref": 0,
+        "textLength": 2602
+    },
+    "link.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 10,
+            "h2": 1
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 20,
+        "linksWithoutHref": 20,
+        "textLength": 4370
+    },
+    "list.html": {
+        "formControls": 1,
+        "headings": {
+            "h1": 1,
+            "h2": 4,
+            "h3": 17
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 1,
+        "linksWithoutHref": 1,
+        "textLength": 3130
+    },
+    "margin.html": {
+        "formControls": 30,
+        "headings": {
+            "h1": 1,
+            "h2": 7
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 7092
+    },
+    "marker.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 2
+        },
+        "imagesTotal": 2,
+        "imagesWithoutAlt": 0,
+        "links": 6,
+        "linksWithoutHref": 0,
+        "textLength": 174
+    },
+    "modal.html": {
+        "formControls": 31,
+        "headings": {
+            "h1": 3,
+            "h2": 16
+        },
+        "imagesTotal": 1,
+        "imagesWithoutAlt": 0,
+        "links": 27,
+        "linksWithoutHref": 4,
+        "textLength": 23634
+    },
+    "nav.html": {
+        "formControls": 1,
+        "headings": {
+            "h1": 1,
+            "h2": 15
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 115,
+        "linksWithoutHref": 8,
+        "textLength": 2990
+    },
+    "navbar.html": {
+        "formControls": 4,
+        "headings": {
+            "h1": 1,
+            "h2": 14
+        },
+        "imagesTotal": 2,
+        "imagesWithoutAlt": 0,
+        "links": 770,
+        "linksWithoutHref": 30,
+        "textLength": 11280
+    },
+    "notification.html": {
+        "formControls": 14,
+        "headings": {
+            "h1": 1,
+            "h2": 3
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 10,
+        "linksWithoutHref": 0,
+        "textLength": 837
+    },
+    "offcanvas.html": {
+        "formControls": 19,
+        "headings": {
+            "h1": 1,
+            "h2": 3,
+            "h3": 9
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 208,
+        "linksWithoutHref": 9,
+        "textLength": 8059
+    },
+    "overlay.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 3
+        },
+        "imagesTotal": 21,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 808
+    },
+    "padding.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h3": 3
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 722
+    },
+    "pagination.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 3
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 40,
+        "linksWithoutHref": 6,
+        "textLength": 327
+    },
+    "parallax.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 8,
+            "h2": 12
+        },
+        "imagesTotal": 2,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 2945
+    },
+    "placeholder.html": {
+        "formControls": 1,
+        "headings": {
+            "h1": 1
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 66
+    },
+    "position.html": {
+        "formControls": 8,
+        "headings": {
+            "h1": 1,
+            "h2": 6
+        },
+        "imagesTotal": 16,
+        "imagesWithoutAlt": 0,
+        "links": 16,
+        "linksWithoutHref": 0,
+        "textLength": 1120
+    },
+    "progress.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 58
+    },
+    "scroll.html": {
+        "formControls": 1,
+        "headings": {
+            "h1": 1,
+            "h3": 6,
+            "h2": 1
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 6,
+        "linksWithoutHref": 1,
+        "textLength": 2468
+    },
+    "scrollspy.html": {
+        "formControls": 0,
+        "headings": {
+            "h3": 59,
+            "h1": 1,
+            "h2": 14
+        },
+        "imagesTotal": 8,
+        "imagesWithoutAlt": 8,
+        "links": 14,
+        "linksWithoutHref": 0,
+        "textLength": 8433
+    },
+    "search.html": {
+        "formControls": 32,
+        "headings": {
+            "h1": 1,
+            "h2": 8
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 57,
+        "linksWithoutHref": 6,
+        "textLength": 551
+    },
+    "section.html": {
+        "formControls": 1,
+        "headings": {
+            "h1": 14
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 4,
+        "linksWithoutHref": 0,
+        "textLength": 10878
+    },
+    "slidenav.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 3
+        },
+        "imagesTotal": 12,
+        "imagesWithoutAlt": 0,
+        "links": 112,
+        "linksWithoutHref": 0,
+        "textLength": 30
+    },
+    "slider.html": {
+        "formControls": 4,
+        "headings": {
+            "h1": 60,
+            "h2": 8,
+            "h3": 10
+        },
+        "imagesTotal": 35,
+        "imagesWithoutAlt": 0,
+        "links": 14,
+        "linksWithoutHref": 14,
+        "textLength": 3195
+    },
+    "slideshow.html": {
+        "formControls": 2,
+        "headings": {
+            "h1": 17,
+            "h2": 16,
+            "h3": 4
+        },
+        "imagesTotal": 25,
+        "imagesWithoutAlt": 0,
+        "links": 18,
+        "linksWithoutHref": 18,
+        "textLength": 2317
+    },
+    "sortable.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 7
+        },
+        "imagesTotal": 1,
+        "imagesWithoutAlt": 0,
+        "links": 11,
+        "linksWithoutHref": 0,
+        "textLength": 1157
+    },
+    "spinner.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 7
+    },
+    "sticky-navbar.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h3": 1
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 340,
+        "linksWithoutHref": 56,
+        "textLength": 33009
+    },
+    "sticky-parallax.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 19
+        },
+        "imagesTotal": 24,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 1848
+    },
+    "sticky.html": {
+        "formControls": 1,
+        "headings": {
+            "h1": 1,
+            "h2": 11,
+            "h3": 6
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 1,
+        "linksWithoutHref": 0,
+        "textLength": 15338
+    },
+    "subnav.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 5
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 145,
+        "linksWithoutHref": 7,
+        "textLength": 875
+    },
+    "svg.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 1
+        },
+        "imagesTotal": 6,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 369
+    },
+    "switcher.html": {
+        "formControls": 4,
+        "headings": {
+            "h1": 1,
+            "h2": 3,
+            "h3": 14
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 47,
+        "linksWithoutHref": 47,
+        "textLength": 2859
+    },
+    "tab.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 6
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 88,
+        "linksWithoutHref": 6,
+        "textLength": 1247
+    },
+    "table.html": {
+        "formControls": 10,
+        "headings": {
+            "h1": 1,
+            "h2": 4
+        },
+        "imagesTotal": 11,
+        "imagesWithoutAlt": 0,
+        "links": 14,
+        "linksWithoutHref": 8,
+        "textLength": 3883
+    },
+    "text.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 6,
+            "h2": 9,
+            "h3": 6
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 10,
+        "linksWithoutHref": 0,
+        "textLength": 3339
+    },
+    "thumbnav.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 3
+        },
+        "imagesTotal": 15,
+        "imagesWithoutAlt": 0,
+        "links": 12,
+        "linksWithoutHref": 6,
+        "textLength": 34
+    },
+    "tile.html": {
+        "formControls": 0,
+        "headings": {
+            "h3": 16
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 48,
+        "linksWithoutHref": 0,
+        "textLength": 2435
+    },
+    "toggle.html": {
+        "formControls": 10,
+        "headings": {
+            "h1": 1,
+            "h3": 10,
+            "h2": 1
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 1,
+        "linksWithoutHref": 1,
+        "textLength": 985
+    },
+    "tooltip.html": {
+        "formControls": 11,
+        "headings": {
+            "h1": 1,
+            "h2": 3
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 610
+    },
+    "totop.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 2
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 1,
+        "linksWithoutHref": 0,
+        "textLength": 180
+    },
+    "transition.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1
+        },
+        "imagesTotal": 33,
+        "imagesWithoutAlt": 0,
+        "links": 2,
+        "linksWithoutHref": 0,
+        "textLength": 623
+    },
+    "upload.html": {
+        "formControls": 5,
+        "headings": {
+            "h1": 1,
+            "h2": 5
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 1768
+    },
+    "utility.html": {
+        "formControls": 10,
+        "headings": {
+            "h1": 2,
+            "h2": 11,
+            "h3": 1
+        },
+        "imagesTotal": 45,
+        "imagesWithoutAlt": 0,
+        "links": 96,
+        "linksWithoutHref": 3,
+        "textLength": 4145
+    },
+    "video.html": {
+        "formControls": 2,
+        "headings": {
+            "h1": 1,
+            "h2": 5,
+            "h3": 10
+        },
+        "imagesTotal": 2,
+        "imagesWithoutAlt": 0,
+        "links": 2,
+        "linksWithoutHref": 2,
+        "textLength": 796
+    },
+    "visibility.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 4
+        },
+        "imagesTotal": 0,
+        "imagesWithoutAlt": 0,
+        "links": 2,
+        "linksWithoutHref": 2,
+        "textLength": 576
+    },
+    "width.html": {
+        "formControls": 0,
+        "headings": {
+            "h1": 1,
+            "h2": 6
+        },
+        "imagesTotal": 1,
+        "imagesWithoutAlt": 0,
+        "links": 0,
+        "linksWithoutHref": 0,
+        "textLength": 905
+    }
+}

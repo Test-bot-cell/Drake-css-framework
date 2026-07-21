@@ -30,6 +30,9 @@ dans [`docs/fork/CHANGELOG-uikit-amont.md`](docs/fork/CHANGELOG-uikit-amont.md).
 - Les fragments de `src/styles/` consomment les tokens (`palette`, `breakpoints`,
   `fontFamilies`) à la génération, à sortie CSS strictement identique (preuve par
   empreintes et diff de parité G15).
+- Phase 1 close : attentes sans runtime par composant (`docs/fork/NO_RUNTIME.md` +
+  fixtures machine vérifiées par G7) et inventaire de la dette mobile-first/SEO héritée
+  (`pnpm audit-heritage`, 88 pages à 320 px).
 - Proposition D-016 (theming par propriétés personnalisées) enregistrée au statut
   Proposée, en attente d'arbitrage du mainteneur.
 

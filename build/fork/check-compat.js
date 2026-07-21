@@ -11,6 +11,7 @@ const execFileAsync = promisify(execFile);
 const PROJECT_ROOT = resolve(fileURLToPath(new URL('../..', import.meta.url)));
 
 const stages = [
+    { label: 'Sans runtime — attentes du HTML initial', script: 'build/fork/compat-noruntime.js' },
     { label: 'C0/C1 — snapshots du catalogue (LTR/RTL)', script: 'build/fork/compat-snapshot.js' },
     { label: 'C2 — scénarios d’interaction', script: 'build/fork/compat-scenarios.js' },
     { label: 'C3 — boucle API programmatique', script: 'build/fork/compat-api.js' },

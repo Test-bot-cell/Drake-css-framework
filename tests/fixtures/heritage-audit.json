@@ -1,0 +1,1026 @@
+{
+    "schemaVersion": 1,
+    "scope": "Catalogue tests/ à 320 px CSS, runtime actif — inventaire de dette héritée, non gate.",
+    "totals": {
+        "breakpointHidden": 74,
+        "headingSkips": 19,
+        "horizontalOverflow": 22,
+        "imagesWithoutAlt": 8,
+        "imagesWithoutDimensions": 50,
+        "smallTargets": 337
+    },
+    "pages": {
+        "accordion.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 1,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "alert.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "align.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "animation.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 1,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "article.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "background.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 1,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "badge.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 2,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16",
+                "a.drk-badge 18x18"
+            ]
+        },
+        "base.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 1,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "breadcrumb.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "button.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 2,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16",
+                "button.drk-button.drk-button-text 43x21"
+            ]
+        },
+        "card.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 1,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 2,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "close.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "column.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 1,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "comment.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 3,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16",
+                "a. 78x20",
+                "a. 37x20"
+            ]
+        },
+        "container.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "countdown.html": {
+            "breakpointHidden": 40,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "cover.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 5,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 1,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "description-list.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 1,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "divider.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "dotnav.html": {
+            "breakpointHidden": 1,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 49,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16",
+                "a. 10x10",
+                "a. 10x10",
+                "a. 10x10",
+                "a. 10x10"
+            ]
+        },
+        "drop.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "dropbar.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 1,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "dropdown.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "dropnav.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "filter.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 1,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "flex.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "fork-assets.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 3,
+            "smallTargetsSample": [
+                "button. 118x21",
+                "button. 117x21",
+                "button. 177x21"
+            ]
+        },
+        "fork-mobile-seo.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 3,
+            "smallTargetsSample": [
+                "a. 100x21",
+                "a. 86x21",
+                "a. 106x21"
+            ]
+        },
+        "form.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 61,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16",
+                "input.drk-radio 16x16",
+                "input.drk-radio 16x16",
+                "input.drk-radio 16x16",
+                "input.drk-radio 16x16"
+            ]
+        },
+        "grid-masonry.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "grid-parallax.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "grid.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 1,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "heading.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "height-expand.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "height-viewport.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "height.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "icon.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "iconnav.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 5,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16",
+                "a. 45x20",
+                "a. 42x20",
+                "a. 290x20",
+                "a. 290x20"
+            ]
+        },
+        "image.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 4,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "index.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 1,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 14,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16",
+                "a.drk-badge 18x18",
+                "a. 27x22",
+                "a. 27x22",
+                "input.drk-radio 16x16"
+            ]
+        },
+        "label.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "leader.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "lightbox.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "link.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "list.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "margin.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "marker.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "modal.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "nav.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "navbar.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "notification.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "offcanvas.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "overlay.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "padding.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 1,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "pagination.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 13,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16",
+                "a. 27x22",
+                "a. 27x22",
+                "a. 27x22",
+                "a. 27x22"
+            ]
+        },
+        "parallax.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "placeholder.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "position.html": {
+            "breakpointHidden": 8,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "progress.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "scroll.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 1,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "scrollspy.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 8,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "search.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "section.html": {
+            "breakpointHidden": 8,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "slidenav.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "slider.html": {
+            "breakpointHidden": 2,
+            "headingSkips": 1,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 5,
+            "smallTargets": 59,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16",
+                "a. 10x10",
+                "a. 10x10",
+                "a. 10x10",
+                "a. 10x10"
+            ]
+        },
+        "slideshow.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 25,
+            "smallTargets": 29,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16",
+                "a. 10x10",
+                "a. 10x10",
+                "a. 10x10",
+                "a. 10x10"
+            ]
+        },
+        "sortable.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "spinner.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "sticky-navbar.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 1,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "sticky-parallax.html": {
+            "breakpointHidden": 7,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "sticky.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "subnav.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "svg.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 1,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "switcher.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "tab.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "table.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 9,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16",
+                "input.drk-checkbox 16x16",
+                "input.drk-checkbox 16x16",
+                "input.drk-checkbox 16x16",
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "text.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "thumbnav.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 3,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "tile.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "toggle.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 1,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "tooltip.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "totop.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "transition.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 3,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "upload.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "utility.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 4,
+            "smallTargets": 11,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16",
+                "input.drk-checkbox 16x16",
+                "input.drk-checkbox 16x16",
+                "input.drk-checkbox 16x16",
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "video.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "visibility.html": {
+            "breakpointHidden": 8,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        },
+        "width.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": true,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 1,
+            "smallTargetsSample": [
+                "input.drk-checkbox 16x16"
+            ]
+        }
+    }
+}
