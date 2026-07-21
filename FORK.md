@@ -386,5 +386,12 @@ Le paquet npm porte le nom `drake.css`, le titre « Drake.css framework » et la
 propre au fork `0.1.0`. La base amont 3.25.20 est conservée comme métadonnée de provenance
 dans `package.json`.
 
-Tant qu’un remote `origin` propre au fork n’est pas décidé, le paquet **DOIT** rester
-`private: true` et ne doit être publié ni sous l’identité du fork ni sous celle de l’amont.
+Le versionnage du fork suit SemVer strict (D-017) : la stabilisation produit des tags
+annotés signés `v0.1.0-rc.N`, l'acceptation finale `v0.1.0`. Les tags du fork restent
+distincts des tags amont (`fork-base/uikit-v3.25.20`).
+
+Le remote `origin` est décidé (D-017) : un dépôt GitHub privé `drake-css`, dont la
+création et tout push restent soumis à un feu vert explicite du mainteneur, action par
+action. Le paquet **DOIT** rester `private: true` tant qu'une publication npm n'est pas
+explicitement décidée ; il ne doit être publié ni sous l'identité du fork ni sous celle de
+l'amont sans cette décision.
