@@ -33,8 +33,10 @@ dans [`docs/fork/CHANGELOG-uikit-amont.md`](docs/fork/CHANGELOG-uikit-amont.md).
 - Phase 1 close : attentes sans runtime par composant (`docs/fork/NO_RUNTIME.md` +
   fixtures machine vérifiées par G7) et inventaire de la dette mobile-first/SEO héritée
   (`pnpm audit-heritage`, 88 pages à 320 px).
-- Proposition D-016 (theming par propriétés personnalisées) enregistrée au statut
-  Proposée, en attente d'arbitrage du mainteneur.
+- Theming par propriétés personnalisées (décision D-016, acceptée puis implémentée) :
+  `:root` publie les 12 tokens sémantiques en `--drk-*`, la cascade consomme
+  `var(--drk-…, <valeur héritée>)` — surcharge sans reconstruction, chemin mode sombre
+  documenté dans `FORK.md` ; équivalence calculée prouvée par les gates navigateur.
 
 ### Hérité
 
