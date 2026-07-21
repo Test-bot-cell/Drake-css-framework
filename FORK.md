@@ -393,8 +393,11 @@ Le versionnage du fork suit SemVer strict (D-017) : la stabilisation produit des
 annotés signés `v0.1.0-rc.N`, l'acceptation finale `v0.1.0`. Les tags du fork restent
 distincts des tags amont (`fork-base/uikit-v3.25.20`).
 
-Le remote `origin` est décidé (D-017) : un dépôt GitHub privé `drake-css`, dont la
-création et tout push restent soumis à un feu vert explicite du mainteneur, action par
-action. Le paquet **DOIT** rester `private: true` tant qu'une publication npm n'est pas
-explicitement décidée ; il ne doit être publié ni sous l'identité du fork ni sous celle de
-l'amont sans cette décision.
+Le remote `origin` est décidé (D-017) et câblé sur feu vert du mainteneur le 2026-07-21 :
+dépôt GitHub **privé** `Test-bot-cell/Drake-css-framework` (nom effectif du dépôt retenu
+par le mainteneur à la création). Y sont poussés la branche `fork/main` et les seuls tags
+du fork (`v0.1.0-rc.1`, `fork-base/uikit-v3.25.20`) ; les tags amont restent locaux, et
+tout push reste soumis à un feu vert explicite du mainteneur, action par action. Le paquet
+**DOIT** rester `private: true` tant qu'une publication npm n'est pas explicitement
+décidée ; il ne doit être publié ni sous l'identité du fork ni sous celle de l'amont sans
+cette décision.

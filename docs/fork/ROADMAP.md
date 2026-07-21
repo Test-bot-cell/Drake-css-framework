@@ -374,7 +374,8 @@ est vert de bout en bout, gates Chrome G10-G13 compris.
 - État : **Terminé**
 
 Preuves au 2026-07-21 : D-017 acte les arbitrages du mainteneur — remote `origin` = dépôt
-GitHub privé (création et push différés à un feu vert explicite), versionnage SemVer avec
+GitHub privé (câblé sur feu vert le 2026-07-21 : `Test-bot-cell/Drake-css-framework`,
+`fork/main` et tags du fork poussés, voir FORK.md), versionnage SemVer avec
 tags annotés signés `v0.1.0-rc.N` puis `v0.1.0`, `private: true` conservé tant qu'une
 publication npm n'est pas décidée, pas de sortie ESM en 0.1.0. La matrice complète est
 verte (verify G0-G14 + G7 C0-C3) ; licences et distribution auditées (G6/G8, packlist) ;
