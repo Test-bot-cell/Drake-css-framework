@@ -2,7 +2,7 @@
 // Amorcée depuis la cascade de référence (core · background.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
-import { breakpointsMax, palette } from '../tokens';
+import { palette } from '../tokens';
 
 export const fragments: GlobalStyleObject[] = [
 {
@@ -78,28 +78,28 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    [`@media (max-width: ${breakpointsMax.s})`]: {
+    "@media (max-width: 639px)": {
         ".drk-background-image\\40 s": {
             "background-image": "none !important"
         }
     }
 },
 {
-    [`@media (max-width: ${breakpointsMax.m})`]: {
+    "@media (max-width: 959px)": {
         ".drk-background-image\\40 m": {
             "background-image": "none !important"
         }
     }
 },
 {
-    [`@media (max-width: ${breakpointsMax.l})`]: {
+    "@media (max-width: 1199px)": {
         ".drk-background-image\\40 l": {
             "background-image": "none !important"
         }
     }
 },
 {
-    [`@media (max-width: ${breakpointsMax.xl})`]: {
+    "@media (max-width: 1599px)": {
         ".drk-background-image\\40 xl": {
             "background-image": "none !important"
         }

@@ -14,8 +14,10 @@ export const breakpoints = {
     xl: '1600px',
 } as const;
 
-// Bornes hautes des utilitaires bornés autorisés (max-width = breakpoint − 1px),
-// réservées à l'allowlist fermée de MOBILE_FIRST_SEO.md.
+// Bornes hautes des breakpoints (max-width = breakpoint − 1px). Documentaire : les
+// conditions max-width de l'allowlist fermée (MOBILE_FIRST_SEO.md) restent LITTÉRALES
+// dans les fragments, car l'allowlist et son scanner comparent la condition textuelle
+// exacte ; ces constantes servent de référence et à tout usage futur décidé.
 export const breakpointsMax = {
     s: '639px',
     m: '959px',
