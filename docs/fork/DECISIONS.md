@@ -141,6 +141,9 @@ Aucun fichier ou asset Tabler `.svg` autonome n’est distribué.
 
 - Date : 2026-07-21
 - Statut : **Acceptée**
+- Amendée par : D-022 (variante en fichiers WOFF2 subsettés ; la clause « aucun subset ne
+  peut conserver le nom Inter » reposait sur l'hypothèse d'un Reserved Font Name — l'en-tête
+  OFL d'Inter n'en déclare aucun), le 2026-07-21
 
 ### Décision
 
@@ -204,6 +207,9 @@ contrôle de reproductibilité.
 
 - Date : 2026-07-21
 - Statut : **Acceptée**
+- Amendée par : D-022 (le sous-ensemble d'Inter est licite sans renommage, OFL sans
+  Reserved Font Name ; l'exigence d'amendement est satisfaite par D-022 même), le
+  2026-07-21
 
 ### Décision
 
@@ -782,8 +788,9 @@ sur les installations git/tarball).
 - Date : 2026-07-21
 - Statut : **Acceptée** (« go » du mainteneur du 2026-07-21 sur la proposition P1
   explicitement soumise, à la suite d'une revue de performance externe)
-- Amende : le contrat d'assets Inter (D-005/D-012, FORK.md « fichiers interdits :
-  `.woff` et `.woff2` autonomes »)
+- Amende : D-006 et D-009 (clauses subset/renommage d'Inter, écrites sous l'hypothèse
+  d'un Reserved Font Name absent en réalité) et le contrat d'assets Inter (FORK.md
+  « fichiers interdits : `.woff` et `.woff2` autonomes »)
 
 ### Contexte — la règle actuelle et le problème vérifiable
 
