@@ -121,6 +121,21 @@ async function settle(): Promise<boolean> {
     await document.fonts.ready;
     window.dispatchEvent(new Event('resize'));
     await new Promise((done) => setTimeout(done, 300));
+    // Les démos parallax « stroke » posent stroke-dasharray après l'injection asynchrone
+    // du SVG cible : sur un environnement lent, capturer avant cette pose fait diverger
+    // la trace (le style est attesté par les fixtures). On attend la pose, sans masquer :
+    // au-delà du délai, la capture continue et la divergence reste visible.
+    const strokeHosts = [...document.querySelectorAll('[drk-parallax*="stroke:"]')];
+    for (let attempt = 0; attempt < 100; attempt++) {
+        if (
+            strokeHosts.every((host) =>
+                (host.getAttribute('style') ?? '').includes('stroke-dasharray'),
+            )
+        ) {
+            break;
+        }
+        await new Promise((done) => setTimeout(done, 50));
+    }
     await new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done)));
     return true;
 }
