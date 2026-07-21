@@ -17,7 +17,7 @@
             <div class="drk-child-width-auto" drk-grid>
                 <div>
                     <p>Image</p>
-                    <img id="svg1" class="svg-1" src="images/svg-fixture.svg" alt="" drk-svg>
+                    <img id="svg1" class="svg-1" src="images/svg-fixture.svg" width="150" height="150" alt="" drk-svg>
                 </div>
                 <div>
                     <p>Width</p>
@@ -32,6 +32,7 @@
                     <p>Symbol with ID Fallback</p>
                     <img src="images/svg-fixture.svg#notfound" width="20" height="20" alt="" drk-svg>
                 </div>
+                <div>
                     <p>Stroke Animation</p>
                     <img class="drk-animation-stroke" width="40" height="40" src="images/svg-fixture.svg#stroke-path" drk-svg="stroke-animation: true" alt="">
                 </div>
@@ -39,7 +40,8 @@
 
             <h2>JavaScript Options</h2>
 
-            <table class="drk-table drk-table-striped">
+            <div class="drk-overflow-auto">
+                <table class="drk-table drk-table-striped">
                 <thead>
                     <tr>
                         <th>Option</th>
@@ -68,7 +70,8 @@
                         <td>Animate all elements with the `stroke` attribute in the SVG.</td>
                     </tr>
                 </tbody>
-            </table>
+                </table>
+            </div>
 
         </div>
 

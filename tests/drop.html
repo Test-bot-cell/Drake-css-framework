@@ -15,6 +15,16 @@
 
             .test-boundary-overflow { width: 250%; }
 
+            /* Below the @m breakpoint, let the fixed-height boundary boxes grow so the
+               column-flex demo content stacks vertically instead of wrapping into
+               extra columns that overflow horizontally. */
+            @media (max-width: 959px) {
+                .test-boundary.drk-height-large {
+                    height: auto;
+                    min-height: 450px;
+                }
+            }
+
             .gap { gap: 10px; }
 
         </style>
