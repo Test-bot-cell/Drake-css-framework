@@ -39,9 +39,9 @@ pnpm verify
 ```
 
 Une contribution modifie la source canonique définie par
-[`docs/fork/DECISIONS.md`](docs/fork/DECISIONS.md) — pour les styles, `src/less` reste
-canonique et `src/scss` généré tant que le port vers Panda.css (D-013) n’est pas achevé avec
-preuve de parité —, régénère les sorties concernées sous `dist/`, puis relit le diff. Lint,
+[`docs/fork/DECISIONS.md`](docs/fork/DECISIONS.md) — pour les styles, `panda.config.ts` et
+les modules TypeScript de `src/styles/` (le port Panda.css D-013 est achevé, sans aucune
+source Less ou SCSS) —, régénère les sorties concernées sous `dist/`, puis relit le diff. Lint,
 typecheck strict, builds LTR/RTL, assets, HTML sans runtime, reflow 320 px, SEO, performance
 et compatibilité des icônes `.drk-ti-*` sont bloquants selon le périmètre. La CSS distribuée
 **DOIT** rester statique, générée et déterministe : deux générations successives produisent

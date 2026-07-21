@@ -301,9 +301,16 @@ code, des documents et des artefacts est engagé ; aucun critère de sortie n’
 
 ## Phase 8 — Port Panda.css (D-013)
 
-- État : **Planifié**
+- État : **Terminé**
 
-Les mixins Less constituent une dette qui bloque la release finale (phase 9).
+Preuves au 2026-07-21 : la cascade entière a été portée en une passe vers des fragments
+`globalCss` ordonnés sous `src/styles/` avec `panda.config.ts` (tokens, `@pandacss/dev`
+épinglé 1.11.4). Le diff CSS normalisé est vide sur les quatre artefacts (`drake.css`,
+`drake-core.css` et leurs variantes RTL) face à la référence Less finale
+(`tests/fixtures/panda-parity-proof.json`, outil `build/fork/css-parity.js`). `src/less`,
+`src/scss`, `build/less.js`, `build/scss.js` et la dépendance `less` sont supprimés ; deux
+générations successives produisent des sorties bit-à-bit identiques (G9) et `pnpm verify`
+est vert de bout en bout, gates Chrome G10-G13 compris.
 
 ### Portée
 

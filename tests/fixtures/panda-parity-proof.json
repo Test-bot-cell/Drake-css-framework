@@ -1,0 +1,19 @@
+{
+    "schemaVersion": 1,
+    "gate": "G15 — parité du port Panda.css (D-013)",
+    "date": "2026-07-21",
+    "method": "diff CSS normalisé (build/fork/css-parity.js) : séquence (contexte, sélecteur, propriété, valeur) à tri canonique commutatif, @property comparés en ensemble",
+    "result": "PARITÉ sur les 4 artefacts (drake.css, drake-core.css, drake-rtl.css, drake-core-rtl.css)",
+    "lessReference": {
+        "drake.css": "8bc6cd5a1b5e35f528fe104749d5d03dae21172a491f43eea8d21486fb27b305",
+        "drake-core.css": "dc71b26b0ff355d7cde92409a7adc4f80df1a65022e64cc980ea38f6ea7bfbca",
+        "drake-rtl.css": "41a6dce42e43566bcc8bf334fe6fddadd17fe19d27f3c0089ed1e4e356e044cb",
+        "drake-core-rtl.css": "56e79de46599816494f325b7fcc16626dd32f1e2764b718a5b7587b709fa08a6"
+    },
+    "pandaOutput": {
+        "drake.css": "5d1bf89dfdb94c54c731b184d70ad119114a850d4d530b268cae151d1e0e7869",
+        "drake-core.css": "5a783b7a5d2e0babfbcf19442d7304d5e724e5a263bed9130095734248793aa3",
+        "drake-rtl.css": "b32d83a4aedd3f8e91099029b427c3e41967b98770f0e4fac3bfd43c6368aa54",
+        "drake-core-rtl.css": "9f0ee210b11d78c6aa73dabef1d58aa485bfb5ee7c75cee25a7249d3d8667c65"
+    }
+}

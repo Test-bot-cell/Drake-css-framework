@@ -68,8 +68,8 @@ Avant d’ouvrir une branche de sync :
 5. relever tout changement de rendu client, app shell, navigation, métadonnées ou SEO ;
 6. relever les styles desktop-first, `max-width` de mise en page et écarts de reflow à
    320 pixels CSS ;
-7. identifier, pour chaque composant touché, si sa source de styles côté fork est encore
-   `src/less` (transition D-013) ou déjà Panda, afin de chiffrer le portage de styles ;
+7. chiffrer le portage de styles : tout diff Less amont devra être traduit vers les
+   fragments Panda de `src/styles/` (D-013) ;
 8. décider si la mise à jour est utile et proportionnée au coût cumulé du portage
    TypeScript, de la traduction D-012 et du portage de styles.
 
@@ -167,19 +167,14 @@ section 5.9 vérifient l’absence de ces réintroductions.
 
 ### 5.7 Porter les changements de styles amont
 
-L’amont écrit ses styles en Less ; le fork migre composant par composant vers Panda.css
-(D-013). Un diff de styles amont est porté selon l’état de migration du composant :
+L’amont écrit ses styles en Less ; le fork est intégralement sur Panda.css (D-013,
+port achevé). Tout diff de styles amont est traduit vers la source Panda — les fragments
+`globalCss` ordonnés de `src/styles/` et, le cas échéant, `panda.config.ts` et
+`src/styles/tokens.ts` — en appliquant la table de renommage D-012, avec un diff CSS
+normalisé (`build/fork/css-parity.js`) entre la sortie attendue et la sortie générée.
 
-- composant **déjà porté** sur Panda : le diff Less amont est porté vers la source Panda —
-  `panda.config.ts` et modules TypeScript de styles (tokens, semantic tokens, recettes,
-  fonctions de style typées, `globalCss`) — avec preuve de parité par diff CSS normalisé
-  entre la sortie attendue et la sortie générée ;
-- composant **non encore porté** : le diff est porté dans `src/less`, source canonique de
-  transition ; `src/scss` reste généré.
-
-Une synchronisation ne fait jamais reculer l’état de migration : un composant porté sur
-Panda ne redevient pas un composant Less. Les mixins Less restants sont une dette qui bloque
-la release finale. La dépendance `@pandacss/dev` reste épinglée en version exacte.
+Une synchronisation ne réintroduit jamais de source Less ou SCSS, même transitoire. La
+dépendance `@pandacss/dev` reste épinglée en version exacte.
 
 Dans tous les cas, la CSS distribuée reste statique, générée et déterministe : deux
 générations successives produisent des sorties identiques.
@@ -188,9 +183,9 @@ générations successives produisent des sorties identiques.
 
 Les sources canoniques sont modifiées, puis les sorties sont entièrement régénérées.
 
-- Les sources de styles canoniques sont la source Panda pour les composants migrés et
-  `src/less` pour les autres, pendant la transition D-013.
-- `src/scss/` et `dist/` sont générés.
+- La source de styles canonique est la source Panda : `panda.config.ts` et
+  `src/styles/**/*.ts`.
+- `dist/` et `src/styles/tabler.ts` sont générés.
 - La sortie historique `tests/js/test.js` n’est pas restaurée ; ses changements sont portés
   dans les sources TypeScript de test et compilés sous `dist/`.
 - Les CSS `dist/css/drake-tabler-icons.css` et `dist/css/drake-inter.css` proviennent
