@@ -831,6 +831,54 @@ L'option 3 est retenue. Concrètement :
 - Le contrat « aucune requête tierce à l'exécution » est inchangé : les fichiers sont
   auto-hébergés à côté des feuilles.
 
+## D-021 — Cibles tactiles : zones de saisie à 24 px, registre d'exceptions vidé
+
+- Date : 2026-07-21
+- Statut : **Acceptée** (arbitrage explicite du mainteneur du 2026-07-21 : les 11
+  familles de composants ET les 2 familles de fixtures)
+- Amende : D-017 (le registre d'exceptions créé par D-017 est vidé) ; première
+  divergence assumée de la CSS des composants vis-à-vis de la référence pré-renommage
+
+### Contexte
+
+Le registre `docs/fork/HERITAGE_EXCEPTIONS.md` consignait 251 cibles interactives
+< 24 px CSS (WCAG 2.5.8) héritées de l'amont. Une analyse par famille (six lots,
+options chiffrées, croquis vérifiés en navigateur par diff `getBoundingClientRect`
+avant/après sur les pages du catalogue) établit que chaque famille admet une zone de
+saisie >= 24 px **sans changement visuel** (8 familles, identité au pixel prouvée) ou à
+changement de boîte mineur sans peinture nouvelle (3 familles).
+
+### Décision — table normative par famille
+
+| Famille                                 | Technique retenue                                                                                                                                                                                                                              | Visuel |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| checkbox, radio                         | boîte 24×24 (toutes variantes), padding + `background-clip: content-box` ; anneau du thème converti `border` → `box-shadow` inset (y compris fragments inverse) ; marges compensatoires ; règle corrective `.drk-table td > :is(…):last-child` | aucun  |
+| range                                   | hauteur de boîte 24 px compensée ; piste 3 px et poignée inchangées (l'UA centre)                                                                                                                                                              | aucun  |
+| file-input                              | règle nouvelle : hauteur de boîte 24 px compensée                                                                                                                                                                                              | aucun  |
+| dotnav                                  | padding + clip : point 10 px et anneau intacts, boîte 24×24, fondus via `box-shadow`                                                                                                                                                           | aucun  |
+| thumbnav                                | plancher `min-width`/`min-height` 24 px (catalogue déjà conforme)                                                                                                                                                                              | aucun  |
+| badge (lien)                            | bordure transparente + clip : padding-box 18 px et rayon d'origine préservés                                                                                                                                                                   | aucun  |
+| button-text                             | padding vertical compensé (`padding-top` + marge négative)                                                                                                                                                                                     | aucun  |
+| pagination                              | flèches portées à 24 px de haut (liens numériques déjà conformes)                                                                                                                                                                              | mineur |
+| subnav                                  | boîte 24 px à encombrement compensé (marges négatives en `em`)                                                                                                                                                                                 | mineur |
+| iconnav                                 | plancher min 24 px — extension du précédent déjà tranché pour `a.drk-icon`                                                                                                                                                                     | mineur |
+| fixtures (fork-mobile-seo, fork-assets) | padding compensé au markup des deux pages, attentes épinglées mises à jour                                                                                                                                                                     | mineur |
+
+Les croquis de référence détaillés (sélecteurs, valeurs, pièges vérifiés : fragments
+inverse, `transition-property`, interaction `drk-table`) sont l'annexe d'analyse de la
+campagne ; l'implémentation les suit fidèlement.
+
+### Conséquences
+
+- Divergence assumée de la CSS distribuée vis-à-vis de la référence pré-renommage :
+  le contrat C0-C3 reste structurel (les snapshots C0/C1 capturent le DOM, inchangé) ;
+  scénarios C2 et boucle C3 exigés verts sans recapture ; gates navigateur complets.
+- `pnpm audit-heritage` devient le gate de non-régression tactile : zéro cible < 24 px,
+  registre d'exceptions vidé (le fichier reste comme garde-fou : toute nouvelle
+  exception exigerait une décision).
+- Les attentes des fixtures G11/G13 sont re-épinglées pour les deux pages corrigées
+  (divergence décidée) ; l'esthétique héritée est préservée partout ailleurs au pixel.
+
 ## Modèle d’une nouvelle décision
 
     ## D-NNN — Titre
