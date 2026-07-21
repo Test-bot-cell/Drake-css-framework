@@ -541,10 +541,11 @@ plus rapide, sortie plus compacte, cohérent avec l'écosystème Panda déjà ad
 - Une mise à jour de `lightningcss` est un changement sensible : preuves de gates et
   contrôles ciblés exigés.
 
-## D-016 — Theming par propriétés personnalisées (proposition)
+## D-016 — Theming par propriétés personnalisées
 
 - Date : 2026-07-21
-- Statut : **Proposée**
+- Statut : **Acceptée** (directive du mainteneur du 2026-07-21 : « on fait TOUT ce qui
+  reste à faire », en réponse à la proposition explicitement soumise à arbitrage)
 - Complète : D-013
 
 ### Contexte
@@ -570,7 +571,7 @@ compatibilité sans besoin établi. L'option 2 est proposée : bornée, alignée
 sémantique déjà nommée par `tokens.ts`, et convergente avec `--drk-breakpoint-*` que le
 runtime lit déjà.
 
-### Décision proposée
+### Décision
 
 - Émettre dans `:root` les propriétés `--drk-color-{nom}` et `--drk-font-body` depuis les
   tokens, et faire consommer `var(--drk-…, <valeur actuelle>)` par les fragments.
@@ -587,8 +588,10 @@ runtime lit déjà.
   résolvent aux valeurs actuelles) et les gates complets G0-G15, dont G12/G13 navigateur.
 - Le contrat public s'étend : les noms `--drk-*` exposés deviennent des surfaces protégées
   (tout retrait ou renommage exigera une décision et une migration).
-- L'implémentation n'est pas autorisée tant que la présente décision n'est pas **Acceptée**
-  par le mainteneur.
+- Implémentée le 2026-07-21 : `src/styles/root-tokens.ts` ouvre la cascade avec les
+  propriétés publiées, `tokens.ts` sépare valeurs brutes (paletteValues, fontFamilyValues)
+  et références consommées (`var(--drk-…, <valeur héritée>)`) ; équivalence calculée
+  prouvée par les gates navigateur (G10-G13) et la matrice G7.
 
 ## Modèle d’une nouvelle décision
 

@@ -76,9 +76,12 @@ import { fragments as visibility } from './visibility';
 import { fragments as inverse } from './inverse';
 import { fragments as print } from './print';
 
+import { fragments as rootTokens } from '../root-tokens';
+
 export { banner as tablerBanner } from '../tabler';
 
 export const styles: GlobalStyleObject[] = [
+    ...rootTokens,
     ...tabler,
     ...base,
     ...link,

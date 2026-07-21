@@ -155,6 +155,40 @@ quatre artefacts (`tests/fixtures/panda-parity-proof.json`, outil
 
 D-013 amende D-007 et D-011 sur la source canonique des styles.
 
+### Theming par propriétés personnalisées (D-016)
+
+Le sous-ensemble sémantique des tokens est publié dans `:root` et consommé par la cascade
+via `var(--drk-…, <valeur héritée>)`. Ces noms sont des **surfaces protégées** :
+
+`--drk-color-text`, `--drk-color-emphasis`, `--drk-color-muted`, `--drk-color-inverse`,
+`--drk-color-background`, `--drk-color-muted-background`, `--drk-color-primary`,
+`--drk-color-secondary`, `--drk-color-success`, `--drk-color-warning`,
+`--drk-color-danger`, `--drk-font-body`.
+
+Une intégration rethème sans reconstruction ni réseau :
+
+```css
+:root {
+    --drk-color-primary: #7c3aed;
+}
+```
+
+Chemin mode sombre opt-in (extrait documenté, non distribué par défaut), cohérent avec la
+mécanique `.drk-light`/`.drk-dark` :
+
+```css
+@media (prefers-color-scheme: dark) {
+    :root {
+        --drk-color-background: #111;
+        --drk-color-text: #ccc;
+        --drk-color-emphasis: #fff;
+    }
+}
+```
+
+Les media queries n'acceptant pas `var()`, les breakpoints restent des constantes de
+génération (`src/styles/tokens.ts`).
+
 ## Place d’Elm
 
 Elm n’est pas un langage source du cœur du fork. Le réexamen du 2026-07-21, mené à la
