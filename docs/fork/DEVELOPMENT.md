@@ -282,6 +282,29 @@ TypeScript et la CSS compilée depuis les sources de styles, Less ou Panda selon
 du port. Le watcher ne remplace jamais `pnpm verify` : il privilégie la vitesse, ne minifie
 pas le runtime et ne lance pas les gates navigateur.
 
+## 7 bis. Matrice C0-C3 outillée (G7)
+
+`pnpm check-compat` exécute la matrice de compatibilité contre la référence de parité
+D-012 :
+
+- **C0/C1** — `build/fork/compat-snapshot.js` capture un snapshot structurel (balises,
+  classes triées, attributs normalisés, ARIA, texte direct) de chaque page du catalogue
+  `tests/` en LTR et RTL après boot, et le compare aux fixtures de
+  `tests/fixtures/compat/`. Les valeurs volatiles (ids générés, pixels de styles en ligne,
+  horodatages, compteurs de lecteurs vidéo) sont neutralisées ; les images distantes ne
+  sont pas attendues hors ligne.
+- **C2** — `build/fork/compat-scenarios.js` rejoue les scénarios d'interaction typés de
+  `tests/js/compat/scenarios/` (clic, clavier, focus, ARIA, destruction sans résidu),
+  chaque scénario partant d'une page rechargée.
+- **C3** — `build/fork/compat-api.js` instancie et détruit programmatiquement chaque
+  composant du registre public et vérifie l'expando `__drake__`.
+
+Les fixtures de `tests/fixtures/compat/` ont été capturées depuis la référence de parité
+(`fork/main` antérieur à D-012) via un worktree Git, la table de renommage étant appliquée
+aux traces (`--write --map --root <worktree>`). Une recapture n'est légitime qu'après une
+divergence **décidée** (nouvelle décision ou correction acceptée) et se fait alors depuis
+le dernier état vert de `fork/main`, jamais pour faire taire un écart inexpliqué.
+
 ## 8. Matrice de tests de compatibilité
 
 Les pages de `tests/` constituent le catalogue historique, renommé selon D-012. Elles doivent
@@ -314,7 +337,7 @@ La comparaison visuelle ne remplace pas les assertions de comportement et d’ac
 | G4 — Build             | `pnpm compile` : `drake.css`, `drake.min.css`, `drake.js`, `drake.min.js`                     | code, styles et release         |
 | G5 — RTL               | `pnpm compile-rtl` : `drake-rtl.css`, `drake-rtl.min.css`                                     | styles, composants et release   |
 | G6 — Assets            | `pnpm build-assets` puis `pnpm check-assets` : `drake-tabler-icons.css`, `drake-inter.css`    | assets, packaging et release    |
-| G7 — Compatibilité     | tests ciblés puis catalogue `tests/` LTR/RTL contre la référence de parité D-012              | runtime et release              |
+| G7 — Compatibilité     | `pnpm check-compat` : snapshots C0/C1 du catalogue (LTR/RTL), scénarios C2, boucle C3         | runtime et release              |
 | G8 — Légal             | versions, empreintes et notices contrôlées                                                    | assets et release               |
 | G9 — Reproductibilité  | second build, génération Panda comprise, puis `git diff --exit-code`                          | release                         |
 | G10 — Sources frontend | audit automatisé : TypeScript source uniquement, JavaScript navigateur seulement dans `dist/` | runtime et release              |
