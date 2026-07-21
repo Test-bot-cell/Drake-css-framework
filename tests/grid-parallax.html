@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Grid Parallax - UIkit tests</title>
-        <script src="js/test.js"></script>
+        <script src="../dist/js/tests/test.js"></script>
         <style>
 
             .uk-panel { height: 300px; }
@@ -142,30 +142,6 @@
 
         </div>
 
-        <script>
-            const {attr, $$, on} = UIkit.util;
-
-            on('#js-parallax-switcher', 'change', e =>
-                attr($$('.js-grid-parallax'), 'parallax', e.target.value)
-            );
-
-            on('#js-parallax-start-switcher', 'change', e =>
-                attr($$('.js-grid-parallax'), 'parallax-start', e.target.value)
-            );
-
-            on('#js-parallax-end-switcher', 'change', e =>
-                attr($$('.js-grid-parallax'), 'parallax-end', e.target.value)
-            );
-
-            on('#js-parallax-justify-switcher', 'change', e =>
-                attr($$('.js-grid-parallax'), 'parallax-justify', e.target.value)
-            );
-
-            on('#js-masonry-switcher', 'change', e =>
-                attr($$('.js-grid-parallax'), 'masonry', e.target.value)
-            );
-
-        </script>
 
     </body>
 </html>

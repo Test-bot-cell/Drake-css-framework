@@ -40,6 +40,8 @@
  ========================================================================== */
 
 .uk-overlay-icon {
+    --uk-icon-width: 40px;
+    --uk-icon-height: 40px;
     @if(meta.mixin-exists(hook-overlay-icon)) {@include hook-overlay-icon();}
 }
 

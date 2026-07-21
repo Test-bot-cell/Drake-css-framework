@@ -1,17 +1,8 @@
 {
-    "name": "uikit/uikit",
+    "name": "local/uikit-ts",
     "type": "library",
-    "description": "UIkit is a lightweight and modular front-end framework for developing fast and powerful web interfaces.",
+    "description": "Private TypeScript and mobile-first fork of UIkit 3.25.20.",
     "keywords": [],
-    "homepage": "https://getuikit.com/",
     "authors": [],
-    "support": {
-        "issues": "https://github.com/uikit/uikit/issues"
-    },
-    "license": "MIT",
-    "extra": {
-        "branch-alias": {
-            "dev-main": "3.0.x-dev"
-        }
-    }
+    "license": "MIT"
 }

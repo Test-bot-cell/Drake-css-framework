@@ -198,12 +198,12 @@ essentielles.
 
 Les validations utilisent quatre niveaux :
 
-| Niveau | Surface | Exigence |
-| --- | --- | --- |
-| C0 | CSS statique et balisage | Rendu et cascade sans runtime |
-| C1 | Déclaration `uk-*` | Initialisation et options équivalentes |
-| C2 | Interaction | Événements, clavier, focus, observers et transitions |
-| C3 | Programmation | API globale, méthodes, plugins et extensions documentés |
+| Niveau | Surface                  | Exigence                                                |
+| ------ | ------------------------ | ------------------------------------------------------- |
+| C0     | CSS statique et balisage | Rendu et cascade sans runtime                           |
+| C1     | Déclaration `uk-*`       | Initialisation et options équivalentes                  |
+| C2     | Interaction              | Événements, clavier, focus, observers et transitions    |
+| C3     | Programmation            | API globale, méthodes, plugins et extensions documentés |
 
 Une fonctionnalité n’est dite compatible que si tous les niveaux qui lui sont applicables
 sont validés.

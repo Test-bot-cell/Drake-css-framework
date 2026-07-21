@@ -1,96 +1,62 @@
-# Contributing to UIkit
+# Contribuer à UIkit TS
 
-You want to contribute to UIkit? Awesome. Please take a few moments to
-review the following guidelines to get you started. Cheers.
+UIkit TS est un fork de maintenance privé. Une contribution à ce dépôt suit d’abord la
+charte et les décisions locales ; elle ne doit jamais être proposée comme une release
+officielle UIkit sous l’identité de YOOtheme.
 
-* [Communication channels](#communication)
-* [Team members](#team)
-* [Documentation](#documentation)
-* [Issue tracker](#issues)
-* [Bug reports](#bugs)
-* [Pull requests](#pull-requests)
-* [Versioning](#versioning)
-* [License](#license)
+## Avant de modifier
 
-<a name="communication"></a>
-## Communication channels
+Lire, dans cet ordre :
 
-Before you get lost in the repository, here are a few starting points
-for you to check out. You might find that others have had similar
-questions or that your question rather belongs in one place than another.
+1. [`docs/fork/CHARTER.md`](docs/fork/CHARTER.md) ;
+2. [`docs/fork/DECISIONS.md`](docs/fork/DECISIONS.md) ;
+3. [AGENTS.md](AGENTS.md) ;
+4. les documents spécialisés sous `docs/fork/`.
 
-* Chat: https://discord.gg/NEt4Pv7
-* Website: https://getuikit.com
-* Twitter: https://twitter.com/getuikit
+Le cycle complet, les sources canoniques et les gates bloquants sont définis dans
+[`docs/fork/DEVELOPMENT.md`](docs/fork/DEVELOPMENT.md). Une incompatibilité volontaire exige
+une décision et une migration avant son implémentation.
 
+## Branches
 
-<a name="team"></a>
-## Team members
+`fork/main` est la branche stable locale. Une modification part d’une branche courte
+`feat/*`, `fix/*`, `refactor/*`, `test/*`, `docs/*` ou `chore/*`. Une synchronisation amont
+utilise exclusivement `sync/uikit-vX.Y.Z` et suit
+[`docs/fork/UPSTREAM.md`](docs/fork/UPSTREAM.md).
 
-UIkit is developed as an open source project by [YOOtheme](http://yootheme.com)
-in Hamburg, Germany. The core maintainers you will encounter in this project
-are all part of YOOtheme.
+Il est interdit de pousser vers le remote `upstream`, de déplacer un tag amont ou de
+réintroduire temporairement une source JavaScript navigateur.
 
-## Documentation
+## Validation
 
-The UIkit documentation is maintained as a collection of Markdown files in its
-[own repository](https://github.com/uikit/uikit-site). Any pull requests are highly appreciated.
+La chaîne de référence est Node.js 24.18.0 avec pnpm 11.4.0 :
 
-<a name="issues"></a>
-## Using the issue tracker
+```sh
+pnpm install --frozen-lockfile
+pnpm verify
+```
 
-The issue tracker is the preferred channel for [bug reports](#bugs),
-[features requests](#features) and [submitting pull
-requests](#pull-requests), but please respect the following restriction:
+Une contribution modifie la source canonique, régénère `src/scss/` et `dist/`, puis relit le
+diff. Lint, typecheck strict, builds LTR/RTL, assets, HTML sans runtime, reflow 320 px, SEO,
+performance et compatibilité d’icônes sont bloquants selon le périmètre. Un test neutralisé
+ou une sortie générée corrigée à la main n’est jamais une solution.
 
-Please **do not** use the issue tracker for personal support requests (use [Discord chat](https://discord.gg/NEt4Pv7)).
+## Commits
 
-<a name="bugs"></a>
-## Bug reports
+Les commits restent atomiques et utilisent les préfixes historiques : `build:`, `chore:`,
+`ci:`, `docs:`, `feat:`, `fix:`, `perf:`, `refactor:`, `style:` ou `test:`. Une conversion
+TypeScript, une correction comportementale et une régénération doivent rester distinguables
+dans l’historique.
 
-A bug is a _demonstrable problem_ that is caused by the code in the repository.
-Good bug reports are extremely helpful - thank you!
+## Problèmes propres à UIkit amont
 
-A good bug report shouldn't leave others needing to chase you up for more
-information. Please try to be as detailed as possible in your report. What is
-your environment? What steps will reproduce the issue? What would you expect to
-be the outcome? All these details will help people to fix any potential bugs.
+Un défaut reproductible qui ne dépend pas de TypeScript, Tabler, Inter ou des règles
+HTML/mobile/SEO du fork peut être proposé séparément au
+[projet UIkit officiel](https://github.com/uikit/uikit), en respectant ses propres règles. La
+provenance de tout correctif ensuite porté ici doit rester explicite.
 
-<a name="pull-requests"></a>
-## Pull requests
+## Licence
 
-Good pull requests - patches, improvements, new features - are a fantastic
-help. Thanks for taking the time to contribute.
-
-**Please ask first** before embarking on any significant pull request,
-otherwise you risk spending a lot of time working on something that the
-project's developers might not want to merge into the project.
-
-UIkit follows the [GitFlow branching model](http://nvie.com/posts/a-successful-git-branching-model). The ```main``` branch always reflects a production-ready state while the latest development is taking place in the ```develop``` branch.
-
-Each time you want to work on a fix or a new feature, create a new branch based on the ```develop``` branch: ```git checkout -b BRANCH_NAME develop```. Only pull requests to the ```develop``` branch will be merged.
-
-<a name="commit-message-convention"></a>
-## Commit Message Convention
-
-UIkit adapts the [Vue's commit convention](https://github.com/vuejs/vue/blob/dev/.github/COMMIT_CONVENTION.md). Commit messages can have the following types:
-
-- `build:` Changes that affect the build system or external dependencies
-- `chore:` Changes to readme, etc
-- `ci:` Changes to our CI configuration files and scripts
-- `docs:` Documentation only changes
-- `feat:` A new feature
-- `fix:` A bug fix
-- `perf:` A code change that improves performance
-- `refactor:` A code change that neither fixes a bug nor adds a feature
-- `style:` Changes that do not affect the meaning of the code (white-space, formatting, etc.)
-- `test:` Adding missing tests or correcting existing tests
-
-## Versioning
-
-UIkit is maintained by using the [Semantic Versioning Specification (SemVer)](http://semver.org).
-
-<a name="license"></a>
-## License
-
-By contributing your code, you agree to license your contribution under the [MIT license](LICENSE)
+Les contributions au code du fork sont fournies sous licence MIT, sauf mention applicable à
+un asset tiers. Les mentions UIkit, la licence MIT de Tabler Icons et la SIL OFL 1.1 d’Inter
+doivent être conservées.

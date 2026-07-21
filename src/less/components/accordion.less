@@ -106,9 +106,15 @@
  */
 
 .uk-accordion-default .uk-accordion-icon {
+    --uk-icon-width: 13px;
+    --uk-icon-height: 13px;
     flex: none;
     margin-left: auto;
     .hook-accordion-default-icon();
+}
+
+[aria-expanded="true"] .uk-accordion-icon {
+    --uk-ti-mask: var(--uk-tabler-icon-minus);
 }
 
 /*

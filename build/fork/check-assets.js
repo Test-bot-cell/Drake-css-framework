@@ -1,19 +1,49 @@
 import { Buffer } from 'node:buffer';
+import { execFile } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { readFile, readdir } from 'node:fs/promises';
+import { mkdtemp, readFile, readdir, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
 import { basename, dirname, join, resolve } from 'node:path';
 import process from 'node:process';
 import { fileURLToPath } from 'node:url';
+import { promisify } from 'node:util';
 
 const TABLER_VERSION = '3.45.0';
 const INTER_VERSION = '4.1';
 const EXPECTED_ICON_COUNT = 5112;
+const EXPECTED_PUBLIC_ALIAS_COUNT = 162;
+const EXPECTED_INTERNAL_ALIAS_COUNT = 22;
+const EXPECTED_RTL_ALIAS_COUNT = 14;
+const EXPECTED_CORE_TARGET_COUNT = 14;
+const EXPECTED_COMPONENT_BUNDLES = [
+    'countdown',
+    'filter',
+    'lightbox',
+    'lightbox-panel',
+    'notification',
+    'parallax',
+    'slider',
+    'slider-parallax',
+    'slideshow',
+    'slideshow-parallax',
+    'sortable',
+    'tooltip',
+    'upload',
+];
 const EXPECTED_TABLER_SOURCE_SHA256 =
     '02f2036fdca959639f74ac3827e283110b3232bb8f2dc5f4241f4b57d757afdc';
 // Deliberately update this only after reviewing an intentional Tabler asset refresh.
 const EXPECTED_TABLER_CSS_SHA256 =
-    '7a9b619655112d4743f4a9750d7ce6afcb960ecd7741b34b8ab7b476e53b6470';
+    '6b26d52f1cd938a5c797d01a6c8b0edaf09f4b328e331a1b519330210f2a551f';
+const EXPECTED_LICENSE_SHA256 = {
+    inter: 'cdad1abdaae7825b20ffd96fc7b20c13c2209c45cbb3721c10e955fc268c9918',
+    tabler: 'b740a1d46122672da62833e97f7e7c8a13fa85cbc7445b584b297cc00dde93db',
+    uikit: '1aad791f51d28f466734553711181c9f676877a1899a760ac07171718213cee2',
+};
 const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
+const execFileAsync = promisify(execFile);
+const DEFAULT_MAPPING = join(PROJECT_ROOT, 'src/icons/uikit-tabler.json');
+const DEFAULT_CORE_LESS = join(PROJECT_ROOT, 'src/less/components/tabler.less');
 const EXPECTED_INTER_FACES = {
     normal: {
         sha256: '693b77d4f32ee9b8bfc995589b5fad5e99adf2832738661f5402f9978429a8e3',
@@ -36,11 +66,19 @@ try {
     const dist = resolve(options.dist || join(PROJECT_ROOT, 'dist'));
     const iconsFile = resolve(options.iconsCss || join(dist, 'css/uikit-tabler-icons.css'));
     const interFile = resolve(options.interCss || join(dist, 'css/uikit-inter.css'));
+    const coreLessFile = resolve(options.coreLess || DEFAULT_CORE_LESS);
+    const mapping = await loadCompatibilityMapping(resolve(options.mapping || DEFAULT_MAPPING));
 
     await validatePackageVersion();
-    await validateTablerCss(iconsFile);
+    await validateLegalFiles();
+    const nativeIcons = await validateTablerCss(iconsFile, mapping);
+    await validateCoreLess(coreLessFile, mapping, nativeIcons);
+    await validateStyleSources();
     await validateInterCss(interFile);
     await validateDistFiles(dist);
+    await validateBuiltCoreCss(dist);
+    await validateDistManifest();
+    await validatePackageContents();
 
     console.log(
         `Asset checks passed: ${EXPECTED_ICON_COUNT} Tabler outline masks, ` +
@@ -52,7 +90,14 @@ try {
 }
 
 function parseArguments(argv) {
-    const result = { dist: null, help: false, iconsCss: null, interCss: null };
+    const result = {
+        coreLess: null,
+        dist: null,
+        help: false,
+        iconsCss: null,
+        interCss: null,
+        mapping: null,
+    };
 
     for (let index = 0; index < argv.length; index++) {
         const argument = argv[index];
@@ -63,7 +108,7 @@ function parseArguments(argv) {
         }
 
         const [name, inlineValue] = argument.split('=', 2);
-        if (!['--dist', '--icons-css', '--inter-css'].includes(name)) {
+        if (!['--core-less', '--dist', '--icons-css', '--inter-css', '--mapping'].includes(name)) {
             throw new Error(`Unknown argument: ${argument}`);
         }
 
@@ -89,6 +134,8 @@ Options:
   --dist <path>       Distribution root (default: dist)
   --icons-css <path>  Generated Tabler CSS
   --inter-css <path>  Generated Inter CSS
+  --mapping <path>    Canonical UIkit-to-Tabler mapping JSON
+  --core-less <path>  Generated core Tabler Less aliases
   -h, --help          Show this help
 `);
 }
@@ -108,7 +155,96 @@ async function validatePackageVersion() {
     }
 }
 
-async function validateTablerCss(file) {
+async function validateLegalFiles() {
+    const files = {
+        inter: join(PROJECT_ROOT, 'licenses/Inter-OFL-1.1.txt'),
+        tabler: join(PROJECT_ROOT, 'licenses/Tabler-Icons-MIT.txt'),
+        uikit: join(PROJECT_ROOT, 'LICENSE.md'),
+    };
+    for (const [name, file] of Object.entries(files)) {
+        const contents = await readFile(file);
+        const hash = createHash('sha256').update(contents).digest('hex');
+        assertEqual(hash, EXPECTED_LICENSE_SHA256[name], `${name} license hash`);
+    }
+
+    const packageTablerLicense = await readFile(
+        join(PROJECT_ROOT, 'node_modules/@tabler/icons/LICENSE'),
+    );
+    const packageTablerHash = createHash('sha256').update(packageTablerLicense).digest('hex');
+    assertEqual(packageTablerHash, EXPECTED_LICENSE_SHA256.tabler, 'Installed Tabler license hash');
+
+    const notices = await readFile(join(PROJECT_ROOT, 'THIRD_PARTY_NOTICES.md'), 'utf8');
+    for (const required of [
+        'following third-party assets',
+        `Tabler Icons ${TABLER_VERSION}`,
+        `Inter ${INTER_VERSION}`,
+        'licenses/Tabler-Icons-MIT.txt',
+        'licenses/Inter-OFL-1.1.txt',
+    ]) {
+        if (!notices.includes(required)) {
+            throw new Error(`THIRD_PARTY_NOTICES.md is missing: ${required}.`);
+        }
+    }
+}
+
+async function loadCompatibilityMapping(file) {
+    let mapping;
+
+    try {
+        mapping = JSON.parse(await readFile(file, 'utf8'));
+    } catch (error) {
+        throw new Error(`Unable to read the canonical icon mapping ${file}: ${error.message}`, {
+            cause: error,
+        });
+    }
+
+    assertObjectKeys(
+        mapping,
+        [
+            'version',
+            'tablerVersion',
+            'public',
+            'internal',
+            'backgrounds',
+            'stateTargets',
+            'brandDivergences',
+        ],
+        'Icon mapping',
+    );
+    assertEqual(mapping.version, 1, 'Icon mapping schema');
+    assertEqual(mapping.tablerVersion, TABLER_VERSION, 'Icon mapping Tabler version');
+    validateMappingGroup(mapping.public, EXPECTED_PUBLIC_ALIAS_COUNT, 'public');
+    validateMappingGroup(mapping.internal, EXPECTED_INTERNAL_ALIAS_COUNT, 'internal');
+    validateMappingGroup(mapping.backgrounds, 7, 'background');
+    validateMappingGroup(mapping.stateTargets, 2, 'state');
+    validateMappingGroup(mapping.brandDivergences, 6, 'brand divergence');
+
+    const aliases = [...Object.keys(mapping.public), ...Object.keys(mapping.internal)];
+    if (new Set(aliases).size !== aliases.length) {
+        throw new Error(`Public and internal UIkit icon aliases must not overlap.`);
+    }
+    for (const [alias, target] of Object.entries(mapping.brandDivergences)) {
+        assertEqual(mapping.public[alias], target, `Documented brand divergence ${alias}`);
+    }
+
+    return mapping;
+}
+
+function validateMappingGroup(group, expectedCount, label) {
+    if (!group || Object.getPrototypeOf(group) !== Object.prototype) {
+        throw new Error(`The ${label} icon mapping must be an object.`);
+    }
+
+    const entries = Object.entries(group);
+    assertEqual(entries.length, expectedCount, `${label} icon mapping count`);
+    for (const [alias, target] of entries) {
+        if (!isSafeIconName(alias) || !isSafeIconName(target)) {
+            throw new Error(`Unsafe ${label} icon mapping: ${alias} -> ${target}.`);
+        }
+    }
+}
+
+async function validateTablerCss(file, mapping) {
     const css = await readFile(file, 'utf8').catch((error) => {
         throw new Error(`Unable to read ${file}: ${error.message}`);
     });
@@ -117,7 +253,21 @@ async function validateTablerCss(file) {
     assertEqual(marker.version, TABLER_VERSION, 'Tabler marker version');
     assertEqual(marker.variant, 'outline', 'Tabler marker variant');
     assertEqual(marker.count, String(EXPECTED_ICON_COUNT), 'Tabler marker count');
-    assertMarkerKeys(marker, ['version', 'variant', 'count', 'source-sha256'], 'Tabler');
+    assertEqual(
+        marker['public-aliases'],
+        String(EXPECTED_PUBLIC_ALIAS_COUNT),
+        'Tabler public alias count',
+    );
+    assertEqual(
+        marker['internal-aliases'],
+        String(EXPECTED_INTERNAL_ALIAS_COUNT),
+        'Tabler internal alias count',
+    );
+    assertMarkerKeys(
+        marker,
+        ['version', 'variant', 'count', 'public-aliases', 'internal-aliases', 'source-sha256'],
+        'Tabler',
+    );
     assertEqual(
         marker['source-sha256'],
         EXPECTED_TABLER_SOURCE_SHA256,
@@ -134,7 +284,7 @@ async function validateTablerCss(file) {
     }
 
     const rulePattern =
-        /^\.uk-ti-([a-z0-9]+(?:-[a-z0-9]+)*) \{ --uk-ti-mask: url\("(data:image\/svg\+xml,[^"]+)"\); \}$/gm;
+        /^(\.uk-ti-([a-z0-9]+(?:-[a-z0-9]+)*)(?:,\n\.uk-ti\.uk-icon-alias-[a-z0-9]+(?:-[a-z0-9]+)*)*) \{ --uk-ti-mask: url\("(data:image\/svg\+xml,[^"]+)"\); \}$/gm;
     const matches = [...css.matchAll(rulePattern)];
     if (matches.length !== EXPECTED_ICON_COUNT) {
         throw new Error(
@@ -143,11 +293,23 @@ async function validateTablerCss(file) {
     }
 
     const names = new Set();
-    for (const [, name, dataUri] of matches) {
+    const nativeIcons = new Map();
+    const aliasMatches = [];
+    for (const [, selectors, name, dataUri] of matches) {
         if (names.has(name)) {
             throw new Error(`Duplicate Tabler CSS class: uk-ti-${name}`);
         }
         names.add(name);
+        nativeIcons.set(name, dataUri);
+        for (const selector of selectors.split(',\n').slice(1)) {
+            const alias = selector.match(
+                /^\.uk-ti\.uk-icon-alias-([a-z0-9]+(?:-[a-z0-9]+)*)$/,
+            )?.[1];
+            if (!alias) {
+                throw new Error(`Invalid compatibility selector grouped with uk-ti-${name}.`);
+            }
+            aliasMatches.push([null, alias, dataUri]);
+        }
 
         let svg;
         try {
@@ -167,9 +329,24 @@ async function validateTablerCss(file) {
         }
     }
 
+    const aliases = { ...mapping.public, ...mapping.internal };
+    validateAliasRules(aliasMatches, aliases, nativeIcons, 'UIkit compatibility');
+
+    const rtlAliases = expectedRtlAliases(aliases);
+    const rtlPattern =
+        /^:dir\(rtl\)\.uk-ti\.uk-icon-alias-([a-z0-9]+(?:-[a-z0-9]+)*) \{ --uk-ti-mask: url\("(data:image\/svg\+xml,[^"]+)"\); \}$/gm;
+    const rtlMatches = [...css.matchAll(rtlPattern)];
+    validateAliasRules(rtlMatches, rtlAliases, nativeIcons, 'RTL compatibility');
+    assertEqual(rtlMatches.length, EXPECTED_RTL_ALIAS_COUNT, 'RTL compatibility alias count');
+    assertEqual(
+        countMatches(css, /\.uk-ti\.uk-icon-alias-/g),
+        Object.keys(aliases).length + rtlMatches.length,
+        'Total UIkit compatibility selector count',
+    );
+
     const urls = readCssUrls(css);
     if (
-        urls.length !== EXPECTED_ICON_COUNT ||
+        urls.length !== EXPECTED_ICON_COUNT + rtlMatches.length ||
         urls.some((url) => !url.startsWith('data:image/svg+xml,'))
     ) {
         throw new Error(`Every Tabler URL must be an embedded SVG mask.`);
@@ -178,6 +355,219 @@ async function validateTablerCss(file) {
 
     const cssHash = createHash('sha256').update(css).digest('hex');
     assertEqual(cssHash, EXPECTED_TABLER_CSS_SHA256, 'Tabler canonical CSS hash');
+
+    return nativeIcons;
+}
+
+function validateAliasRules(matches, expected, nativeIcons, label) {
+    const seen = new Set();
+    const expectedEntries = Object.entries(expected);
+    assertEqual(matches.length, expectedEntries.length, `${label} alias count`);
+
+    for (const [, alias, dataUri] of matches) {
+        if (seen.has(alias)) {
+            throw new Error(`Duplicate ${label} alias: ${alias}.`);
+        }
+        seen.add(alias);
+
+        const target = expected[alias];
+        if (!target) {
+            throw new Error(`Unexpected ${label} alias: ${alias}.`);
+        }
+        assertEqual(dataUri, nativeIcons.get(target), `${label} alias ${alias} -> ${target}`);
+    }
+
+    for (const [alias] of expectedEntries) {
+        if (!seen.has(alias)) {
+            throw new Error(`Missing ${label} alias: ${alias}.`);
+        }
+    }
+}
+
+async function validateCoreLess(file, mapping, nativeIcons) {
+    const less = await readFile(file, 'utf8').catch((error) => {
+        throw new Error(`Unable to read ${file}: ${error.message}`);
+    });
+    const header =
+        `// Tabler Icons ${TABLER_VERSION} Outline; source SHA-256: ` +
+        EXPECTED_TABLER_SOURCE_SHA256;
+    if (
+        !less.includes('// Generated by build/fork/generate-tabler-icons.js. Do not edit by hand.')
+    ) {
+        throw new Error(`The generated core Tabler Less header is missing.`);
+    }
+    if (!less.includes(header)) {
+        throw new Error(`The generated core Tabler Less source marker is invalid.`);
+    }
+    const marker = readMarker(less, 'tabler-core');
+    assertMarkerKeys(marker, ['version', 'variant', 'targets', 'source-sha256'], 'Core Tabler');
+    assertEqual(marker.version, TABLER_VERSION, 'Core Tabler marker version');
+    assertEqual(marker.variant, 'outline', 'Core Tabler marker variant');
+    assertEqual(marker.targets, String(EXPECTED_CORE_TARGET_COUNT), 'Core Tabler target count');
+    assertEqual(marker['source-sha256'], EXPECTED_TABLER_SOURCE_SHA256, 'Core Tabler source hash');
+    if (!less.includes('MIT License') || !less.includes('Copyright (c)')) {
+        throw new Error(`The generated core Tabler Less must retain the MIT license notice.`);
+    }
+    if (/https?:|src\/images|\.svg(?:["')]|$)/i.test(less)) {
+        throw new Error(`The core Tabler Less must contain embedded masks only.`);
+    }
+
+    const expectedTargets = Object.fromEntries(
+        [
+            ...new Set([
+                ...Object.values(mapping.internal),
+                ...Object.values(mapping.backgrounds),
+                ...Object.values(mapping.stateTargets),
+            ]),
+        ]
+            .sort()
+            .map((target) => [target, target]),
+    );
+    assertEqual(
+        Object.keys(expectedTargets).length,
+        EXPECTED_CORE_TARGET_COUNT,
+        'Core Tabler target count',
+    );
+
+    const variablePattern =
+        /^@tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*): "(data:image\/svg\+xml,[^"]+)";$/gm;
+    const variables = collectRuleMap([...less.matchAll(variablePattern)], 'core Tabler variable');
+    assertSameKeys(variables, expectedTargets, 'Core Tabler variables');
+    for (const target of Object.keys(expectedTargets)) {
+        const expectedUri = nativeIcons
+            .get(target)
+            ?.replace('stroke%3D%22black%22', 'stroke%3D%22%23000%22');
+        assertEqual(variables[target], expectedUri, `Core Tabler variable ${target}`);
+    }
+
+    const customPropertyPattern =
+        /^\s+--uk-tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*): url\("@\{tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*)\}"\);$/gm;
+    const customProperties = collectRuleMap(
+        [...less.matchAll(customPropertyPattern)],
+        'core Tabler custom property',
+    );
+    assertSameKeys(customProperties, expectedTargets, 'Core Tabler custom properties');
+    for (const target of Object.keys(expectedTargets)) {
+        assertEqual(customProperties[target], target, `Core Tabler custom property ${target}`);
+    }
+
+    const aliasPattern =
+        /^\.uk-ti\.uk-icon-alias-([a-z0-9]+(?:-[a-z0-9]+)*) \{ --uk-ti-mask: var\(--uk-tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*)\); \}$/gm;
+    const aliases = collectRuleMap([...less.matchAll(aliasPattern)], 'core UIkit alias');
+    assertRuleTargets(aliases, mapping.internal, 'Core UIkit aliases');
+
+    const rtlPattern =
+        /^:dir\(rtl\)\.uk-ti\.uk-icon-alias-([a-z0-9]+(?:-[a-z0-9]+)*) \{ --uk-ti-mask: var\(--uk-tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*)\); \}$/gm;
+    const rtlAliases = collectRuleMap([...less.matchAll(rtlPattern)], 'core RTL UIkit alias');
+    assertRuleTargets(rtlAliases, expectedRtlAliases(mapping.internal), 'Core RTL UIkit aliases');
+
+    assertEqual(readCssUrls(less).length, EXPECTED_CORE_TARGET_COUNT, 'Core embedded mask count');
+}
+
+async function validateStyleSources() {
+    const roots = [join(PROJECT_ROOT, 'src/less'), join(PROJECT_ROOT, 'src/scss')];
+    const violations = [];
+    const historicalReference =
+        /(?:src\/|(?:\.\.\/)+)?images\/(?:backgrounds|components|icons)|(?:^|[^a-z-])svg-fill\s*\(|data-uri\(\s*['"]image\/svg\+xml|url\([^)]*\.svg(?:[?#)][^)]*)?\)/i;
+
+    for (const root of roots) {
+        await walkStyleFiles(root, async (file) => {
+            const source = await readFile(file, 'utf8');
+            const lines = source.split(/\r?\n/);
+            lines.forEach((line, index) => {
+                if (historicalReference.test(line)) {
+                    violations.push(`${file}:${index + 1}`);
+                }
+            });
+        });
+    }
+
+    if (violations.length) {
+        throw new Error(
+            `Historical SVG icon references remain in Less/SCSS: ${violations
+                .slice(0, 10)
+                .join(', ')}`,
+        );
+    }
+
+    const [lessImports, scssImports] = await Promise.all([
+        readFile(join(PROJECT_ROOT, 'src/less/components/_import.less'), 'utf8'),
+        readFile(join(PROJECT_ROOT, 'src/scss/components/_import.scss'), 'utf8'),
+    ]);
+    if (!lessImports.includes('@import "tabler.less";')) {
+        throw new Error(`The Less component graph does not import the generated Tabler masks.`);
+    }
+    if (!scssImports.includes('@import "tabler.scss";')) {
+        throw new Error(`The SCSS component graph does not import the generated Tabler masks.`);
+    }
+}
+
+async function walkStyleFiles(directory, visit) {
+    const entries = await readdir(directory, { withFileTypes: true });
+    for (const entry of entries) {
+        const file = join(directory, entry.name);
+        if (entry.isDirectory()) {
+            await walkStyleFiles(file, visit);
+        } else if (/\.(?:less|scss)$/i.test(entry.name)) {
+            await visit(file);
+        }
+    }
+}
+
+function collectRuleMap(matches, label) {
+    const rules = {};
+    for (const [, name, value] of matches) {
+        if (Object.hasOwn(rules, name)) {
+            throw new Error(`Duplicate ${label}: ${name}.`);
+        }
+        rules[name] = value;
+    }
+    return rules;
+}
+
+function assertRuleTargets(actual, expected, label) {
+    assertSameKeys(actual, expected, label);
+    for (const [alias, target] of Object.entries(expected)) {
+        assertEqual(actual[alias], target, `${label} ${alias}`);
+    }
+}
+
+function assertSameKeys(actual, expected, label) {
+    const actualKeys = Object.keys(actual).sort();
+    const expectedKeys = Object.keys(expected).sort();
+    if (
+        actualKeys.length !== expectedKeys.length ||
+        actualKeys.some((key, index) => key !== expectedKeys[index])
+    ) {
+        throw new Error(`${label} do not match the canonical mapping.`);
+    }
+}
+
+function expectedRtlAliases(aliases) {
+    const rtl = {};
+    for (const alias of Object.keys(aliases)) {
+        const counterpart = swapDirectionalAlias(alias);
+        if (counterpart !== alias && aliases[counterpart]) {
+            rtl[alias] = aliases[counterpart];
+        }
+    }
+    return rtl;
+}
+
+function swapDirectionalAlias(value) {
+    return swapWords(swapWords(value, 'left', 'right'), 'previous', 'next');
+}
+
+function swapWords(value, first, second) {
+    const placeholder = '\0';
+    return value
+        .replaceAll(first, placeholder)
+        .replaceAll(second, first)
+        .replaceAll(placeholder, second);
+}
+
+function isSafeIconName(name) {
+    return typeof name === 'string' && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name);
 }
 
 async function validateInterCss(file) {
@@ -315,8 +705,113 @@ async function validateDistFiles(dist) {
 
     if (prohibited.length) {
         throw new Error(
-            `Prohibited standalone font/SVG files in dist: ${prohibited.slice(0, 10).join(', ')}`,
+            `Prohibited legacy or standalone assets in dist: ${prohibited.slice(0, 10).join(', ')}`,
         );
+    }
+}
+
+async function validateBuiltCoreCss(dist) {
+    for (const name of [
+        'uikit.css',
+        'uikit.min.css',
+        'uikit-rtl.css',
+        'uikit-rtl.min.css',
+        'uikit-core.css',
+        'uikit-core.min.css',
+        'uikit-core-rtl.css',
+        'uikit-core-rtl.min.css',
+    ]) {
+        const file = join(dist, 'css', name);
+        const css = await readFile(file, 'utf8').catch((error) => {
+            throw new Error(`Unable to read ${file}: ${error.message}`);
+        });
+        if (
+            !css.includes(`Tabler Icons ${TABLER_VERSION}`) ||
+            !css.includes('MIT License') ||
+            !css.includes('Copyright (c)') ||
+            !css.includes('@uikit-fork-asset tabler-core')
+        ) {
+            throw new Error(`The built core stylesheet lacks its Tabler legal notice: ${file}.`);
+        }
+    }
+}
+
+async function validateDistManifest() {
+    await execFileAsync(process.execPath, ['build/fork/dist-manifest.js', '--check'], {
+        cwd: PROJECT_ROOT,
+        encoding: 'utf8',
+    });
+}
+
+async function validatePackageContents() {
+    const cacheDirectory = await mkdtemp(join(tmpdir(), 'uikit-ts-npm-pack-'));
+
+    try {
+        const { stdout } = await execFileAsync(
+            'npm',
+            ['pack', '--dry-run', '--ignore-scripts', '--json', '--cache', cacheDirectory],
+            {
+                cwd: PROJECT_ROOT,
+                encoding: 'utf8',
+                maxBuffer: 4 * 1024 * 1024,
+            },
+        );
+        const reports = JSON.parse(stdout);
+        const files = reports?.[0]?.files?.map(({ path }) => path) ?? [];
+
+        if (!files.length) {
+            throw new Error('npm pack returned no package file list.');
+        }
+
+        const prohibited = files.filter(
+            (file) =>
+                /(?:^|\/)\.cache\/fork-assets\//.test(file) ||
+                /(?:^|\/)reports\//.test(file) ||
+                /\.metrics\.json$/i.test(file) ||
+                /\.(?:svg|woff2?)$/i.test(file) ||
+                /^src\/images\/(?:backgrounds|components|icons)\/.*\.svg$/i.test(file) ||
+                /(?:^|\/)uikit-icons(?:-[^/]+)?(?:\.min)?\.js(?:\.map)?$/i.test(file),
+        );
+        if (prohibited.length) {
+            throw new Error(
+                `Prohibited standalone or transient assets in npm package: ${prohibited
+                    .slice(0, 10)
+                    .join(', ')}`,
+            );
+        }
+
+        const requiredFiles = [
+            'LICENSE.md',
+            'THIRD_PARTY_NOTICES.md',
+            'licenses/Inter-OFL-1.1.txt',
+            'licenses/Tabler-Icons-MIT.txt',
+            'dist/fork-manifest.json',
+            'dist/css/uikit-core.css',
+            'dist/css/uikit-core.min.css',
+            'dist/css/uikit-core-rtl.css',
+            'dist/css/uikit-core-rtl.min.css',
+            'dist/css/uikit-inter.css',
+            'dist/css/uikit-tabler-icons.css',
+            'dist/css/uikit.css',
+            'dist/css/uikit.min.css',
+            'dist/css/uikit-rtl.css',
+            'dist/css/uikit-rtl.min.css',
+            'dist/js/uikit-core.js',
+            'dist/js/uikit-core.min.js',
+            'dist/js/uikit.js',
+            'dist/js/uikit.min.js',
+            ...EXPECTED_COMPONENT_BUNDLES.flatMap((name) => [
+                `dist/js/components/${name}.js`,
+                `dist/js/components/${name}.min.js`,
+            ]),
+        ];
+        for (const required of requiredFiles) {
+            if (!files.includes(required)) {
+                throw new Error(`Required npm package asset is missing: ${required}.`);
+            }
+        }
+    } finally {
+        await rm(cacheDirectory, { force: true, recursive: true });
     }
 }
 
@@ -327,7 +822,10 @@ async function walk(directory, prohibited) {
 
     for (const entry of entries) {
         const file = join(directory, entry.name);
-        if (/\.(?:svg|woff2?)$/i.test(entry.name)) {
+        if (
+            /\.(?:svg|woff2?)$/i.test(entry.name) ||
+            /^uikit-icons(?:-[^/]+)?(?:\.min)?\.js(?:\.map)?$/i.test(entry.name)
+        ) {
             prohibited.push(file);
         }
         if (entry.isDirectory()) {
@@ -338,7 +836,7 @@ async function walk(directory, prohibited) {
 
 function readMarker(css, asset) {
     const matches = [
-        ...css.matchAll(new RegExp(`/\\* @uikit-fork-asset ${asset} ([^*]+)\\*/`, 'g')),
+        ...css.matchAll(new RegExp(`/\\*!? @uikit-fork-asset ${asset} ([^*]+)\\*/`, 'g')),
     ];
     if (matches.length !== 1) {
         throw new Error(`Expected one ${asset} asset marker, found ${matches.length}.`);
@@ -364,6 +862,18 @@ function assertMarkerKeys(marker, expected, label) {
     const wanted = [...expected].sort();
     if (actual.length !== wanted.length || actual.some((key, index) => key !== wanted[index])) {
         throw new Error(`${label} marker contains unexpected or duplicate fields.`);
+    }
+}
+
+function assertObjectKeys(object, expected, label) {
+    if (!object || Object.getPrototypeOf(object) !== Object.prototype) {
+        throw new Error(`${label} must be an object.`);
+    }
+
+    const actual = Object.keys(object).sort();
+    const wanted = [...expected].sort();
+    if (actual.length !== wanted.length || actual.some((key, index) => key !== wanted[index])) {
+        throw new Error(`${label} contains unexpected or missing fields.`);
     }
 }
 

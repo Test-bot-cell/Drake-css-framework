@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Sticky - UIkit tests</title>
-        <script src="js/test.js"></script>
+        <script src="../dist/js/tests/test.js"></script>
         <style>
 
             .container {
@@ -411,19 +411,6 @@
 
         </div>
 
-        <script>
-
-            const {$$, addClass, on, removeClass } = UIkit.util;
-
-            on('#js-height-switcher', 'change', (e) => {
-                const options = $$('option', e.target).map(({value}) => value);
-                for (const el of $$('.js-overflow-flip')) {
-                    removeClass(el, options);
-                    addClass(el, e.target.value);
-                }
-            });
-
-        </script>
 
     </body>
 </html>

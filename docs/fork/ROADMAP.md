@@ -47,7 +47,7 @@ pnpm 11.4.0.
 
 ### Critères de sortie
 
-- les huit documents normatifs sont cohérents et suivis ;
+- les neuf documents normatifs sont cohérents et suivis ;
 - `git rev-parse v3.25.20^{commit}` retourne le SHA de base ;
 - le tag de base local annoté est présent ;
 - la chaîne officielle est déclarée dans les fichiers de configuration ;
@@ -56,7 +56,11 @@ pnpm 11.4.0.
 
 ## Phase 1 — Référence de compatibilité
 
-- État : **Planifié**
+- État : **En cours**
+
+Avancement au 2026-07-21 : les régressions critiques du fork, le chargement Node sans globals
+navigateur et deux fixtures Chrome sont automatisés. La matrice interactive C0 à C3 de chaque
+page historique, notamment destruction/focus/RTL, reste à compléter avant release.
 
 ### Portée
 
@@ -84,11 +88,12 @@ pnpm 11.4.0.
 
 ## Phase 2 — Pipeline d’assets
 
-- État : **En cours**
+- État : **Terminé**
 
-Avancement au 2026-07-21 : les deux CSS, leurs générateurs et le gate d’intégrité sont en
-place. La phase reste ouverte jusqu'au remplacement de chaque icône interne et à la
-suppression complète des registres SVG JavaScript.
+Preuves au 2026-07-21 : 5 112 masques Outline et 184 alias CSS sont générés, les 190 fichiers
+SVG d'icônes historiques et `uikit-icons.js` sont supprimés, les 14 masques core gardent leur
+notice MIT après minification, Inter roman/italic est intégré, et `pnpm check-assets` audite
+également la packlist npm et ses notices.
 
 ### Portée
 
@@ -119,9 +124,9 @@ suppression complète des registres SVG JavaScript.
 
 - État : **En cours**
 
-Avancement au 2026-07-21 : le mode strict et deux utilitaires pilotes existent, mais la
-coexistence JavaScript précédemment admise est rendue non conforme par D-011. La phase reste
-ouverte jusqu'au port complet du runtime et au retrait de `allowJs` pour le frontend.
+Avancement au 2026-07-21 : le port source est complet, `allowJs` est retiré, le typecheck strict
+et le gate sans JavaScript auteur sont verts. La phase reste ouverte uniquement sur son critère
+de comparaison comportementale C0 à C3 exhaustive, suivi par la phase 1.
 
 ### Portée
 
@@ -146,7 +151,11 @@ ouverte jusqu'au port complet du runtime et au retrait de `allowJs` pour le fron
 
 ## Phase 4 — Utilitaires et noyau
 
-- État : **Planifié**
+- État : **En cours**
+
+Avancement au 2026-07-21 : `src/js/util/` et `src/js/api/` sont intégralement typés et le smoke
+SSR/Node est automatisé. Les scénarios complets de reconnexion, destruction et plugins restent
+à étendre dans la matrice de compatibilité.
 
 ### Portée
 
@@ -166,17 +175,22 @@ ouverte jusqu'au port complet du runtime et au retrait de `allowJs` pour le fron
 
 ## Phase 5 — Mixins et composants core
 
-- État : **Planifié**
+- État : **En cours**
+
+Avancement au 2026-07-21 : tous les mixins et composants core sont en TypeScript strict, les
+icônes internes utilisent les masques CSS et des régressions navigateur couvrent animation,
+props et cibles événement multiples. Les interactions C0 à C3 de chaque groupe restent le gate
+de sortie non atteint.
 
 ### Portée
 
 - typer les mixins transverses ;
 - adapter d’abord les composants stateless ou simples ;
 - adapter ensuite les groupes :
-  - modal, offcanvas, lightbox et tooltip ;
-  - drop, dropdown et dropnav ;
-  - slider, slideshow et parallax ;
-  - sticky, sortable et upload ;
+    - modal, offcanvas, lightbox et tooltip ;
+    - drop, dropdown et dropnav ;
+    - slider, slideshow et parallax ;
+    - sticky, sortable et upload ;
 - typer les entrées core.
 
 ### Critères de sortie
@@ -192,7 +206,12 @@ ouverte jusqu'au port complet du runtime et au retrait de `allowJs` pour le fron
 
 ## Phase 6 — Composants optionnels et types publics
 
-- État : **Planifié**
+- État : **En cours**
+
+Avancement au 2026-07-21 : les composants optionnels et les sources du catalogue navigateur
+sont portés en TypeScript ; la fixture mobile/SEO, les gates G10 à G13 et les bundles séparés
+sont présents. Les déclarations consommateur `.d.ts`, une éventuelle sortie ESM et la conversion
+des exemples indexables au profil complet restent à réaliser.
 
 ### Portée
 

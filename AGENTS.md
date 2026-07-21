@@ -11,8 +11,8 @@ niveau d’obligation. En cas de contradiction interne au dépôt, l’ordre de 
 1. `docs/fork/CHARTER.md` ;
 2. les décisions acceptées dans `docs/fork/DECISIONS.md` ;
 3. le présent fichier ;
-4. `docs/fork/DEVELOPMENT.md`, `docs/fork/MOBILE_FIRST_SEO.md` et
-   `docs/fork/UPSTREAM.md` ;
+4. `docs/fork/DEVELOPMENT.md`, `docs/fork/ICON_MIGRATION.md`,
+   `docs/fork/MOBILE_FIRST_SEO.md` et `docs/fork/UPSTREAM.md` ;
 5. `docs/fork/ROADMAP.md` et `FORK.md`.
 
 Une consigne explicite du mainteneur pour une tâche précise peut réduire le périmètre d’une
@@ -98,6 +98,8 @@ Le dépôt maintient un fork traçable de UIkit 3.25.20 dont :
 - L’espace de noms public **DOIT** rester `.uk-ti` pour la classe de base et
   `.uk-ti-{nom}` pour une icône. Son changement exige une décision formelle et une
   migration.
+- Les alias historiques, les divergences de marques et le remplacement de
+  `UIkit.icon.add` **DOIVENT** suivre `docs/fork/ICON_MIGRATION.md`.
 
 ### Typographie
 

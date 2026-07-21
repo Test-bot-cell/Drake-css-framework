@@ -46,7 +46,7 @@
 .uk-divider-icon {
     position: relative;
     height: $divider-icon-height;
-    @include svg-fill($internal-divider-icon-image, "#000", $divider-icon-color);
+    @include tabler-background($internal-divider-icon-image, $divider-icon-color);
     background-repeat: no-repeat;
     background-position: 50% 50%;
     @if(meta.mixin-exists(hook-divider-icon)) {@include hook-divider-icon();}

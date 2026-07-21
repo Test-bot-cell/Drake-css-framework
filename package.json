@@ -1,14 +1,28 @@
 {
-    "name": "uikit",
-    "title": "UIkit",
-    "description": "UIkit is a lightweight and modular front-end framework for developing fast and powerful web interfaces.",
+    "name": "uikit-ts",
+    "title": "UIkit TS local fork",
+    "description": "Private TypeScript, mobile-first UIkit 3.25.20 fork with CSS-only Tabler Outline icons and embedded Inter variable faces.",
     "version": "3.25.20",
     "private": true,
     "main": "dist/js/uikit.js",
     "style": "dist/css/uikit.css",
+    "files": [
+        "dist/css/*.css",
+        "dist/js/*.js",
+        "dist/js/components/*.js",
+        "dist/fork-manifest.json",
+        "src/icons/*.json",
+        "src/js/**/*.ts",
+        "src/less/**/*.less",
+        "src/scss/**/*.scss",
+        "docs/fork/*.md",
+        "licenses/*.txt",
+        "AGENTS.md",
+        "FORK.md",
+        "THIRD_PARTY_NOTICES.md"
+    ],
     "sideEffects": [
         "*.css",
-        "./src/js/*.js",
         "./src/js/*.ts",
         "./dist/**/*.js"
     ],
@@ -19,32 +33,37 @@
         "build-assets": "node build/fork/generate-tabler-icons.js && node build/fork/generate-inter-css.js",
         "build-icons-css": "node build/fork/generate-tabler-icons.js",
         "build-inter-css": "node build/fork/generate-inter-css.js",
+        "build-manifest": "node build/fork/dist-manifest.js",
         "check-assets": "node build/fork/check-assets.js",
+        "check-frontend": "node build/fork/check-frontend.js",
+        "check-node-runtime": "node build/fork/check-node-runtime.js",
         "compile": "pnpm compile-less && pnpm compile-js",
         "compile-js": "node build/build",
-        "compile-less": "pnpm icons && node build/less",
+        "compile-less": "node build/less",
         "compile-rtl": "pnpm compile-less rtl",
-        "icons": "node build/icons",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "prepack": "pnpm build-assets && pnpm build-scss && pnpm compile && pnpm compile-rtl && pnpm build-manifest && pnpm check-node-runtime && pnpm check-assets",
         "prefix": "node build/prefix",
         "scope": "node build/scope",
-        "release": "node build/release",
+        "verify": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm build-assets && pnpm build-scss && pnpm compile && pnpm compile-rtl && pnpm build-manifest && pnpm check-node-runtime && pnpm check-assets && pnpm check-frontend",
         "watch": "node build/watch.js"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/uikit/uikit.git"
+    "uikitFork": {
+        "upstream": "https://github.com/uikit/uikit.git",
+        "baseTag": "v3.25.20",
+        "baseCommit": "45cc430052ba967de8e9972507dee4d37701552d"
     },
     "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/uikit/uikit/issues"
-    },
-    "homepage": "https://getuikit.com",
     "packageManager": "pnpm@11.4.0",
+    "engines": {
+        "node": "24.18.0",
+        "pnpm": "11.4.0"
+    },
     "devDependencies": {
         "@eslint/js": "^10.0.1",
         "@rollup/plugin-alias": "^6.0.0",
         "@tabler/icons": "3.45.0",
-        "archiver": "^8.0.0",
         "camelcase": "^9.0.0",
         "clean-css": "^5.3.3",
         "esbuild": "^0.28.0",
@@ -61,9 +80,9 @@
         "rollup": "^4.53.5",
         "rollup-plugin-esbuild": "^6.2.1",
         "rtlcss": "^4.3.0",
-        "semver": "^7.7.3",
         "strip-css-comments": "^5.0.0",
         "svgo": "^4.0.0",
-        "typescript": "5.5.2"
+        "typescript": "5.5.2",
+        "typescript-eslint": "8.65.0"
     }
 }

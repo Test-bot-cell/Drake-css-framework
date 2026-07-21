@@ -2,10 +2,17 @@
 
 ## 1. Statut et portée
 
-Ce document est normatif pour le framework, ses composants, ses exemples, ses gabarits et
-toute intégration déclarée conforme. Il traduit la décision D-011 en critères vérifiables.
+Ce document est normatif pour le framework, ses composants, les exemples indexables, les
+gabarits et toute intégration déclarée conforme. Il traduit la décision D-011 en critères
+vérifiables.
 Il établit un socle technique d'explorabilité, d'accessibilité et de performance ; il ne
 promet aucun classement dans un moteur de recherche.
+
+Le catalogue historique `tests/` est un laboratoire local non distribué, non une collection
+d'URL indexables : ses pages ne sont pas tenues de répéter canonical et métadonnées SEO. Elles
+restent soumises aux gates de source TypeScript, de runtime, d'accessibilité et de responsive.
+Les fixtures `fork-mobile-seo.html` et `fork-assets.html` sont les références automatisées du
+contrat ; leur preuve ne vaut pas, à elle seule, certification de chaque intégration consommatrice.
 
 ## 2. Architecture HTML-first
 
@@ -36,7 +43,8 @@ une sémantique contradictoire.
 - Les scripts Node.js non distribués comme frontend peuvent rester en JavaScript.
 - Aucun contenu SEO, lien, canonical, directive robots ou donnée structurée ne dépend de
   l'exécution du bundle.
-- Les tests **DOIVENT** charger la page avec et sans JavaScript.
+- Les fixtures HTML-first de référence **DOIVENT** charger la page avec et sans runtime ; la
+  matrice historique complète cette preuve par des smokes et scénarios d'interaction ciblés.
 
 ## 4. CSS mobile-first
 
@@ -48,6 +56,32 @@ une cascade desktop-first corrigée avec `max-width` est interdite pour la mise 
 Les media queries liées à `prefers-reduced-motion`, `prefers-contrast`, `forced-colors`,
 `hover`, `pointer`, à l'impression ou à l'orientation peuvent employer la condition qui
 exprime correctement leur capacité et ne constituent pas une exception desktop-first.
+
+Une requête `max-width` est admissible uniquement pour une API responsive **bornée** dont la
+sémantique publique signifie explicitement « jusqu'à ce breakpoint », et non pour construire
+la mise en page de base d'un composant. Cela couvre les utilitaires opt-in de visibilité ou
+d'image de fond, sous réserve que :
+
+- l'utilitaire figure avec sa condition exacte et sa justification dans
+  `tests/fixtures/frontend-policy-allowlist.json` ;
+- il ne modifie pas le flux, les dimensions ou l'ordre de la mise en page de base ;
+- il ne soit jamais utilisé pour retirer du mobile un contenu, une action ou une métadonnée
+  disponible sur bureau ;
+- elle ne serve jamais à construire le comportement responsive d'un tableau.
+
+Un tableau intrinsèquement bidimensionnel conserve ses en-têtes et cellules. Sa base mobile
+fournit un défilement horizontal natif contenu dans le composant ou dans une région nommée et
+focusable ; une règle `min-width` peut rétablir la présentation de table sur grand écran. Son
+contenu ne doit ni être masqué ni être reconstruit par le runtime.
+
+Cette allowlist est fermée : toute nouvelle entrée exige une revue du contrat public. Une
+règle desktop-first historique protégée peut y être inventoriée pour produire un rapport
+actionnable, mais elle reste une dette et maintient G12 en échec jusqu'à sa migration.
+
+La feuille `uikit.css` contient les seuls masques Tabler nécessaires aux composants du noyau.
+Le catalogue complet `uikit-tabler-icons.css` est opt-in et **NE DOIT PAS** être chargé par
+défaut lorsqu'une page n'emploie qu'un sous-ensemble d'icônes ; son coût doit entrer dans le
+budget de la page qui le demande explicitement.
 
 À 320 pixels CSS :
 
@@ -116,11 +150,11 @@ rester directement chargeable et retourner son HTML complet avec le bon statut.
 
 Les objectifs au 75e percentile, séparément sur mobile et bureau, sont :
 
-| Mesure | Objectif maximal | Dimension protégée |
-| --- | ---: | --- |
-| LCP | 2,5 s | chargement du contenu principal |
-| INP | 200 ms | réactivité aux interactions |
-| CLS | 0,1 | stabilité visuelle |
+| Mesure | Objectif maximal | Dimension protégée              |
+| ------ | ---------------: | ------------------------------- |
+| LCP    |            2,5 s | chargement du contenu principal |
+| INP    |           200 ms | réactivité aux interactions     |
+| CLS    |              0,1 | stabilité visuelle              |
 
 La release **DOIT** comparer une mesure reproductible en laboratoire à la référence du fork.
 Les intégrations en production **DEVRAIENT** compléter ce gate avec des données terrain ; une

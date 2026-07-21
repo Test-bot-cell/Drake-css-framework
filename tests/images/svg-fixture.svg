@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <!-- Generic application artwork used to exercise uk-svg; this is not a framework icon set. -->
+    <path fill="none" stroke="currentColor" stroke-width="1.5" d="M3 4h18v16H3zM3 9h18M9 9v11" />
+
+    <symbol id="bars" viewBox="0 0 24 24">
+        <path d="M3 4h18v3H3zM3 10.5h18v3H3zM3 17h18v3H3z" />
+    </symbol>
+
+    <symbol id="outline" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="1.5" d="M4 4h16v16H4zM8 8h8v8H8z" />
+    </symbol>
+
+    <symbol id="stroke-path" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="1.5" d="M2 17C5 5 9 20 12 8s7 6 10-4" />
+    </symbol>
+</svg>

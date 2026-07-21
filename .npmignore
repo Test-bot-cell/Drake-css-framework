@@ -1,4 +1,5 @@
 /dist/*
+!/dist/fork-manifest.json
 !/dist/css/
 /dist/css/*
 !/dist/css/uikit.css
@@ -17,10 +18,9 @@
 !/dist/js/uikit.min.js
 !/dist/js/uikit-core.js
 !/dist/js/uikit-core.min.js
-!/dist/js/uikit-icons.js
-!/dist/js/uikit-icons.min.js
 !/dist/js/components/
 /.github
+/.cache/fork-assets/
 /node_modules
 /tests/js/test*
 /tests/css/*
@@ -28,3 +28,5 @@ custom
 themes.json
 .DS_Store
 /.idea
+/reports
+/tests/fixtures/*.metrics.json

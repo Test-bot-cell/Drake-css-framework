@@ -24,6 +24,8 @@
  */
 
 .uk-totop {
+    --uk-icon-width: 18px;
+    --uk-icon-height: 10px;
     padding: $totop-padding;
     color: $totop-color;
     @if(meta.mixin-exists(hook-totop)) {@include hook-totop();}

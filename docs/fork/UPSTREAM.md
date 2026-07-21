@@ -153,17 +153,17 @@ attendu qui inclut les sorties régénérées. Tout diff résiduel non expliqué
 
 ## 6. Zones de conflit connues
 
-| Zone | Risque | Règle |
-| --- | --- | --- |
-| `src/js/api/` | cycle de vie et types centraux | préserver le comportement puis adapter les types |
-| `src/js/util/` | très grand rayon d’impact | tests ciblés et conversion isolée |
-| `src/js/core/icon*` et `src/js/mixin/svg*` | mécanisme d’icônes divergent | ne pas réintroduire le catalogue SVG JS |
-| `src/less/components/variables.less` | Inter comme police globale | conserver la variable du fork |
-| `src/less/` et breakpoints | cascade amont potentiellement desktop-first | préserver la base 320 px et les enrichissements `min-width` |
-| exemples et gabarits | contenu ou navigation dépendants du runtime | préserver HTML initial, href, métadonnées et données structurées |
-| `build/` et `package.json` | TypeScript et générateurs d’assets | fusion manuelle, versions épinglées |
-| `src/scss/` et `dist/` | fichiers générés | résoudre dans les sources puis régénérer |
-| `tests/js/test.js` | bundle navigateur historique hors `dist/` | ne pas restaurer ; porter les tests en TypeScript |
+| Zone                                       | Risque                                      | Règle                                                            |
+| ------------------------------------------ | ------------------------------------------- | ---------------------------------------------------------------- |
+| `src/js/api/`                              | cycle de vie et types centraux              | préserver le comportement puis adapter les types                 |
+| `src/js/util/`                             | très grand rayon d’impact                   | tests ciblés et conversion isolée                                |
+| `src/js/core/icon*` et `src/js/mixin/svg*` | mécanisme d’icônes divergent                | ne pas réintroduire le catalogue SVG JS                          |
+| `src/less/components/variables.less`       | Inter comme police globale                  | conserver la variable du fork                                    |
+| `src/less/` et breakpoints                 | cascade amont potentiellement desktop-first | préserver la base 320 px et les enrichissements `min-width`      |
+| exemples et gabarits                       | contenu ou navigation dépendants du runtime | préserver HTML initial, href, métadonnées et données structurées |
+| `build/` et `package.json`                 | TypeScript et générateurs d’assets          | fusion manuelle, versions épinglées                              |
+| `src/scss/` et `dist/`                     | fichiers générés                            | résoudre dans les sources puis régénérer                         |
+| `tests/js/test.js`                         | bundle navigateur historique hors `dist/`   | ne pas restaurer ; porter les tests en TypeScript                |
 
 ## 7. Discipline visant à réduire la divergence
 

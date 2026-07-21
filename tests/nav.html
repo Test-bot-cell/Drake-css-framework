@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Nav - UIkit tests</title>
-        <script src="js/test.js"></script>
+        <script src="../dist/js/tests/test.js"></script>
     </head>
 
     <body>
@@ -469,19 +469,6 @@
 
         </div>
 
-        <script>
-
-            const {$$, addClass, on, removeClass } = UIkit.util;
-
-            on('#js-divider-switcher', 'change', (e) => {
-                const options = $$('option', e.target).map(({value}) => value);
-                for (const el of $$('.uk-nav')) {
-                    removeClass(el, options);
-                    addClass(el, e.target.value);
-                }
-            });
-
-        </script>
 
     </body>
 </html>

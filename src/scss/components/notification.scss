@@ -44,28 +44,18 @@
     position: fixed;
     top: $notification-position;
     left: $notification-position;
+    right: $notification-position;
     z-index: $notification-z-index;
     /* 2 */
     box-sizing: border-box;
-    width: $notification-width;
+    width: auto;
+    margin: 0;
     @if(meta.mixin-exists(hook-notification)) {@include hook-notification();}
 }
 
 
 /* Position modifiers
 ========================================================================== */
-
-.uk-notification-top-right,
-.uk-notification-bottom-right {
-    left: auto;
-    right: $notification-position;
-}
-
-.uk-notification-top-center,
-.uk-notification-bottom-center {
-    left: 50%;
-    margin-left: ($notification-width * -0.5);
-}
 
 .uk-notification-bottom-left,
 .uk-notification-bottom-right,
@@ -78,14 +68,24 @@
 /* Responsiveness
 ========================================================================== */
 
-/* Phones portrait and smaller */
-@media (max-width: $breakpoint-xsmall-max) {
+/* Phone landscape and bigger */
+@media (min-width: $breakpoint-small) {
 
     .uk-notification {
-        left: $notification-position;
+        right: auto;
+        width: $notification-width;
+    }
+
+    .uk-notification-top-right,
+    .uk-notification-bottom-right {
+        left: auto;
         right: $notification-position;
-        width: auto;
-        margin: 0;
+    }
+
+    .uk-notification-top-center,
+    .uk-notification-bottom-center {
+        left: 50%;
+        margin-left: ($notification-width * -0.5);
     }
 
 }

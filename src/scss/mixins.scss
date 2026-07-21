@@ -543,7 +543,7 @@
 @mixin hook-inverse-component-divider(){
 
     .uk-divider-icon {
-        @include svg-fill($internal-divider-icon-image, "#000", $inverse-divider-icon-color);
+        @include tabler-background($internal-divider-icon-image, $inverse-divider-icon-color);
         @if(meta.mixin-exists(hook-inverse-divider-icon)) {@include hook-inverse-divider-icon();}
     }
 
@@ -719,14 +719,14 @@
     // Select
     //
 
-    .uk-select:not([multiple]):not([size]) { @include svg-fill($internal-form-select-image, "#000", $inverse-form-select-icon-color); }
+    .uk-select:not([multiple]):not([size]) { @include tabler-background($internal-form-select-image, $inverse-form-select-icon-color); }
 
     //
     // Datalist
     //
 
     .uk-input[list]:hover,
-    .uk-input[list]:focus { @include svg-fill($internal-form-datalist-image, "#000", $inverse-form-datalist-icon-color); }
+    .uk-input[list]:focus { @include tabler-background($internal-form-datalist-image, $inverse-form-datalist-icon-color); }
 
     //
     // Radio and checkbox
@@ -762,9 +762,9 @@
     }
 
     // Icon
-    .uk-radio:checked { @include svg-fill($internal-form-radio-image, "#000", $inverse-form-radio-checked-icon-color); }
-    .uk-checkbox:checked { @include svg-fill($internal-form-checkbox-image, "#000", $inverse-form-radio-checked-icon-color); }
-    .uk-checkbox:indeterminate { @include svg-fill($internal-form-checkbox-indeterminate-image, "#000", $inverse-form-radio-checked-icon-color); }
+    .uk-radio:checked { @include tabler-background($internal-form-radio-image, $inverse-form-radio-checked-icon-color); }
+    .uk-checkbox:checked { @include tabler-background($internal-form-checkbox-image, $inverse-form-radio-checked-icon-color); }
+    .uk-checkbox:indeterminate { @include tabler-background($internal-form-checkbox-indeterminate-image, $inverse-form-radio-checked-icon-color); }
 
     // Label
     .uk-form-label {
@@ -1050,7 +1050,7 @@
     .uk-list-secondary > ::marker { color: $inverse-list-secondary-color !important; }
 
     .uk-list-bullet > ::before {
-        @include svg-fill($internal-list-bullet-image, "#000", $inverse-list-bullet-icon-color);
+        @include tabler-background($internal-list-bullet-image, $inverse-list-bullet-icon-color);
     }
 
     .uk-list-divider > :nth-child(n+2) {

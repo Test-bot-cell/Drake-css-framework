@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Progress - UIkit tests</title>
-        <script src="js/test.js"></script>
+        <script src="../dist/js/tests/test.js"></script>
     </head>
 
     <body>
@@ -35,25 +35,6 @@
 
         </div>
 
-        <script>
-            const {ready, $} = UIkit.util;
-
-            ready(() => {
-
-                const bar = $('#js-progressbar');
-                const animate = setInterval(() => {
-
-                    bar.value += 10;
-
-                    if (bar.value >= bar.max) {
-                        clearInterval(animate);
-                    }
-
-                }, 1000);
-
-            });
-
-        </script>
 
     </body>
 </html>

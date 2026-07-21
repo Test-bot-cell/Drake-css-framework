@@ -98,6 +98,8 @@ Les mécanismes de livraison suivants changent volontairement :
   composants, sont remplacées par des classes ou alias CSS Tabler Outline ;
 - aucun fichier `uikit-icons.js`, registre SVG JavaScript ou catalogue de chemins injectés
   par le runtime n'est distribué ;
+- l’API de registre `UIkit.icon.add(name, svg)` est supprimée ; une extension fournit ses
+  propres masques CSS, selon `docs/fork/ICON_MIGRATION.md` ;
 - la police du framework est Inter 4.1 variable, roman et italic ;
 - le source du runtime est exclusivement TypeScript ;
 - les styles suivent une progression mobile-first et le contrat HTML-first/SEO décrit dans
@@ -166,14 +168,34 @@ Le fork **NE DOIT PAS** contourner une CSP avec un CDN ou une récupération ré
 intégration plus restrictive doit pouvoir reconstruire les assets selon sa propre politique,
 sans modifier le contrat par défaut.
 
+### Chargement recommandé
+
+Inter et les styles du framework sont chargés explicitement afin que le navigateur découvre
+la fonte sans imposer le catalogue complet d'icônes à chaque page :
+
+```html
+<link rel="stylesheet" href="/dist/css/uikit-inter.css" />
+<link rel="stylesheet" href="/dist/css/uikit.css" />
+```
+
+`uikit.css` contient les masques Tabler utilisés par les composants du noyau. Une page qui
+emploie directement les classes publiques `.uk-ti-*` ajoute, et elle seule, le catalogue :
+
+```html
+<link rel="stylesheet" href="/dist/css/uikit-tabler-icons.css" />
+```
+
+L'amélioration progressive peut ensuite charger `/dist/js/uikit.js`, artefact compilé depuis
+les seules sources TypeScript. Aucun bundle d'icônes JavaScript n'est requis.
+
 ## Licences
 
-| Élément | Version | Licence | Obligation principale |
-| --- | --- | --- | --- |
-| UIkit | 3.25.20 | MIT | Conserver le copyright et le texte MIT amont |
-| Tabler Icons | 3.45.0 | MIT | Conserver la licence et l’attribution dans les sorties ou notices |
-| Inter | 4.1 | SIL OFL 1.1 | Conserver l’OFL et respecter le nom réservé « Inter » |
-| Modifications du fork | version du fork | MIT, sauf mention contraire | Ne pas retirer les droits amont ou tiers |
+| Élément               | Version         | Licence                     | Obligation principale                                             |
+| --------------------- | --------------- | --------------------------- | ----------------------------------------------------------------- |
+| UIkit                 | 3.25.20         | MIT                         | Conserver le copyright et le texte MIT amont                      |
+| Tabler Icons          | 3.45.0          | MIT                         | Conserver la licence et l’attribution dans les sorties ou notices |
+| Inter                 | 4.1             | SIL OFL 1.1                 | Conserver l’OFL et respecter le nom réservé « Inter »             |
+| Modifications du fork | version du fork | MIT, sauf mention contraire | Ne pas retirer les droits amont ou tiers                          |
 
 Les fontes Inter ne sont ni modifiées ni sous-ensemblées. Une fonte dérivée devrait porter
 un autre nom et ferait l’objet d’un amendement avant distribution.
@@ -204,6 +226,7 @@ reproductibles ou dont la provenance ne peut être démontrée bloquent la relea
 - `AGENTS.md` : règles immédiates pour toute intervention ;
 - `docs/fork/CHARTER.md` : constitution et invariants ;
 - `docs/fork/DEVELOPMENT.md` : cycle de développement et gates ;
+- `docs/fork/ICON_MIGRATION.md` : alias UIkit, usage Tabler CSS et rupture du registre SVG ;
 - `docs/fork/MOBILE_FIRST_SEO.md` : profil HTML-first, mobile-first et SEO technique ;
 - `docs/fork/UPSTREAM.md` : synchronisation avec UIkit ;
 - `docs/fork/DECISIONS.md` : registre des décisions acceptées ;

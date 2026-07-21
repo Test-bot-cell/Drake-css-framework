@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>UIkit TS — démonstration HTML-first et mobile-first</title>
+        <meta
+            name="description"
+            content="Page de référence UIkit TS rendue en HTML complet, navigable sans JavaScript et conçue mobile-first."
+        />
+        <meta name="robots" content="index,follow,max-image-preview:large" />
+        <meta name="theme-color" content="#1e87f0" />
+        <link rel="canonical" href="https://uikit-ts.example/tests/fork-mobile-seo.html" />
+        <link rel="stylesheet" href="../dist/css/uikit-inter.css" />
+        <link rel="stylesheet" href="../dist/css/uikit.css" />
+        <style>
+            .fork-skip-link {
+                position: absolute;
+                inset-inline-start: 0.5rem;
+                top: 0.5rem;
+                z-index: 1;
+                padding: 0.75rem;
+                transform: translateY(-200%);
+                background: #fff;
+            }
+
+            .fork-skip-link:focus {
+                transform: translateY(0);
+            }
+
+            .fork-layout {
+                display: grid;
+                gap: 1.5rem;
+            }
+
+            .fork-action {
+                min-width: 24px;
+                min-height: 24px;
+            }
+
+            .fork-table-region {
+                overflow-x: auto;
+            }
+
+            @media (min-width: 960px) {
+                .fork-layout {
+                    grid-template-columns: minmax(0, 2fr) minmax(16rem, 1fr);
+                    align-items: start;
+                }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .fork-skip-link {
+                    transition: none;
+                }
+            }
+        </style>
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "name": "UIkit TS — démonstration HTML-first et mobile-first",
+                "description": "Page de référence UIkit TS rendue en HTML complet, navigable sans JavaScript et conçue mobile-first.",
+                "url": "https://uikit-ts.example/tests/fork-mobile-seo.html",
+                "inLanguage": "fr",
+                "isPartOf": {
+                    "@type": "WebSite",
+                    "name": "UIkit TS",
+                    "url": "https://uikit-ts.example/"
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <a class="fork-skip-link" href="#contenu">Aller au contenu</a>
+
+        <header class="uk-section uk-section-primary uk-section-small">
+            <div class="uk-container">
+                <p class="uk-text-lead">UIkit TS</p>
+                <nav aria-label="Navigation principale">
+                    <ul class="uk-subnav" role="list">
+                        <li>
+                            <a href="./index.html">Composants</a>
+                        </li>
+                        <li>
+                            <a href="./fork-assets.html">Assets CSS</a>
+                        </li>
+                        <li>
+                            <a href="./fork-mobile-seo.html" aria-current="page"> Mobile et SEO </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main id="contenu" class="uk-section" tabindex="-1">
+            <div class="uk-container">
+                <nav aria-label="Fil d’Ariane">
+                    <ol class="uk-breadcrumb">
+                        <li><a href="./index.html">Tests</a></li>
+                        <li><span aria-current="page">Mobile et SEO</span></li>
+                    </ol>
+                </nav>
+
+                <div class="fork-layout">
+                    <article>
+                        <h1>Un document complet avant toute amélioration TypeScript</h1>
+                        <p class="uk-text-lead">
+                            Ce contenu, ses liens et ses replis natifs fonctionnent sans JavaScript.
+                            Le même document est présenté sur mobile et bureau.
+                        </p>
+
+                        <figure>
+                            <img
+                                src="./images/size1.jpg"
+                                width="900"
+                                height="600"
+                                alt="Cycliste descendant une route entre des collines"
+                                decoding="async"
+                                fetchpriority="high"
+                            />
+                            <figcaption>
+                                Une image dimensionnée réserve sa place et protège la stabilité
+                                visuelle.
+                            </figcaption>
+                        </figure>
+
+                        <section aria-labelledby="progressive-title">
+                            <h2 id="progressive-title">Amélioration progressive</h2>
+                            <p>
+                                Les interactions indispensables reposent sur HTML. TypeScript peut
+                                ensuite améliorer leur présentation sans devenir une condition
+                                d’accès.
+                            </p>
+                            <details>
+                                <summary class="fork-action">
+                                    Lire les critères disponibles sans runtime
+                                </summary>
+                                <ul>
+                                    <li>contenu et titres présents dans la réponse HTML ;</li>
+                                    <li>navigation fondée sur de vrais liens avec href ;</li>
+                                    <li>métadonnées et données structurées prérendues.</li>
+                                </ul>
+                            </details>
+                        </section>
+
+                        <section aria-labelledby="evidence-title">
+                            <h2 id="evidence-title">Preuves lisibles à toutes les largeurs</h2>
+                            <div
+                                class="fork-table-region"
+                                role="region"
+                                aria-label="Budget de performance"
+                                tabindex="0"
+                            >
+                                <table class="uk-table uk-table-divider uk-table-responsive">
+                                    <caption>
+                                        Objectifs Core Web Vitals au 75e percentile
+                                    </caption>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Mesure</th>
+                                            <th scope="col">Objectif</th>
+                                            <th scope="col">Dimension</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">LCP</th>
+                                            <td>2,5 s maximum</td>
+                                            <td>Chargement</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">INP</th>
+                                            <td>200 ms maximum</td>
+                                            <td>Réactivité</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">CLS</th>
+                                            <td>0,1 maximum</td>
+                                            <td>Stabilité visuelle</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </article>
+
+                    <aside
+                        class="uk-card uk-card-default uk-card-body"
+                        aria-labelledby="assets-title"
+                    >
+                        <h2 id="assets-title">Assets autonomes</h2>
+                        <p>
+                            <span
+                                class="uk-icon uk-ti uk-icon-alias-totop"
+                                aria-hidden="true"
+                            ></span>
+                            Inter variable <em>roman et italic</em> et les icônes internes Tabler
+                            sont chargés par CSS.
+                        </p>
+                        <p>
+                            <a
+                                class="fork-action uk-button uk-button-primary"
+                                href="./fork-assets.html"
+                            >
+                                Vérifier les assets
+                            </a>
+                        </p>
+                    </aside>
+                </div>
+            </div>
+        </main>
+
+        <footer class="uk-section uk-section-muted uk-section-small">
+            <div class="uk-container">
+                <p>
+                    <a href="../FORK.md">Lire le contrat du fork</a>
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

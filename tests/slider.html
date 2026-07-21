@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Slider - UIkit tests</title>
-        <script src="js/test.js"></script>
+        <script src="../dist/js/tests/test.js"></script>
         <style>
 
             .test > :nth-child(10n-9) > canvas { background: rgba(0,0,0,0.1); }
@@ -676,16 +676,6 @@
 
         </div>
 
-        <script>
-
-            const {attr, $$, on} = UIkit.util;
-            for (const attribute of ['finite', 'center', 'sets', 'active']) {
-                on(`#js-${attribute}-switcher`, 'change', e =>
-                    attr($$('[uk-slider]'), attribute, e.target.value)
-                );
-            }
-
-        </script>
 
     </body>
 </html>

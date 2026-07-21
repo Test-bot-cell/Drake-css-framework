@@ -101,6 +101,12 @@
     @if(meta.mixin-exists(hook-pagination-item-disabled)) {@include hook-pagination-item-disabled();}
 }
 
+.uk-pagination-next,
+.uk-pagination-previous {
+    --uk-icon-width: 7px;
+    --uk-icon-height: 12px;
+}
+
 
 // Hooks
 // ========================================================================

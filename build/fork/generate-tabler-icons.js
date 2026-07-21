@@ -8,10 +8,15 @@ import { fileURLToPath } from 'node:url';
 
 const TABLER_VERSION = '3.45.0';
 const EXPECTED_ICON_COUNT = 5112;
+const EXPECTED_PUBLIC_ALIAS_COUNT = 162;
+const EXPECTED_INTERNAL_ALIAS_COUNT = 22;
+const EXPECTED_BACKGROUND_COUNT = 7;
 const EXPECTED_SOURCE_SHA256 = '02f2036fdca959639f74ac3827e283110b3232bb8f2dc5f4241f4b57d757afdc';
 const CLASS_PREFIX = 'uk-ti';
 const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const DEFAULT_OUTPUT = join(PROJECT_ROOT, 'dist/css/uikit-tabler-icons.css');
+const DEFAULT_CORE_OUTPUT = join(PROJECT_ROOT, 'src/less/components/tabler.less');
+const DEFAULT_MAPPING = join(PROJECT_ROOT, 'src/icons/uikit-tabler.json');
 
 const options = parseArguments(process.argv.slice(2));
 
@@ -34,8 +39,8 @@ if (iconFiles.length !== EXPECTED_ICON_COUNT) {
 
 const license = loadPackageLicense(packageRoot);
 const sourceHash = createHash('sha256');
-const rules = [];
 const names = new Set();
+const iconData = new Map();
 
 for (const fileName of iconFiles) {
     const name = fileName.slice(0, -4);
@@ -53,8 +58,24 @@ for (const fileName of iconFiles) {
 
     const svg = normalizeOutlineSvg(source, fileName);
     const dataUri = `data:image/svg+xml,${encodeURIComponent(svg)}`;
-    rules.push(`.${CLASS_PREFIX}-${name} { --uk-ti-mask: url("${dataUri}"); }`);
+    iconData.set(name, { dataUri, svg });
 }
+
+const mapping = await loadCompatibilityMapping(options.mapping || DEFAULT_MAPPING, names);
+const aliases = { ...mapping.public, ...mapping.internal };
+const aliasesByTarget = {};
+for (const [alias, target] of Object.entries(aliases)) {
+    (aliasesByTarget[target] ||= []).push(alias);
+}
+const rules = [...iconData].map(([name, { dataUri }]) => {
+    const selectors = [
+        `.${CLASS_PREFIX}-${name}`,
+        ...(aliasesByTarget[name] || []).map((alias) => `.${CLASS_PREFIX}.uk-icon-alias-${alias}`),
+    ];
+
+    return `${selectors.join(',\n')} { --uk-ti-mask: url("${dataUri}"); }`;
+});
+const rtlAliasRules = renderRtlAliasRules(aliases, iconData);
 
 const output = resolve(options.output || DEFAULT_OUTPUT);
 const sourceDigest = sourceHash.digest('hex');
@@ -68,15 +89,24 @@ if (sourceDigest !== EXPECTED_SOURCE_SHA256) {
 
 const css = renderCss({
     license,
+    mapping,
+    rtlAliasRules,
     rules,
     sourceHash: sourceDigest,
 });
 
+const coreOutput = resolve(options.coreOutput || DEFAULT_CORE_OUTPUT);
+const coreLess = renderCoreLess(mapping, iconData, sourceDigest, license);
+
 await writeAtomic(output, css);
-console.log(`Generated ${iconFiles.length} Tabler outline masks in ${output}`);
+await writeAtomic(coreOutput, coreLess);
+console.log(
+    `Generated ${iconFiles.length} Tabler outline masks and ${Object.keys(aliases).length} ` +
+        `UIkit CSS aliases in ${output}; internal masks in ${coreOutput}`,
+);
 
 function parseArguments(argv) {
-    const result = { help: false, output: null, source: null };
+    const result = { coreOutput: null, help: false, mapping: null, output: null, source: null };
 
     for (let index = 0; index < argv.length; index++) {
         const argument = argv[index];
@@ -87,7 +117,7 @@ function parseArguments(argv) {
         }
 
         const [name, inlineValue] = argument.split('=', 2);
-        if (name !== '--source' && name !== '--output') {
+        if (!['--core-output', '--mapping', '--output', '--source'].includes(name)) {
             throw new Error(`Unknown argument: ${argument}`);
         }
 
@@ -96,7 +126,7 @@ function parseArguments(argv) {
             throw new Error(`Missing value for ${name}`);
         }
 
-        result[name.slice(2)] = value;
+        result[toCamelCase(name.slice(2))] = value;
     }
 
     return result;
@@ -110,10 +140,16 @@ Usage:
   node build/fork/generate-tabler-icons.js [options]
 
 Options:
-  --source <path>  @tabler/icons package root or icons/outline directory
-  --output <path>  Output CSS file (default: dist/css/uikit-tabler-icons.css)
-  -h, --help       Show this help
+  --source <path>       @tabler/icons package root or icons/outline directory
+  --mapping <path>      UIkit compatibility mapping JSON
+  --output <path>       Complete CSS catalogue output
+  --core-output <path>  Generated internal Less output
+  -h, --help            Show this help
 `);
+}
+
+function toCamelCase(value) {
+    return value.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
 }
 
 async function resolveSource(sourceOption) {
@@ -371,7 +407,158 @@ function assertSvgAttributes(actual, expected, element, fileName) {
     }
 }
 
-function renderCss({ license, rules, sourceHash }) {
+async function loadCompatibilityMapping(file, tablerNames) {
+    const source = await readFile(resolve(file), 'utf8').catch((error) => {
+        throw new Error(`Unable to read UIkit icon mapping ${file}: ${error.message}`);
+    });
+    let mapping;
+
+    try {
+        mapping = JSON.parse(source);
+    } catch (error) {
+        throw new Error(`Invalid UIkit icon mapping JSON in ${file}: ${error.message}`, {
+            cause: error,
+        });
+    }
+
+    if (mapping.version !== 1 || mapping.tablerVersion !== TABLER_VERSION) {
+        throw new Error(`Unexpected UIkit icon mapping schema or Tabler version in ${file}.`);
+    }
+
+    validateMappingGroup(mapping.public, EXPECTED_PUBLIC_ALIAS_COUNT, 'public', tablerNames);
+    validateMappingGroup(mapping.internal, EXPECTED_INTERNAL_ALIAS_COUNT, 'internal', tablerNames);
+    validateMappingGroup(mapping.backgrounds, EXPECTED_BACKGROUND_COUNT, 'background', tablerNames);
+    validateMappingGroup(mapping.stateTargets, 2, 'state', tablerNames);
+
+    const aliases = new Set([...Object.keys(mapping.public), ...Object.keys(mapping.internal)]);
+    if (aliases.size !== EXPECTED_PUBLIC_ALIAS_COUNT + EXPECTED_INTERNAL_ALIAS_COUNT) {
+        throw new Error(`Public and internal UIkit icon aliases must not overlap.`);
+    }
+
+    for (const [name, target] of Object.entries(mapping.brandDivergences || {})) {
+        if (mapping.public[name] !== target) {
+            throw new Error(`Invalid documented brand divergence ${name} -> ${target}.`);
+        }
+    }
+
+    return mapping;
+}
+
+function validateMappingGroup(group, expectedCount, label, tablerNames) {
+    if (!group || Object.getPrototypeOf(group) !== Object.prototype) {
+        throw new Error(`The ${label} UIkit icon mapping must be an object.`);
+    }
+
+    const entries = Object.entries(group);
+    if (entries.length !== expectedCount) {
+        throw new Error(
+            `Expected ${expectedCount} ${label} UIkit icon mappings, found ${entries.length}.`,
+        );
+    }
+
+    for (const [alias, target] of entries) {
+        if (!isSafeIconName(alias) || !isSafeIconName(target)) {
+            throw new Error(`Unsafe ${label} UIkit icon mapping ${alias} -> ${target}.`);
+        }
+        if (!tablerNames.has(target)) {
+            throw new Error(`Unknown Tabler target for ${label} UIkit icon ${alias}: ${target}.`);
+        }
+    }
+}
+
+function isSafeIconName(name) {
+    return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(name);
+}
+
+function renderRtlAliasRules(aliases, iconData) {
+    const rules = [];
+
+    for (const [alias] of Object.entries(aliases)) {
+        const rtlAlias = swapDirection(swapDirection(alias, 'left', 'right'), 'previous', 'next');
+        if (rtlAlias === alias || !aliases[rtlAlias]) {
+            continue;
+        }
+
+        const { dataUri } = iconData.get(aliases[rtlAlias]);
+        rules.push(
+            `:dir(rtl).${CLASS_PREFIX}.uk-icon-alias-${alias} { --uk-ti-mask: url("${dataUri}"); }`,
+        );
+    }
+
+    return rules;
+}
+
+function swapDirection(value, first, second) {
+    const placeholder = '\0';
+    return value
+        .replaceAll(first, placeholder)
+        .replaceAll(second, first)
+        .replaceAll(placeholder, second);
+}
+
+function renderCoreLess(mapping, iconData, sourceHash, license) {
+    const targets = new Set([
+        ...Object.values(mapping.internal),
+        ...Object.values(mapping.backgrounds),
+        ...Object.values(mapping.stateTargets),
+    ]);
+    const variables = [...targets]
+        .sort((left, right) => left.localeCompare(right, 'en'))
+        .map((target) => {
+            const { svg } = iconData.get(target);
+            const colorableSvg = svg.replace('stroke="black"', 'stroke="#000"');
+            return `@tabler-icon-${target}: "data:image/svg+xml,${encodeURIComponent(colorableSvg)}";`;
+        });
+    const customProperties = [...targets]
+        .sort((left, right) => left.localeCompare(right, 'en'))
+        .map((target) => `    --uk-tabler-icon-${target}: url("@{tabler-icon-${target}}");`);
+    const aliasRules = Object.entries(mapping.internal).map(
+        ([alias, target]) =>
+            `.${CLASS_PREFIX}.uk-icon-alias-${alias} { --uk-ti-mask: var(--uk-tabler-icon-${target}); }`,
+    );
+    const rtlRules = renderCoreRtlAliasRules(mapping.internal);
+
+    const legal = license
+        .split(/\r?\n/)
+        .map((line) => ` * ${line}`.trimEnd())
+        .join('\n');
+
+    return `/*!
+ * Tabler Icons ${TABLER_VERSION}, outline set used by UIkit core.
+ * Generated from @tabler/icons; do not edit by hand.
+${legal}
+ */
+/*! @uikit-fork-asset tabler-core version=${TABLER_VERSION} variant=outline targets=${targets.size} source-sha256=${sourceHash} */
+// Generated by build/fork/generate-tabler-icons.js. Do not edit by hand.
+// Tabler Icons ${TABLER_VERSION} Outline; source SHA-256: ${sourceHash}
+
+${variables.join('\n')}
+
+:root {
+${customProperties.join('\n')}
+}
+
+${aliasRules.join('\n')}
+${rtlRules.length ? `\n${rtlRules.join('\n')}\n` : ''}`;
+}
+
+function renderCoreRtlAliasRules(aliases) {
+    const rules = [];
+
+    for (const [alias] of Object.entries(aliases)) {
+        const rtlAlias = swapDirection(swapDirection(alias, 'left', 'right'), 'previous', 'next');
+        if (rtlAlias === alias || !aliases[rtlAlias]) {
+            continue;
+        }
+        rules.push(
+            `:dir(rtl).${CLASS_PREFIX}.uk-icon-alias-${alias} { --uk-ti-mask: var(--uk-tabler-icon-${aliases[rtlAlias]}); }`,
+        );
+    }
+
+    return rules;
+}
+
+function renderCss({ license, mapping, rtlAliasRules, rules, sourceHash }) {
     const legal = license
         .split(/\r?\n/)
         .map((line) => ` * ${line}`.trimEnd())
@@ -382,7 +569,7 @@ function renderCss({ license, rules, sourceHash }) {
  * Generated from @tabler/icons; do not edit by hand.
 ${legal}
  */
-/* @uikit-fork-asset tabler-icons version=${TABLER_VERSION} variant=outline count=${EXPECTED_ICON_COUNT} source-sha256=${sourceHash} */
+/* @uikit-fork-asset tabler-icons version=${TABLER_VERSION} variant=outline count=${EXPECTED_ICON_COUNT} public-aliases=${Object.keys(mapping.public).length} internal-aliases=${Object.keys(mapping.internal).length} source-sha256=${sourceHash} */
 
 .${CLASS_PREFIX} {
     display: inline-block;
@@ -402,7 +589,11 @@ ${legal}
     mask-size: 100% 100%;
 }
 
+/* Native Tabler classes and UIkit 3.25.20 compatibility aliases. */
 ${rules.join('\n')}
+
+/* Match UIkit's historical left/right and previous/next behavior in RTL. */
+${rtlAliasRules.join('\n')}
 `;
 }
 

@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Grid Masonry - UIkit tests</title>
-        <script src="js/test.js"></script>
+        <script src="../dist/js/tests/test.js"></script>
         <style>
 
             :nth-child(9n-8) > .uk-panel { height: 140px; background: rgba(0,0,0,0.1); }
@@ -68,13 +68,6 @@
 
         </div>
 
-        <script>
-            const {attr, $$, on} = UIkit.util;
-            on('#js-masonry-switcher', 'change', e =>
-                attr($$('.js-grid-masonry'), 'masonry', e.target.value)
-            );
-
-        </script>
 
     </body>
 </html>

@@ -105,7 +105,7 @@
     left: 0;
     width: $list-padding-left;
     height: $global-line-height * 1em;
-    @include svg-fill($internal-list-bullet-image, "#000", $list-bullet-icon-color);
+    @include tabler-background($internal-list-bullet-image, $list-bullet-icon-color);
     background-repeat: no-repeat;
     background-position: 50% 50%;
 }

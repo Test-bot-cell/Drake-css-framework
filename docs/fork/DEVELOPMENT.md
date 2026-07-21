@@ -152,10 +152,10 @@ L’ordre recommandé est :
 4. mixins transverses ;
 5. composants core simples ;
 6. groupes à état partagé :
-   - modal, offcanvas, lightbox et tooltip ;
-   - slider, slideshow et parallax ;
-   - drop, dropdown et dropnav ;
-   - sticky, sortable et upload ;
+    - modal, offcanvas, lightbox et tooltip ;
+    - slider, slideshow et parallax ;
+    - drop, dropdown et dropnav ;
+    - sticky, sortable et upload ;
 7. composants optionnels et entrées de bundle ;
 8. types publics et sortie ESM additionnelle ;
 9. suppression de toute entrée, fixture ou bundle navigateur historique hors de `dist/`.
@@ -194,6 +194,7 @@ test d’échec.
 - remplace les icônes internes sans registre, bundle ou injection SVG JavaScript.
 
 Un changement de tri doit produire une sortie déterministe.
+La migration des consommateurs et les divergences d’alias suivent `ICON_MIGRATION.md`.
 
 ### 6.2 Inter
 
@@ -219,46 +220,71 @@ Les points d’entrée attendus sont :
 
 La CSS générée n’est jamais éditée à la main.
 
+### 6.4 Validation locale complète
+
+La commande canonique avant revue est :
+
+    pnpm verify
+
+Elle contrôle le formatage, exécute le lint JavaScript/TypeScript et le typecheck strict sans
+émission, puis la génération SCSS et des assets CSS, les builds LTR/RTL, les contrôles
+d’assets et les gates frontend dans Chrome aux largeurs 320 et 1 440 pixels. Le serveur
+utilisé par ce dernier contrôle écoute uniquement sur une adresse locale et est arrêté après
+la mesure.
+
+La reproductibilité G9 reste un contrôle séparé : repartir d’un arbre Git propre, exécuter
+`pnpm verify` une seconde fois, puis exiger un `git diff --exit-code` vide.
+
+Les seuils, viewports et allowlists sont versionnés dans `tests/fixtures/`. Les mesures Chrome
+propres à une machine (`*.metrics.json`) et les rapports détaillés de `reports/` sont des preuves
+locales régénérées et ignorées par Git : leurs temps bruts ne sont pas bit-à-bit reproductibles.
+G9 porte sur les sources et artefacts déterministes suivis, tandis que G13 réévalue les budgets à
+chaque exécution.
+
+Pendant le développement, `pnpm watch` maintient en parallèle les bundles issus des sources
+TypeScript et la CSS compilée depuis Less. Le watcher ne remplace jamais `pnpm verify` : il
+privilégie la vitesse, ne minifie pas le runtime et ne lance pas les gates navigateur.
+
 ## 7. Matrice de tests de compatibilité
 
 Les pages de `tests/` constituent le catalogue historique. Elles doivent être validées au
 minimum dans les modes suivants pour une release candidate :
 
-| Axe | Cas minimaux |
-| --- | --- |
-| Direction | LTR et RTL |
-| Entrée | souris, clavier et tactile lorsque pertinent |
-| Cycle DOM | présent au chargement, ajouté, retiré, reconnecté |
-| API | attribut, initialisation programmatique, destruction |
-| Accessibilité | focus, nom, rôle, état, ordre clavier |
-| Responsive | petit et grand viewport, resize |
-| Assets | icône courante, `brand-*` Outline, roman, italic |
-| Sans runtime | HTML, contenu, liens, navigation et replis natifs |
-| Mobile-first | reflow 320 px, zoom 400 %, cibles et enrichissements `min-width` |
-| SEO | metadata, canonical, robots, statuts, href, titres, images et données structurées |
-| Performance | LCP, CLS, proxy INP en laboratoire et données terrain disponibles |
+| Axe           | Cas minimaux                                                                      |
+| ------------- | --------------------------------------------------------------------------------- |
+| Direction     | LTR et RTL                                                                        |
+| Entrée        | souris, clavier et tactile lorsque pertinent                                      |
+| Cycle DOM     | présent au chargement, ajouté, retiré, reconnecté                                 |
+| API           | attribut, initialisation programmatique, destruction                              |
+| Accessibilité | focus, nom, rôle, état, ordre clavier                                             |
+| Responsive    | petit et grand viewport, resize                                                   |
+| Assets        | icône courante, `brand-*` Outline, roman, italic                                  |
+| Sans runtime  | HTML, contenu, liens, navigation et replis natifs                                 |
+| Mobile-first  | reflow 320 px, zoom 400 %, cibles et enrichissements `min-width`                  |
+| SEO           | metadata, canonical, robots, statuts, href, titres, images et données structurées |
+| Performance   | LCP, CLS, proxy INP en laboratoire et données terrain disponibles                 |
 
 La comparaison visuelle ne remplace pas les assertions de comportement et d’accessibilité.
 
 ## 8. Gates
 
-| Gate | Commande ou preuve | Bloquant pour |
-| --- | --- | --- |
-| G0 — Périmètre | `git status` et diff relu | toute contribution |
-| G1 — Dépendances | `pnpm install --frozen-lockfile` sous Node.js 24.18.0 | build et release |
-| G2 — Lint | `pnpm exec eslint .` | code et scripts |
-| G3 — Types | `pnpm exec tsc --noEmit` | runtime TypeScript |
-| G4 — Build | `pnpm compile` | code, styles et release |
-| G5 — RTL | `pnpm compile-rtl` | styles, composants et release |
-| G6 — Assets | `pnpm build-assets` puis `pnpm check-assets` | assets, packaging et release |
-| G7 — Compatibilité | tests ciblés puis catalogue `tests/` LTR/RTL | runtime et release |
-| G8 — Légal | versions, empreintes et notices contrôlées | assets et release |
-| G9 — Reproductibilité | second build puis `git diff --exit-code` | release |
-| G10 — Sources frontend | audit automatisé : TypeScript source uniquement, JavaScript navigateur seulement dans `dist/` | runtime et release |
-| G11 — HTML et SEO | HTML HTTP/prérendu, sans runtime, statuts, liens, métadonnées et données structurées | composants, exemples et release |
-| G12 — Mobile-first | reflow 320 px/400 %, cibles, LTR/RTL et parité mobile/bureau | styles, composants et release |
-| G13 — Performance | comparaison LCP/CLS/TBT laboratoire et revue LCP/INP/CLS terrain disponible | composants et release |
-| G14 — Icônes héritées | aucun registre SVG JS ; toutes les icônes livrées résolues vers Tabler CSS | assets, composants et release |
+| Gate                   | Commande ou preuve                                                                            | Bloquant pour                   |
+| ---------------------- | --------------------------------------------------------------------------------------------- | ------------------------------- |
+| G0 — Périmètre         | `git status` et diff relu                                                                     | toute contribution              |
+| G1 — Dépendances       | `pnpm install --frozen-lockfile` sous Node.js 24.18.0                                         | build et release                |
+| G2 — Lint              | `pnpm exec eslint .`                                                                          | code et scripts                 |
+| G3 — Types             | `pnpm exec tsc --noEmit`                                                                      | runtime TypeScript              |
+| G4 — Build             | `pnpm compile`                                                                                | code, styles et release         |
+| G5 — RTL               | `pnpm compile-rtl`                                                                            | styles, composants et release   |
+| G6 — Assets            | `pnpm build-assets` puis `pnpm check-assets`                                                  | assets, packaging et release    |
+| G7 — Compatibilité     | tests ciblés puis catalogue `tests/` LTR/RTL                                                  | runtime et release              |
+| G8 — Légal             | versions, empreintes et notices contrôlées                                                    | assets et release               |
+| G9 — Reproductibilité  | second build puis `git diff --exit-code`                                                      | release                         |
+| G10 — Sources frontend | audit automatisé : TypeScript source uniquement, JavaScript navigateur seulement dans `dist/` | runtime et release              |
+| G11 — HTML et SEO      | HTML HTTP/prérendu, sans runtime, statuts, liens, métadonnées et données structurées          | composants, exemples et release |
+| G12 — Mobile-first     | reflow 320 px/400 %, cibles, LTR/RTL et parité mobile/bureau                                  | styles, composants et release   |
+| G13 — Performance      | comparaison LCP/CLS/TBT laboratoire et revue LCP/INP/CLS terrain disponible                   | composants et release           |
+| G14 — Icônes héritées  | aucun registre SVG JS ; toutes les icônes livrées résolues vers Tabler CSS                    | assets, composants et release   |
 
 Un changement documentaire seul exécute G0 et une revue de cohérence. Il n’a pas à
 régénérer les artefacts s’il ne modifie aucune règle consommée par un générateur.
@@ -281,6 +307,11 @@ Une modification est terminée lorsque :
 - le compte rendu permet à une autre personne de reproduire la validation.
 
 ## 10. Préparation d’une release
+
+Les scripts de publication de l’amont sont volontairement absents : aucun automatisme local ne
+doit pousser vers `uikit/uikit`, `main`, `develop` ou créer une release GitHub. Tant qu’un nom de
+paquet, un dépôt distant et une autorité de publication propres au fork n’ont pas été décidés, le
+manifeste reste privé et la préparation s’arrête à un paquet local audité.
 
 Une release candidate exige en plus :
 
