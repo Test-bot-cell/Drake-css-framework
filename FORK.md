@@ -286,9 +286,16 @@ SVG Tabler.
 
 - version : 4.1 exacte ;
 - faces : variable roman et variable italic ;
-- sortie : `dist/css/drake-inter.css` ;
-- technique : deux sources WOFF2 encodées dans des `data:` URI ;
-- fichiers interdits dans la distribution : `.woff` et `.woff2` autonomes.
+- sorties (D-022) : `dist/css/drake-inter-files.css` + quatre fichiers
+  `dist/fonts/*.woff2` subsettés (latin et latin-ext, axes variables conservés,
+  `unicode-range`) — **chargement recommandé** ; et `dist/css/drake-inter.css`
+  (sources WOFF2 en `data:` URI) — option mono-fichier ;
+- intégrité : les quatre fichiers WOFF2 distribués sont épinglés par empreinte SHA-256
+  dans `check-assets` ; tout autre fichier de fonte reste interdit dans la
+  distribution ;
+- licence : Inter est sous OFL 1.1 **sans Reserved Font Name** ; les subsets sont des
+  « Modified Versions » licites, signalées dans la bannière légale générée, l'OFL
+  complète accompagnant chaque sortie.
 
 La CSS contient donc des octets WOFF2 encodés, mais aucun fichier de fonte externe n’est
 livré ou chargé à l’exécution.
