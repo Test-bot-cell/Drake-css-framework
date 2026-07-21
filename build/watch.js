@@ -1,7 +1,7 @@
 import { execFileSync, spawn } from 'node:child_process';
 import fs from 'node:fs';
 
-const stopLessWatcher = watch('src/less', '.less', ['build/less.js']);
+const stopLessWatcher = watch('src/styles', '.ts', ['build/panda.js']);
 const runtime = spawn(process.execPath, ['build/build.js', 'watch', 'nominify'], {
     stdio: 'inherit',
 });

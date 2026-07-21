@@ -24,6 +24,6 @@ themes.json
 /.idea
 /.vscode
 /.cachebro
-/.cache/fork-assets/
+/.cache/
 /reports/
 /tests/fixtures/*.metrics.json

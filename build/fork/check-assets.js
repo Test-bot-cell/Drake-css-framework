@@ -43,7 +43,7 @@ const EXPECTED_LICENSE_SHA256 = {
 const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const execFileAsync = promisify(execFile);
 const DEFAULT_MAPPING = join(PROJECT_ROOT, 'src/icons/drake-tabler.json');
-const DEFAULT_CORE_LESS = join(PROJECT_ROOT, 'src/less/components/tabler.less');
+const DEFAULT_CORE_LESS = join(PROJECT_ROOT, 'src/styles/tabler.ts');
 const EXPECTED_INTER_FACES = {
     normal: {
         sha256: '693b77d4f32ee9b8bfc995589b5fad5e99adf2832738661f5402f9978429a8e3',
@@ -429,43 +429,39 @@ async function validateCoreLess(file, mapping, nativeIcons) {
         'Core Tabler target count',
     );
 
-    const variablePattern =
-        /^@tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*): "(data:image\/svg\+xml,[^"]+)";$/gm;
-    const variables = collectRuleMap([...less.matchAll(variablePattern)], 'core Tabler variable');
-    assertSameKeys(variables, expectedTargets, 'Core Tabler variables');
-    for (const target of Object.keys(expectedTargets)) {
-        const expectedUri = nativeIcons
-            .get(target)
-            ?.replace('stroke%3D%22black%22', 'stroke%3D%22%23000%22');
-        assertEqual(variables[target], expectedUri, `Core Tabler variable ${target}`);
-    }
-
     const customPropertyPattern =
-        /^\s+--drk-tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*): url\("@\{tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*)\}"\);$/gm;
+        /"--drk-tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*)": "url\(\\"(data:image\/svg\+xml,[^"\\]+)\\"\)"/g;
     const customProperties = collectRuleMap(
         [...less.matchAll(customPropertyPattern)],
         'core Tabler custom property',
     );
     assertSameKeys(customProperties, expectedTargets, 'Core Tabler custom properties');
     for (const target of Object.keys(expectedTargets)) {
-        assertEqual(customProperties[target], target, `Core Tabler custom property ${target}`);
+        const expectedUri = nativeIcons
+            .get(target)
+            ?.replace('stroke%3D%22black%22', 'stroke%3D%22%23000%22');
+        assertEqual(customProperties[target], expectedUri, `Core Tabler custom property ${target}`);
     }
 
     const aliasPattern =
-        /^\.drk-ti\.drk-icon-alias-([a-z0-9]+(?:-[a-z0-9]+)*) \{ --drk-ti-mask: var\(--drk-tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*)\); \}$/gm;
+        /"\.drk-ti\.drk-icon-alias-([a-z0-9]+(?:-[a-z0-9]+)*)":\s*\{\s*"--drk-ti-mask":\s*"var\(--drk-tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*)\)"\s*\}/g;
     const aliases = collectRuleMap([...less.matchAll(aliasPattern)], 'core Drake alias');
     assertRuleTargets(aliases, mapping.internal, 'Core Drake aliases');
 
     const rtlPattern =
-        /^:dir\(rtl\)\.drk-ti\.drk-icon-alias-([a-z0-9]+(?:-[a-z0-9]+)*) \{ --drk-ti-mask: var\(--drk-tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*)\); \}$/gm;
+        /":dir\(rtl\)\.drk-ti\.drk-icon-alias-([a-z0-9]+(?:-[a-z0-9]+)*)":\s*\{\s*"--drk-ti-mask":\s*"var\(--drk-tabler-icon-([a-z0-9]+(?:-[a-z0-9]+)*)\)"\s*\}/g;
     const rtlAliases = collectRuleMap([...less.matchAll(rtlPattern)], 'core RTL Drake alias');
     assertRuleTargets(rtlAliases, expectedRtlAliases(mapping.internal), 'Core RTL Drake aliases');
 
-    assertEqual(readCssUrls(less).length, EXPECTED_CORE_TARGET_COUNT, 'Core embedded mask count');
+    assertEqual(
+        [...less.matchAll(/data:image\/svg\+xml,/g)].length,
+        EXPECTED_CORE_TARGET_COUNT,
+        'Core embedded mask count',
+    );
 }
 
 async function validateStyleSources() {
-    const roots = [join(PROJECT_ROOT, 'src/less'), join(PROJECT_ROOT, 'src/scss')];
+    const roots = [join(PROJECT_ROOT, 'src/styles')];
     const violations = [];
     const historicalReference =
         /(?:src\/|(?:\.\.\/)+)?images\/(?:backgrounds|components|icons)|(?:^|[^a-z-])svg-fill\s*\(|data-uri\(\s*['"]image\/svg\+xml|url\([^)]*\.svg(?:[?#)][^)]*)?\)/i;
@@ -484,21 +480,21 @@ async function validateStyleSources() {
 
     if (violations.length) {
         throw new Error(
-            `Historical SVG icon references remain in Less/SCSS: ${violations
+            `Historical SVG icon references remain in style sources: ${violations
                 .slice(0, 10)
                 .join(', ')}`,
         );
     }
 
-    const [lessImports, scssImports] = await Promise.all([
-        readFile(join(PROJECT_ROOT, 'src/less/components/_import.less'), 'utf8'),
-        readFile(join(PROJECT_ROOT, 'src/scss/components/_import.scss'), 'utf8'),
+    const [coreIndex, themeIndex] = await Promise.all([
+        readFile(join(PROJECT_ROOT, 'src/styles/core/index.ts'), 'utf8'),
+        readFile(join(PROJECT_ROOT, 'src/styles/theme/index.ts'), 'utf8'),
     ]);
-    if (!lessImports.includes('@import "tabler.less";')) {
-        throw new Error(`The Less component graph does not import the generated Tabler masks.`);
+    if (!coreIndex.includes("from '../tabler'")) {
+        throw new Error(`The core style graph does not import the generated Tabler masks.`);
     }
-    if (!scssImports.includes('@import "tabler.scss";')) {
-        throw new Error(`The SCSS component graph does not import the generated Tabler masks.`);
+    if (!themeIndex.includes("from '../tabler'")) {
+        throw new Error(`The theme style graph does not import the generated Tabler masks.`);
     }
 }
 
@@ -508,7 +504,7 @@ async function walkStyleFiles(directory, visit) {
         const file = join(directory, entry.name);
         if (entry.isDirectory()) {
             await walkStyleFiles(file, visit);
-        } else if (/\.(?:less|scss)$/i.test(entry.name)) {
+        } else if (/\.ts$/i.test(entry.name)) {
             await visit(file);
         }
     }

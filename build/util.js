@@ -1,6 +1,5 @@
 import alias from '@rollup/plugin-alias';
 import CleanCSS from 'clean-css';
-import less from 'less';
 import minimist from 'minimist';
 import fs from 'node:fs/promises';
 import path from 'node:path';
@@ -60,10 +59,6 @@ export async function minify(file) {
     await write(`${path.join(path.dirname(file), path.basename(file, '.css'))}.min.css`, styles);
 
     return styles;
-}
-
-export function renderLess(data, options) {
-    return limit(async () => (await less.render(data, options)).css);
 }
 
 export async function compile(

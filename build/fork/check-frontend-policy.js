@@ -298,12 +298,12 @@ async function auditMediaQueries(allowlist) {
     const usedAllowlist = new Set();
     const allowed = [];
     const violations = [];
-    const lessFiles = (await walk(resolve(PROJECT_ROOT, 'src/less')))
-        .filter((file) => extname(file) === '.less')
+    const styleFiles = (await walk(resolve(PROJECT_ROOT, 'src/styles')))
+        .filter((file) => extname(file) === '.ts')
         .sort();
     let scanned = 0;
 
-    for (const file of lessFiles) {
+    for (const file of styleFiles) {
         const source = await readFile(file, 'utf8');
         for (const query of readMediaQueries(source)) {
             scanned++;
@@ -723,7 +723,8 @@ function createGate(label, errors, pending = []) {
 
 function readMediaQueries(source) {
     const queries = [];
-    const pattern = /@media\s*([^{]+)\{/g;
+    // Clés de fragments TS : "@media (…)": {
+    const pattern = /@media\s*([^"{]+?)\s*(?:"\s*:|\{)/g;
     let match;
     while ((match = pattern.exec(source))) {
         queries.push({

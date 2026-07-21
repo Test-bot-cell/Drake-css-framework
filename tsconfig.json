@@ -16,6 +16,6 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true
     },
-    "include": ["src/js/**/*", "tests/js/**/*"],
+    "include": ["src/js/**/*", "src/styles/**/*", "tests/js/**/*", "panda.config.ts"],
     "exclude": ["node_modules", "dist"]
 }

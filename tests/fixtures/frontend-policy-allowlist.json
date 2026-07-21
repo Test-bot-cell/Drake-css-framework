@@ -2,50 +2,98 @@
     "schemaVersion": 1,
     "maxWidthQueries": [
         {
-            "file": "src/less/components/background.less",
-            "condition": "(max-width: @breakpoint-xsmall-max)",
+            "file": "src/styles/core/background.ts",
+            "condition": "(max-width: 639px)",
             "category": "bounded-responsive-api",
             "reason": "The class deliberately removes a selected background image below its named breakpoint; it does not define the base layout."
         },
         {
-            "file": "src/less/components/background.less",
-            "condition": "(max-width: @breakpoint-small-max)",
+            "file": "src/styles/core/background.ts",
+            "condition": "(max-width: 959px)",
             "category": "bounded-responsive-api",
             "reason": "The class deliberately removes a selected background image below its named breakpoint; it does not define the base layout."
         },
         {
-            "file": "src/less/components/background.less",
-            "condition": "(max-width: @breakpoint-medium-max)",
+            "file": "src/styles/core/background.ts",
+            "condition": "(max-width: 1199px)",
             "category": "bounded-responsive-api",
             "reason": "The class deliberately removes a selected background image below its named breakpoint; it does not define the base layout."
         },
         {
-            "file": "src/less/components/background.less",
-            "condition": "(max-width: @breakpoint-large-max)",
+            "file": "src/styles/core/background.ts",
+            "condition": "(max-width: 1599px)",
             "category": "bounded-responsive-api",
             "reason": "The class deliberately removes a selected background image below its named breakpoint; it does not define the base layout."
         },
         {
-            "file": "src/less/components/visibility.less",
-            "condition": "(max-width: @breakpoint-xsmall-max)",
+            "file": "src/styles/theme/background.ts",
+            "condition": "(max-width: 639px)",
+            "category": "bounded-responsive-api",
+            "reason": "The class deliberately removes a selected background image below its named breakpoint; it does not define the base layout."
+        },
+        {
+            "file": "src/styles/theme/background.ts",
+            "condition": "(max-width: 959px)",
+            "category": "bounded-responsive-api",
+            "reason": "The class deliberately removes a selected background image below its named breakpoint; it does not define the base layout."
+        },
+        {
+            "file": "src/styles/theme/background.ts",
+            "condition": "(max-width: 1199px)",
+            "category": "bounded-responsive-api",
+            "reason": "The class deliberately removes a selected background image below its named breakpoint; it does not define the base layout."
+        },
+        {
+            "file": "src/styles/theme/background.ts",
+            "condition": "(max-width: 1599px)",
+            "category": "bounded-responsive-api",
+            "reason": "The class deliberately removes a selected background image below its named breakpoint; it does not define the base layout."
+        },
+        {
+            "file": "src/styles/core/visibility.ts",
+            "condition": "(max-width: 639px)",
             "category": "bounded-responsive-api",
             "reason": "The visible-at-breakpoint utility encodes an explicit consumer choice and does not establish a component layout."
         },
         {
-            "file": "src/less/components/visibility.less",
-            "condition": "(max-width: @breakpoint-small-max)",
+            "file": "src/styles/core/visibility.ts",
+            "condition": "(max-width: 959px)",
             "category": "bounded-responsive-api",
             "reason": "The visible-at-breakpoint utility encodes an explicit consumer choice and does not establish a component layout."
         },
         {
-            "file": "src/less/components/visibility.less",
-            "condition": "(max-width: @breakpoint-medium-max)",
+            "file": "src/styles/core/visibility.ts",
+            "condition": "(max-width: 1199px)",
             "category": "bounded-responsive-api",
             "reason": "The visible-at-breakpoint utility encodes an explicit consumer choice and does not establish a component layout."
         },
         {
-            "file": "src/less/components/visibility.less",
-            "condition": "(max-width: @breakpoint-large-max)",
+            "file": "src/styles/core/visibility.ts",
+            "condition": "(max-width: 1599px)",
+            "category": "bounded-responsive-api",
+            "reason": "The visible-at-breakpoint utility encodes an explicit consumer choice and does not establish a component layout."
+        },
+        {
+            "file": "src/styles/theme/visibility.ts",
+            "condition": "(max-width: 639px)",
+            "category": "bounded-responsive-api",
+            "reason": "The visible-at-breakpoint utility encodes an explicit consumer choice and does not establish a component layout."
+        },
+        {
+            "file": "src/styles/theme/visibility.ts",
+            "condition": "(max-width: 959px)",
+            "category": "bounded-responsive-api",
+            "reason": "The visible-at-breakpoint utility encodes an explicit consumer choice and does not establish a component layout."
+        },
+        {
+            "file": "src/styles/theme/visibility.ts",
+            "condition": "(max-width: 1199px)",
+            "category": "bounded-responsive-api",
+            "reason": "The visible-at-breakpoint utility encodes an explicit consumer choice and does not establish a component layout."
+        },
+        {
+            "file": "src/styles/theme/visibility.ts",
+            "condition": "(max-width: 1599px)",
             "category": "bounded-responsive-api",
             "reason": "The visible-at-breakpoint utility encodes an explicit consumer choice and does not establish a component layout."
         }
