@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (core · search.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-search": {
@@ -30,7 +32,7 @@ export const fragments: GlobalStyleObject[] = [
 {
     ".drk-search-input": {
         "border": "none",
-        "color": "#666"
+        "color": palette.text
     }
 },
 {
@@ -38,7 +40,7 @@ export const fragments: GlobalStyleObject[] = [
         "outline": "none"
     },
     ".drk-search-input::placeholder": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-search .drk-search-icon": {
         "position": "absolute",
@@ -48,10 +50,10 @@ export const fragments: GlobalStyleObject[] = [
         "display": "inline-flex",
         "justify-content": "center",
         "align-items": "center",
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-search .drk-search-icon:hover": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-search .drk-search-icon:not(a):not(button):not(input)": {
         "pointer-events": "none"
@@ -67,7 +69,7 @@ export const fragments: GlobalStyleObject[] = [
         "height": "40px",
         "padding-left": "10px",
         "padding-right": "10px",
-        "background": "#f8f8f8"
+        "background": palette.mutedBackground
     },
     ".drk-search-default .drk-search-input:focus": {
         "background-color": "#f3f3f3"
@@ -115,7 +117,7 @@ export const fragments: GlobalStyleObject[] = [
         "height": "55px",
         "padding-left": "12px",
         "padding-right": "12px",
-        "background": "#f8f8f8",
+        "background": palette.mutedBackground,
         "font-size": "1.5rem"
     },
     ".drk-search-medium .drk-search-input:focus": {
@@ -140,7 +142,7 @@ export const fragments: GlobalStyleObject[] = [
         "height": "90px",
         "padding-left": "20px",
         "padding-right": "20px",
-        "background": "#f8f8f8",
+        "background": palette.mutedBackground,
         "font-size": "2.625rem"
     },
     ".drk-search-large .drk-search-input:focus": {
@@ -159,10 +161,10 @@ export const fragments: GlobalStyleObject[] = [
         "padding-right": "80px"
     },
     ".drk-search-toggle": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-search-toggle:hover": {
-        "color": "#666"
+        "color": palette.text
     }
 },
 ];

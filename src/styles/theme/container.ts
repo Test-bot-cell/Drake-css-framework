@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · container.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-container": {
@@ -15,7 +17,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-container": {
             "padding-left": "30px",
             "padding-right": "30px"
@@ -23,7 +25,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-container": {
             "padding-left": "40px",
             "padding-right": "40px"
@@ -61,49 +63,49 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-container-expand-left.drk-container-xsmall, .drk-container-expand-right.drk-container-xsmall": {
             "max-width": "calc(50% + (750px / 2) - 30px)"
         }
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-container-expand-left.drk-container-small, .drk-container-expand-right.drk-container-small": {
             "max-width": "calc(50% + (900px / 2) - 30px)"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-container-expand-left, .drk-container-expand-right": {
             "max-width": "calc(50% + (1200px / 2) - 40px)"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-container-expand-left.drk-container-xsmall, .drk-container-expand-right.drk-container-xsmall": {
             "max-width": "calc(50% + (750px / 2) - 40px)"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-container-expand-left.drk-container-small, .drk-container-expand-right.drk-container-small": {
             "max-width": "calc(50% + (900px / 2) - 40px)"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-container-expand-left.drk-container-large, .drk-container-expand-right.drk-container-large": {
             "max-width": "calc(50% + (1400px / 2) - 40px)"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-container-expand-left.drk-container-xlarge, .drk-container-expand-right.drk-container-xlarge": {
             "max-width": "calc(50% + (1600px / 2) - 40px)"
         }
@@ -123,42 +125,42 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-container-item-padding-remove-left, .drk-container-item-padding-remove-right": {
             "width": "calc(100% + 30px)"
         }
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-container-item-padding-remove-left": {
             "margin-left": "-30px"
         }
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-container-item-padding-remove-right": {
             "margin-right": "-30px"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-container-item-padding-remove-left, .drk-container-item-padding-remove-right": {
             "width": "calc(100% + 40px)"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-container-item-padding-remove-left": {
             "margin-left": "-40px"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-container-item-padding-remove-right": {
             "margin-right": "-40px"
         }

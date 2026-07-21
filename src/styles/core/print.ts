@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (core · print.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     "@media print": {
@@ -23,7 +25,7 @@ export const fragments: GlobalStyleObject[] = [
 {
     "@media print": {
         "pre, blockquote": {
-            "border": "1px solid #999",
+            "border": `1px solid ${palette.muted}`,
             "page-break-inside": "avoid"
         }
     }

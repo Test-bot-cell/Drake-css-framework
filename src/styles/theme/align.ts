@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · align.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     "[class*=\"drk-align\"]": {
@@ -27,7 +29,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-align-left\\40 s": {
             "margin-top": "__DRK_RAW__0__",
             "margin-right": "30px",
@@ -36,7 +38,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-align-right\\40 s": {
             "margin-top": "__DRK_RAW__0__",
             "margin-left": "30px",
@@ -45,7 +47,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-align-left\\40 m": {
             "margin-top": "__DRK_RAW__0__",
             "margin-right": "30px",
@@ -54,7 +56,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-align-right\\40 m": {
             "margin-top": "__DRK_RAW__0__",
             "margin-left": "30px",
@@ -63,7 +65,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-align-left\\40 l": {
             "margin-top": "__DRK_RAW__0__",
             "float": "left"
@@ -71,7 +73,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-align-right\\40 l": {
             "margin-top": "__DRK_RAW__0__",
             "float": "right"
@@ -79,21 +81,21 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-align-left, .drk-align-left\\40 s, .drk-align-left\\40 m, .drk-align-left\\40 l": {
             "margin-right": "40px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-align-right, .drk-align-right\\40 s, .drk-align-right\\40 m, .drk-align-right\\40 l": {
             "margin-left": "40px"
         }
     }
 },
 {
-    "@media (min-width: 1600px)": {
+    [`@media (min-width: ${breakpoints.xl})`]: {
         ".drk-align-left\\40 xl": {
             "margin-top": "__DRK_RAW__0__",
             "margin-right": "40px",
@@ -102,7 +104,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1600px)": {
+    [`@media (min-width: ${breakpoints.xl})`]: {
         ".drk-align-right\\40 xl": {
             "margin-top": "__DRK_RAW__0__",
             "margin-left": "40px",

@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (core · subnav.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-subnav": {
@@ -21,14 +23,14 @@ export const fragments: GlobalStyleObject[] = [
         "display": "flex",
         "align-items": "center",
         "column-gap": "0.25em",
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-subnav > * > a:hover": {
-        "color": "#666",
+        "color": palette.text,
         "text-decoration": "none"
     },
     ".drk-subnav > .drk-active > a": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-subnav-divider": {
         "margin-left": "-41px"
@@ -56,22 +58,22 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-subnav-pill > * > :first-child": {
         "padding": "5px 10px",
         "background": "transparent",
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-subnav-pill > * > a:hover": {
-        "background-color": "#f8f8f8",
-        "color": "#666"
+        "background-color": palette.mutedBackground,
+        "color": palette.text
     },
     ".drk-subnav-pill > * > a:active": {
-        "background-color": "#f8f8f8",
-        "color": "#666"
+        "background-color": palette.mutedBackground,
+        "color": palette.text
     },
     ".drk-subnav-pill > .drk-active > a": {
-        "background-color": "#1e87f0",
+        "background-color": palette.primary,
         "color": "#fff"
     },
     ".drk-subnav > .drk-disabled > :first-child": {
-        "color": "#999"
+        "color": palette.muted
     }
 },
 ];

@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (core · form.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-input, .drk-select, .drk-textarea, .drk-radio, .drk-checkbox": {
@@ -67,8 +69,8 @@ export const fragments: GlobalStyleObject[] = [
         "width": "100%",
         "border": "0 none",
         "padding": "0 10px",
-        "background": "#f8f8f8",
-        "color": "#666"
+        "background": palette.mutedBackground,
+        "color": palette.text
     }
 },
 {
@@ -95,23 +97,23 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-input:focus, .drk-select:focus, .drk-textarea:focus": {
         "outline": "none",
         "background-color": "#ebebeb",
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-input:disabled, .drk-select:disabled, .drk-textarea:disabled": {
-        "background-color": "#f8f8f8",
-        "color": "#999"
+        "background-color": palette.mutedBackground,
+        "color": palette.muted
     },
     ".drk-input::placeholder": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-textarea::placeholder": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-form-danger, .drk-form-danger:focus": {
-        "color": "#f0506e"
+        "color": palette.danger
     },
     ".drk-form-success, .drk-form-success:focus": {
-        "color": "#32d296"
+        "color": palette.success
     },
     ".drk-form-blank": {
         "background": "none"
@@ -140,7 +142,7 @@ export const fragments: GlobalStyleObject[] = [
         "background-position": "100% 50%"
     },
     ".drk-select:not([multiple]):not([size]) option": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-select:not([multiple]):not([size]):disabled": {
         "background-image": "url(\\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23999%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%0A%3E%3Cpath%20stroke%3D%22none%22%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%20%2F%3E%3Cpath%20d%3D%22M8%209l4%20-4l4%204%22%20%2F%3E%3Cpath%20d%3D%22M16%2015l-4%204l-4%20-4%22%20%2F%3E%3C%2Fsvg%3E\\\")"
@@ -178,7 +180,7 @@ export const fragments: GlobalStyleObject[] = [
         "outline": "none"
     },
     ".drk-radio:checked, .drk-checkbox:checked, .drk-checkbox:indeterminate": {
-        "background-color": "#1e87f0"
+        "background-color": palette.primary
     },
     ".drk-radio:checked:focus, .drk-checkbox:checked:focus, .drk-checkbox:indeterminate:focus": {
         "background-color": "#0e6dcd"
@@ -195,7 +197,7 @@ export const fragments: GlobalStyleObject[] = [
         "background-image": "url(\\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%0A%3E%3Cpath%20stroke%3D%22none%22%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%20%2F%3E%3Cpath%20d%3D%22M5%2012l14%200%22%20%2F%3E%3C%2Fsvg%3E\\\")"
     },
     ".drk-radio:disabled, .drk-checkbox:disabled": {
-        "background-color": "#f8f8f8"
+        "background-color": palette.mutedBackground
     },
     ".drk-radio:disabled:checked": {
         "background-image": "url(\\\"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23999%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%0A%3E%3Cpath%20stroke%3D%22none%22%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%20%2F%3E%3Cpath%20d%3D%22M8%2012a4%204%200%201%200%208%200a4%204%200%201%200%20-8%200%22%20%2F%3E%3C%2Fsvg%3E\\\")"
@@ -288,7 +290,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-form-horizontal .drk-form-label": {
             "width": "200px",
             "margin-top": "7px",
@@ -298,14 +300,14 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-form-horizontal .drk-form-controls": {
             "margin-left": "215px"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-form-horizontal .drk-form-controls-text": {
             "padding-top": "7px"
         }
@@ -321,10 +323,10 @@ export const fragments: GlobalStyleObject[] = [
         "display": "inline-flex",
         "justify-content": "center",
         "align-items": "center",
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-form-icon:hover": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-form-icon:not(a):not(button):not(input)": {
         "pointer-events": "none"

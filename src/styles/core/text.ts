@@ -2,17 +2,19 @@
 // Amorcée depuis la cascade de référence (core · text.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-text-lead": {
         "font-size": "1.5rem",
         "line-height": 1.5,
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-text-meta": {
         "font-size": "0.875rem",
         "line-height": 1.4,
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-text-small": {
         "font-size": "0.875rem",
@@ -57,31 +59,31 @@ export const fragments: GlobalStyleObject[] = [
         "text-decoration": "none !important"
     },
     ".drk-text-muted": {
-        "color": "#999 !important"
+        "color": `${palette.muted} !important`
     },
     ".drk-text-emphasis": {
-        "color": "#333 !important"
+        "color": `${palette.emphasis} !important`
     },
     ".drk-text-primary": {
-        "color": "#1e87f0 !important"
+        "color": `${palette.primary} !important`
     },
     ".drk-text-secondary": {
-        "color": "#222 !important"
+        "color": `${palette.secondary} !important`
     },
     ".drk-text-success": {
-        "color": "#32d296 !important"
+        "color": `${palette.success} !important`
     },
     ".drk-text-warning": {
-        "color": "#faa05a !important"
+        "color": `${palette.warning} !important`
     },
     ".drk-text-danger": {
-        "color": "#f0506e !important"
+        "color": `${palette.danger} !important`
     },
     ".drk-text-background": {
         "-webkit-background-clip": "text",
         "color": "transparent !important",
         "display": "inline-block",
-        "background-color": "#1e87f0"
+        "background-color": palette.primary
     },
     ".drk-text-left": {
         "text-align": "left !important"
@@ -97,84 +99,84 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-text-left\\40 s": {
             "text-align": "left !important"
         }
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-text-right\\40 s": {
             "text-align": "right !important"
         }
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-text-center\\40 s": {
             "text-align": "center !important"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-text-left\\40 m": {
             "text-align": "left !important"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-text-right\\40 m": {
             "text-align": "right !important"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-text-center\\40 m": {
             "text-align": "center !important"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-text-left\\40 l": {
             "text-align": "left !important"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-text-right\\40 l": {
             "text-align": "right !important"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-text-center\\40 l": {
             "text-align": "center !important"
         }
     }
 },
 {
-    "@media (min-width: 1600px)": {
+    [`@media (min-width: ${breakpoints.xl})`]: {
         ".drk-text-left\\40 xl": {
             "text-align": "left !important"
         }
     }
 },
 {
-    "@media (min-width: 1600px)": {
+    [`@media (min-width: ${breakpoints.xl})`]: {
         ".drk-text-right\\40 xl": {
             "text-align": "right !important"
         }
     }
 },
 {
-    "@media (min-width: 1600px)": {
+    [`@media (min-width: ${breakpoints.xl})`]: {
         ".drk-text-center\\40 xl": {
             "text-align": "center !important"
         }

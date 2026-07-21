@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · article.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-article": {
@@ -19,7 +21,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-article-title": {
             "font-size": "2.625rem"
         }
@@ -29,13 +31,13 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-article-meta": {
         "font-size": "0.875rem",
         "line-height": 1.4,
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-article-meta a": {
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-article-meta a:hover": {
-        "color": "#666",
+        "color": palette.text,
         "text-decoration": "none"
     }
 },

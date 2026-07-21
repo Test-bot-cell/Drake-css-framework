@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · comment.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-comment-body": {
@@ -23,7 +25,7 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-comment-meta": {
         "font-size": "0.875rem",
         "line-height": 1.4,
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-comment-list": {
         "padding": "__DRK_RAW__0__",
@@ -39,7 +41,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-comment-list .drk-comment ~ ul": {
             "padding-left": "100px"
         }
@@ -51,7 +53,7 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-comment-primary": {
         "padding": "30px",
-        "background-color": "#f8f8f8"
+        "background-color": palette.mutedBackground
     }
 },
 ];

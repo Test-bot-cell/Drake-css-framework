@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (core · form-range.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-range": {
@@ -45,7 +47,7 @@ export const fragments: GlobalStyleObject[] = [
         "height": "15px",
         "width": "15px",
         "border-radius": "500px",
-        "background": "#666"
+        "background": palette.text
     },
     ".drk-range::-moz-range-thumb": {
         "border": "none",
@@ -57,7 +59,7 @@ export const fragments: GlobalStyleObject[] = [
 {
     ".drk-range::-moz-range-thumb": {
         "border-radius": "500px",
-        "background": "#666"
+        "background": palette.text
     }
 },
 ];

@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · utility.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { fontFamilies, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-panel": {
@@ -250,8 +252,8 @@ export const fragments: GlobalStyleObject[] = [
 {
     ".drk-logo": {
         "font-size": "1.5rem",
-        "font-family": "\"InterVariable\", Inter, \"Inter Fallback\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
-        "color": "#333",
+        "font-family": fontFamilies.body,
+        "color": palette.emphasis,
         "text-decoration": "none"
     },
     ":where(.drk-logo)": {
@@ -259,7 +261,7 @@ export const fragments: GlobalStyleObject[] = [
         "vertical-align": "middle"
     },
     ".drk-logo:hover": {
-        "color": "#333",
+        "color": palette.emphasis,
         "text-decoration": "none"
     },
     ".drk-logo :where(img, svg, video)": {

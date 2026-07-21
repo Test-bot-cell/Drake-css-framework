@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (core · progress.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-progress": {
@@ -9,7 +11,7 @@ export const fragments: GlobalStyleObject[] = [
         "display": "block",
         "width": "100%",
         "border": "__DRK_RAW__0__",
-        "background-color": "#f8f8f8",
+        "background-color": palette.mutedBackground,
         "margin-bottom": "20px",
         "height": "15px"
     },
@@ -20,11 +22,11 @@ export const fragments: GlobalStyleObject[] = [
         "background-color": "transparent"
     },
     ".drk-progress::-webkit-progress-value": {
-        "background-color": "#1e87f0",
+        "background-color": palette.primary,
         "transition": "width 0.6s ease"
     },
     ".drk-progress::-moz-progress-bar": {
-        "background-color": "#1e87f0",
+        "background-color": palette.primary,
         "transition": "width 0.6s ease"
     }
 },

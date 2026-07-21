@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · visibility.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, breakpointsMax } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     "[hidden], .drk-hidden, .drk-hidden-empty:empty": {
@@ -9,56 +11,56 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-hidden\\40 s": {
             "display": "none !important"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-hidden\\40 m": {
             "display": "none !important"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-hidden\\40 l": {
             "display": "none !important"
         }
     }
 },
 {
-    "@media (min-width: 1600px)": {
+    [`@media (min-width: ${breakpoints.xl})`]: {
         ".drk-hidden\\40 xl": {
             "display": "none !important"
         }
     }
 },
 {
-    "@media (max-width: 639px)": {
+    [`@media (max-width: ${breakpointsMax.s})`]: {
         ".drk-visible\\40 s": {
             "display": "none !important"
         }
     }
 },
 {
-    "@media (max-width: 959px)": {
+    [`@media (max-width: ${breakpointsMax.m})`]: {
         ".drk-visible\\40 m": {
             "display": "none !important"
         }
     }
 },
 {
-    "@media (max-width: 1199px)": {
+    [`@media (max-width: ${breakpointsMax.l})`]: {
         ".drk-visible\\40 l": {
             "display": "none !important"
         }
     }
 },
 {
-    "@media (max-width: 1599px)": {
+    [`@media (max-width: ${breakpointsMax.xl})`]: {
         ".drk-visible\\40 xl": {
             "display": "none !important"
         }

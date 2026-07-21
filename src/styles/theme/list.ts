@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · list.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-list": {
@@ -38,16 +40,16 @@ export const fragments: GlobalStyleObject[] = [
         "list-style-type": "'–  '"
     },
     ".drk-list-muted > ::marker": {
-        "color": "#999 !important"
+        "color": `${palette.muted} !important`
     },
     ".drk-list-emphasis > ::marker": {
-        "color": "#333 !important"
+        "color": `${palette.emphasis} !important`
     },
     ".drk-list-primary > ::marker": {
-        "color": "#1e87f0 !important"
+        "color": `${palette.primary} !important`
     },
     ".drk-list-secondary > ::marker": {
-        "color": "#222 !important"
+        "color": `${palette.secondary} !important`
     },
     ".drk-list-bullet > *": {
         "position": "relative",
@@ -77,7 +79,7 @@ export const fragments: GlobalStyleObject[] = [
         "border-bottom": "1px solid #e5e5e5"
     },
     ".drk-list-striped > :nth-of-type(odd)": {
-        "background": "#f8f8f8"
+        "background": palette.mutedBackground
     },
     ".drk-list-striped > :nth-child(n+2)": {
         "margin-top": "__DRK_RAW__0__"

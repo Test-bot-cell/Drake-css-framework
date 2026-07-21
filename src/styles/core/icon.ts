@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (core · icon.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-icon": {
@@ -79,11 +81,11 @@ export const fragments: GlobalStyleObject[] = [
         "max-width": "none"
     },
     ".drk-icon-link": {
-        "color": "#999",
+        "color": palette.muted,
         "text-decoration": "none !important"
     },
     ".drk-icon-link:hover": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-icon-link:active, .drk-active > .drk-icon-link": {
         "color": "#595959"
@@ -93,8 +95,8 @@ export const fragments: GlobalStyleObject[] = [
         "width": "36px",
         "height": "36px",
         "border-radius": "500px",
-        "background": "#f8f8f8",
-        "color": "#999",
+        "background": palette.mutedBackground,
+        "color": palette.muted,
         "vertical-align": "middle",
         "display": "inline-flex",
         "justify-content": "center",
@@ -102,17 +104,17 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-icon-button:hover": {
         "background-color": "#ebebeb",
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-icon-button:active, .drk-active > .drk-icon-button": {
         "background-color": "#dfdfdf",
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-icon-overlay, a .drk-icon-overlay": {
         "color": "rgba(51, 51, 51, 0.6)"
     },
     ".drk-icon-overlay:hover, a:hover .drk-icon-overlay": {
-        "color": "#333"
+        "color": palette.emphasis
     }
 },
 ];

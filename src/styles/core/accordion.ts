@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (core · accordion.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-accordion": {
@@ -26,10 +28,10 @@ export const fragments: GlobalStyleObject[] = [
         "column-gap": "15px",
         "font-size": "1.25rem",
         "line-height": 1.4,
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-accordion-default .drk-accordion-title:hover": {
-        "color": "#666",
+        "color": palette.text,
         "text-decoration": "none"
     },
     ".drk-accordion-default .drk-accordion-icon": {

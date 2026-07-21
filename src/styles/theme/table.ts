@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · table.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-table": {
@@ -19,7 +21,7 @@ export const fragments: GlobalStyleObject[] = [
         "vertical-align": "bottom",
         "font-size": "0.875rem",
         "font-weight": "normal",
-        "color": "#999",
+        "color": palette.muted,
         "text-transform": "uppercase"
     },
     ".drk-table td": {
@@ -35,7 +37,7 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-table caption": {
         "font-size": "0.875rem",
         "text-align": "left",
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-table-middle, .drk-table-middle td": {
         "vertical-align": "middle !important"
@@ -44,7 +46,7 @@ export const fragments: GlobalStyleObject[] = [
         "border-top": "1px solid #e5e5e5"
     },
     ".drk-table-striped > tr:nth-of-type(odd), .drk-table-striped tbody tr:nth-of-type(odd)": {
-        "background": "#f8f8f8",
+        "background": palette.mutedBackground,
         "border-top": "1px solid #e5e5e5",
         "border-bottom": "1px solid #e5e5e5"
     },
@@ -92,7 +94,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-table-responsive": {
             "display": "table",
             "overflow-x": "visible"

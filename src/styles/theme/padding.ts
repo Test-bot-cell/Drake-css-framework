@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · padding.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-padding": {
@@ -9,7 +11,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-padding": {
             "padding": "40px"
         }
@@ -24,7 +26,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-padding-large": {
             "padding": "70px"
         }

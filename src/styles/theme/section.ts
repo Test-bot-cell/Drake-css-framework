@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · section.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-section": {
@@ -12,7 +14,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-section": {
             "padding-top": "70px",
             "padding-bottom": "70px"
@@ -51,14 +53,14 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-section-medium-top": {
             "padding-top": "70px"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-section-medium-bottom": {
             "padding-bottom": "70px"
         }
@@ -77,7 +79,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-section-large": {
             "padding-top": "140px",
             "padding-bottom": "140px"
@@ -85,14 +87,14 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-section-large-top": {
             "padding-top": "140px"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-section-large-bottom": {
             "padding-bottom": "140px"
         }
@@ -111,7 +113,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-section-xlarge": {
             "padding-top": "210px",
             "padding-bottom": "210px"
@@ -119,14 +121,14 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-section-xlarge-top": {
             "padding-top": "210px"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-section-xlarge-bottom": {
             "padding-bottom": "210px"
         }
@@ -139,15 +141,15 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-section-muted": {
         "--drk-inverse": "dark",
-        "background": "#f8f8f8"
+        "background": palette.mutedBackground
     },
     ".drk-section-primary": {
         "--drk-inverse": "light",
-        "background": "#1e87f0"
+        "background": palette.primary
     },
     ".drk-section-secondary": {
         "--drk-inverse": "light",
-        "background": "#222"
+        "background": palette.secondary
     }
 },
 ];

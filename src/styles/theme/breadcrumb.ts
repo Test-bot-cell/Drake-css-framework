@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · breadcrumb.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-breadcrumb": {
@@ -14,21 +16,21 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-breadcrumb > * > *": {
         "font-size": "0.875rem",
-        "color": "#999"
+        "color": palette.muted
     },
     ".drk-breadcrumb > * > :hover": {
-        "color": "#666",
+        "color": palette.text,
         "text-decoration": "none"
     },
     ".drk-breadcrumb > :last-child > span, .drk-breadcrumb > :last-child > a:not([href])": {
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-breadcrumb > :nth-child(n+2):not(.drk-first-column)::before": {
         "content": "\"/\"",
         "display": "inline-block",
         "margin": "0 20px",
         "font-size": "0.875rem",
-        "color": "#999"
+        "color": palette.muted
     }
 },
 ];

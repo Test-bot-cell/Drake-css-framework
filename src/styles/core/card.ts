@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (core · card.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-card": {
@@ -22,21 +24,21 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-body": {
             "padding": "40px 40px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-header": {
             "padding": "20px 40px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-footer": {
             "padding": "20px 40px"
         }
@@ -57,7 +59,7 @@ export const fragments: GlobalStyleObject[] = [
         "z-index": 1,
         "height": "22px",
         "padding": "0 10px",
-        "background": "#1e87f0",
+        "background": palette.primary,
         "color": "#fff",
         "font-size": "0.875rem",
         "display": "flex",
@@ -69,15 +71,15 @@ export const fragments: GlobalStyleObject[] = [
         "margin-top": "__DRK_RAW__0__"
     },
     ".drk-card-hover:not(.drk-card-default, .drk-card-primary, .drk-card-secondary, .drk-card-overlay):hover": {
-        "background-color": "#f8f8f8"
+        "background-color": palette.mutedBackground
     },
     ".drk-card-default": {
         "--drk-inverse": "dark",
-        "background-color": "#f8f8f8",
-        "color": "#666"
+        "background-color": palette.mutedBackground,
+        "color": palette.text
     },
     ".drk-card-default .drk-card-title": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-card-default.drk-card-hover:hover": {
         "background-color": "#ebebeb"
@@ -86,7 +88,7 @@ export const fragments: GlobalStyleObject[] = [
 {
     ".drk-card-primary": {
         "--drk-inverse": "light",
-        "background-color": "#1e87f0",
+        "background-color": palette.primary,
         "color": "#fff"
     },
     ".drk-card-primary .drk-card-title": {
@@ -97,7 +99,7 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-card-secondary": {
         "--drk-inverse": "light",
-        "background-color": "#222",
+        "background-color": palette.secondary,
         "color": "#fff"
     },
     ".drk-card-secondary .drk-card-title": {
@@ -109,10 +111,10 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-card-overlay": {
         "--drk-inverse": "dark",
         "background-color": "rgba(255, 255, 255, 0.9)",
-        "color": "#666"
+        "color": palette.text
     },
     ".drk-card-overlay .drk-card-title": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-card-overlay.drk-card-hover:hover": {
         "background-color": "#ffffff"
@@ -128,21 +130,21 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-large.drk-card-body, .drk-card-large .drk-card-body": {
             "padding": "70px 70px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-large .drk-card-header": {
             "padding": "35px 70px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-large .drk-card-footer": {
             "padding": "35px 70px"
         }

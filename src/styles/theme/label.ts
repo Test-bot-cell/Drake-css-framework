@@ -2,12 +2,14 @@
 // Amorcée depuis la cascade de référence (theme · label.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-label": {
         "display": "inline-block",
         "padding": "0 10px",
-        "background": "#1e87f0",
+        "background": palette.primary,
         "line-height": 1.5,
         "font-size": "0.875rem",
         "color": "#fff",
@@ -17,15 +19,15 @@ export const fragments: GlobalStyleObject[] = [
         "text-transform": "uppercase"
     },
     ".drk-label-success": {
-        "background-color": "#32d296",
+        "background-color": palette.success,
         "color": "#fff"
     },
     ".drk-label-warning": {
-        "background-color": "#faa05a",
+        "background-color": palette.warning,
         "color": "#fff"
     },
     ".drk-label-danger": {
-        "background-color": "#f0506e",
+        "background-color": palette.danger,
         "color": "#fff"
     }
 },

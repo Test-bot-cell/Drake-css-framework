@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · card.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-card": {
@@ -23,21 +25,21 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-body": {
             "padding": "40px 40px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-header": {
             "padding": "20px 40px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-footer": {
             "padding": "20px 40px"
         }
@@ -58,7 +60,7 @@ export const fragments: GlobalStyleObject[] = [
         "z-index": 1,
         "height": "22px",
         "padding": "0 10px",
-        "background": "#1e87f0",
+        "background": palette.primary,
         "color": "#fff",
         "font-size": "0.875rem",
         "display": "flex",
@@ -78,11 +80,11 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-card-default": {
         "--drk-inverse": "dark",
         "background-color": "#fff",
-        "color": "#666",
+        "color": palette.text,
         "box-shadow": "0 5px 15px rgba(0, 0, 0, 0.08)"
     },
     ".drk-card-default .drk-card-title": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-card-default.drk-card-hover:hover": {
         "background-color": "#fff",
@@ -98,7 +100,7 @@ export const fragments: GlobalStyleObject[] = [
 {
     ".drk-card-primary": {
         "--drk-inverse": "light",
-        "background-color": "#1e87f0",
+        "background-color": palette.primary,
         "color": "#fff",
         "box-shadow": "0 5px 15px rgba(0, 0, 0, 0.08)"
     },
@@ -106,12 +108,12 @@ export const fragments: GlobalStyleObject[] = [
         "color": "#fff"
     },
     ".drk-card-primary.drk-card-hover:hover": {
-        "background-color": "#1e87f0",
+        "background-color": palette.primary,
         "box-shadow": "0 14px 25px rgba(0, 0, 0, 0.16)"
     },
     ".drk-card-secondary": {
         "--drk-inverse": "light",
-        "background-color": "#222",
+        "background-color": palette.secondary,
         "color": "#fff",
         "box-shadow": "0 5px 15px rgba(0, 0, 0, 0.08)"
     },
@@ -119,17 +121,17 @@ export const fragments: GlobalStyleObject[] = [
         "color": "#fff"
     },
     ".drk-card-secondary.drk-card-hover:hover": {
-        "background-color": "#222",
+        "background-color": palette.secondary,
         "box-shadow": "0 14px 25px rgba(0, 0, 0, 0.16)"
     },
     ".drk-card-overlay": {
         "--drk-inverse": "dark",
         "background-color": "rgba(255, 255, 255, 0.9)",
-        "color": "#666",
+        "color": palette.text,
         "box-shadow": "0 5px 15px rgba(0, 0, 0, 0.08)"
     },
     ".drk-card-overlay .drk-card-title": {
-        "color": "#333"
+        "color": palette.emphasis
     },
     ".drk-card-overlay.drk-card-hover:hover": {
         "background-color": "#ffffff",
@@ -146,21 +148,21 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-large.drk-card-body, .drk-card-large .drk-card-body": {
             "padding": "70px 70px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-large .drk-card-header": {
             "padding": "35px 70px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-large .drk-card-footer": {
             "padding": "35px 70px"
         }
@@ -184,7 +186,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-body > .drk-nav-default": {
             "margin-left": "-40px",
             "margin-right": "-40px"
@@ -192,7 +194,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-body > .drk-nav-default:only-child": {
             "margin-top": "-25px",
             "margin-bottom": "-25px"
@@ -200,7 +202,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-body > .drk-nav-default > li > a, .drk-card-body > .drk-nav-default .drk-nav-header, .drk-card-body > .drk-nav-default .drk-nav-divider": {
             "padding-left": "40px",
             "padding-right": "40px"
@@ -208,7 +210,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-body > .drk-nav-default .drk-nav-sub": {
             "padding-left": "55px"
         }
@@ -232,21 +234,21 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-large > .drk-nav-default": {
             "margin": "__DRK_RAW__0__"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-large > .drk-nav-default:only-child": {
             "margin": "__DRK_RAW__0__"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-large > .drk-nav-default > li > a, .drk-card-large > .drk-nav-default .drk-nav-header, .drk-card-large > .drk-nav-default .drk-nav-divider": {
             "padding-left": "__DRK_RAW__0__",
             "padding-right": "__DRK_RAW__0__"
@@ -254,7 +256,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-card-large > .drk-nav-default .drk-nav-sub": {
             "padding-left": "15px"
         }

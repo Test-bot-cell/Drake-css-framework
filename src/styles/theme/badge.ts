@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (theme · badge.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-badge": {
@@ -11,7 +13,7 @@ export const fragments: GlobalStyleObject[] = [
         "padding": "0 5px",
         "border-radius": "500px",
         "vertical-align": "middle",
-        "background": "#1e87f0",
+        "background": palette.primary,
         "color": "#fff !important",
         "font-size": "11px",
         "display": "inline-flex",

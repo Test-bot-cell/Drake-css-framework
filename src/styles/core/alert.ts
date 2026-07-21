@@ -2,14 +2,16 @@
 // Amorcée depuis la cascade de référence (core · alert.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-alert": {
         "position": "relative",
         "margin-bottom": "20px",
         "padding": "15px 29px 15px 15px",
-        "background": "#f8f8f8",
-        "color": "#666"
+        "background": palette.mutedBackground,
+        "color": palette.text
     },
     "* + .drk-alert": {
         "margin-top": "20px"
@@ -27,19 +29,19 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-alert-primary": {
         "background": "#d8eafc",
-        "color": "#1e87f0"
+        "color": palette.primary
     },
     ".drk-alert-success": {
         "background": "#edfbf6",
-        "color": "#32d296"
+        "color": palette.success
     },
     ".drk-alert-warning": {
         "background": "#fff6ee",
-        "color": "#faa05a"
+        "color": palette.warning
     },
     ".drk-alert-danger": {
         "background": "#fef4f6",
-        "color": "#f0506e"
+        "color": palette.danger
     }
 },
 ];

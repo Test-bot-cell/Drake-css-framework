@@ -2,6 +2,8 @@
 // Amorcée depuis la cascade de référence (core · margin.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpoints } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-margin": {
@@ -96,42 +98,42 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-margin-large": {
             "margin-bottom": "70px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         "* + .drk-margin-large": {
             "margin-top": "70px !important"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-margin-large-top": {
             "margin-top": "70px !important"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-margin-large-bottom": {
             "margin-bottom": "70px !important"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-margin-large-left": {
             "margin-left": "70px !important"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-margin-large-right": {
             "margin-right": "70px !important"
         }
@@ -158,42 +160,42 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-margin-xlarge": {
             "margin-bottom": "140px"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         "* + .drk-margin-xlarge": {
             "margin-top": "140px !important"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-margin-xlarge-top": {
             "margin-top": "140px !important"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-margin-xlarge-bottom": {
             "margin-bottom": "140px !important"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-margin-xlarge-left": {
             "margin-left": "140px !important"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-margin-xlarge-right": {
             "margin-right": "140px !important"
         }
@@ -222,7 +224,7 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-margin-auto\\40 s": {
             "margin-left": "auto !important",
             "margin-right": "auto !important"
@@ -230,21 +232,21 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-margin-auto-left\\40 s": {
             "margin-left": "auto !important"
         }
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-margin-auto-right\\40 s": {
             "margin-right": "auto !important"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-margin-auto\\40 m": {
             "margin-left": "auto !important",
             "margin-right": "auto !important"
@@ -252,21 +254,21 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-margin-auto-left\\40 m": {
             "margin-left": "auto !important"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-margin-auto-right\\40 m": {
             "margin-right": "auto !important"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-margin-auto\\40 l": {
             "margin-left": "auto !important",
             "margin-right": "auto !important"
@@ -274,21 +276,21 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-margin-auto-left\\40 l": {
             "margin-left": "auto !important"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-margin-auto-right\\40 l": {
             "margin-right": "auto !important"
         }
     }
 },
 {
-    "@media (min-width: 1600px)": {
+    [`@media (min-width: ${breakpoints.xl})`]: {
         ".drk-margin-auto\\40 xl": {
             "margin-left": "auto !important",
             "margin-right": "auto !important"
@@ -296,14 +298,14 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 1600px)": {
+    [`@media (min-width: ${breakpoints.xl})`]: {
         ".drk-margin-auto-left\\40 xl": {
             "margin-left": "auto !important"
         }
     }
 },
 {
-    "@media (min-width: 1600px)": {
+    [`@media (min-width: ${breakpoints.xl})`]: {
         ".drk-margin-auto-right\\40 xl": {
             "margin-right": "auto !important"
         }
@@ -337,56 +339,56 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-margin-remove-left\\40 s": {
             "margin-left": "0 !important"
         }
     }
 },
 {
-    "@media (min-width: 640px)": {
+    [`@media (min-width: ${breakpoints.s})`]: {
         ".drk-margin-remove-right\\40 s": {
             "margin-right": "0 !important"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-margin-remove-left\\40 m": {
             "margin-left": "0 !important"
         }
     }
 },
 {
-    "@media (min-width: 960px)": {
+    [`@media (min-width: ${breakpoints.m})`]: {
         ".drk-margin-remove-right\\40 m": {
             "margin-right": "0 !important"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-margin-remove-left\\40 l": {
             "margin-left": "0 !important"
         }
     }
 },
 {
-    "@media (min-width: 1200px)": {
+    [`@media (min-width: ${breakpoints.l})`]: {
         ".drk-margin-remove-right\\40 l": {
             "margin-right": "0 !important"
         }
     }
 },
 {
-    "@media (min-width: 1600px)": {
+    [`@media (min-width: ${breakpoints.xl})`]: {
         ".drk-margin-remove-left\\40 xl": {
             "margin-left": "0 !important"
         }
     }
 },
 {
-    "@media (min-width: 1600px)": {
+    [`@media (min-width: ${breakpoints.xl})`]: {
         ".drk-margin-remove-right\\40 xl": {
             "margin-right": "0 !important"
         }

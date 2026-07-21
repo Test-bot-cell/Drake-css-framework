@@ -2,19 +2,21 @@
 // Amorcée depuis la cascade de référence (theme · background.less) ; maintenue à la main désormais.
 import type { GlobalStyleObject } from '@pandacss/types';
 
+import { breakpointsMax, palette } from '../tokens';
+
 export const fragments: GlobalStyleObject[] = [
 {
     ".drk-background-default": {
         "background-color": "#fff"
     },
     ".drk-background-muted": {
-        "background-color": "#f8f8f8"
+        "background-color": palette.mutedBackground
     },
     ".drk-background-primary": {
-        "background-color": "#1e87f0"
+        "background-color": palette.primary
     },
     ".drk-background-secondary": {
-        "background-color": "#222"
+        "background-color": palette.secondary
     },
     ".drk-background-cover, .drk-background-contain, .drk-background-width-1-1, .drk-background-height-1-1": {
         "background-position": "50% 50%",
@@ -76,28 +78,28 @@ export const fragments: GlobalStyleObject[] = [
     }
 },
 {
-    "@media (max-width: 639px)": {
+    [`@media (max-width: ${breakpointsMax.s})`]: {
         ".drk-background-image\\40 s": {
             "background-image": "none !important"
         }
     }
 },
 {
-    "@media (max-width: 959px)": {
+    [`@media (max-width: ${breakpointsMax.m})`]: {
         ".drk-background-image\\40 m": {
             "background-image": "none !important"
         }
     }
 },
 {
-    "@media (max-width: 1199px)": {
+    [`@media (max-width: ${breakpointsMax.l})`]: {
         ".drk-background-image\\40 l": {
             "background-image": "none !important"
         }
     }
 },
 {
-    "@media (max-width: 1599px)": {
+    [`@media (max-width: ${breakpointsMax.xl})`]: {
         ".drk-background-image\\40 xl": {
             "background-image": "none !important"
         }
