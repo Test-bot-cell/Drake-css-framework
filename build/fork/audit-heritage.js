@@ -1,10 +1,13 @@
-// Inventaire des écarts mobile-first/SEO hérités (phase 1, ROADMAP) — CONSTAT, pas gate.
-// Mesure chaque page du catalogue à 320 px CSS, runtime actif, et consigne les écarts à
-// corriger : débordement horizontal, cibles interactives < 24 px (hors liens en ligne,
-// exception WCAG 2.2), images sans alt ou sans dimensions réservées, sauts de hiérarchie
-// de titres, contenu masqué par breakpoint. Sortie committée :
-// tests/fixtures/heritage-audit.json.
-import { readdir, writeFile } from 'node:fs/promises';
+// Inventaire des écarts mobile-first/SEO hérités (phase 1, ROADMAP ; résorption D-017).
+// Mesure chaque page du catalogue à 320 px CSS, runtime actif, et consigne les écarts :
+// débordement horizontal, cibles interactives < 24 px (hors liens en ligne, exception
+// WCAG 2.2), images sans alt ou sans dimensions réservées, sauts de hiérarchie de
+// titres, contenu masqué par breakpoint. Depuis D-017, les cibles < 24 px inhérentes aux
+// composants hérités sont décomptées via le registre d'exceptions
+// (tests/fixtures/heritage-exceptions.json, doc docs/fork/HERITAGE_EXCEPTIONS.md) : le
+// chiffre de suivi est le nombre de cibles NON consignées, attendu à zéro.
+// Sortie committée : tests/fixtures/heritage-audit.json.
+import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -16,10 +19,13 @@ import {
 
 const PROJECT_ROOT = resolve(fileURLToPath(new URL('../..', import.meta.url)));
 const OUTPUT = join(PROJECT_ROOT, 'tests/fixtures/heritage-audit.json');
+const EXCEPTIONS = join(PROJECT_ROOT, 'tests/fixtures/heritage-exceptions.json');
 
 const pages = (await readdir(join(PROJECT_ROOT, 'tests')))
     .filter((file) => file.endsWith('.html'))
     .sort();
+
+const exceptionRules = JSON.parse(await readFile(EXCEPTIONS, 'utf8')).rules;
 
 const server = await startStaticServer(PROJECT_ROOT);
 const session = await launchChrome({ height: 640, width: 320 });
@@ -31,6 +37,8 @@ const totals = {
     imagesWithoutAlt: 0,
     imagesWithoutDimensions: 0,
     smallTargets: 0,
+    smallTargetsAccounted: 0,
+    smallTargetsUnaccounted: 0,
 };
 
 try {
@@ -52,6 +60,15 @@ try {
         const metrics = await evaluate(
             session,
             `(() => {
+                const exceptionRules = ${JSON.stringify(exceptionRules)};
+                const page = ${JSON.stringify(page)};
+                const accountedFamily = (element) => {
+                    for (const rule of exceptionRules) {
+                        if (rule.pages && !rule.pages.includes(page)) continue;
+                        if (element.matches(rule.selector)) return rule.family;
+                    }
+                    return null;
+                };
                 const root = document.documentElement;
                 const visible = (element) => {
                     const rect = element.getBoundingClientRect();
@@ -80,6 +97,25 @@ try {
                 for (let index = 1; index < levels.length; index++) {
                     if (levels[index] - levels[index - 1] > 1) headingSkips++;
                 }
+                const accounted = {};
+                const unaccounted = [];
+                for (const target of smallTargets) {
+                    const family = accountedFamily(target);
+                    if (family) {
+                        accounted[family] = (accounted[family] ?? 0) + 1;
+                    } else {
+                        const rect = target.getBoundingClientRect();
+                        unaccounted.push(
+                            target.tagName.toLowerCase() +
+                                '.' +
+                                [...target.classList].slice(0, 2).join('.') +
+                                ' ' +
+                                Math.round(rect.width) +
+                                'x' +
+                                Math.round(rect.height),
+                        );
+                    }
+                }
                 return {
                     breakpointHidden: document.querySelectorAll(
                         '[class*="drk-visible@"], [class*="drk-hidden@"]',
@@ -94,18 +130,9 @@ try {
                             !getComputedStyle(image).aspectRatio.includes('/'),
                     ).length,
                     smallTargets: smallTargets.length,
-                    smallTargetsSample: smallTargets.slice(0, 5).map((target) => {
-                        const rect = target.getBoundingClientRect();
-                        return (
-                            target.tagName.toLowerCase() +
-                            '.' +
-                            [...target.classList].slice(0, 2).join('.') +
-                            ' ' +
-                            Math.round(rect.width) +
-                            'x' +
-                            Math.round(rect.height)
-                        );
-                    }),
+                    smallTargetsAccounted: accounted,
+                    smallTargetsUnaccounted: unaccounted.slice(0, 10),
+                    smallTargetsUnaccountedCount: unaccounted.length,
                 };
             })()`,
         );
@@ -116,6 +143,11 @@ try {
         totals.imagesWithoutAlt += metrics.imagesWithoutAlt;
         totals.imagesWithoutDimensions += metrics.imagesWithoutDimensions;
         totals.smallTargets += metrics.smallTargets;
+        totals.smallTargetsAccounted += Object.values(metrics.smallTargetsAccounted).reduce(
+            (sum, count) => sum + count,
+            0,
+        );
+        totals.smallTargetsUnaccounted += metrics.smallTargetsUnaccountedCount;
     }
 } finally {
     server.close();
@@ -126,8 +158,8 @@ await writeFile(
     OUTPUT,
     `${JSON.stringify(
         {
-            schemaVersion: 1,
-            scope: 'Catalogue tests/ à 320 px CSS, runtime actif — inventaire de dette héritée, non gate.',
+            schemaVersion: 2,
+            scope: 'Catalogue tests/ à 320 px CSS, runtime actif — dette héritée résorbée par D-017 ; résidus < 24 px décomptés par le registre d’exceptions.',
             totals,
             pages: inventory,
         },
@@ -137,7 +169,14 @@ await writeFile(
 );
 console.log(
     `Heritage audit: ${pages.length} pages — débordements: ${totals.horizontalOverflow}, ` +
-        `cibles < 24 px: ${totals.smallTargets}, images sans alt: ${totals.imagesWithoutAlt}, ` +
+        `cibles < 24 px: ${totals.smallTargets} (consignées: ${totals.smallTargetsAccounted}, ` +
+        `NON consignées: ${totals.smallTargetsUnaccounted}), images sans alt: ${totals.imagesWithoutAlt}, ` +
         `sans dimensions: ${totals.imagesWithoutDimensions}, sauts de titres: ${totals.headingSkips}, ` +
         `masquages par breakpoint: ${totals.breakpointHidden}. Inventaire: ${OUTPUT.replace(`${PROJECT_ROOT}/`, '')}`,
 );
+if (totals.smallTargetsUnaccounted > 0) {
+    console.error(
+        'Cibles < 24 px hors registre d’exceptions : compléter la correction ou le registre (D-017).',
+    );
+    process.exitCode = 1;
+}

@@ -1,0 +1,73 @@
+{
+    "schemaVersion": 1,
+    "policy": "D-017 — résidus < 24 px inhérents aux composants hérités ou aux fixtures de gates ; registre humain : docs/fork/HERITAGE_EXCEPTIONS.md",
+    "rules": [
+        {
+            "family": "checkbox",
+            "selector": "input.drk-checkbox",
+            "reason": "Taille (14-22 px selon la variante) définie par la CSS du composant form hérité."
+        },
+        {
+            "family": "radio",
+            "selector": "input.drk-radio",
+            "reason": "Taille (14-22 px selon la variante) définie par la CSS du composant form hérité."
+        },
+        {
+            "family": "range",
+            "selector": "input.drk-range",
+            "reason": "Piste de 3 px de haut définie par la CSS du composant range hérité ; la poignée reste la cible effective."
+        },
+        {
+            "family": "file-input",
+            "selector": "input[type=\"file\"]",
+            "reason": "Hauteur du contrôle natif stylé par la cascade de formulaire héritée."
+        },
+        {
+            "family": "dotnav",
+            "selector": ".drk-dotnav a",
+            "reason": "Points de 10 px définis par la CSS du composant dotnav hérité (slider, slideshow, catalogue)."
+        },
+        {
+            "family": "thumbnav-dotnav",
+            "selector": ".drk-thumbnav a",
+            "reason": "Miniatures dimensionnées par la CSS du composant thumbnav hérité."
+        },
+        {
+            "family": "pagination",
+            "selector": ".drk-pagination a",
+            "reason": "Hauteur de 22 px issue de la typographie du composant pagination hérité."
+        },
+        {
+            "family": "subnav",
+            "selector": ".drk-subnav a",
+            "reason": "Liens de métadonnées (comment-meta/subnav) de 20 px définis par la CSS héritée."
+        },
+        {
+            "family": "iconnav",
+            "selector": ".drk-iconnav a",
+            "reason": "Hauteur de 20 px définie par la CSS du composant iconnav hérité."
+        },
+        {
+            "family": "badge",
+            "selector": "a.drk-badge",
+            "reason": "Badge de 18 px de haut défini par la CSS du composant hérité ; la page démontre le badge-lien par défaut."
+        },
+        {
+            "family": "button-text",
+            "selector": ".drk-button-text",
+            "reason": "La variante texte (et small) du bouton est démontrée telle quelle ; hauteur typographique héritée."
+        },
+        {
+            "family": "fixture-list-links",
+            "selector": "li > a",
+            "pages": ["fork-mobile-seo.html"],
+            "reason": "Fixture des gates G11/G13 : liste de liens de navigation de 21 px ; retraitement lié au composant nav, fixture épinglée par ses attentes."
+        },
+        {
+            "family": "fixture-controls",
+            "selector": "li > button",
+            "pages": ["fork-assets.html"],
+            "reason": "Fixture du gate G6/G14 : boutons d'onglets de l'audit d'assets, hauteur typographique héritée."
+        }
+    ]
+}

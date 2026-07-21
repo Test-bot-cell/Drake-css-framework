@@ -1,25 +1,27 @@
 {
-    "schemaVersion": 1,
-    "scope": "Catalogue tests/ à 320 px CSS, runtime actif — inventaire de dette héritée, non gate.",
+    "schemaVersion": 2,
+    "scope": "Catalogue tests/ à 320 px CSS, runtime actif — dette héritée résorbée par D-017 ; résidus < 24 px décomptés par le registre d’exceptions.",
     "totals": {
-        "breakpointHidden": 74,
-        "headingSkips": 19,
-        "horizontalOverflow": 22,
-        "imagesWithoutAlt": 8,
-        "imagesWithoutDimensions": 50,
-        "smallTargets": 337
+        "breakpointHidden": 76,
+        "headingSkips": 0,
+        "horizontalOverflow": 0,
+        "imagesWithoutAlt": 0,
+        "imagesWithoutDimensions": 0,
+        "smallTargets": 251,
+        "smallTargetsAccounted": 251,
+        "smallTargetsUnaccounted": 0
     },
     "pages": {
         "accordion.html": {
             "breakpointHidden": 0,
-            "headingSkips": 1,
-            "horizontalOverflow": true,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "alert.html": {
             "breakpointHidden": 0,
@@ -27,10 +29,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "align.html": {
             "breakpointHidden": 0,
@@ -38,21 +40,21 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "animation.html": {
             "breakpointHidden": 0,
-            "headingSkips": 1,
+            "headingSkips": 0,
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "article.html": {
             "breakpointHidden": 0,
@@ -60,21 +62,21 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "background.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
-            "imagesWithoutDimensions": 1,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "badge.html": {
             "breakpointHidden": 0,
@@ -82,22 +84,23 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 2,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16",
-                "a.drk-badge 18x18"
-            ]
+            "smallTargets": 1,
+            "smallTargetsAccounted": {
+                "badge": 1
+            },
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "base.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
-            "imagesWithoutDimensions": 1,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "breadcrumb.html": {
             "breakpointHidden": 0,
@@ -105,33 +108,34 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "button.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 2,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16",
-                "button.drk-button.drk-button-text 43x21"
-            ]
+            "smallTargets": 1,
+            "smallTargetsAccounted": {
+                "button-text": 1
+            },
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "card.html": {
             "breakpointHidden": 0,
-            "headingSkips": 1,
+            "headingSkips": 0,
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
-            "imagesWithoutDimensions": 2,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "close.html": {
             "breakpointHidden": 0,
@@ -139,21 +143,21 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "column.html": {
             "breakpointHidden": 0,
-            "headingSkips": 1,
+            "headingSkips": 0,
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "comment.html": {
             "breakpointHidden": 0,
@@ -161,12 +165,12 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 3,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16",
-                "a. 78x20",
-                "a. 37x20"
-            ]
+            "smallTargets": 2,
+            "smallTargetsAccounted": {
+                "subnav": 2
+            },
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "container.html": {
             "breakpointHidden": 0,
@@ -174,10 +178,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "countdown.html": {
             "breakpointHidden": 40,
@@ -185,32 +189,32 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "cover.html": {
             "breakpointHidden": 0,
-            "headingSkips": 5,
-            "horizontalOverflow": false,
-            "imagesWithoutAlt": 0,
-            "imagesWithoutDimensions": 1,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
-        },
-        "description-list.html": {
-            "breakpointHidden": 0,
-            "headingSkips": 1,
+            "headingSkips": 0,
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
+        },
+        "description-list.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "divider.html": {
             "breakpointHidden": 0,
@@ -218,10 +222,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "dotnav.html": {
             "breakpointHidden": 1,
@@ -229,36 +233,34 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 49,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16",
-                "a. 10x10",
-                "a. 10x10",
-                "a. 10x10",
-                "a. 10x10"
-            ]
+            "smallTargets": 48,
+            "smallTargetsAccounted": {
+                "dotnav": 48
+            },
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "drop.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
-            "imagesWithoutAlt": 0,
-            "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
-        },
-        "dropbar.html": {
-            "breakpointHidden": 0,
-            "headingSkips": 1,
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
+        },
+        "dropbar.html": {
+            "breakpointHidden": 0,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "dropdown.html": {
             "breakpointHidden": 0,
@@ -266,10 +268,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "dropnav.html": {
             "breakpointHidden": 0,
@@ -277,21 +279,21 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "filter.html": {
             "breakpointHidden": 0,
-            "headingSkips": 1,
+            "headingSkips": 0,
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "flex.html": {
             "breakpointHidden": 0,
@@ -299,10 +301,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "fork-assets.html": {
             "breakpointHidden": 0,
@@ -311,11 +313,11 @@
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
             "smallTargets": 3,
-            "smallTargetsSample": [
-                "button. 118x21",
-                "button. 117x21",
-                "button. 177x21"
-            ]
+            "smallTargetsAccounted": {
+                "fixture-controls": 3
+            },
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "fork-mobile-seo.html": {
             "breakpointHidden": 0,
@@ -324,11 +326,11 @@
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
             "smallTargets": 3,
-            "smallTargetsSample": [
-                "a. 100x21",
-                "a. 86x21",
-                "a. 106x21"
-            ]
+            "smallTargetsAccounted": {
+                "subnav": 3
+            },
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "form.html": {
             "breakpointHidden": 0,
@@ -336,14 +338,15 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 61,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16",
-                "input.drk-radio 16x16",
-                "input.drk-radio 16x16",
-                "input.drk-radio 16x16",
-                "input.drk-radio 16x16"
-            ]
+            "smallTargets": 60,
+            "smallTargetsAccounted": {
+                "radio": 24,
+                "checkbox": 33,
+                "range": 2,
+                "file-input": 1
+            },
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "grid-masonry.html": {
             "breakpointHidden": 0,
@@ -351,10 +354,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "grid-parallax.html": {
             "breakpointHidden": 0,
@@ -362,32 +365,32 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "grid.html": {
             "breakpointHidden": 0,
-            "headingSkips": 1,
+            "headingSkips": 0,
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "heading.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "height-expand.html": {
             "breakpointHidden": 0,
@@ -395,10 +398,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "height-viewport.html": {
             "breakpointHidden": 0,
@@ -406,21 +409,21 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "height.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "icon.html": {
             "breakpointHidden": 0,
@@ -428,10 +431,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "iconnav.html": {
             "breakpointHidden": 0,
@@ -439,40 +442,42 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 5,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16",
-                "a. 45x20",
-                "a. 42x20",
-                "a. 290x20",
-                "a. 290x20"
-            ]
+            "smallTargets": 4,
+            "smallTargetsAccounted": {
+                "iconnav": 4
+            },
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "image.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
-            "imagesWithoutDimensions": 4,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "index.html": {
             "breakpointHidden": 0,
-            "headingSkips": 1,
-            "horizontalOverflow": true,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 14,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16",
-                "a.drk-badge 18x18",
-                "a. 27x22",
-                "a. 27x22",
-                "input.drk-radio 16x16"
-            ]
+            "smallTargets": 13,
+            "smallTargetsAccounted": {
+                "badge": 1,
+                "pagination": 2,
+                "radio": 1,
+                "checkbox": 1,
+                "range": 1,
+                "dotnav": 6,
+                "iconnav": 1
+            },
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "label.html": {
             "breakpointHidden": 0,
@@ -480,21 +485,21 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "leader.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "lightbox.html": {
             "breakpointHidden": 0,
@@ -502,10 +507,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "link.html": {
             "breakpointHidden": 0,
@@ -513,21 +518,21 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "list.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "margin.html": {
             "breakpointHidden": 0,
@@ -535,10 +540,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "marker.html": {
             "breakpointHidden": 0,
@@ -546,10 +551,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "modal.html": {
             "breakpointHidden": 0,
@@ -557,32 +562,32 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "nav.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "navbar.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "notification.html": {
             "breakpointHidden": 0,
@@ -590,10 +595,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "offcanvas.html": {
             "breakpointHidden": 0,
@@ -601,10 +606,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "overlay.html": {
             "breakpointHidden": 0,
@@ -612,21 +617,21 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "padding.html": {
             "breakpointHidden": 0,
-            "headingSkips": 1,
+            "headingSkips": 0,
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "pagination.html": {
             "breakpointHidden": 0,
@@ -634,14 +639,12 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 13,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16",
-                "a. 27x22",
-                "a. 27x22",
-                "a. 27x22",
-                "a. 27x22"
-            ]
+            "smallTargets": 12,
+            "smallTargetsAccounted": {
+                "pagination": 12
+            },
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "parallax.html": {
             "breakpointHidden": 0,
@@ -649,10 +652,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "placeholder.html": {
             "breakpointHidden": 0,
@@ -660,10 +663,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "position.html": {
             "breakpointHidden": 8,
@@ -671,10 +674,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "progress.html": {
             "breakpointHidden": 0,
@@ -682,43 +685,43 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "scroll.html": {
             "breakpointHidden": 0,
-            "headingSkips": 1,
+            "headingSkips": 0,
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "scrollspy.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
-            "imagesWithoutAlt": 8,
+            "horizontalOverflow": false,
+            "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "search.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "section.html": {
             "breakpointHidden": 8,
@@ -726,10 +729,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "slidenav.html": {
             "breakpointHidden": 0,
@@ -737,40 +740,36 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "slider.html": {
-            "breakpointHidden": 2,
-            "headingSkips": 1,
-            "horizontalOverflow": true,
+            "breakpointHidden": 4,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
-            "imagesWithoutDimensions": 5,
-            "smallTargets": 59,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16",
-                "a. 10x10",
-                "a. 10x10",
-                "a. 10x10",
-                "a. 10x10"
-            ]
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 58,
+            "smallTargetsAccounted": {
+                "dotnav": 58
+            },
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "slideshow.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
-            "imagesWithoutDimensions": 25,
-            "smallTargets": 29,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16",
-                "a. 10x10",
-                "a. 10x10",
-                "a. 10x10",
-                "a. 10x10"
-            ]
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 28,
+            "smallTargetsAccounted": {
+                "dotnav": 28
+            },
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "sortable.html": {
             "breakpointHidden": 0,
@@ -778,10 +777,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "spinner.html": {
             "breakpointHidden": 0,
@@ -789,43 +788,43 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "sticky-navbar.html": {
             "breakpointHidden": 0,
-            "headingSkips": 1,
-            "horizontalOverflow": true,
+            "headingSkips": 0,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "sticky-parallax.html": {
             "breakpointHidden": 7,
             "headingSkips": 0,
-            "horizontalOverflow": true,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "sticky.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "subnav.html": {
             "breakpointHidden": 0,
@@ -833,32 +832,32 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "svg.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
-            "imagesWithoutDimensions": 1,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "switcher.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "tab.html": {
             "breakpointHidden": 0,
@@ -866,10 +865,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "table.html": {
             "breakpointHidden": 0,
@@ -877,14 +876,12 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 9,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16",
-                "input.drk-checkbox 16x16",
-                "input.drk-checkbox 16x16",
-                "input.drk-checkbox 16x16",
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 8,
+            "smallTargetsAccounted": {
+                "checkbox": 8
+            },
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "text.html": {
             "breakpointHidden": 0,
@@ -892,21 +889,21 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "thumbnav.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
-            "imagesWithoutDimensions": 3,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "tile.html": {
             "breakpointHidden": 0,
@@ -914,21 +911,21 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "toggle.html": {
             "breakpointHidden": 0,
-            "headingSkips": 1,
+            "headingSkips": 0,
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "tooltip.html": {
             "breakpointHidden": 0,
@@ -936,10 +933,10 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "totop.html": {
             "breakpointHidden": 0,
@@ -947,21 +944,21 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "transition.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
-            "imagesWithoutDimensions": 3,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "upload.html": {
             "breakpointHidden": 0,
@@ -969,36 +966,34 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "utility.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
-            "imagesWithoutDimensions": 4,
-            "smallTargets": 11,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16",
-                "input.drk-checkbox 16x16",
-                "input.drk-checkbox 16x16",
-                "input.drk-checkbox 16x16",
-                "input.drk-checkbox 16x16"
-            ]
+            "imagesWithoutDimensions": 0,
+            "smallTargets": 10,
+            "smallTargetsAccounted": {
+                "checkbox": 10
+            },
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "video.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "visibility.html": {
             "breakpointHidden": 8,
@@ -1006,21 +1001,21 @@
             "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         },
         "width.html": {
             "breakpointHidden": 0,
             "headingSkips": 0,
-            "horizontalOverflow": true,
+            "horizontalOverflow": false,
             "imagesWithoutAlt": 0,
             "imagesWithoutDimensions": 0,
-            "smallTargets": 1,
-            "smallTargetsSample": [
-                "input.drk-checkbox 16x16"
-            ]
+            "smallTargets": 0,
+            "smallTargetsAccounted": {},
+            "smallTargetsUnaccounted": [],
+            "smallTargetsUnaccountedCount": 0
         }
     }
 }
