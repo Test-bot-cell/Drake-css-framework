@@ -31,7 +31,10 @@ export const fragments: GlobalStyleObject[] = [
         "color": palette.muted,
         "text-decoration": "none",
         "font-size": "0.875rem",
-        "transition": "0.1s ease-in-out"
+        "transition": "0.1s ease-in-out",
+        "box-sizing": "border-box",
+        "min-width": "24px",
+        "min-height": "24px"
     }
 },
 {

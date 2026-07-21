@@ -103,7 +103,8 @@ export const fragments: GlobalStyleObject[] = [
         "font-size": "1.25rem"
     },
     ".drk-button-text": {
-        "padding": "__DRK_RAW__0__",
+        "padding": "3px 0 0",
+        "margin-top": "-3px",
         "line-height": 1.5,
         "background": "none",
         "color": palette.emphasis

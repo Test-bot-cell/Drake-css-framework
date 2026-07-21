@@ -25,10 +25,13 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-dotnav > * > *": {
         "display": "block",
         "box-sizing": "border-box",
-        "width": "10px",
-        "height": "10px",
+        "width": "24px",
+        "height": "24px",
+        "padding": "7px",
+        "margin": "-7px",
         "border-radius": "50%",
         "background": "rgba(102, 102, 102, 0.2)",
+        "background-clip": "content-box",
         "text-indent": "100%",
         "overflow": "hidden",
         "white-space": "nowrap"

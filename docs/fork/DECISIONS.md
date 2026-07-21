@@ -841,8 +841,10 @@ L'option 3 est retenue. Concrètement :
 ## D-021 — Cibles tactiles : zones de saisie à 24 px, registre d'exceptions vidé
 
 - Date : 2026-07-21
-- Statut : **Acceptée** (arbitrage explicite du mainteneur du 2026-07-21 : les 11
-  familles de composants ET les 2 familles de fixtures)
+- Statut : **Acceptée et implémentée** (arbitrage explicite du mainteneur du
+  2026-07-21 : les 11 familles de composants ET les 2 familles de fixtures ;
+  implémentation vérifiée le 2026-07-21 — `pnpm audit-heritage` : zéro cible < 24 px
+  sur les 88 pages, registre d'exceptions vidé)
 - Amende : D-017 (le registre d'exceptions créé par D-017 est vidé) ; première
   divergence assumée de la CSS des composants vis-à-vis de la référence pré-renommage
 

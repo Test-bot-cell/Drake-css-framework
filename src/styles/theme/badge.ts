@@ -23,6 +23,13 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-badge:hover": {
         "text-decoration": "none"
+    },
+    "a.drk-badge": {
+        "height": "24px",
+        "min-width": "24px",
+        "border": "3px solid transparent",
+        "background-clip": "padding-box",
+        "margin": "-3px"
     }
 },
 ];
