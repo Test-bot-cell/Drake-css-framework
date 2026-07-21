@@ -84,11 +84,11 @@ dans [`docs/fork/CHANGELOG-uikit-amont.md`](docs/fork/CHANGELOG-uikit-amont.md).
   amont (D-017).
 - Acceptation finale du mainteneur le 2026-07-21, gates re-prouvés verts sur checkout
   propre : tag annoté signé `v0.1.0`.
-- Publication npm publique décidée (D-018) : `private: true` levé, nom `drake.css`
-  vérifié libre sur le registre ; le `npm publish` est exécuté par le mainteneur
-  authentifié.
-- Remote `origin` : dépôt GitHub privé `Test-bot-cell/Drake-css-framework`, CI `verify`
-  rejouant la chaîne complète de preuves à chaque push.
+- Distribution par GitHub (D-020, amendant D-018) : release `v0.1.0` avec tarball
+  `drake.css-0.1.0.tgz` attaché, installation `npm install github:…#v0.1.0`, CDN
+  jsDelivr au tag ; le registre npm reste optionnel et non bloquant.
+- Remote `origin` : dépôt GitHub `Test-bot-cell/Drake-css-framework`, public depuis
+  D-019, CI `verify` rejouant la chaîne complète de preuves à chaque push.
 
 ### Hérité
 

@@ -32,15 +32,34 @@ Le cycle de contribution sanctuarisé commence dans [AGENTS.md](AGENTS.md) et
 
 ## Statut de distribution
 
-Le paquet npm s’appelle `drake.css` (titre : « Drake.css framework ») et porte la version
+Le paquet s’appelle `drake.css` (titre : « Drake.css framework ») et porte la version
 propre au fork `0.1.0` ; la base amont `3.25.20` n’est conservée qu’en métadonnée de
-provenance de `package.json`. Le dépôt reste `private: true` tant qu’un remote `origin`
-n’est pas décidé : il **NE DOIT PAS** être publié, ni voir ses assets chargés depuis un
-CDN tiers ou amont.
+provenance de `package.json`. La distribution officielle passe par le dépôt GitHub
+public (décision D-020), sans registre npm requis :
 
-Le JavaScript présent dans `dist/js/` est l’artefact compilé indispensable aux
-navigateurs ; aucune source JavaScript frontend n’est maintenue hors de `dist/`. Les
-composants individuels sont livrés sous `dist/js/components/`.
+```sh
+# depuis la release GitHub (tarball npm signé par le tag) :
+npm install https://github.com/Test-bot-cell/Drake-css-framework/releases/download/v0.1.0/drake.css-0.1.0.tgz
+
+# ou directement depuis git, au tag :
+npm install github:Test-bot-cell/Drake-css-framework#v0.1.0
+```
+
+Sans bundler, les artefacts se servent depuis le CDN jsDelivr au tag :
+
+```html
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Test-bot-cell/Drake-css-framework@v0.1.0/dist/css/drake.min.css"
+/>
+<script src="https://cdn.jsdelivr.net/gh/Test-bot-cell/Drake-css-framework@v0.1.0/dist/js/drake.min.js"></script>
+```
+
+Les feuilles du framework restent autonomes à l’exécution (fontes et icônes embarquées,
+aucune requête vers un CDN amont ou tiers depuis la CSS elle-même). Le JavaScript présent
+dans `dist/js/` est l’artefact compilé indispensable aux navigateurs ; aucune source
+JavaScript frontend n’est maintenue hors de `dist/`. Les composants individuels sont
+livrés sous `dist/js/components/`.
 
 ## Installation locale
 

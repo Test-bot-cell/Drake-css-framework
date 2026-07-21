@@ -733,6 +733,50 @@ action par action (D-017 inchangée sur ce point).
 - Issues et pull requests publiques : leur triage suit AGENTS.md et le registre des
   décisions ; aucune gouvernance nouvelle n'est créée par la visibilité.
 
+## D-020 — Distribution par GitHub, registre npm optionnel
+
+- Date : 2026-07-21
+- Statut : **Acceptée** (directive du mainteneur du 2026-07-21 : la publication ne doit
+  exiger aucun compte supplémentaire)
+- Amende : D-018
+
+### Contexte
+
+D-018 décidait la publication sur le registre public npm ; celle-ci exige un compte npm
+que le mainteneur ne souhaite pas créer. Le dépôt GitHub est public (D-019) avec CI verte
+et tag signé : il peut porter la distribution à lui seul.
+
+### Options
+
+1. Maintenir l'exigence du registre npm (bloquée par la création de compte).
+2. GitHub Packages (sans nouveau compte, mais nom scopé et configuration de registre
+   côté consommateur).
+3. Distribution par le dépôt GitHub : release GitHub avec tarball npm attaché,
+   installation directe depuis git, et CDN jsDelivr servant le dépôt public.
+
+### Décision
+
+L'option 3 est retenue. La distribution officielle de `drake.css` 0.1.0 est :
+
+- la **release GitHub** `v0.1.0` portant le tarball `drake.css-0.1.0.tgz` produit par
+  `npm pack` (chaîne `prepack` complète : build et audits) ;
+- l'installation **git** : `npm install github:Test-bot-cell/Drake-css-framework#v0.1.0` ;
+- le **CDN** : `https://cdn.jsdelivr.net/gh/Test-bot-cell/Drake-css-framework@v0.1.0/dist/…`.
+
+La publication sur le registre npm devient **optionnelle et non bloquante** : elle reste
+possible plus tard selon D-018 si le mainteneur crée un compte, sans être exigée par
+aucune phase. `private: true` reste levé (il ne concerne que `npm publish`, sans effet
+sur les installations git/tarball).
+
+### Conséquences
+
+- Aucun compte ni credential supplémentaire ; toute la chaîne de distribution est
+  opérée par le dépôt existant.
+- Les consommateurs npm utilisent l'URL du tarball de release ou la référence git ; les
+  intégrations sans bundler utilisent le CDN.
+- Chaque release future répète le geste : tag signé, tarball packé et attaché, liens CDN
+  au tag.
+
 ## Modèle d’une nouvelle décision
 
     ## D-NNN — Titre
