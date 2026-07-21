@@ -37,6 +37,51 @@ dans [`docs/fork/CHANGELOG-uikit-amont.md`](docs/fork/CHANGELOG-uikit-amont.md).
   `:root` publie les 12 tokens sémantiques en `--drk-*`, la cascade consomme
   `var(--drk-…, <valeur héritée>)` — surcharge sans reconstruction, chemin mode sombre
   documenté dans `FORK.md` ; équivalence calculée prouvée par les gates navigateur.
+- Cap de stabilisation 0.1.0 (décision D-017) : versionnage SemVer avec tags annotés
+  signés `v0.1.0-rc.N`, remote `origin` décidé (dépôt GitHub privé, création et push au
+  feu vert explicite), `private: true` conservé jusqu'à une décision de publication npm,
+  pas de sortie ESM en 0.1.0.
+- Déclarations TypeScript consommateur : `dist/types/` émis et committé (entrée `types`
+  de `package.json`, global UMD `window.Drake` déclaré), test de consommation strict
+  dans `pnpm typecheck` (G3).
+- Audit d'identité D-012 automatisé dans G10 : zéro occurrence du préfixe hérité et des
+  noms amont hors zones autorisées (allowlist committée et justifiée, bannières légales
+  décomptées, entrées périmées refusées).
+- Scénarios C2 de cycle de vie (reconnexion DOM, montage/destruction par attribut,
+  `$reset` sur mutation de valeur, composant custom et plugin `use()`), portant la
+  matrice à 156 assertions.
+- Dette héritée du catalogue résorbée (D-017) : zéro débordement horizontal à 320 px sur
+  les 88 pages, dimensions réservées et alternatives sur toutes les images, hiérarchie
+  de titres séquentielle, vidéos de démonstration servies localement
+  (`tests/media/drake-demo.webm`) — le catalogue n'exige plus le réseau. Les cibles
+  < 24 px inhérentes aux composants hérités sont intégralement consignées au registre
+  d'exceptions (`docs/fork/HERITAGE_EXCEPTIONS.md`, contrôle automatique : zéro cible
+  non consignée) ; snapshots C0/C1 et attentes sans-runtime recapturés sur cette
+  divergence décidée, scénarios C2 et boucle C3 verts sans recapture.
+- Notes de migration `docs/fork/MIGRATION.md` : table normative de renommage des
+  préfixes et de l'API globale, correspondance des artefacts, migration des icônes et du
+  theming.
+
+### Mesures (2026-07-21, chaîne officielle Node.js 24.18.0 / pnpm 11.4.0)
+
+- Tailles : `drake.min.css` 305 Kio, `drake-core.min.css` 290 Kio, `drake.min.js`
+  166 Kio, `drake-inter.css` 969 Kio (fontes embarquées), `drake-tabler-icons.css`
+  3,8 Mio (catalogue opt-in) ; empreintes dans `dist/fork-manifest.json`.
+- Laboratoire (fixture G13, Chrome headless) : LCP 116 ms mobile / 108 ms bureau,
+  INP 16 ms, CLS 0, TBT 0 ; reflow 320 px sans défilement horizontal.
+- Fuites : boucle C3 — 58 composants montés puis détruits sans listener, observer ni
+  nœud résiduel ; scénarios de reconnexion sans résidu.
+- Initialisation (médiane de 3 runs, catalogue local) : `index.html` 106 instances
+  montées, `domInteractive` 71 ms, `load` 159 ms ; `form.html` 36 instances, 40/138 ms ;
+  `slider.html` 39 instances, 43/145 ms.
+- Reconstruction en environnement propre : clone frais + `pnpm install
+  --frozen-lockfile` + `pnpm verify` verts, zéro diff des artefacts suivis après
+  reconstruction.
+
+### Release candidate
+
+- Tag annoté signé `v0.1.0-rc.1` (2026-07-21), local, distinct des tags amont (D-017).
+  L'acceptation finale `v0.1.0` relève du mainteneur (charte, autorité de release).
 
 ### Hérité
 

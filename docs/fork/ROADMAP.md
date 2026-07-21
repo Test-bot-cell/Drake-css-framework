@@ -371,13 +371,20 @@ est vert de bout en bout, gates Chrome G10-G13 compris.
 
 ## Phase 9 — Stabilisation et release candidate
 
-- État : **En cours**
+- État : **Terminé**
 
-Avancement au 2026-07-21 : D-017 acte les arbitrages du mainteneur — remote `origin` =
-dépôt GitHub privé (création et push différés à un feu vert explicite), versionnage SemVer
-avec tags annotés signés `v0.1.0-rc.N` puis `v0.1.0`, résorption de la dette héritée côté
-catalogue avec registre d'exceptions (`docs/fork/HERITAGE_EXCEPTIONS.md`), `private: true`
-conservé tant qu'une publication npm n'est pas décidée, pas de sortie ESM en 0.1.0.
+Preuves au 2026-07-21 : D-017 acte les arbitrages du mainteneur — remote `origin` = dépôt
+GitHub privé (création et push différés à un feu vert explicite), versionnage SemVer avec
+tags annotés signés `v0.1.0-rc.N` puis `v0.1.0`, `private: true` conservé tant qu'une
+publication npm n'est pas décidée, pas de sortie ESM en 0.1.0. La matrice complète est
+verte (verify G0-G14 + G7 C0-C3) ; licences et distribution auditées (G6/G8, packlist) ;
+notes de migration livrées (`docs/fork/MIGRATION.md`) ; mesures consignées au CHANGELOG
+(tailles, LCP/INP/CLS/TBT laboratoire, initialisation, fuites) ; reconstruction depuis un
+clone frais avec installation gelée verte et sans diff des artefacts suivis ; dette héritée
+résorbée avec registre d'exceptions intégral (zéro cible non consignée — divergence décidée
+par D-017, pas une exception de release ouverte) ; release candidate taguée `v0.1.0-rc.1`
+(tag annoté signé local, distinct des tags amont). L'acceptation finale `v0.1.0` relève du
+mainteneur (charte, autorité de release).
 
 ### Portée
 
