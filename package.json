@@ -2,7 +2,7 @@
     "name": "drake.css",
     "title": "Drake.css framework",
     "description": "Drake.css framework — TypeScript, mobile-first fork of UIkit 3.25.20 with CSS-only Tabler Outline icons and embedded Inter variable faces.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "main": "dist/js/drake.js",
     "types": "dist/types/drake.d.ts",
     "style": "dist/css/drake.css",

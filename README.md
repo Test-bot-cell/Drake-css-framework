@@ -34,7 +34,7 @@ Le cycle de contribution sanctuarisé commence dans [AGENTS.md](AGENTS.md) et
 ## Statut de distribution
 
 Le paquet s’appelle `drake.css` (titre : « Drake.css framework ») et porte la version
-propre au fork `0.1.0` ; la base amont `3.25.20` n’est conservée qu’en métadonnée de
+propre au fork `0.1.1` ; la base amont `3.25.20` n’est conservée qu’en métadonnée de
 provenance de `package.json`. La distribution officielle passe par le dépôt GitHub
 public (décision D-020), sans registre npm requis :
 

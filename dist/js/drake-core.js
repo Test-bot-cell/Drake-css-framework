@@ -1,4 +1,4 @@
-/*! Drake.css framework 0.1.0 | MIT License | based on UIkit, (c) 2014 - 2026 YOOtheme (https://getuikit.com) */
+/*! Drake.css framework 0.1.1 | MIT License | based on UIkit, (c) 2014 - 2026 YOOtheme (https://getuikit.com) */
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -1960,7 +1960,7 @@
         wrapInner: wrapInner
     });
 
-    var VERSION = '0.1.0';
+    var VERSION = '0.1.1';
 
     function initUpdates(instance) {
       var _a;
