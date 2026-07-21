@@ -18,7 +18,7 @@ import {
     pointerUp,
     removeClass,
     toFloat,
-} from 'uikit-util';
+} from 'drake-util';
 import { defineMixin } from '../api/options';
 import type { ComponentInternalInstance, FrameworkEvent, Teardown } from '../types';
 import { awaitFrame } from '../util/await';
@@ -70,7 +70,7 @@ export default defineMixin<ModalInstance>()({
     },
 
     data: {
-        cls: 'uk-open',
+        cls: 'drk-open',
         escClose: true,
         bgClose: true,
         overlay: true,

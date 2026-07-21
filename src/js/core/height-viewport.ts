@@ -12,7 +12,7 @@ import {
     scrollParent,
     scrollParents,
     toFloat,
-} from 'uikit-util';
+} from 'drake-util';
 import { resize, viewport } from '../api/observables';
 import { defineComponent } from '../api/options';
 import Media from '../mixin/media';

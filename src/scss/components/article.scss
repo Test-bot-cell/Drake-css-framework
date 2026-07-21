@@ -3,10 +3,10 @@
 // Name:            Article
 // Description:     Component to create articles
 //
-// Component:       `uk-article`
+// Component:       `drk-article`
 //
-// Sub-objects:     `uk-article-title`
-//                  `uk-article-meta`
+// Sub-objects:     `drk-article-title`
+//                  `drk-article-meta`
 //
 // ========================================================================
 
@@ -22,7 +22,7 @@
    Component: Article
  ========================================================================== */
 
-.uk-article {
+.drk-article {
     display: flow-root;
     @if(meta.mixin-exists(hook-article)) {@include hook-article();}
 }
@@ -31,13 +31,13 @@
  * Remove margin from the last-child
  */
 
-.uk-article > :last-child { margin-bottom: 0; }
+.drk-article > :last-child { margin-bottom: 0; }
 
 
 /* Adjacent sibling
  ========================================================================== */
 
-.uk-article + .uk-article {
+.drk-article + .drk-article {
     margin-top: $article-margin-top;
     @if(meta.mixin-exists(hook-article-adjacent)) {@include hook-article-adjacent();}
 }
@@ -46,7 +46,7 @@
 /* Title
  ========================================================================== */
 
-.uk-article-title {
+.drk-article-title {
     font-size: $article-title-font-size;
     line-height: $article-title-line-height;
     @if(meta.mixin-exists(hook-article-title)) {@include hook-article-title();}
@@ -55,7 +55,7 @@
 /* Tablet landscape and bigger */
 @media (min-width: $breakpoint-medium) {
 
-    .uk-article-title { font-size: $article-title-font-size-m; }
+    .drk-article-title { font-size: $article-title-font-size-m; }
 
 }
 
@@ -63,7 +63,7 @@
 /* Meta
  ========================================================================== */
 
-.uk-article-meta {
+.drk-article-meta {
     font-size: $article-meta-font-size;
     line-height: $article-meta-line-height;
     color: $article-meta-color;

@@ -1,4 +1,4 @@
-import { attr, isVisible, matches } from 'uikit-util';
+import { attr, isVisible, matches } from 'drake-util';
 import { defineMixin } from '../api/options';
 import type { SliderInstance } from './types';
 

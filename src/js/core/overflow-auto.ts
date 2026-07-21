@@ -1,4 +1,4 @@
-import { css, dimensions, height, isVisible } from 'uikit-util';
+import { css, dimensions, height, isVisible } from 'drake-util';
 import { resize } from '../api/observables';
 import { defineComponent } from '../api/options';
 import Class from '../mixin/class';
@@ -26,8 +26,8 @@ export default defineComponent<OverflowAutoInstance>()({
     },
 
     data: {
-        selContainer: '.uk-modal',
-        selContent: '.uk-modal-dialog',
+        selContainer: '.drk-modal',
+        selContent: '.drk-modal-dialog',
         minHeight: 150,
     },
 

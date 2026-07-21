@@ -1,4 +1,4 @@
-import { css, isVisible, parent, query, scrollParent, scrolledOver, toPx } from 'uikit-util';
+import { css, isVisible, parent, query, scrollParent, scrolledOver, toPx } from 'drake-util';
 import { resize, scroll, viewport } from '../api/observables';
 import { defineComponent } from '../api/options';
 import Parallax, { ease } from '../mixin/parallax';

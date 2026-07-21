@@ -1,4 +1,4 @@
-import { assign, fastdom, isFunction, isPlainObject } from 'uikit-util';
+import { assign, fastdom, isFunction, isPlainObject } from 'drake-util';
 import type { ComponentInternalInstance, ComponentUpdate, ComponentValueMap } from '../types';
 
 export function initUpdates(instance: ComponentInternalInstance): void {

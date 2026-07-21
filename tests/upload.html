@@ -4,51 +4,51 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Upload - UIkit tests</title>
+        <title>Upload - Drake tests</title>
         <script src="../dist/js/tests/test.js"></script>
     </head>
 
     <body>
 
-        <div class="uk-container">
+        <div class="drk-container">
 
             <h1>Upload</h1>
 
             <h2>Select</h2>
 
-            <div class="js-upload" uk-form-custom>
+            <div class="js-upload" drk-form-custom>
                 <input type="file" multiple>
-                <button class="uk-button uk-button-default" type="button" tabindex="-1">Select</button>
+                <button class="drk-button drk-button-default" type="button" tabindex="-1">Select</button>
             </div>
 
             <h2>Drop Area</h2>
 
-            <div class="js-upload uk-placeholder uk-text-center">
-                <span uk-icon="icon: cloud-upload"></span>
-                <span class="uk-text-middle">Attach binaries by dropping them here or</span>
-                <div uk-form-custom>
+            <div class="js-upload drk-placeholder drk-text-center">
+                <span drk-icon="icon: cloud-upload"></span>
+                <span class="drk-text-middle">Attach binaries by dropping them here or</span>
+                <div drk-form-custom>
                     <input type="file" multiple>
-                    <span class="uk-link">selecting one</span>
+                    <span class="drk-link">selecting one</span>
                 </div>
             </div>
 
-            <progress id="js-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
+            <progress id="js-progressbar" class="drk-progress" value="0" max="100" hidden></progress>
 
             <h2>Abort After Send</h2>
 
             <p>Select one or more files and check the console. The request aborts from <code>loadStart</code>, so <code>abort</code> should fire while <code>error</code> and <code>completeAll</code> should not.</p>
 
-            <div class="js-upload-abort" uk-form-custom>
+            <div class="js-upload-abort" drk-form-custom>
                 <input type="file" multiple>
-                <button class="uk-button uk-button-danger" type="button" tabindex="-1">Select and abort</button>
+                <button class="drk-button drk-button-danger" type="button" tabindex="-1">Select and abort</button>
             </div>
 
-            <progress id="js-abort-progressbar" class="uk-progress" value="0" max="100" hidden></progress>
+            <progress id="js-abort-progressbar" class="drk-progress" value="0" max="100" hidden></progress>
 
             <h2>JavaScript Options</h2>
 
-            <div class="uk-overflow-auto">
-                <table class="uk-table uk-table-striped">
+            <div class="drk-overflow-auto">
+                <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
                             <th>Option</th>
@@ -127,7 +127,7 @@
                         <tr>
                             <td><code>cls-dragover</code></td>
                             <td>String</td>
-                            <td>uk-dragover</td>
+                            <td>drk-dragover</td>
                             <td>File name filter.</td>
                         </tr>
                         <tr>
@@ -202,8 +202,8 @@
 
             <h2>i18n</h2>
 
-            <div class="uk-overflow-auto">
-                <table class="uk-table uk-table-striped">
+            <div class="drk-overflow-auto">
+                <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
                             <th>Key</th>

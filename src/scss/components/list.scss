@@ -3,22 +3,22 @@
 // Name:            List
 // Description:     Styles for lists
 //
-// Component:       `uk-list`
+// Component:       `drk-list`
 //
-// Modifiers:       `uk-list-disc`
-//                  `uk-list-circle`
-//                  `uk-list-square`
-//                  `uk-list-decimal`
-//                  `uk-list-hyphen`
-//                  `uk-list-muted`
-//                  `uk-list-emphasis`
-//                  `uk-list-primary`
-//                  `uk-list-secondary`
-//                  `uk-list-bullet`
-//                  `uk-list-divider`
-//                  `uk-list-striped`
-//                  `uk-list-large`
-//                  `uk-list-collapse`
+// Modifiers:       `drk-list-disc`
+//                  `drk-list-circle`
+//                  `drk-list-square`
+//                  `drk-list-decimal`
+//                  `drk-list-hyphen`
+//                  `drk-list-muted`
+//                  `drk-list-emphasis`
+//                  `drk-list-primary`
+//                  `drk-list-secondary`
+//                  `drk-list-bullet`
+//                  `drk-list-divider`
+//                  `drk-list-striped`
+//                  `drk-list-large`
+//                  `drk-list-collapse`
 //
 // ========================================================================
 
@@ -40,7 +40,7 @@
    Component: List
  ========================================================================== */
 
-.uk-list {
+.drk-list {
     padding: 0;
     list-style: none;
 }
@@ -49,56 +49,56 @@
  * Avoid column break within the list item, when using `column-count`
  */
 
-.uk-list > * { break-inside: avoid-column; }
+.drk-list > * { break-inside: avoid-column; }
 
 /*
  * Remove margin from the last-child
  */
 
-.uk-list > * > :last-child { margin-bottom: 0; }
+.drk-list > * > :last-child { margin-bottom: 0; }
 
 /*
  * Style
  */
 
-.uk-list > :nth-child(n+2),
-.uk-list > * > ul { margin-top: $list-margin-top; }
+.drk-list > :nth-child(n+2),
+.drk-list > * > ul { margin-top: $list-margin-top; }
 
 
 /* Marker modifiers
  ========================================================================== */
 
-.uk-list-disc,
-.uk-list-circle,
-.uk-list-square,
-.uk-list-decimal,
-.uk-list-hyphen { padding-left: $list-padding-left; }
+.drk-list-disc,
+.drk-list-circle,
+.drk-list-square,
+.drk-list-decimal,
+.drk-list-hyphen { padding-left: $list-padding-left; }
 
-.uk-list-disc { list-style-type: disc; }
-.uk-list-circle { list-style-type: circle; }
-.uk-list-square { list-style-type: square; }
-.uk-list-decimal { list-style-type: decimal; }
-.uk-list-hyphen { list-style-type: '–  '; }
+.drk-list-disc { list-style-type: disc; }
+.drk-list-circle { list-style-type: circle; }
+.drk-list-square { list-style-type: square; }
+.drk-list-decimal { list-style-type: decimal; }
+.drk-list-hyphen { list-style-type: '–  '; }
 
 /*
  * Color modifiers
  */
 
-.uk-list-muted > ::marker { color: $list-muted-color !important; }
-.uk-list-emphasis > ::marker { color: $list-emphasis-color !important; }
-.uk-list-primary > ::marker { color: $list-primary-color !important; }
-.uk-list-secondary > ::marker { color: $list-secondary-color !important; }
+.drk-list-muted > ::marker { color: $list-muted-color !important; }
+.drk-list-emphasis > ::marker { color: $list-emphasis-color !important; }
+.drk-list-primary > ::marker { color: $list-primary-color !important; }
+.drk-list-secondary > ::marker { color: $list-secondary-color !important; }
 
 
 /* Image bullet modifier
  ========================================================================== */
 
-.uk-list-bullet > * {
+.drk-list-bullet > * {
     position: relative;
     padding-left: $list-padding-left;
 }
 
-.uk-list-bullet > ::before {
+.drk-list-bullet > ::before {
     content: "";
     position: absolute;
     top: 0;
@@ -118,7 +118,7 @@
  * Divider
  */
 
-.uk-list-divider > :nth-child(n+2) {
+.drk-list-divider > :nth-child(n+2) {
     margin-top: $list-divider-margin-top;
     padding-top: $list-divider-margin-top;
     border-top: $list-divider-border-width solid $list-divider-border;
@@ -129,35 +129,35 @@
  * Striped
  */
 
-.uk-list-striped > * {
+.drk-list-striped > * {
     padding: $list-striped-padding-vertical $list-striped-padding-horizontal;
     @if(meta.mixin-exists(hook-list-striped)) {@include hook-list-striped();}
 }
 
-.uk-list-striped > :nth-of-type(odd) { background: $list-striped-background; }
+.drk-list-striped > :nth-of-type(odd) { background: $list-striped-background; }
 
-.uk-list-striped > :nth-child(n+2) { margin-top: 0; }
+.drk-list-striped > :nth-child(n+2) { margin-top: 0; }
 
 
 /* Size modifier
  ========================================================================== */
 
-.uk-list-large > :nth-child(n+2),
-.uk-list-large > * > ul { margin-top: $list-large-margin-top; }
+.drk-list-large > :nth-child(n+2),
+.drk-list-large > * > ul { margin-top: $list-large-margin-top; }
 
-.uk-list-collapse > :nth-child(n+2),
-.uk-list-collapse > * > ul { margin-top: 0; }
+.drk-list-collapse > :nth-child(n+2),
+.drk-list-collapse > * > ul { margin-top: 0; }
 
 /*
  * Divider
  */
 
-.uk-list-large.uk-list-divider > :nth-child(n+2) {
+.drk-list-large.drk-list-divider > :nth-child(n+2) {
     margin-top: $list-large-divider-margin-top;
     padding-top: $list-large-divider-margin-top;
 }
 
-.uk-list-collapse.uk-list-divider > :nth-child(n+2) {
+.drk-list-collapse.drk-list-divider > :nth-child(n+2) {
     margin-top: 0;
     padding-top: 0;
 }
@@ -166,15 +166,15 @@
  * Striped
  */
 
-.uk-list-large.uk-list-striped > * { padding: $list-large-striped-padding-vertical $list-large-striped-padding-horizontal; }
+.drk-list-large.drk-list-striped > * { padding: $list-large-striped-padding-vertical $list-large-striped-padding-horizontal; }
 
-.uk-list-collapse.uk-list-striped > * {
+.drk-list-collapse.drk-list-striped > * {
     padding-top: 0;
     padding-bottom: 0;
 }
 
-.uk-list-large.uk-list-striped > :nth-child(n+2),
-.uk-list-collapse.uk-list-striped > :nth-child(n+2) { margin-top: 0; }
+.drk-list-large.drk-list-striped > :nth-child(n+2),
+.drk-list-collapse.drk-list-striped > :nth-child(n+2) { margin-top: 0; }
 
 
 // Hooks

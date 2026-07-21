@@ -13,7 +13,7 @@ import {
     pointerUp,
     selInput,
     toggleClass,
-} from 'uikit-util';
+} from 'drake-util';
 import { mutation, resize } from '../api/observables';
 import { defineComponent } from '../api/options';
 import type { ComponentInternalInstance, FrameworkEvent } from '../types';
@@ -91,8 +91,8 @@ export default defineComponent<OverflowFadeInstance>()({
                         current ? clamp((this.fadeDuration - value) / this.fadeDuration) : 1;
 
                     css(this.$el, {
-                        '--uk-overflow-fade-start-opacity': toValue(percent),
-                        '--uk-overflow-fade-end-opacity': toValue(1 - percent),
+                        '--drk-overflow-fade-start-opacity': toValue(percent),
+                        '--drk-overflow-fade-end-opacity': toValue(1 - percent),
                     });
                 }
             }

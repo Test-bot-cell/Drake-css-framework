@@ -7,7 +7,7 @@ import {
     isString,
     memoize,
     startsWith,
-} from 'uikit-util';
+} from 'drake-util';
 import type {
     ComponentInternalInstance,
     ComponentOptions,

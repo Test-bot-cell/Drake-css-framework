@@ -19,5 +19,5 @@ declare module 'component' {
 }
 
 interface Window {
-    UIkit?: import('./index').UIkitStatic;
+    Drake?: import('./index').DrakeStatic;
 }

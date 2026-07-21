@@ -1,4 +1,4 @@
-import { css } from 'uikit-util';
+import { css } from 'drake-util';
 import { defineComponent } from '../api/options';
 import Class from '../mixin/class';
 import SliderParallax from '../mixin/slider-parallax';
@@ -32,9 +32,9 @@ export default defineComponent<SlideshowInstance>()({
         ratio: '16:9',
         minHeight: undefined,
         maxHeight: undefined,
-        selList: '.uk-slideshow-items',
-        attrItem: 'uk-slideshow-item',
-        selNav: '.uk-slideshow-nav',
+        selList: '.drk-slideshow-items',
+        attrItem: 'drk-slideshow-item',
+        selNav: '.drk-slideshow-nav',
         Animations,
     },
 

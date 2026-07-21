@@ -10,7 +10,7 @@ import {
     removeClass,
     unwrap,
     wrapAll,
-} from 'uikit-util';
+} from 'drake-util';
 import { swipe } from '../api/observables';
 import { defineComponent } from '../api/options';
 import Modal from '../mixin/modal';
@@ -63,15 +63,15 @@ export default defineComponent<OffcanvasInstance>()({
         mode: 'slide',
         flip: false,
         overlay: false,
-        clsPage: 'uk-offcanvas-page',
-        clsContainer: 'uk-offcanvas-container',
-        selPanel: '.uk-offcanvas-bar',
-        clsFlip: 'uk-offcanvas-flip',
-        clsContainerAnimation: 'uk-offcanvas-container-animation',
-        clsSidebarAnimation: 'uk-offcanvas-bar-animation',
-        clsMode: 'uk-offcanvas',
-        clsOverlay: 'uk-offcanvas-overlay',
-        selClose: '.uk-offcanvas-close',
+        clsPage: 'drk-offcanvas-page',
+        clsContainer: 'drk-offcanvas-container',
+        selPanel: '.drk-offcanvas-bar',
+        clsFlip: 'drk-offcanvas-flip',
+        clsContainerAnimation: 'drk-offcanvas-container-animation',
+        clsSidebarAnimation: 'drk-offcanvas-bar-animation',
+        clsMode: 'drk-offcanvas',
+        clsOverlay: 'drk-offcanvas-overlay',
+        selClose: '.drk-offcanvas-close',
         container: false,
         swiping: true,
     },

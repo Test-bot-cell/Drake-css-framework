@@ -1,4 +1,4 @@
-import { addClass, hasClass, removeClass } from 'uikit-util';
+import { addClass, hasClass, removeClass } from 'drake-util';
 import { defineMixin } from '../api/options';
 import type { ComponentInternalInstance } from '../types';
 

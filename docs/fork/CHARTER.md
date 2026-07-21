@@ -1,22 +1,41 @@
-# Charte du fork
+# Charte de Drake.css framework
 
 ## 1. Objet
 
-La présente charte fixe les engagements durables de UIkit TS. Elle prévaut sur les pratiques
-de commodité, les choix ponctuels d’implémentation et la feuille de route.
+La présente charte fixe les engagements durables de Drake.css framework (forme courte
+admise : Drake.css), nom officiel du fork décidé par le mainteneur le 2026-07-21 (D-012).
+Elle prévaut sur les pratiques de commodité, les choix ponctuels d’implémentation et la
+feuille de route.
 
-Le fork vise un framework de progressive enhancement :
+Le framework vise le progressive enhancement :
 
-- compatible avec UIkit 3.25.20 ;
+- comportementalement fidèle à sa référence interne pré-renommage (D-012) ;
 - maintenu en TypeScript strict ;
 - sans source JavaScript destinée au navigateur ;
 - fondé sur un HTML complet rendu côté serveur ou prérendu ;
 - conçu mobile-first à partir de 320 pixels CSS ;
 - protecteur des fondamentaux du SEO technique ;
+- stylé, à terme, depuis une source Panda.css typée produisant une CSS statique (D-013) ;
 - autonome à l’exécution ;
 - reproductible ;
 - accessible ;
 - explicite sur ses licences et divergences.
+
+### 1.1 Identité et espaces de noms
+
+- L’API globale navigateur est `Drake` (`window.Drake`) ; les types publics utilisent le
+  préfixe `Drake*`.
+- Le préfixe universel est `drk-` : classes `.drk-*`, attributs `drk-*` et `data-drk-*`,
+  custom properties `--drk-*`.
+- Les artefacts distribués portent des noms `drake*` (`dist/css/drake.css`,
+  `dist/js/drake.js` et leurs déclinaisons).
+- Le paquet npm se nomme `drake.css` ; sa version est propre au fork et la version de base
+  amont n’apparaît que comme métadonnée de provenance.
+
+En dehors des documents de provenance et des obligations légales recensés par `FORK.md`,
+les documents et les sources **DOIVENT** désigner l’origine du code par « l’amont » ou
+« le projet amont (voir `FORK.md`) », sans la nommer. La section 4.9 est le seul endroit de
+la présente charte où le projet amont est nommé.
 
 ## 2. Vocabulaire normatif
 
@@ -26,7 +45,11 @@ Le fork vise un framework de progressive enhancement :
 - **Runtime** : code livré au navigateur pour initialiser et piloter les composants.
 - **Source canonique** : fichier humainement modifié à partir duquel une sortie est générée.
 - **Distribution** : contenu de `dist/` et contenu destiné à un paquet ou une release.
-- **Compatibilité** : absence de différence observable non annoncée sur une surface protégée.
+- **Référence interne pré-renommage** : dernier état vert de `fork/main` antérieur à
+  l’application de D-012 ; elle porte le contrat de parité comportementale de la
+  section 4.3.
+- **Compatibilité** : absence de différence observable non annoncée sur une surface
+  protégée, mesurée vis-à-vis de la référence interne pré-renommage.
 - **HTML initial** : corps de la réponse HTTP ou document prérendu avant toute exécution du
   runtime navigateur.
 - **Intégration conforme** : page, exemple ou gabarit utilisant le framework et respectant le
@@ -34,7 +57,7 @@ Le fork vise un framework de progressive enhancement :
 
 ## 3. Base et traçabilité
 
-Le socle historique est UIkit `v3.25.20` au commit
+Le socle historique est le projet amont (voir `FORK.md`) à sa version `v3.25.20`, au commit
 `45cc430052ba967de8e9972507dee4d37701552d`.
 
 Cette base **DOIT** rester identifiable dans l’historique. Une mise à jour amont :
@@ -44,6 +67,10 @@ Cette base **DOIT** rester identifiable dans l’historique. Une mise à jour am
 - **NE DOIT PAS** effacer les attributions ou transformer une synchronisation en import
   opaque ;
 - **DOIT** suivre `UPSTREAM.md`.
+
+La référence interne pré-renommage **DOIT** elle aussi rester identifiable, par un tag ou un
+SHA enregistré : c’est elle, et non l’API publique amont littérale, qui définit la parité
+exigée par la section 4.3 (D-012).
 
 ## 4. Piliers constitutionnels
 
@@ -72,6 +99,10 @@ pas être confondues dans le même changement.
 Elm **NE DOIT PAS** remplacer TypeScript, piloter le cœur du runtime ni devenir une
 dépendance de build obligatoire.
 
+Ce pilier a été réexaminé le 2026-07-21 à la demande du mainteneur (D-014) : les raisons de
+D-003 sont reconduites, la possession du DOM par Elm restant incompatible avec le
+progressive enhancement HTML-first. Aucune pertinence n’a été identifiée dans le cœur.
+
 Un adaptateur Elm futur est admissible seulement si :
 
 - le cœur TypeScript est stable ;
@@ -80,20 +111,25 @@ Un adaptateur Elm futur est admissible seulement si :
 - ses ports ou éléments personnalisés ne deviennent pas nécessaires aux utilisateurs non Elm ;
 - sa release peut être interrompue sans affecter le framework.
 
-### 4.3 Compatibilité UIkit
+### 4.3 Compatibilité Drake
 
-La conversion TypeScript est un changement de maintenance, pas une autorisation de redesign.
-Les surfaces suivantes sont protégées :
+Le renommage D-012 et la conversion TypeScript sont des changements de maintenance, pas une
+autorisation de redesign. Les surfaces protégées sont celles de Drake :
 
-- sélecteurs, classes et variables de style documentés ;
-- attributs de composants et coercition de leurs options ;
+- sélecteurs, classes `.drk-*` et custom properties `--drk-*` documentés ;
+- attributs `drk-*` et `data-drk-*` des composants et coercition de leurs options ;
 - initialisation, connexion, déconnexion et mise à jour automatiques ;
 - événements et méthodes publics ;
 - focus, clavier, ARIA et annonces accessibles ;
 - LTR, RTL, responsive et préférences utilisateur ;
-- API globale et usage programmatique documentés.
+- API globale `Drake` et usage programmatique documentés.
 
-Cette compatibilité s'arrête lorsqu'un comportement historique contredit les piliers
+L’exigence est une parité comportementale, aux niveaux C0 à C3 applicables, avec la
+référence interne pré-renommage, et non plus avec l’API publique amont littérale (D-012).
+L’héritage comportemental des composants est conservé : à déclaration équivalente, un
+composant Drake **DOIT** se comporter comme son homologue de la référence interne.
+
+Cette compatibilité s'arrête lorsqu'un comportement hérité contredit les piliers
 HTML-first, mobile-first, TypeScript-only ou Tabler-only. La divergence **DOIT** alors être
 inventoriée, couverte par une migration et ne peut jamais réintroduire la dépendance du
 contenu au runtime, une source JavaScript navigateur ou un registre d'icônes SVG.
@@ -105,23 +141,42 @@ le contrat change.
 ### 4.4 Assets épinglés et autonomes
 
 Le catalogue d’icônes **DOIT** être Tabler Icons 3.45.0 Outline, soit 5 112 icônes. Sa sortie
-est une CSS de masques contenant les tracés en données SVG encodées. Aucun fichier Tabler
-SVG autonome n’est distribué.
+est `dist/css/drake-tabler-icons.css`, une CSS de masques contenant les tracés en données
+SVG encodées (`data:image/svg+xml`). La classe de base est `.drk-ti` et chaque icône utilise
+`.drk-ti-{nom}`. Aucun fichier SVG autonome n’est distribué.
 
-Toutes les icônes UIkit historiques livrées, publiques comme internes, **DOIVENT** être
-remplacées par une classe Tabler ou un alias CSS vers Tabler. Aucun bundle `uikit-icons.js`,
+Toutes les icônes héritées de l’amont, publiques comme internes, **DOIVENT** être remplacées
+par une classe Tabler ou un alias CSS vers Tabler. Aucun bundle JavaScript d’icônes,
 registre SVG JavaScript, objet de glyphes ou mécanisme d'injection d'un catalogue SVG
 **NE DOIT** être distribué. Un utilitaire générique manipulant un SVG fourni par l'application
 reste admissible s'il n'embarque aucun catalogue d'icônes.
 
 La typographie **DOIT** être Inter 4.1 avec ses faces variables roman et italic intactes. Sa
-sortie est une CSS monofichier contenant deux fontes WOFF2 encodées. Aucun fichier WOFF ou
-WOFF2 autonome n’est distribué.
+sortie est `dist/css/drake-inter.css`, une CSS monofichier contenant deux fontes WOFF2
+encodées en `data:` URI. Aucun fichier WOFF ou WOFF2 autonome n’est distribué.
 
 Les assets **NE DOIVENT PAS** nécessiter de réseau à l’exécution. Les versions, nombres de
 faces, nombres d’icônes et empreintes **DOIVENT** être contrôlés automatiquement.
 
-### 4.5 HTML-first, mobile-first et SEO technique
+### 4.5 Styles Panda.css
+
+La source canonique cible des styles est Panda.css (D-013) : `panda.config.ts` et des
+modules TypeScript de styles définissant les tokens, les semantic tokens, les recettes et
+des fonctions de style typées, ainsi que `globalCss` pour la cascade héritée. Les fonctions
+de style typées remplacent les mixins Less.
+
+La CSS distribuée **DOIT** rester statique, générée et déterministe : aucune génération dans
+le navigateur, aucune dépendance runtime, et deux générations à entrées identiques
+**DOIVENT** produire des contenus identiques.
+
+Transition : `src/less/` **DOIT** rester la source canonique et `src/scss/` rester généré
+tant que le port Panda n’est pas achevé, composant par composant, avec preuve de parité par
+diff CSS normalisé. Un composant ne bascule vers Panda qu’avec cette preuve. Les mixins Less
+restants sont une dette qui bloque la release finale.
+
+La dépendance `@pandacss/dev` **DOIT** être épinglée en version exacte dès son introduction.
+
+### 4.6 HTML-first, mobile-first et SEO technique
 
 Le HTML initial d'une intégration conforme **DOIT** contenir tout ce qui est nécessaire pour
 lire, comprendre, parcourir et indexer la page : contenu principal et secondaire, navigation,
@@ -153,7 +208,7 @@ Les objectifs de référence, mesurés au 75e percentile, sont LCP ≤ 2,5 s, IN
 CLS ≤ 0,1. Leur définition officielle évolue ; une modification des métriques stables ou de
 leurs seuils est traitée comme une mise à jour normative documentée, jamais silencieuse.
 
-### 4.6 Accessibilité et internationalisation
+### 4.7 Accessibilité et internationalisation
 
 L’accessibilité est un gate de release :
 
@@ -169,10 +224,11 @@ L’accessibilité est un gate de release :
 
 Une différence visuelle acceptable n’autorise pas une régression sémantique.
 
-### 4.7 Reproductibilité
+### 4.8 Reproductibilité
 
 La chaîne officielle repose sur Node.js 24.18.0 exact et pnpm 11.4.0. Le lockfile **DOIT** être
-respecté avec une installation gelée.
+respecté avec une installation gelée. La validation officielle est `pnpm verify`, qui exécute
+les gates G0 à G14.
 
 Une release **DOIT** :
 
@@ -182,17 +238,19 @@ Une release **DOIT** :
 - contenir les bannières et notices légales requises ;
 - ne contenir aucun fichier autonome interdit par le contrat d’assets.
 
-### 4.8 Licences
+### 4.9 Licences
 
 Le fork **DOIT** préserver :
 
-- la licence MIT et les mentions de UIkit ;
+- la licence MIT du projet amont et ses mentions de copyright, conservées à l'identique
+  dans `LICENSE.md` (provenance détaillée dans `FORK.md`) ;
 - la licence MIT de Tabler Icons ;
 - la SIL Open Font License 1.1 d’Inter ;
 - le nom réservé « Inter » tant que les fontes officielles intactes sont distribuées.
 
-Un minificateur, un scopeur ou un empaqueteur **NE DOIT PAS** supprimer les notices
-essentielles.
+Ces obligations survivent au renommage des espaces publics (D-012) et ne sont jamais
+supprimées. Un minificateur, un scopeur ou un empaqueteur **NE DOIT PAS** supprimer les
+notices essentielles.
 
 ## 5. Niveaux de compatibilité
 
@@ -201,12 +259,12 @@ Les validations utilisent quatre niveaux :
 | Niveau | Surface                  | Exigence                                                |
 | ------ | ------------------------ | ------------------------------------------------------- |
 | C0     | CSS statique et balisage | Rendu et cascade sans runtime                           |
-| C1     | Déclaration `uk-*`       | Initialisation et options équivalentes                  |
+| C1     | Déclaration `drk-*`      | Initialisation et options équivalentes                  |
 | C2     | Interaction              | Événements, clavier, focus, observers et transitions    |
 | C3     | Programmation            | API globale, méthodes, plugins et extensions documentés |
 
 Une fonctionnalité n’est dite compatible que si tous les niveaux qui lui sont applicables
-sont validés.
+sont validés vis-à-vis de la référence interne pré-renommage (D-012).
 
 ## 6. Catégories de changements
 
@@ -216,8 +274,8 @@ Correction ou maintenance sans modification du contrat. Il suit les gates usuels
 
 ### Changement sensible
 
-Modification du runtime, des assets, du build, du packaging, des licences, de l’accessibilité
-ou de la synchronisation amont. Il exige :
+Modification du runtime, des sources de styles, des assets, du build, du packaging, des
+licences, de l’accessibilité ou de la synchronisation amont. Il exige :
 
 - une analyse de compatibilité ;
 - les tests ciblés ;

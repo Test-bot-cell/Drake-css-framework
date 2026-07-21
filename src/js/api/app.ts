@@ -1,11 +1,11 @@
-import * as util from 'uikit-util';
+import * as util from 'drake-util';
 import VERSION from 'virtual:version';
-import type { ComponentInitOptions, ComponentInternalInstance, UIkitStatic } from '../types';
+import type { ComponentInitOptions, ComponentInternalInstance, DrakeStatic } from '../types';
 import { init } from './state';
 
 const App = function (this: ComponentInternalInstance, options: ComponentInitOptions = {}): void {
     init(this, options);
-} as UIkitStatic;
+} as DrakeStatic;
 
 App.util = util;
 App.options = {};

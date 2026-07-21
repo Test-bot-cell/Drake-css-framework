@@ -9,18 +9,18 @@ import {
     on,
     parents,
     uniqueBy,
-} from 'uikit-util';
+} from 'drake-util';
 import { defineComponent, parseOptions } from '../api/options';
 import type {
     ComponentInternalInstance,
     ComponentOptions,
+    DrakeStatic,
     FrameworkEvent,
     PropType,
-    UIkitStatic,
 } from '../types';
 import LightboxPanel from './lightbox-panel';
 
-const selDisabled = '.uk-disabled *, .uk-disabled, [disabled]';
+const selDisabled = '.drk-disabled *, .drk-disabled, [disabled]';
 
 type LightboxItem = Record<string, unknown> & {
     source?: string | null;
@@ -122,12 +122,12 @@ export default defineComponent<LightboxInstance>()({
     },
 });
 
-function install(UIkit: UIkitStatic, Lightbox: InstalledLightboxOptions): void {
-    if (!UIkit.lightboxPanel) {
-        UIkit.component('lightboxPanel', LightboxPanel);
+function install(Drake: DrakeStatic, Lightbox: InstalledLightboxOptions): void {
+    if (!Drake.lightboxPanel) {
+        Drake.component('lightboxPanel', LightboxPanel);
     }
 
-    const panelDefinition = UIkit.component('lightboxPanel');
+    const panelDefinition = Drake.component('lightboxPanel');
     const panelProps =
         typeof panelDefinition === 'function'
             ? panelDefinition.options.props

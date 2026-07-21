@@ -1,11 +1,11 @@
 // Name:            Sticky
 // Description:     Component to make elements sticky in the viewport
 //
-// Component:       `uk-sticky`
+// Component:       `drk-sticky`
 //
-// Modifier:        `uk-sticky-fixed`
+// Modifier:        `drk-sticky-fixed`
 //
-// States:          `uk-active`
+// States:          `drk-active`
 //
 // ========================================================================
 
@@ -30,7 +30,7 @@
  * 2. More robust if padding and border are used and the sticky height is transitioned
  */
 
-.uk-sticky {
+.drk-sticky {
     /* 1 */
     position: relative;
     /* 2 */
@@ -39,22 +39,22 @@
     box-sizing: border-box;
 }
 
-.uk-sticky-fixed { margin: 0 !important; }
+.drk-sticky-fixed { margin: 0 !important; }
 
 /*
  * Faster animations
  */
 
-.uk-sticky[class*="uk-animation-"] { animation-duration: @sticky-animation-duration; }
+.drk-sticky[class*="drk-animation-"] { animation-duration: @sticky-animation-duration; }
 
-.uk-sticky.uk-animation-reverse { animation-duration: @sticky-reverse-animation-duration; }
+.drk-sticky.drk-animation-reverse { animation-duration: @sticky-reverse-animation-duration; }
 
 /*
  * Placeholder
  * Make content clickable for sticky cover and reveal effects
  */
 
-.uk-sticky-placeholder { pointer-events: none; }
+.drk-sticky-placeholder { pointer-events: none; }
 
 
 // Hooks

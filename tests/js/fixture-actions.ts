@@ -46,7 +46,7 @@ interface UploadOptions {
     abort?(): void;
 }
 
-interface FixtureUIkit {
+interface FixtureDrake {
     countdown(selector: string, options: { date: string }): unknown;
     lightboxPanel(options: {
         items: ReadonlyArray<{ source: string; caption: string }>;
@@ -71,10 +71,10 @@ export function installFixtureActions(): void {
             setupDrop();
             break;
         case 'dropbar':
-            setupClassSwitcher('#js-size-switcher', '.uk-dropbar');
+            setupClassSwitcher('#js-size-switcher', '.drk-dropbar');
             break;
         case 'dropdown':
-            setupClassSwitcher('#js-size-switcher', '.uk-dropdown');
+            setupClassSwitcher('#js-size-switcher', '.drk-dropdown');
             break;
         case 'dropnav':
             setupDropnav();
@@ -99,13 +99,13 @@ export function installFixtureActions(): void {
             setupLightbox();
             break;
         case 'list':
-            setupClassSwitcher('#js-color-switcher', '.uk-list');
+            setupClassSwitcher('#js-color-switcher', '.drk-list');
             break;
         case 'modal':
             setupModal();
             break;
         case 'nav':
-            setupClassSwitcher('#js-divider-switcher', '.uk-nav');
+            setupClassSwitcher('#js-divider-switcher', '.drk-nav');
             break;
         case 'navbar':
             setupNavbar();
@@ -138,7 +138,7 @@ export function installFixtureActions(): void {
             setupClassSwitcher('#js-height-switcher', '.js-overflow-flip');
             break;
         case 'table':
-            setupClassSwitcher('#js-size-switcher', '.uk-table');
+            setupClassSwitcher('#js-size-switcher', '.drk-table');
             break;
         case 'upload':
             setupUpload();
@@ -151,13 +151,13 @@ function setupCountdownDates(): void {
     date.setDate(date.getDate() + 7);
     const value = date.toISOString();
 
-    for (const element of document.querySelectorAll('[uk-countdown]')) {
+    for (const element of document.querySelectorAll('[drk-countdown]')) {
         element.setAttribute('date', value);
     }
 }
 
 function setupDrop(): void {
-    setupClassSwitcher('#js-style-switcher', '.uk-drop');
+    setupClassSwitcher('#js-style-switcher', '.drk-drop');
     setupClassSwitcher('#js-boundary-overflow-switcher', '.js-boundary-overflow');
 
     for (const option of [
@@ -179,8 +179,8 @@ function setupDrop(): void {
 
 function setupDropnav(): void {
     setupClassSwitcher('#js-nav-switcher', 'nav > :first-child');
-    setupClassSwitcher('#js-dropdown-size-switcher', '.uk-dropdown:not(.uk-dropdown-dropbar)');
-    setupClassSwitcher('#js-dropbar-size-switcher', '.uk-dropdown-dropbar');
+    setupClassSwitcher('#js-dropdown-size-switcher', '.drk-dropdown:not(.drk-dropdown-dropbar)');
+    setupClassSwitcher('#js-dropbar-size-switcher', '.drk-dropdown-dropbar');
 }
 
 function setupFilter(): void {
@@ -202,7 +202,7 @@ function setupGridParallax(): void {
 }
 
 function setupOverviewCountdown(): void {
-    getUIkit().countdown('[js-countdown]', {
+    getDrake().countdown('[js-countdown]', {
         date: new Date(Date.now() + 86_400_000 * 7).toISOString(),
     });
 }
@@ -215,13 +215,13 @@ function setupLightbox(): void {
         'counter',
         'video-autoplay',
     ]) {
-        setupAttributeSwitcher(`#js-${attribute}-switcher`, '[uk-lightbox]', attribute);
+        setupAttributeSwitcher(`#js-${attribute}-switcher`, '[drk-lightbox]', attribute);
     }
 
     const trigger = document.querySelector('#js-lightbox');
     trigger?.addEventListener('click', (event) => {
         event.preventDefault();
-        getUIkit()
+        getDrake()
             .lightboxPanel({
                 items: [
                     { source: 'images/size1.jpg', caption: '900x600' },
@@ -233,24 +233,24 @@ function setupLightbox(): void {
 }
 
 function setupModal(): void {
-    const modal = getUIkit().modal;
+    const modal = getDrake().modal;
 
     onClick('#js-modal-dialog', (event) => {
         event.preventDefault();
         blurTarget(event);
-        modal.dialog('<p class="uk-modal-body">UIkit dialog!</p>');
+        modal.dialog('<p class="drk-modal-body">Drake dialog!</p>');
     });
     onClick('#js-modal-alert', async (event) => {
         event.preventDefault();
         blurTarget(event);
-        await modal.alert('UIkit alert!');
+        await modal.alert('Drake alert!');
         console.log('Alert closed.');
     });
     onClick('#js-modal-confirm', async (event) => {
         event.preventDefault();
         blurTarget(event);
         try {
-            await modal.confirm('UIkit confirm!');
+            await modal.confirm('Drake confirm!');
             console.log('Confirmed.');
         } catch {
             console.log('Rejected.');
@@ -290,13 +290,13 @@ function setupNavbar(): void {
 
     setupClassSwitcher(
         '#js-dropdown-size-switcher',
-        '.uk-navbar-dropdown:not(.uk-navbar-dropdown-dropbar)',
+        '.drk-navbar-dropdown:not(.drk-navbar-dropdown-dropbar)',
     );
-    setupClassSwitcher('#js-dropbar-size-switcher', '.uk-navbar-dropdown-dropbar');
+    setupClassSwitcher('#js-dropbar-size-switcher', '.drk-navbar-dropdown-dropbar');
 }
 
 function setupNotifications(): void {
-    const notification = getUIkit().notification;
+    const notification = getDrake().notification;
 
     for (const button of queryElements('[data-fixture-notification]', HTMLButtonElement)) {
         button.addEventListener('click', () => {
@@ -333,7 +333,7 @@ function setupNotifications(): void {
 function setupOffcanvas(): void {
     onClick('#js-toggle', (event) => {
         event.preventDefault();
-        getUIkit().offcanvas('#js-offcanvas-toggle').toggle();
+        getDrake().offcanvas('#js-offcanvas-toggle').toggle();
     });
 }
 
@@ -439,7 +439,7 @@ function setupProgress(): void {
 }
 
 function setupScroll(): void {
-    setupAttributeSwitcher('#offset', '[uk-scroll]', 'data-offset');
+    setupAttributeSwitcher('#offset', '[drk-scroll]', 'data-offset');
     document.querySelector('#js-top-callback')?.addEventListener('scrolled', () => {
         alert('Done.');
     });
@@ -447,13 +447,13 @@ function setupScroll(): void {
 
 function setupSlider(): void {
     for (const attribute of ['finite', 'center', 'sets', 'active']) {
-        setupAttributeSwitcher(`#js-${attribute}-switcher`, '[uk-slider]', attribute);
+        setupAttributeSwitcher(`#js-${attribute}-switcher`, '[drk-slider]', attribute);
     }
 }
 
 function setupSlideshow(): void {
     setupAttributeSwitcher('#js-animation-switcher', '.js-slideshow-animation', 'animation');
-    setupAttributeSwitcher('#js-finite-switcher', '[uk-slideshow]', 'finite');
+    setupAttributeSwitcher('#js-finite-switcher', '[drk-slideshow]', 'finite');
 }
 
 function setupSortable(): void {
@@ -467,8 +467,8 @@ function setupUpload(): void {
         return;
     }
 
-    const uikit = getUIkit();
-    uikit.upload('.js-upload', {
+    const drake = getDrake();
+    drake.upload('.js-upload', {
         url: '',
         multiple: true,
         beforeSend(...args: unknown[]) {
@@ -514,7 +514,7 @@ function setupUpload(): void {
         },
     });
 
-    uikit.upload('.js-upload-abort', {
+    drake.upload('.js-upload-abort', {
         url: '',
         multiple: true,
         beforeSend(...args: unknown[]) {
@@ -688,15 +688,15 @@ function isNotificationStatus(value: string | undefined): value is NotificationS
     return value === 'primary' || value === 'success' || value === 'warning' || value === 'danger';
 }
 
-function getUIkit(): FixtureUIkit {
-    const candidate: unknown = Reflect.get(window, 'UIkit');
-    if (!isFixtureUIkit(candidate)) {
-        throw new Error('The UIkit fixture runtime is not available.');
+function getDrake(): FixtureDrake {
+    const candidate: unknown = Reflect.get(window, 'Drake');
+    if (!isFixtureDrake(candidate)) {
+        throw new Error('The Drake fixture runtime is not available.');
     }
     return candidate;
 }
 
-function isFixtureUIkit(value: unknown): value is FixtureUIkit {
+function isFixtureDrake(value: unknown): value is FixtureDrake {
     if (!isPropertyContainer(value)) {
         return false;
     }

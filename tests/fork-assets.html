@@ -4,9 +4,9 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Fork assets smoke test</title>
-        <link rel="stylesheet" href="../dist/css/uikit-inter.css" />
-        <link rel="stylesheet" href="../dist/css/uikit.css" />
-        <link rel="stylesheet" href="../dist/css/uikit-tabler-icons.css" />
+        <link rel="stylesheet" href="../dist/css/drake-inter.css" />
+        <link rel="stylesheet" href="../dist/css/drake.css" />
+        <link rel="stylesheet" href="../dist/css/drake-tabler-icons.css" />
         <style>
             .fork-assets-sample {
                 color: #1e87f0;
@@ -36,13 +36,13 @@
         </style>
     </head>
     <body>
-        <main class="uk-container uk-container-small uk-padding">
+        <main class="drk-container drk-container-small drk-padding">
             <h1>Inter variable + Tabler Outline</h1>
             <p data-testid="inter-roman">Inter Variable Roman — 100 à 900.</p>
             <p data-testid="inter-italic"><em>Inter Variable Italic — 100 à 900.</em></p>
             <p>
                 <span
-                    class="uk-ti uk-ti-brand-tabler fork-assets-sample"
+                    class="drk-ti drk-ti-brand-tabler fork-assets-sample"
                     data-testid="tabler-icon"
                     aria-hidden="true"
                 ></span>
@@ -50,13 +50,13 @@
             </p>
             <section
                 data-testid="animated-filter"
-                uk-filter="target: .fork-animated-filter-list; animation: delayed-fade; duration: 160"
+                drk-filter="target: .fork-animated-filter-list; animation: delayed-fade; duration: 160"
             >
                 <h2>Régression animation fade échelonnée</h2>
                 <button
-                    class="uk-button uk-button-default"
+                    class="drk-button drk-button-default"
                     type="button"
-                    uk-filter-control="[data-tone='cool']"
+                    drk-filter-control="[data-tone='cool']"
                     data-testid="animated-filter-trigger"
                 >
                     Afficher les tons froids
@@ -71,9 +71,9 @@
             <section aria-labelledby="runtime-bindings-title">
                 <h2 id="runtime-bindings-title">Régressions de liaison TypeScript</h2>
                 <button
-                    class="uk-button uk-button-default"
+                    class="drk-button drk-button-default"
                     type="button"
-                    uk-toggle="target: #fork-toggle-target"
+                    drk-toggle="target: #fork-toggle-target"
                     data-testid="null-prop-toggle"
                 >
                     Afficher la cible explicite
@@ -82,18 +82,18 @@
                     Cible déclarée par une prop dont le type runtime est null.
                 </p>
                 <ul
-                    class="uk-tab"
-                    uk-switcher="connect: #fork-event-targets"
+                    class="drk-tab"
+                    drk-switcher="connect: #fork-event-targets"
                     data-testid="array-event-switcher"
                 >
                     <li><button type="button">Premier panneau</button></li>
                     <li><button type="button">Second panneau</button></li>
                 </ul>
-                <ul id="fork-event-targets" class="uk-switcher">
+                <ul id="fork-event-targets" class="drk-switcher">
                     <li>
                         <button
                             type="button"
-                            uk-switcher-item="next"
+                            drk-switcher-item="next"
                             data-testid="array-event-trigger"
                         >
                             Avancer depuis le panneau
@@ -103,15 +103,15 @@
                 </ul>
             </section>
             <section aria-labelledby="compatibility-icons">
-                <h2 id="compatibility-icons">Compatibilité des icônes UIkit</h2>
+                <h2 id="compatibility-icons">Compatibilité des icônes Drake</h2>
                 <div class="fork-assets-list">
                     <span>
-                        <span uk-icon="icon: apple" data-testid="legacy-apple"></span>
+                        <span drk-icon="icon: apple" data-testid="legacy-apple"></span>
                         Alias Apple vers Tabler brand-apple
                     </span>
                     <span>
                         <span
-                            class="uk-ti uk-ti-brand-apple"
+                            class="drk-ti drk-ti-brand-apple"
                             data-testid="brand-apple-reference"
                             aria-hidden="true"
                         ></span>
@@ -119,21 +119,21 @@
                     </span>
                     <span>
                         <span
-                            class="uk-ti uk-ti-apple"
+                            class="drk-ti drk-ti-apple"
                             data-testid="fruit-apple-reference"
                             aria-hidden="true"
                         ></span>
                         Référence apple (fruit)
                     </span>
                     <button
-                        class="uk-close"
-                        uk-close
+                        class="drk-close"
+                        drk-close
                         type="button"
                         aria-label="Fermer"
                         data-testid="close-icon"
                     ></button>
                     <span
-                        uk-spinner
+                        drk-spinner
                         role="status"
                         aria-label="Chargement"
                         data-testid="spinner-icon"
@@ -141,7 +141,7 @@
                     <span dir="rtl">
                         <a
                             href="#compatibility-icons"
-                            uk-slidenav-next
+                            drk-slidenav-next
                             aria-label="Élément suivant"
                             data-testid="rtl-next-icon"
                         ></a>
@@ -149,13 +149,13 @@
                     <span dir="ltr">
                         <a
                             href="#compatibility-icons"
-                            uk-slidenav-next
+                            drk-slidenav-next
                             aria-label="Référence suivante LTR"
                             data-testid="ltr-next-reference"
                         ></a>
                         <a
                             href="#compatibility-icons"
-                            uk-slidenav-previous
+                            drk-slidenav-previous
                             aria-label="Référence précédente LTR"
                             data-testid="ltr-previous-reference"
                         ></a>
@@ -163,6 +163,6 @@
                 </div>
             </section>
         </main>
-        <script src="../dist/js/uikit.js"></script>
+        <script src="../dist/js/drake.js"></script>
     </body>
 </html>

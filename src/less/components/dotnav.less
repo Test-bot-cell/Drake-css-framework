@@ -1,11 +1,11 @@
 // Name:            Dotnav
 // Description:     Component to create dot navigations
 //
-// Component:       `uk-dotnav`
+// Component:       `drk-dotnav`
 //
-// Modifier:        `uk-dotnav-vertical`
+// Modifier:        `drk-dotnav-vertical`
 //
-// States:          `uk-active`
+// States:          `drk-active`
 //
 // ========================================================================
 
@@ -36,7 +36,7 @@
  * 3. Gutter
  */
 
-.uk-dotnav {
+.drk-dotnav {
     display: flex;
     /* 1 */
     flex-wrap: wrap;
@@ -54,7 +54,7 @@
  * 2. Gutter
  */
 
-.uk-dotnav > * {
+.drk-dotnav > * {
     /* 1 */
     flex: none;
     /* 2 */
@@ -70,7 +70,7 @@
  * 1. Hide text if present
  */
 
-.uk-dotnav > * > * {
+.drk-dotnav > * > * {
     display: block;
     box-sizing: border-box;
     width: @dotnav-item-width;
@@ -85,25 +85,25 @@
 }
 
 /* Hover */
-.uk-dotnav > * > :hover {
+.drk-dotnav > * > :hover {
     background-color: @dotnav-item-hover-background;
     .hook-dotnav-item-hover();
 }
 
 /* OnClick */
-.uk-dotnav > * > :active {
+.drk-dotnav > * > :active {
     background-color: @dotnav-item-onclick-background;
     .hook-dotnav-item-onclick();
 }
 
 /* Active */
-.uk-dotnav > .uk-active > * {
+.drk-dotnav > .drk-active > * {
     background-color: @dotnav-item-active-background;
     .hook-dotnav-item-active();
 }
 
 
-/* Modifier: 'uk-dotnav-vertical'
+/* Modifier: 'drk-dotnav-vertical'
  ========================================================================== */
 
 /*
@@ -111,7 +111,7 @@
  * 2. Gutter
  */
 
-.uk-dotnav-vertical {
+.drk-dotnav-vertical {
     /* 1 */
     flex-direction: column;
     /* 2 */
@@ -120,7 +120,7 @@
 }
 
 /* 2 */
-.uk-dotnav-vertical > * {
+.drk-dotnav-vertical > * {
     padding-left: 0;
     padding-top: @dotnav-margin-vertical;
 }
@@ -149,22 +149,22 @@
 
 .hook-inverse() {
 
-    .uk-dotnav > * > * {
+    .drk-dotnav > * > * {
         background-color: @inverse-dotnav-item-background;
         .hook-inverse-dotnav-item();
     }
 
-    .uk-dotnav > * > :hover {
+    .drk-dotnav > * > :hover {
         background-color: @inverse-dotnav-item-hover-background;
         .hook-inverse-dotnav-item-hover();
     }
 
-    .uk-dotnav > * > :active {
+    .drk-dotnav > * > :active {
         background-color: @inverse-dotnav-item-onclick-background;
         .hook-inverse-dotnav-item-onclick();
     }
 
-    .uk-dotnav > .uk-active > * {
+    .drk-dotnav > .drk-active > * {
         background-color: @inverse-dotnav-item-active-background;
         .hook-inverse-dotnav-item-active();
     }

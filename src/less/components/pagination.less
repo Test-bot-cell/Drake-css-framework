@@ -1,13 +1,13 @@
 // Name:            Pagination
 // Description:     Component to create a page navigation
 //
-// Component:       `uk-pagination`
+// Component:       `drk-pagination`
 //
-// Adopted:         `uk-pagination-next`
-//                  `uk-pagination-previous`
+// Adopted:         `drk-pagination-next`
+//                  `drk-pagination-previous`
 //
-// States:          `uk-active`
-//                  `uk-disabled`
+// States:          `drk-active`
+//                  `drk-disabled`
 //
 // ========================================================================
 
@@ -37,7 +37,7 @@
  * 4. Reset list
  */
 
-.uk-pagination {
+.drk-pagination {
     display: flex;
     /* 1 */
     flex-wrap: wrap;
@@ -57,7 +57,7 @@
  * 3. Create position context for dropdowns
  */
 
-.uk-pagination > * {
+.drk-pagination > * {
     /* 1 */
     flex: none;
     /* 2 */
@@ -76,7 +76,7 @@
  * 3. Style
  */
 
-.uk-pagination > * > * {
+.drk-pagination > * > * {
     /* 1 */
     display: flex;
     align-items: center;
@@ -89,28 +89,28 @@
 }
 
 /* Hover */
-.uk-pagination > * > :hover {
+.drk-pagination > * > :hover {
     color: @pagination-item-hover-color;
     text-decoration: @pagination-item-hover-text-decoration;
     .hook-pagination-item-hover();
 }
 
 /* Active */
-.uk-pagination > .uk-active > * {
+.drk-pagination > .drk-active > * {
     color: @pagination-item-active-color;
     .hook-pagination-item-active();
 }
 
 /* Disabled */
-.uk-pagination > .uk-disabled > * {
+.drk-pagination > .drk-disabled > * {
     color: @pagination-item-disabled-color;
     .hook-pagination-item-disabled();
 }
 
-.uk-pagination-next,
-.uk-pagination-previous {
-    --uk-icon-width: 7px;
-    --uk-icon-height: 12px;
+.drk-pagination-next,
+.drk-pagination-previous {
+    --drk-icon-width: 7px;
+    --drk-icon-height: 12px;
 }
 
 
@@ -137,22 +137,22 @@
 
 .hook-inverse() {
 
-    .uk-pagination > * > * {
+    .drk-pagination > * > * {
         color: @inverse-pagination-item-color;
         .hook-inverse-pagination-item();
     }
 
-    .uk-pagination > * > :hover {
+    .drk-pagination > * > :hover {
         color: @inverse-pagination-item-hover-color;
         .hook-inverse-pagination-item-hover();
     }
 
-    .uk-pagination > .uk-active > * {
+    .drk-pagination > .drk-active > * {
         color: @inverse-pagination-item-active-color;
         .hook-inverse-pagination-item-active();
     }
 
-    .uk-pagination > .uk-disabled > * {
+    .drk-pagination > .drk-disabled > * {
         color: @inverse-pagination-item-disabled-color;
         .hook-inverse-pagination-item-disabled();
     }

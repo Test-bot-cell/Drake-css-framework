@@ -1,4 +1,4 @@
-import { hasOwn, isString, observeMutation } from 'uikit-util';
+import { hasOwn, isString, observeMutation } from 'drake-util';
 import type { ComponentInternalInstance, ComponentValueMap, ComputedDefinition } from '../types';
 import { callUpdate, prependUpdate } from './update';
 import { runWatches } from './watch';

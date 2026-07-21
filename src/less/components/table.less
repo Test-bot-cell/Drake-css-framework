@@ -1,20 +1,20 @@
 // Name:            Table
 // Description:     Styles for tables
 //
-// Component:       `uk-table`
+// Component:       `drk-table`
 //
-// Modifiers:       `uk-table-middle`
-//                  `uk-table-divider`
-//                  `uk-table-striped`
-//                  `uk-table-hover`
-//                  `uk-table-small`
-//                  `uk-table-justify`
-//                  `uk-table-shrink`
-//                  `uk-table-expand`
-//                  `uk-table-link`
-//                  `uk-table-responsive`
+// Modifiers:       `drk-table-middle`
+//                  `drk-table-divider`
+//                  `drk-table-striped`
+//                  `drk-table-hover`
+//                  `drk-table-small`
+//                  `drk-table-justify`
+//                  `drk-table-shrink`
+//                  `drk-table-expand`
+//                  `drk-table-link`
+//                  `drk-table-responsive`
 //
-// States:          `uk-active`
+// States:          `drk-active`
 //
 // ========================================================================
 
@@ -64,7 +64,7 @@
  * 3. Style
  */
 
-.uk-table {
+.drk-table {
     /* 1 */
     border-collapse: collapse;
     border-spacing: 0;
@@ -76,7 +76,7 @@
 }
 
 /* Add margin if adjacent element */
-* + .uk-table { margin-top: @table-margin-vertical; }
+* + .drk-table { margin-top: @table-margin-vertical; }
 
 
 /* Header cell
@@ -86,7 +86,7 @@
  * 1. Style
  */
 
-.uk-table th {
+.drk-table th {
     padding: @table-cell-padding-vertical @table-cell-padding-horizontal;
     text-align: left;
     vertical-align: bottom;
@@ -101,7 +101,7 @@
 /* Cell
  ========================================================================== */
 
-.uk-table td {
+.drk-table td {
     padding: @table-cell-padding-vertical @table-cell-padding-horizontal;
     vertical-align: top;
     .hook-table-cell();
@@ -111,13 +111,13 @@
  * Remove margin from the last-child
  */
 
-.uk-table td > :last-child { margin-bottom: 0; }
+.drk-table td > :last-child { margin-bottom: 0; }
 
 
 /* Footer
  ========================================================================== */
 
-.uk-table tfoot {
+.drk-table tfoot {
     font-size: @table-footer-font-size;
     .hook-table-footer();
 }
@@ -126,7 +126,7 @@
 /* Caption
  ========================================================================== */
 
-.uk-table caption {
+.drk-table caption {
     font-size: @table-caption-font-size;
     text-align: left;
     color: @table-caption-color;
@@ -137,8 +137,8 @@
 /* Alignment modifier
  ========================================================================== */
 
-.uk-table-middle,
-.uk-table-middle td { vertical-align: middle !important; }
+.drk-table-middle,
+.drk-table-middle td { vertical-align: middle !important; }
 
 
 /* Style modifiers
@@ -148,9 +148,9 @@
  * Divider
  */
 
-.uk-table-divider > tr:not(:first-child),
-.uk-table-divider > :not(:first-child) > tr,
-.uk-table-divider > :first-child > tr:not(:first-child) {
+.drk-table-divider > tr:not(:first-child),
+.drk-table-divider > :not(:first-child) > tr,
+.drk-table-divider > :first-child > tr:not(:first-child) {
     border-top: @table-divider-border-width solid @table-divider-border;
     .hook-table-divider();
 }
@@ -159,8 +159,8 @@
  * Striped
  */
 
-.uk-table-striped > tr:nth-of-type(odd),
-.uk-table-striped tbody tr:nth-of-type(odd) {
+.drk-table-striped > tr:nth-of-type(odd),
+.drk-table-striped tbody tr:nth-of-type(odd) {
     background: @table-striped-row-background;
     .hook-table-striped();
 }
@@ -169,8 +169,8 @@
  * Hover
  */
 
-.uk-table-hover > tr:hover,
-.uk-table-hover tbody tr:hover {
+.drk-table-hover > tr:hover,
+.drk-table-hover tbody tr:hover {
     background: @table-hover-row-background;
     .hook-table-hover();
 }
@@ -179,8 +179,8 @@
 /* Active state
  ========================================================================== */
 
-.uk-table > tr.uk-active,
-.uk-table tbody tr.uk-active {
+.drk-table > tr.drk-active,
+.drk-table tbody tr.drk-active {
     background: @table-row-active-background;
     .hook-table-row-active();
 }
@@ -188,14 +188,14 @@
 /* Size modifier
  ========================================================================== */
 
-.uk-table-small th,
-.uk-table-small td {
+.drk-table-small th,
+.drk-table-small td {
     padding: @table-small-cell-padding-vertical @table-small-cell-padding-horizontal;
     .hook-table-small();
 }
 
-.uk-table-large th,
-.uk-table-large td {
+.drk-table-large th,
+.drk-table-large td {
     padding: @table-large-cell-padding-vertical @table-large-cell-padding-horizontal;
     .hook-table-large();
 }
@@ -204,35 +204,35 @@
 /* Justify modifier
  ========================================================================== */
 
-.uk-table-justify th:first-child,
-.uk-table-justify td:first-child { padding-left: 0; }
+.drk-table-justify th:first-child,
+.drk-table-justify td:first-child { padding-left: 0; }
 
-.uk-table-justify th:last-child,
-.uk-table-justify td:last-child { padding-right: 0; }
+.drk-table-justify th:last-child,
+.drk-table-justify td:last-child { padding-right: 0; }
 
 
 /* Cell size modifier
  ========================================================================== */
 
-.uk-table-shrink { width: 1px; }
-.uk-table-expand { min-width: @table-expand-min-width; }
+.drk-table-shrink { width: 1px; }
+.drk-table-expand { min-width: @table-expand-min-width; }
 
 
 /* Cell link modifier
  ========================================================================== */
 
 /*
- * Does not work with `uk-table-justify` at the moment
+ * Does not work with `drk-table-justify` at the moment
  */
 
-.uk-table-link { padding: 0 !important; }
+.drk-table-link { padding: 0 !important; }
 
-.uk-table-link > a {
+.drk-table-link > a {
     display: block;
     padding: @table-cell-padding-vertical @table-cell-padding-horizontal;
 }
 
-.uk-table-small .uk-table-link > a { padding: @table-small-cell-padding-vertical @table-small-cell-padding-horizontal; }
+.drk-table-small .drk-table-link > a { padding: @table-small-cell-padding-vertical @table-small-cell-padding-horizontal; }
 
 
 /* Responsive table
@@ -243,7 +243,7 @@
  * The table itself is the mobile scroll container; larger viewports restore table layout.
  */
 
-.uk-table-responsive {
+.drk-table-responsive {
     display: block;
     width: 100%;
     max-width: 100%;
@@ -255,7 +255,7 @@
 /* Tablet landscape and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    .uk-table-responsive {
+    .drk-table-responsive {
         display: table;
         overflow-x: visible;
     }
@@ -294,37 +294,37 @@
 
 .hook-inverse() {
 
-    .uk-table th {
+    .drk-table th {
         color: @inverse-table-header-cell-color;
         .hook-inverse-table-header-cell();
     }
 
-    .uk-table caption {
+    .drk-table caption {
         color: @inverse-table-caption-color;
         .hook-inverse-table-caption();
     }
 
-    .uk-table > tr.uk-active,
-    .uk-table tbody tr.uk-active {
+    .drk-table > tr.drk-active,
+    .drk-table tbody tr.drk-active {
         background: @inverse-table-row-active-background;
         .hook-inverse-table-row-active();
     }
 
-    .uk-table-divider > tr:not(:first-child),
-    .uk-table-divider > :not(:first-child) > tr,
-    .uk-table-divider > :first-child > tr:not(:first-child) {
+    .drk-table-divider > tr:not(:first-child),
+    .drk-table-divider > :not(:first-child) > tr,
+    .drk-table-divider > :first-child > tr:not(:first-child) {
         border-top-color: @inverse-table-divider-border;
         .hook-inverse-table-divider();
     }
 
-    .uk-table-striped > tr:nth-of-type(odd),
-    .uk-table-striped tbody tr:nth-of-type(odd) {
+    .drk-table-striped > tr:nth-of-type(odd),
+    .drk-table-striped tbody tr:nth-of-type(odd) {
         background: @inverse-table-striped-row-background;
         .hook-inverse-table-striped();
     }
 
-    .uk-table-hover > tr:hover,
-    .uk-table-hover tbody tr:hover {
+    .drk-table-hover > tr:hover,
+    .drk-table-hover tbody tr:hover {
         background: @inverse-table-hover-row-background;
         .hook-inverse-table-hover();
     }

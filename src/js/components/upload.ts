@@ -1,4 +1,4 @@
-import { addClass, assign, matches, noop, on, removeClass, toArray, trigger } from 'uikit-util';
+import { addClass, assign, matches, noop, on, removeClass, toArray, trigger } from 'drake-util';
 import { defineComponent } from '../api/options';
 import I18n from '../mixin/i18n';
 import type { ComponentInternalInstance, FrameworkEvent } from '../types';
@@ -75,7 +75,7 @@ export default defineComponent<UploadInstance>()({
 
     data: {
         allow: false,
-        clsDragover: 'uk-dragover',
+        clsDragover: 'drk-dragover',
         concurrent: 1,
         maxSize: 0,
         method: 'POST',

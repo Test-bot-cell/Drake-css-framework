@@ -7,13 +7,13 @@ import {
     removeClass,
     toggleClass,
     trigger,
-} from 'uikit-util';
+} from 'drake-util';
 import { intersection } from '../api/observables';
 import { defineComponent } from '../api/options';
 import type { ComponentInternalInstance, Teardown } from '../types';
 import { awaitTimeout } from '../util/await';
 
-const clsInView = 'uk-scrollspy-inview';
+const clsInView = 'drk-scrollspy-inview';
 
 interface ScrollspyProps {
     target: string | false;
@@ -99,7 +99,7 @@ export default defineComponent<ScrollspyInstance>()({
             for (const { target: el, isIntersecting } of records) {
                 if (!elements.has(el)) {
                     elements.set(el, {
-                        cls: getData(el, 'uk-scrollspy-class') || this.cls,
+                        cls: getData(el, 'drk-scrollspy-class') || this.cls,
                     });
                 }
 
@@ -155,7 +155,7 @@ export default defineComponent<ScrollspyInstance>()({
             toggleClass(el, clsInView, inview);
             toggleClass(el, state.cls);
 
-            const animationClasses = state.cls.match(/\buk-animation-[\w-]+/g);
+            const animationClasses = state.cls.match(/\bdrk-animation-[\w-]+/g);
             if (animationClasses) {
                 const removeAnimationClasses = () => removeClass(el, animationClasses);
                 if (inview) {

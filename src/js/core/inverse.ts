@@ -9,7 +9,7 @@ import {
     parent,
     replaceClass,
     toNodes,
-} from 'uikit-util';
+} from 'drake-util';
 import { intersection, mutation } from '../api/observables';
 import { defineComponent } from '../api/options';
 import type { ComponentInternalInstance, FrameworkEvent, NodeInput } from '../types';
@@ -144,7 +144,7 @@ export default defineComponent<InverseInstance>()({
                         : '';
 
                 if (color !== false) {
-                    replaceClass(target, 'uk-light uk-dark', color);
+                    replaceClass(target, 'drk-light drk-dark', color);
                 }
             }
         },
@@ -178,10 +178,10 @@ function findTargetColor(target: Element): string | false {
                 continue;
             }
 
-            const color = css(element, '--uk-inverse');
+            const color = css(element, '--drk-inverse');
             if (color) {
                 if (color === last) {
-                    return `uk-${color}`;
+                    return `drk-${color}`;
                 }
 
                 last = color;
@@ -190,7 +190,7 @@ function findTargetColor(target: Element): string | false {
         }
     }
 
-    return last ? `uk-${last}` : '';
+    return last ? `drk-${last}` : '';
 }
 
 // TODO: once it becomes Baseline `element.checkVisibility({ opacityProperty: true, visibilityProperty: true })`

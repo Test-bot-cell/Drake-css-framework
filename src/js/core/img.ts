@@ -17,7 +17,7 @@ import {
     removeAttr,
     startsWith,
     trigger,
-} from 'uikit-util';
+} from 'drake-util';
 import { intersection } from '../api/observables';
 import { defineComponent, parseOptions } from '../api/options';
 import type { ComponentInternalInstance, ComponentValueMap } from '../types';

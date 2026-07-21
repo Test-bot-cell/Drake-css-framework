@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sticky - UIkit tests</title>
+        <title>Sticky - Drake tests</title>
         <script src="../dist/js/tests/test.js"></script>
         <style>
 
@@ -22,17 +22,17 @@
 
         <!-- position relative is needed because of the test toolbar -->
         <!-- position relative and z-index are needed for sticky cover and reveal sections -->
-        <div class="uk-container uk-position-relative uk-position-z-index-zero">
+        <div class="drk-container drk-position-relative drk-position-z-index-zero">
 
             <h1>Sticky</h1>
 
             <h2>Position Top</h2>
 
-            <div class="container uk-margin">
-                <div class="uk-grid uk-grid-small uk-child-width-1-4">
+            <div class="container drk-margin">
+                <div class="drk-grid drk-grid-small drk-child-width-1-4">
                     <div>
 
-                        <div class="uk-card uk-card-primary uk-card-body uk-card-small" uk-sticky="end: !.container">
+                        <div class="drk-card drk-card-primary drk-card-body drk-card-small" drk-sticky="end: !.container">
                             start: 0<br>
                             end: !.container
                         </div>
@@ -40,7 +40,7 @@
                     </div>
                     <div>
 
-                        <div class="uk-card uk-card-primary uk-card-body uk-card-small" uk-sticky="start: 100%; end: !.container">
+                        <div class="drk-card drk-card-primary drk-card-body drk-card-small" drk-sticky="start: 100%; end: !.container">
                             start: 100%<br>
                             end: !.container
                         </div>
@@ -48,7 +48,7 @@
                     </div>
                     <div>
 
-                        <div class="uk-card uk-card-primary uk-card-body uk-card-small" uk-sticky="start: 200; end: 500">
+                        <div class="drk-card drk-card-primary drk-card-body drk-card-small" drk-sticky="start: 200; end: 500">
                             start: 200<br>
                             end: 500
                         </div>
@@ -56,7 +56,7 @@
                     </div>
                     <div>
 
-                        <div class="uk-card uk-card-primary uk-card-body uk-card-small" uk-sticky="start: 20vh; end: 50vh">
+                        <div class="drk-card drk-card-primary drk-card-body drk-card-small" drk-sticky="start: 20vh; end: 50vh">
                             start: 20vh<br>
                             end: 50vh
                         </div>
@@ -67,11 +67,11 @@
 
             <h2>Position Bottom</h2>
 
-            <div class="container uk-margin">
-                <div class="uk-grid uk-grid-small uk-child-width-1-4">
+            <div class="container drk-margin">
+                <div class="drk-grid drk-grid-small drk-child-width-1-4">
                     <div>
 
-                        <div class="uk-card uk-card-primary uk-card-body uk-card-small" uk-sticky="position: bottom; end: !.container">
+                        <div class="drk-card drk-card-primary drk-card-body drk-card-small" drk-sticky="position: bottom; end: !.container">
                             position: bottom<br>
                             start: 0<br>
                             end: !.container
@@ -80,7 +80,7 @@
                     </div>
                     <div>
 
-                        <div class="uk-card uk-card-primary uk-card-body uk-card-small" uk-sticky="position: bottom; start: 100%; end: !.container">
+                        <div class="drk-card drk-card-primary drk-card-body drk-card-small" drk-sticky="position: bottom; start: 100%; end: !.container">
                             position: bottom<br>
                             start: 100%<br>
                             end: !.container
@@ -89,7 +89,7 @@
                     </div>
                     <div>
 
-                        <div class="uk-card uk-card-primary uk-card-body uk-card-small" uk-sticky="position: bottom; start: 200; end: 500">
+                        <div class="drk-card drk-card-primary drk-card-body drk-card-small" drk-sticky="position: bottom; start: 200; end: 500">
                             position: bottom<br>
                             start: 200<br>
                             end: 500
@@ -98,7 +98,7 @@
                     </div>
                     <div>
 
-                        <div class="uk-card uk-card-primary uk-card-body uk-card-small" uk-sticky="position: bottom; start: 20vh; end: 50vh">
+                        <div class="drk-card drk-card-primary drk-card-body drk-card-small" drk-sticky="position: bottom; start: 20vh; end: 50vh">
                             position: bottom<br>
                             start: 20vh<br>
                             end: 50vh
@@ -110,11 +110,11 @@
 
             <h2>Offset</h2>
 
-            <div class="container uk-margin">
-                <div class="uk-grid uk-grid-small uk-child-width-1-4">
+            <div class="container drk-margin">
+                <div class="drk-grid drk-grid-small drk-child-width-1-4">
                     <div>
 
-                        <div class="uk-card uk-card-primary uk-card-body uk-card-small" uk-sticky="offset: 50%; end: !.container">
+                        <div class="drk-card drk-card-primary drk-card-body drk-card-small" drk-sticky="offset: 50%; end: !.container">
                             position: top<br>
                             offset: 50%<br>
                             end: !.container
@@ -123,7 +123,7 @@
                     </div>
                     <div>
 
-                        <div class="uk-card uk-card-primary uk-card-body uk-card-small" uk-sticky="offset: 50vh; end: !.container">
+                        <div class="drk-card drk-card-primary drk-card-body drk-card-small" drk-sticky="offset: 50vh; end: !.container">
                             position: top<br>
                             offset: 50vh<br>
                             end: !.container
@@ -132,7 +132,7 @@
                     </div>
                     <div>
 
-                        <div class="uk-card uk-card-primary uk-card-body uk-card-small" uk-sticky="position: bottom; offset: -50%; end: !.container">
+                        <div class="drk-card drk-card-primary drk-card-body drk-card-small" drk-sticky="position: bottom; offset: -50%; end: !.container">
                             position: bottom<br>
                             offset: -50%<br>
                             end: !.container
@@ -141,7 +141,7 @@
                     </div>
                     <div>
 
-                        <div class="uk-card uk-card-primary uk-card-body uk-card-small" uk-sticky="position: bottom; offset: -50vh; end: !.container">
+                        <div class="drk-card drk-card-primary drk-card-body drk-card-small" drk-sticky="position: bottom; offset: -50vh; end: !.container">
                             position: bottom<br>
                             offset: -50vh<br>
                             end: !.container
@@ -153,29 +153,29 @@
 
             <h2>Animation, Show On Up, Media and Target Offset</h2>
 
-            <div class="container uk-margin">
-                <div class="uk-grid uk-grid-small uk-child-width-1-4">
+            <div class="container drk-margin">
+                <div class="drk-grid drk-grid-small drk-child-width-1-4">
                     <div>
 
-                        <div class="uk-card uk-card-primary uk-card-body uk-card-small" uk-sticky="start: !.container; end: !.container ~ h2; animation: uk-animation-slide-top">
+                        <div class="drk-card drk-card-primary drk-card-body drk-card-small" drk-sticky="start: !.container; end: !.container ~ h2; animation: drk-animation-slide-top">
                             start: !.container<br>
                             end: !.container ~ h2<br>
-                            animation: uk-animation-slide-top
+                            animation: drk-animation-slide-top
                         </div>
 
                     </div>
                     <div>
 
-                        <div class="uk-card uk-card-primary uk-card-body uk-card-small" uk-sticky="end: !.container ~ h2; show-on-up: true; animation: uk-animation-slide-top">
+                        <div class="drk-card drk-card-primary drk-card-body drk-card-small" drk-sticky="end: !.container ~ h2; show-on-up: true; animation: drk-animation-slide-top">
                             end: !.container ~ h2<br>
                             show-on-up: true<br>
-                            animation: uk-animation-slide-top
+                            animation: drk-animation-slide-top
                         </div>
 
                     </div>
                     <div>
 
-                        <div class="uk-card uk-card-primary uk-card-body uk-card-small" uk-sticky="end: !.container; media: 640">
+                        <div class="drk-card drk-card-primary drk-card-body drk-card-small" drk-sticky="end: !.container; media: 640">
                             end: !.container<br>
                             media: 640
                         </div>
@@ -183,11 +183,11 @@
                     </div>
                     <div>
 
-                        <div class="uk-card uk-card-primary uk-card-body uk-card-small" uk-sticky="target-offset: 20; end: !.container ~ h2">
+                        <div class="drk-card drk-card-primary drk-card-body drk-card-small" drk-sticky="target-offset: 20; end: !.container ~ h2">
                             target-offset: 20<br>
                             end: !.container ~ h2
                             <p>
-                                <a class="uk-button uk-button-default" href="#js-paragraph">Jump to Paragraph</a>
+                                <a class="drk-button drk-button-default" href="#js-paragraph">Jump to Paragraph</a>
                             </p>
                         </div>
 
@@ -195,7 +195,7 @@
                 </div>
             </div>
 
-            <p id="js-paragraph" class="uk-margin-large-top">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p id="js-paragraph" class="drk-margin-large-top">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
@@ -203,15 +203,15 @@
 
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-            <p class="uk-margin-large-bottom">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p class="drk-margin-large-bottom">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
             <h2>Oversized Content</h2>
 
-            <div class="uk-margin">
-                <div class="uk-grid">
-                    <div class="uk-width-1-4">
+            <div class="drk-margin">
+                <div class="drk-grid">
+                    <div class="drk-width-1-4">
 
-                        <div class="uk-card uk-card-primary uk-card-body" uk-sticky="end: !.uk-grid">
+                        <div class="drk-card drk-card-primary drk-card-body" drk-sticky="end: !.drk-grid">
 
                             <h3>Position Top 1</h3>
 
@@ -228,7 +228,7 @@
                         </div>
 
                     </div>
-                    <div class="uk-width-1-2">
+                    <div class="drk-width-1-2">
 
                         <h2>Heading 1</h2>
 
@@ -271,9 +271,9 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
                     </div>
-                    <div class="uk-width-1-4">
+                    <div class="drk-width-1-4">
 
-                        <div class="uk-card uk-card-primary uk-card-body" uk-sticky="position: bottom; end: !.uk-grid">
+                        <div class="drk-card drk-card-primary drk-card-body" drk-sticky="position: bottom; end: !.drk-grid">
 
                             <h3>Position Bottom 1</h3>
 
@@ -295,19 +295,19 @@
 
             <h2>Overflow Flip</h2>
 
-            <div class="uk-margin">
-                <select id="js-height-switcher" class="uk-select uk-form-width-small" aria-label="Height switcher">
-                    <option value="uk-height-large">Smaller than Viewport</option>
+            <div class="drk-margin">
+                <select id="js-height-switcher" class="drk-select drk-form-width-small" aria-label="Height switcher">
+                    <option value="drk-height-large">Smaller than Viewport</option>
                     <option value="test-height">Larger than Viewport</option>
                 </select>
             </div>
 
-            <div class="js-overflow-flip uk-background-primary uk-padding uk-flex uk-flex-center uk-flex-middle uk-text-center uk-light uk-height-large uk-position-z-index-negative" uk-sticky="overflow-flip: true; end: 100%">
+            <div class="js-overflow-flip drk-background-primary drk-padding drk-flex drk-flex-center drk-flex-middle drk-text-center drk-light drk-height-large drk-position-z-index-negative" drk-sticky="overflow-flip: true; end: 100%">
                 overflow-flip: true<br>
                 end: 100%
             </div>
-            <div class="js-overflow-flip uk-background-muted uk-padding uk-flex uk-flex-center uk-flex-middle uk-text-center uk-height-large">Cover previous section.<br>Reveal next section.</div>
-            <div class="js-overflow-flip uk-background-primary uk-padding uk-flex uk-flex-center uk-flex-middle uk-text-center uk-light uk-height-large uk-position-z-index-negative" uk-sticky="position: bottom; overflow-flip: true; start: -100%; end: 0">
+            <div class="js-overflow-flip drk-background-muted drk-padding drk-flex drk-flex-center drk-flex-middle drk-text-center drk-height-large">Cover previous section.<br>Reveal next section.</div>
+            <div class="js-overflow-flip drk-background-primary drk-padding drk-flex drk-flex-center drk-flex-middle drk-text-center drk-light drk-height-large drk-position-z-index-negative" drk-sticky="position: bottom; overflow-flip: true; start: -100%; end: 0">
                 position: bottom<br>
                 overflow-flip: true<br>
                 start: -100%<br>
@@ -316,8 +316,8 @@
 
             <h2>JavaScript Options</h2>
 
-            <div class="uk-overflow-auto">
-                <table class="uk-table uk-table-striped">
+            <div class="drk-overflow-auto">
+                <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
                             <th>Option</th>
@@ -372,7 +372,7 @@
                         <tr>
                             <td><code>cls-active</code></td>
                             <td>String</td>
-                            <td>uk-active</td>
+                            <td>drk-active</td>
                             <td>The active class.</td>
                         </tr>
                         <tr>

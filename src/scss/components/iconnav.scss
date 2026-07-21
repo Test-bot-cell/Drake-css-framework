@@ -3,11 +3,11 @@
 // Name:            Iconnav
 // Description:     Component to create icon navigations
 //
-// Component:       `uk-iconnav`
+// Component:       `drk-iconnav`
 //
-// Modifier:        `uk-iconnav-vertical`
+// Modifier:        `drk-iconnav-vertical`
 //
-// States:          `uk-active`
+// States:          `drk-active`
 //
 // ========================================================================
 
@@ -30,7 +30,7 @@
  * 3. Gutter
  */
 
-.uk-iconnav {
+.drk-iconnav {
     display: flex;
     /* 1 */
     flex-wrap: wrap;
@@ -48,7 +48,7 @@
  * 1. Gutter
  */
 
-.uk-iconnav > * {
+.drk-iconnav > * {
     /* 1 */
     padding-left: $iconnav-margin-horizontal;
 }
@@ -66,7 +66,7 @@
  * 5. Required for `a` if there is still some text
  */
 
-.uk-iconnav > * > a {
+.drk-iconnav > * > a {
     /* 1 */
     display: flex;
     align-items: center;
@@ -82,19 +82,19 @@
 }
 
 /* Hover */
-.uk-iconnav > * > a:hover {
+.drk-iconnav > * > a:hover {
     color: $iconnav-item-hover-color;
     @if(meta.mixin-exists(hook-iconnav-item-hover)) {@include hook-iconnav-item-hover();}
 }
 
 /* Active */
-.uk-iconnav > .uk-active > a {
+.drk-iconnav > .drk-active > a {
     color: $iconnav-item-active-color;
     @if(meta.mixin-exists(hook-iconnav-item-active)) {@include hook-iconnav-item-active();}
 }
 
 
-/* Modifier: 'uk-iconnav-vertical'
+/* Modifier: 'drk-iconnav-vertical'
  ========================================================================== */
 
 /*
@@ -102,7 +102,7 @@
  * 2. Gutter
  */
 
-.uk-iconnav-vertical {
+.drk-iconnav-vertical {
     /* 1 */
     flex-direction: column;
     /* 2 */
@@ -111,7 +111,7 @@
 }
 
 /* 2 */
-.uk-iconnav-vertical > * {
+.drk-iconnav-vertical > * {
     padding-left: 0;
     padding-top: $iconnav-margin-vertical;
 }

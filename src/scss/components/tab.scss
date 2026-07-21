@@ -3,14 +3,14 @@
 // Name:            Tab
 // Description:     Component to create a tabbed navigation
 //
-// Component:       `uk-tab`
+// Component:       `drk-tab`
 //
-// Modifiers:       `uk-tab-bottom`
-//                  `uk-tab-left`
-//                  `uk-tab-right`
+// Modifiers:       `drk-tab-bottom`
+//                  `drk-tab-left`
+//                  `drk-tab-right`
 //
-// States:          `uk-active`
-//                  `uk-disabled`
+// States:          `drk-active`
+//                  `drk-disabled`
 //
 // ========================================================================
 
@@ -31,7 +31,7 @@
  * 3. Reset list
  */
 
-.uk-tab {
+.drk-tab {
     display: flex;
     /* 1 */
     flex-wrap: wrap;
@@ -49,7 +49,7 @@
  * 3. Create position context for dropdowns
  */
 
-.uk-tab > * {
+.drk-tab > * {
     /* 1 */
     flex: none;
     /* 2 */
@@ -70,7 +70,7 @@
  * 4. Style
  */
 
-.uk-tab > * > a {
+.drk-tab > * > a {
     /* 1 */
     display: flex;
     align-items: center;
@@ -85,20 +85,20 @@
 }
 
 /* Hover */
-.uk-tab > * > a:hover {
+.drk-tab > * > a:hover {
     color: $tab-item-hover-color;
     text-decoration: $tab-item-hover-text-decoration;
     @if(meta.mixin-exists(hook-tab-item-hover)) {@include hook-tab-item-hover();}
 }
 
 /* Active */
-.uk-tab > .uk-active > a {
+.drk-tab > .drk-active > a {
     color: $tab-item-active-color;
     @if(meta.mixin-exists(hook-tab-item-active)) {@include hook-tab-item-active();}
 }
 
 /* Disabled */
-.uk-tab > .uk-disabled > a {
+.drk-tab > .drk-disabled > a {
     color: $tab-item-disabled-color;
     @if(meta.mixin-exists(hook-tab-item-disabled)) {@include hook-tab-item-disabled();}
 }
@@ -111,11 +111,11 @@
  * Bottom
  */
 
-.uk-tab-bottom {
+.drk-tab-bottom {
     @if(meta.mixin-exists(hook-tab-bottom)) {@include hook-tab-bottom();}
 }
 
-.uk-tab-bottom > * > a {
+.drk-tab-bottom > * > a {
     @if(meta.mixin-exists(hook-tab-bottom-item)) {@include hook-tab-bottom-item();}
 }
 
@@ -124,31 +124,31 @@
  * 1. Reset Gutter
  */
 
-.uk-tab-left,
-.uk-tab-right {
+.drk-tab-left,
+.drk-tab-right {
     flex-direction: column;
     /* 1 */
     margin-left: 0;
 }
 
 /* 1 */
-.uk-tab-left > *,
-.uk-tab-right > * { padding-left: 0; }
+.drk-tab-left > *,
+.drk-tab-right > * { padding-left: 0; }
 
-.uk-tab-left {
+.drk-tab-left {
     @if(meta.mixin-exists(hook-tab-left)) {@include hook-tab-left();}
 }
 
-.uk-tab-right {
+.drk-tab-right {
     @if(meta.mixin-exists(hook-tab-right)) {@include hook-tab-right();}
 }
 
-.uk-tab-left > * > a {
+.drk-tab-left > * > a {
     justify-content: left;
     @if(meta.mixin-exists(hook-tab-left-item)) {@include hook-tab-left-item();}
 }
 
-.uk-tab-right > * > a {
+.drk-tab-right > * > a {
     justify-content: left;
     @if(meta.mixin-exists(hook-tab-right-item)) {@include hook-tab-right-item();}
 }

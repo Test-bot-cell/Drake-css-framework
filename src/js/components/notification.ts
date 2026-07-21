@@ -10,15 +10,15 @@ import {
     toFloat,
     Transition,
     trigger,
-} from 'uikit-util';
+} from 'drake-util';
 import { defineComponent } from '../api/options';
 import Container from '../mixin/container';
 import { maybeDefaultPreventClick } from '../mixin/event';
 import type {
     ComponentInternalInstance,
     CssProperties,
+    DrakeStatic,
     FrameworkEvent,
-    UIkitStatic,
 } from '../types';
 
 interface NotificationInstance extends ComponentInternalInstance {
@@ -42,7 +42,7 @@ interface NotificationApi {
     closeAll(group?: string, immediate?: boolean): void;
 }
 
-interface NotificationUIkit extends UIkitStatic {
+interface NotificationDrake extends DrakeStatic {
     notification: NotificationApi;
 }
 
@@ -59,9 +59,9 @@ export default defineComponent<NotificationInstance>()({
         timeout: 5000,
         group: '',
         pos: 'top-center',
-        clsContainer: 'uk-notification',
-        clsClose: 'uk-notification-close',
-        clsMsg: 'uk-notification-message',
+        clsContainer: 'drk-notification',
+        clsClose: 'drk-notification-close',
+        clsMsg: 'drk-notification-message',
     },
 
     install,
@@ -95,7 +95,7 @@ export default defineComponent<NotificationInstance>()({
             `<div class="${this.clsMsg}${
                 this.status ? ` ${this.clsMsg}-${this.status}` : ''
             }" role="alert">
-                    <a href class="${this.clsClose}" data-uk-close></a>
+                    <a href class="${this.clsClose}" data-drk-close></a>
                     <div>${this.message}</div>
                 </div>`,
         );
@@ -173,10 +173,10 @@ export default defineComponent<NotificationInstance>()({
     },
 });
 
-function install(UIkit: NotificationUIkit): void {
-    UIkit.notification.closeAll = function (group?: string, immediate?: boolean): void {
+function install(Drake: NotificationDrake): void {
+    Drake.notification.closeAll = function (group?: string, immediate?: boolean): void {
         apply(document.body, (el) => {
-            const notification = UIkit.getComponent(el, 'notification');
+            const notification = Drake.getComponent(el, 'notification');
             if (isNotificationInstance(notification) && (!group || group === notification.group)) {
                 notification.close(immediate);
             }

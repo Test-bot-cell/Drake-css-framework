@@ -1,7 +1,7 @@
 // Name:            Marker
 // Description:     Component to create a marker icon
 //
-// Component:       `uk-marker`
+// Component:       `drk-marker`
 //
 // ========================================================================
 
@@ -21,12 +21,12 @@
  ========================================================================== */
 
 /*
- * Addopts `uk-icon`
+ * Addopts `drk-icon`
  */
 
-.uk-marker {
-    --uk-icon-width: 20px;
-    --uk-icon-height: 20px;
+.drk-marker {
+    --drk-icon-width: 20px;
+    --drk-icon-height: 20px;
     padding: @marker-padding;
     background: @marker-background;
     color: @marker-color;
@@ -34,7 +34,7 @@
 }
 
 /* Hover */
-.uk-marker:hover {
+.drk-marker:hover {
     color: @marker-hover-color;
     .hook-marker-hover();
 }
@@ -59,13 +59,13 @@
 
 .hook-inverse() {
 
-    .uk-marker {
+    .drk-marker {
         background: @inverse-marker-background;
         color: @inverse-marker-color;
         .hook-inverse-marker();
     }
 
-    .uk-marker:hover {
+    .drk-marker:hover {
         color: @inverse-marker-hover-color;
         .hook-inverse-marker-hover();
     }

@@ -1,4 +1,4 @@
-import { clamp, createEvent, css, noop, resetProps, Transition, trigger } from 'uikit-util';
+import { clamp, createEvent, css, noop, resetProps, Transition, trigger } from 'drake-util';
 import type { ElementInput } from '../../types';
 import type { SlideshowTransitioner, SlideshowTransitionOptions } from '../types';
 

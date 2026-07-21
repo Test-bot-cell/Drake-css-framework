@@ -220,7 +220,7 @@ async function exerciseRuntimeBindings(): Promise<BrowserAssetsMeasurement['bind
 
     switcherTrigger.click();
     const arrayEventTargets = await waitForCondition(
-        () => switcherResult.classList.contains('uk-active'),
+        () => switcherResult.classList.contains('drk-active'),
         1000,
     );
 
@@ -257,7 +257,7 @@ async function exerciseDelayedFade(): Promise<BrowserAssetsMeasurement['animatio
             visibleAnimatedElements.filter(hasResidualAnimationStyle).length,
         residualTransitionClasses: animatedElements.flatMap((element, index) =>
             [...element.classList]
-                .filter((name) => name === 'uk-transition' || name.startsWith('uk-transition-'))
+                .filter((name) => name === 'drk-transition' || name.startsWith('drk-transition-'))
                 .map((name) => `${index}:${name}`),
         ),
         visibleCoolItems: coolItems.filter((item) => getComputedStyle(item).display !== 'none')
@@ -271,8 +271,8 @@ function isAnimationSettled(target: HTMLElement): boolean {
     return (
         coolItems.every((item) => getComputedStyle(item).display !== 'none') &&
         warmItems.every((item) => getComputedStyle(item).display === 'none') &&
-        !target.classList.contains('uk-transition-enter') &&
-        !target.classList.contains('uk-transition-leave') &&
+        !target.classList.contains('drk-transition-enter') &&
+        !target.classList.contains('drk-transition-leave') &&
         target.dataset.transition === undefined
     );
 }
@@ -367,7 +367,7 @@ async function waitForRuntimeIcons(): Promise<boolean> {
         if (
             elements.every(
                 (element) =>
-                    element?.classList.contains('uk-ti') &&
+                    element?.classList.contains('drk-ti') &&
                     resolvedMask(element).startsWith('url('),
             )
         ) {

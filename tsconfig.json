@@ -11,7 +11,7 @@
         "lib": ["DOM", "DOM.Iterable", "ES2022"],
         "baseUrl": ".",
         "paths": {
-            "uikit-util": ["src/js/util"]
+            "drake-util": ["src/js/util"]
         },
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true

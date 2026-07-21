@@ -1,11 +1,11 @@
 // Name:            Countdown
 // Description:     Component to create countdown timers
 //
-// Component:       `uk-countdown`
+// Component:       `drk-countdown`
 //
-// Sub-objects:     `uk-countdown-number`
-//                  `uk-countdown-separator`
-//                  `uk-countdown-label`
+// Sub-objects:     `drk-countdown-number`
+//                  `drk-countdown-separator`
+//                  `drk-countdown-label`
 //
 // ========================================================================
 
@@ -21,7 +21,7 @@
    Component: Countdown
  ========================================================================== */
 
-.uk-countdown {
+.drk-countdown {
     margin: 0;
     .hook-countdown();
 }
@@ -30,8 +30,8 @@
 /* Item
  ========================================================================== */
 
-.uk-countdown-number,
-.uk-countdown-separator {
+.drk-countdown-number,
+.drk-countdown-separator {
     .hook-countdown-item();
 }
 
@@ -43,7 +43,7 @@
  * 1. Make numbers all of the same size to prevent jumping. Must be supported by the font.
  */
 
-.uk-countdown-number {
+.drk-countdown-number {
     margin: 0;
     /* 1 */
     font-variant-numeric: tabular-nums;
@@ -54,7 +54,7 @@
 /* Separator
  ========================================================================== */
 
-.uk-countdown-separator {
+.drk-countdown-separator {
     font-size: @countdown-separator-font-size;
     line-height: @countdown-separator-line-height;
     .hook-countdown-separator();
@@ -64,7 +64,7 @@
 /* Label
  ========================================================================== */
 
-.uk-countdown-label {
+.drk-countdown-label {
     .hook-countdown-label();
 }
 
@@ -87,20 +87,20 @@
 
 .hook-inverse() {
 
-    .uk-countdown-number,
-    .uk-countdown-separator {
+    .drk-countdown-number,
+    .drk-countdown-separator {
         .hook-inverse-countdown-item();
     }
 
-    .uk-countdown-number {
+    .drk-countdown-number {
         .hook-inverse-countdown-number();
     }
 
-    .uk-countdown-separator {
+    .drk-countdown-separator {
         .hook-inverse-countdown-separator();
     }
 
-    .uk-countdown-label {
+    .drk-countdown-label {
         .hook-inverse-countdown-label();
     }
 

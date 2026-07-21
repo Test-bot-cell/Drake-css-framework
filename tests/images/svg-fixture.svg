@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <!-- Generic application artwork used to exercise uk-svg; this is not a framework icon set. -->
+    <!-- Generic application artwork used to exercise drk-svg; this is not a framework icon set. -->
     <path fill="none" stroke="currentColor" stroke-width="1.5" d="M3 4h18v16H3zM3 9h18M9 9v11" />
 
     <symbol id="bars" viewBox="0 0 24 24">

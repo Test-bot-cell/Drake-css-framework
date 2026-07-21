@@ -1,4 +1,4 @@
-import { $ } from 'uikit-util';
+import { $ } from 'drake-util';
 import { defineMixin } from '../api/options';
 import type { ComponentInternalInstance } from '../types';
 

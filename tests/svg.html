@@ -4,42 +4,42 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>SVG - UIkit tests</title>
+        <title>SVG - Drake tests</title>
         <script src="../dist/js/tests/test.js"></script>
     </head>
 
     <body>
 
-        <div class="uk-container">
+        <div class="drk-container">
 
             <h1>SVG</h1>
 
-            <div class="uk-child-width-auto" uk-grid>
+            <div class="drk-child-width-auto" drk-grid>
                 <div>
                     <p>Image</p>
-                    <img id="svg1" class="svg-1" src="images/svg-fixture.svg" alt="" uk-svg>
+                    <img id="svg1" class="svg-1" src="images/svg-fixture.svg" alt="" drk-svg>
                 </div>
                 <div>
                     <p>Width</p>
-                    <img id="svg2" class="svg-2" src="images/svg-fixture.svg" width="40" height="40" alt="" uk-svg>
+                    <img id="svg2" class="svg-2" src="images/svg-fixture.svg" width="40" height="40" alt="" drk-svg>
                 </div>
                 <div>
                     <p>Symbol with ID</p>
-                    <img src="images/svg-fixture.svg#bars" width="20" height="20" alt="" uk-svg>
-                    <img src="images/svg-fixture.svg#outline" width="20" height="20" alt="" uk-svg>
+                    <img src="images/svg-fixture.svg#bars" width="20" height="20" alt="" drk-svg>
+                    <img src="images/svg-fixture.svg#outline" width="20" height="20" alt="" drk-svg>
                 </div>
                 <div>
                     <p>Symbol with ID Fallback</p>
-                    <img src="images/svg-fixture.svg#notfound" width="20" height="20" alt="" uk-svg>
+                    <img src="images/svg-fixture.svg#notfound" width="20" height="20" alt="" drk-svg>
                 </div>
                     <p>Stroke Animation</p>
-                    <img class="uk-animation-stroke" width="40" height="40" src="images/svg-fixture.svg#stroke-path" uk-svg="stroke-animation: true" alt="">
+                    <img class="drk-animation-stroke" width="40" height="40" src="images/svg-fixture.svg#stroke-path" drk-svg="stroke-animation: true" alt="">
                 </div>
             </div>
 
             <h2>JavaScript Options</h2>
 
-            <table class="uk-table uk-table-striped">
+            <table class="drk-table drk-table-striped">
                 <thead>
                     <tr>
                         <th>Option</th>

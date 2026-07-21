@@ -199,12 +199,12 @@ export type ComponentDefinition = ComponentOptions | ComponentConstructor;
 export type ComponentRegistry = Record<string, ComponentDefinition>;
 
 export interface MountedElement extends Element {
-    __uikit__?: Record<string, ComponentInternalInstance>;
+    __drake__?: Record<string, ComponentInternalInstance>;
 }
 
-export type UIkitPlugin = ((app: UIkitStatic) => unknown) & { installed?: boolean };
+export type DrakePlugin = ((app: DrakeStatic) => unknown) & { installed?: boolean };
 
-export interface UIkitStatic extends ComponentConstructor {
+export interface DrakeStatic extends ComponentConstructor {
     util: Record<string, unknown>;
     version: string;
     _initialized?: boolean;
@@ -213,6 +213,6 @@ export interface UIkitStatic extends ComponentConstructor {
     getComponents(element?: Element | null): Record<string, ComponentInternalInstance>;
     getComponent(element: Element, name: string): ComponentInternalInstance | undefined;
     update(element?: NodeInput, event?: string | Event): void;
-    use(plugin: UIkitPlugin): UIkitStatic;
+    use(plugin: DrakePlugin): DrakeStatic;
     mixin(mixin: ComponentOptions, component?: string | ComponentConstructor): void;
 }

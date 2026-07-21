@@ -1,4 +1,4 @@
-import { addClass, attr, css, includes, isTag, memoize, once, removeAttr } from 'uikit-util';
+import { addClass, attr, css, includes, isTag, memoize, once, removeAttr } from 'drake-util';
 import { mutation } from '../api/observables';
 import { defineComponent } from '../api/options';
 import Svg, { parseSVG } from '../mixin/svg';
@@ -76,7 +76,7 @@ export default defineComponent<SvgCoreInstance>()({
 function applyAttributes(this: SvgCoreInstance, el: Element): void {
     const { $el } = this;
 
-    addClass(el, attr($el, 'class'), 'uk-svg');
+    addClass(el, attr($el, 'class'), 'drk-svg');
 
     for (let i = 0; i < $el.style.length; i++) {
         const prop = $el.style[i];
@@ -114,7 +114,7 @@ function applyAnimation(el: Element): void {
     const length = getMaxPathLength(el);
 
     if (length) {
-        css(el, '--uk-animation-stroke', length);
+        css(el, '--drk-animation-stroke', length);
     }
 }
 

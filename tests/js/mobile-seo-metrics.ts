@@ -66,7 +66,7 @@ Object.defineProperty(window, '__forkMobileSeo', {
             const root = document.documentElement;
             const action = document.querySelector('.fork-action');
             const actionRect = action?.getBoundingClientRect();
-            const table = document.querySelector<HTMLElement>('.uk-table-responsive');
+            const table = document.querySelector<HTMLElement>('.drk-table-responsive');
             const tableHeader = table?.querySelector('thead');
             const tableStyle = table ? getComputedStyle(table) : null;
             // textContent is deliberately layout-independent: the parity gate compares the

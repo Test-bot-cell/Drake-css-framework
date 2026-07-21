@@ -1,4 +1,4 @@
-import { hasOwn, includes, isFunction, isString, toNodes } from 'uikit-util';
+import { hasOwn, includes, isFunction, isString, toNodes } from 'drake-util';
 import type {
     ComponentInternalInstance,
     ComponentObservable,

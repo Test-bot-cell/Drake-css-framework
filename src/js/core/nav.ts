@@ -6,7 +6,7 @@ export default defineComponent<ComponentInternalInstance>()({
     extends: Accordion,
 
     data: {
-        targets: '> .uk-parent',
+        targets: '> .drk-parent',
         toggle: '> a',
         content: '> ul',
     },

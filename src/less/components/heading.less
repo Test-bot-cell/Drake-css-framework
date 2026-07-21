@@ -1,11 +1,11 @@
 // Name:            Heading
 // Description:     Styles for headings
 //
-// Component:       `uk-heading-primary`
-//                  `uk-heading-hero`
-//                  `uk-heading-divider`
-//                  `uk-heading-bullet`
-//                  `uk-heading-line`
+// Component:       `drk-heading-primary`
+//                  `drk-heading-hero`
+//                  `drk-heading-divider`
+//                  `drk-heading-bullet`
+//                  `drk-heading-line`
 //
 // ========================================================================
 
@@ -62,37 +62,37 @@
    Component: Heading
  ========================================================================== */
 
-.uk-heading-small {
+.drk-heading-small {
     font-size: @heading-small-font-size;
     line-height: @heading-small-line-height;
     .hook-heading-small();
 }
 
-.uk-heading-medium {
+.drk-heading-medium {
     font-size: @heading-medium-font-size;
     line-height: @heading-medium-line-height;
     .hook-heading-medium();
 }
 
-.uk-heading-large {
+.drk-heading-large {
     font-size: @heading-large-font-size;
     line-height: @heading-large-line-height;
     .hook-heading-large();
 }
 
-.uk-heading-xlarge {
+.drk-heading-xlarge {
     font-size: @heading-xlarge-font-size;
     line-height: @heading-xlarge-line-height;
     .hook-heading-xlarge();
 }
 
-.uk-heading-2xlarge {
+.drk-heading-2xlarge {
     font-size: @heading-2xlarge-font-size;
     line-height: @heading-2xlarge-line-height;
     .hook-heading-2xlarge();
 }
 
-.uk-heading-3xlarge {
+.drk-heading-3xlarge {
     font-size: @heading-3xlarge-font-size;
     line-height: @heading-3xlarge-line-height;
     .hook-heading-3xlarge();
@@ -101,23 +101,23 @@
 /* Tablet Landscape and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    .uk-heading-small { font-size: @heading-small-font-size-m; }
-    .uk-heading-medium { font-size: @heading-medium-font-size-m; }
-    .uk-heading-large { font-size: @heading-large-font-size-m; }
-    .uk-heading-xlarge { font-size: @heading-xlarge-font-size-m; }
-    .uk-heading-2xlarge { font-size: @heading-2xlarge-font-size-m; }
-    .uk-heading-3xlarge { font-size: @heading-3xlarge-font-size-m; }
+    .drk-heading-small { font-size: @heading-small-font-size-m; }
+    .drk-heading-medium { font-size: @heading-medium-font-size-m; }
+    .drk-heading-large { font-size: @heading-large-font-size-m; }
+    .drk-heading-xlarge { font-size: @heading-xlarge-font-size-m; }
+    .drk-heading-2xlarge { font-size: @heading-2xlarge-font-size-m; }
+    .drk-heading-3xlarge { font-size: @heading-3xlarge-font-size-m; }
 
 }
 
 /* Laptop and bigger */
 @media (min-width: @breakpoint-large) {
 
-    .uk-heading-medium { font-size: @heading-medium-font-size-l; }
-    .uk-heading-large { font-size: @heading-large-font-size-l; }
-    .uk-heading-xlarge { font-size: @heading-xlarge-font-size-l; }
-    .uk-heading-2xlarge { font-size: @heading-2xlarge-font-size-l; }
-    .uk-heading-3xlarge { font-size: @heading-3xlarge-font-size-l; }
+    .drk-heading-medium { font-size: @heading-medium-font-size-l; }
+    .drk-heading-large { font-size: @heading-large-font-size-l; }
+    .drk-heading-xlarge { font-size: @heading-xlarge-font-size-l; }
+    .drk-heading-2xlarge { font-size: @heading-2xlarge-font-size-l; }
+    .drk-heading-3xlarge { font-size: @heading-3xlarge-font-size-l; }
 
 }
 
@@ -125,7 +125,7 @@
 /* Divider
  ========================================================================== */
 
-.uk-heading-divider {
+.drk-heading-divider {
     padding-bottom: @heading-divider-padding-bottom;
     border-bottom: @heading-divider-border-width solid @heading-divider-border;
     .hook-heading-divider();
@@ -135,7 +135,7 @@
 /* Bullet
  ========================================================================== */
 
-.uk-heading-bullet { position: relative; }
+.drk-heading-bullet { position: relative; }
 
 /*
  * 1. Using `inline-block` to make it work with text alignment
@@ -143,7 +143,7 @@
  * 3. Style
  */
 
-.uk-heading-bullet::before {
+.drk-heading-bullet::before {
     content: "";
     /* 1 */
     display: inline-block;
@@ -166,13 +166,13 @@
  * Clip the child element
  */
 
-.uk-heading-line { overflow: hidden; }
+.drk-heading-line { overflow: hidden; }
 
 /*
  * Extra markup is needed to make it work with text align
  */
 
-.uk-heading-line > * {
+.drk-heading-line > * {
     display: inline-block;
     position: relative;
 }
@@ -183,8 +183,8 @@
  * 3. Style
  */
 
-.uk-heading-line > ::before,
-.uk-heading-line > ::after {
+.drk-heading-line > ::before,
+.drk-heading-line > ::after {
     content: "";
     /* 1 */
     position: absolute;
@@ -196,11 +196,11 @@
     .hook-heading-line();
 }
 
-.uk-heading-line > ::before {
+.drk-heading-line > ::before {
     right: 100%;
     margin-right: @heading-line-margin-horizontal;
 }
-.uk-heading-line > ::after {
+.drk-heading-line > ::after {
     left: 100%;
     margin-left: @heading-line-margin-horizontal;
 }
@@ -234,42 +234,42 @@
 
 .hook-inverse() {
 
-    .uk-heading-small {
+    .drk-heading-small {
         .hook-inverse-heading-small();
     }
 
-    .uk-heading-medium {
+    .drk-heading-medium {
         .hook-inverse-heading-medium();
     }
 
-    .uk-heading-large {
+    .drk-heading-large {
         .hook-inverse-heading-large();
     }
 
-    .uk-heading-xlarge {
+    .drk-heading-xlarge {
         .hook-inverse-heading-xlarge();
     }
 
-    .uk-heading-2xlarge {
+    .drk-heading-2xlarge {
         .hook-inverse-heading-2xlarge();
     }
 
-    .uk-heading-3xlarge {
+    .drk-heading-3xlarge {
         .hook-inverse-heading-3xlarge();
     }
 
-    .uk-heading-divider {
+    .drk-heading-divider {
         border-bottom-color: @inverse-heading-divider-border;
         .hook-inverse-heading-divider();
     }
 
-    .uk-heading-bullet::before {
+    .drk-heading-bullet::before {
         border-left-color: @inverse-heading-bullet-border;
         .hook-inverse-heading-bullet();
     }
 
-    .uk-heading-line > ::before,
-    .uk-heading-line > ::after {
+    .drk-heading-line > ::before,
+    .drk-heading-line > ::after {
         border-bottom-color: @inverse-heading-line-border;
         .hook-inverse-heading-line();
     }

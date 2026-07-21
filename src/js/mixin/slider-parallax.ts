@@ -1,4 +1,4 @@
-import { hasClass, includes, query, scrolledOver, toPx, trigger } from 'uikit-util';
+import { hasClass, includes, query, scrolledOver, toPx, trigger } from 'drake-util';
 import { resize, scroll } from '../api/observables';
 import { defineMixin } from '../api/options';
 import { ease } from './parallax';

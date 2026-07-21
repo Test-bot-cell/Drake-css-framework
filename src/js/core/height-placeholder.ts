@@ -1,4 +1,4 @@
-import { css, query } from 'uikit-util';
+import { css, query } from 'drake-util';
 import { resize } from '../api/observables';
 import { defineComponent } from '../api/options';
 import type { ComponentInternalInstance } from '../types';

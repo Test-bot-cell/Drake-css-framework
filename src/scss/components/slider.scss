@@ -3,12 +3,12 @@
 // Name:            Slider
 // Description:     Component to create horizontal sliders
 //
-// Component:       `uk-slider`
+// Component:       `drk-slider`
 //
-// Sub-objects:     `uk-slider-container`
-//                  `uk-slider-items`
+// Sub-objects:     `drk-slider-container`
+//                  `drk-slider-items`
 //
-// States:          `uk-active`
+// States:          `drk-active`
 //
 // ========================================================================
 
@@ -26,7 +26,7 @@
  * 1. Prevent tab highlighting on iOS.
  */
 
-.uk-slider {
+.drk-slider {
     /* 1 */
     -webkit-tap-highlight-color: transparent;
     @if(meta.mixin-exists(hook-slider)) {@include hook-slider();}
@@ -43,7 +43,7 @@
  *    `clip` also works in only one direction
  */
 
-.uk-slider-container {
+.drk-slider-container {
     /* 1 */
     overflow-x: hidden;
     /* 2 */
@@ -54,7 +54,7 @@
  * Widen container to prevent box-shadows from clipping, `large-box-shadow`
  */
 
-.uk-slider-container-offset {
+.drk-slider-container-offset {
     margin-left: $slider-container-margin-left;
     margin-right: $slider-container-margin-right;
     padding-left: (-$slider-container-margin-left);
@@ -70,7 +70,7 @@
  * 3. Disable horizontal panning gestures
  */
 
-.uk-slider-items {
+.drk-slider-items {
     /* 1 */
     will-change: transform;
     /* 2 */
@@ -84,7 +84,7 @@
  * 2. Prevent displaying the callout information on iOS.
  */
 
-.uk-slider-items:not(.uk-grid) {
+.drk-slider-items:not(.drk-grid) {
     display: flex;
     /* 1 */
     margin: 0;
@@ -94,7 +94,7 @@
     -webkit-touch-callout: none;
 }
 
-.uk-slider-items.uk-grid { flex-wrap: nowrap; }
+.drk-slider-items.drk-grid { flex-wrap: nowrap; }
 
 
 /* Item
@@ -106,7 +106,7 @@
  * 2. Create position context
  */
 
-.uk-slider-items > * {
+.drk-slider-items > * {
     /* 1 */
     flex: none !important;
     box-sizing: border-box;

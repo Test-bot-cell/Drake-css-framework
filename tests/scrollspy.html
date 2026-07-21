@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Scrollspy - UIkit tests</title>
+        <title>Scrollspy - Drake tests</title>
         <script src="../dist/js/tests/test.js"></script>
         <style>
 
@@ -20,9 +20,9 @@
 
     <body>
 
-        <div class="uk-card uk-card-default uk-card-body test-fixed">
-            <h3 class="uk-card-title">Scrollspy Nav</h3>
-            <ul class="uk-nav uk-nav-default" uk-scrollspy-nav="closest: li; scroll: true">
+        <div class="drk-card drk-card-default drk-card-body test-fixed">
+            <h3 class="drk-card-title">Scrollspy Nav</h3>
+            <ul class="drk-nav drk-nav-default" drk-scrollspy-nav="closest: li; scroll: true">
                 <li><a href="#animation-repeat">Single</a></li>
                 <li><a href="#animation-delay">Group</a></li>
                 <li><a href="#animation-fade">Fade</a></li>
@@ -40,25 +40,25 @@
             </ul>
         </div>
 
-        <div class="uk-container">
+        <div class="drk-container">
 
             <h1>ScrollSpy</h1>
 
             <h2 id="animation-repeat">Single, Repeat, Delay</h2>
 
-            <div class="uk-child-width-1-4@m" uk-grid uk-height-match="target: .uk-card">
+            <div class="drk-child-width-1-4@m" drk-grid drk-height-match="target: .drk-card">
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body" uk-scrollspy="cls: uk-animation-fade">
+                    <div class="drk-card drk-card-default drk-card-body" drk-scrollspy="cls: drk-animation-fade">
                         <p>The element is animated only the first time it appears in the viewport.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body" uk-scrollspy="cls: uk-animation-slide-right; repeat: true">
+                    <div class="drk-card drk-card-default drk-card-body" drk-scrollspy="cls: drk-animation-slide-right; repeat: true">
                         <p>The element is animated every time it appears in the viewport.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body" uk-scrollspy="cls: uk-animation-slide-right; delay: 1500; repeat: true">
+                    <div class="drk-card drk-card-default drk-card-body" drk-scrollspy="cls: drk-animation-slide-right; delay: 1500; repeat: true">
                         <p>The element is animated every time it appears in the viewport but delayed by 1.5s.</p>
                     </div>
                 </div>
@@ -66,24 +66,24 @@
 
             <h2 id="animation-delay">Group, Repeat, Delay</h2>
 
-            <div class="uk-child-width-1-4@m" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 300; repeat: true">
+            <div class="drk-child-width-1-4@m" drk-grid drk-scrollspy="cls: drk-animation-fade; target: .drk-card; delay: 300; repeat: true">
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
+                    <div class="drk-card drk-card-default drk-card-body">
                         <p>The animation of this element is delayed by some milliseconds.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
+                    <div class="drk-card drk-card-default drk-card-body">
                         <p>The animation of this element is delayed by some milliseconds.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
+                    <div class="drk-card drk-card-default drk-card-body">
                         <p>The animation of this element is delayed by some milliseconds.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
+                    <div class="drk-card drk-card-default drk-card-body">
                         <p>The animation of this element is delayed by some milliseconds.</p>
                     </div>
                 </div>
@@ -91,28 +91,28 @@
 
             <h2 id="animation-fade">Group: Fade</h2>
 
-            <div class="uk-child-width-1-4@m uk-margin-xlarge-bottom" uk-grid uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 300; repeat: true">
+            <div class="drk-child-width-1-4@m drk-margin-xlarge-bottom" drk-grid drk-scrollspy="cls: drk-animation-fade; target: .drk-card; delay: 300; repeat: true">
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Fade</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Fade</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Fade</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Fade</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Fade</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Fade</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Fade</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Fade</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
@@ -120,124 +120,124 @@
 
             <h2 id="animation-scale-up">Group: Scale Up</h2>
 
-            <div class="uk-child-width-1-4@m uk-margin-xlarge-bottom" uk-grid uk-scrollspy="cls: uk-animation-scale-up; target: .uk-card; delay: 300; repeat: true">
+            <div class="drk-child-width-1-4@m drk-margin-xlarge-bottom" drk-grid drk-scrollspy="cls: drk-animation-scale-up; target: .drk-card; delay: 300; repeat: true">
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
 
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div><div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Up</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Up</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
@@ -246,28 +246,28 @@
 
             <h2 id="animation-scale-down">Group: Scale Down</h2>
 
-            <div class="uk-child-width-1-4@m uk-margin-xlarge-bottom" uk-grid uk-scrollspy="cls: uk-animation-scale-down; target: .uk-card; delay: 300; repeat: true">
+            <div class="drk-child-width-1-4@m drk-margin-xlarge-bottom" drk-grid drk-scrollspy="cls: drk-animation-scale-down; target: .drk-card; delay: 300; repeat: true">
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Down</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Down</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Down</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Down</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Down</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Down</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Scale Down</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Scale Down</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
@@ -275,28 +275,28 @@
 
             <h2 id="animation-slide-left">Group: Left</h2>
 
-            <div class="uk-child-width-1-4@m uk-margin-xlarge-bottom" uk-grid uk-scrollspy="cls: uk-animation-slide-left; target: .uk-card; delay: 300; repeat: true">
+            <div class="drk-child-width-1-4@m drk-margin-xlarge-bottom" drk-grid drk-scrollspy="cls: drk-animation-slide-left; target: .drk-card; delay: 300; repeat: true">
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Left</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Left</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Left</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Left</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Left</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Left</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Left</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Left</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
@@ -304,28 +304,28 @@
 
             <h2 id="animation-slide-right">Group: Right</h2>
 
-            <div class="uk-child-width-1-4@m uk-margin-xlarge-bottom" uk-grid uk-scrollspy="cls: uk-animation-slide-right; target: .uk-card; delay: 300; repeat: true">
+            <div class="drk-child-width-1-4@m drk-margin-xlarge-bottom" drk-grid drk-scrollspy="cls: drk-animation-slide-right; target: .drk-card; delay: 300; repeat: true">
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Right</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Right</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Right</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Right</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Right</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Right</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Right</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Right</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
@@ -333,28 +333,28 @@
 
             <h2 id="animation-slide-top">Group: Top</h2>
 
-            <div class="uk-child-width-1-4@m uk-margin-xlarge-bottom" uk-grid uk-scrollspy="cls: uk-animation-slide-top; target: .uk-card; delay: 300; repeat: true">
+            <div class="drk-child-width-1-4@m drk-margin-xlarge-bottom" drk-grid drk-scrollspy="cls: drk-animation-slide-top; target: .drk-card; delay: 300; repeat: true">
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Top</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Top</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Top</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Top</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Top</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Top</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Top</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Top</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
@@ -362,28 +362,28 @@
 
             <h2 id="animation-slide-bottom">Group: Bottom</h2>
 
-            <div class="uk-child-width-1-4@m uk-margin-xlarge-bottom" uk-grid uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; delay: 300; repeat: true">
+            <div class="drk-child-width-1-4@m drk-margin-xlarge-bottom" drk-grid drk-scrollspy="cls: drk-animation-slide-bottom; target: .drk-card; delay: 300; repeat: true">
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Bottom</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Bottom</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Bottom</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Bottom</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Bottom</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Bottom</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Bottom</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Bottom</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
@@ -391,28 +391,28 @@
 
             <h2 id="animation-different">Different Animations</h2>
 
-            <div class="uk-child-width-1-4@m uk-margin-xlarge-bottom" uk-grid uk-scrollspy="cls: uk-animation-slide-bottom; target: .uk-card; delay: 300; repeat: true">
+            <div class="drk-child-width-1-4@m drk-margin-xlarge-bottom" drk-grid drk-scrollspy="cls: drk-animation-slide-bottom; target: .drk-card; delay: 300; repeat: true">
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Bottom</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Bottom</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body" uk-scrollspy-class="uk-animation-slide-top">
-                        <h3 class="uk-card-title">Top</h3>
+                    <div class="drk-card drk-card-default drk-card-body" drk-scrollspy-class="drk-animation-slide-top">
+                        <h3 class="drk-card-title">Top</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Bottom</h3>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Bottom</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body" uk-scrollspy-class="uk-animation-slide-top">
-                        <h3 class="uk-card-title">Top</h3>
+                    <div class="drk-card drk-card-default drk-card-body" drk-scrollspy-class="drk-animation-slide-top">
+                        <h3 class="drk-card-title">Top</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
                 </div>
@@ -420,68 +420,68 @@
 
             <h2 id="animation-stroke">Group: Stroke</h2>
 
-            <div class="uk-child-width-1-4@m uk-text-center uk-margin-xlarge-bottom" uk-grid uk-scrollspy="cls: uk-animation-stroke; target: svg; delay: 300; repeat: true">
+            <div class="drk-child-width-1-4@m drk-text-center drk-margin-xlarge-bottom" drk-grid drk-scrollspy="cls: drk-animation-stroke; target: svg; delay: 300; repeat: true">
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Stroke</h3>
-                        <img width="80" height="80" src="images/svg-fixture.svg#stroke-path" uk-svg="stroke-animation: true">
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Stroke</h3>
+                        <img width="80" height="80" src="images/svg-fixture.svg#stroke-path" drk-svg="stroke-animation: true">
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Stroke</h3>
-                        <img width="80" height="80" src="images/svg-fixture.svg#stroke-path" uk-svg="stroke-animation: true">
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Stroke</h3>
+                        <img width="80" height="80" src="images/svg-fixture.svg#stroke-path" drk-svg="stroke-animation: true">
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Stroke</h3>
-                        <img width="80" height="80" src="images/svg-fixture.svg#stroke-path" uk-svg="stroke-animation: true">
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Stroke</h3>
+                        <img width="80" height="80" src="images/svg-fixture.svg#stroke-path" drk-svg="stroke-animation: true">
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <h3 class="uk-card-title">Stroke</h3>
-                        <img width="80" height="80" src="images/svg-fixture.svg#stroke-path" uk-svg="stroke-animation: true">
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <h3 class="drk-card-title">Stroke</h3>
+                        <img width="80" height="80" src="images/svg-fixture.svg#stroke-path" drk-svg="stroke-animation: true">
                     </div>
                 </div>
             </div>
 
             <h2 id="animation-stroke-fade">Different Animations: Stroke + Fade</h2>
 
-            <div class="uk-child-width-1-4@m uk-text-center uk-margin-xlarge-bottom" uk-grid uk-scrollspy="cls: uk-animation-stroke; target: .uk-card, svg; delay: 300; repeat: true">
+            <div class="drk-child-width-1-4@m drk-text-center drk-margin-xlarge-bottom" drk-grid drk-scrollspy="cls: drk-animation-stroke; target: .drk-card, svg; delay: 300; repeat: true">
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body" uk-scrollspy-class="uk-animation-fade">
-                        <h3 class="uk-card-title">Stroke</h3>
-                        <img width="80" height="80" src="images/svg-fixture.svg#stroke-path" uk-svg="stroke-animation: true">
+                    <div class="drk-card drk-card-default drk-card-body" drk-scrollspy-class="drk-animation-fade">
+                        <h3 class="drk-card-title">Stroke</h3>
+                        <img width="80" height="80" src="images/svg-fixture.svg#stroke-path" drk-svg="stroke-animation: true">
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body" uk-scrollspy-class="uk-animation-fade">
-                        <h3 class="uk-card-title">Stroke</h3>
-                        <img width="80" height="80" src="images/svg-fixture.svg#stroke-path" uk-svg="stroke-animation: true">
+                    <div class="drk-card drk-card-default drk-card-body" drk-scrollspy-class="drk-animation-fade">
+                        <h3 class="drk-card-title">Stroke</h3>
+                        <img width="80" height="80" src="images/svg-fixture.svg#stroke-path" drk-svg="stroke-animation: true">
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body" uk-scrollspy-class="uk-animation-fade">
-                        <h3 class="uk-card-title">Stroke</h3>
-                        <img width="80" height="80" src="images/svg-fixture.svg#stroke-path" uk-svg="stroke-animation: true">
+                    <div class="drk-card drk-card-default drk-card-body" drk-scrollspy-class="drk-animation-fade">
+                        <h3 class="drk-card-title">Stroke</h3>
+                        <img width="80" height="80" src="images/svg-fixture.svg#stroke-path" drk-svg="stroke-animation: true">
                     </div>
                 </div>
                 <div>
-                    <div class="uk-card uk-card-default uk-card-body" uk-scrollspy-class="uk-animation-fade">
-                        <h3 class="uk-card-title">Stroke</h3>
-                        <img width="80" height="80" src="images/svg-fixture.svg#stroke-path" uk-svg="stroke-animation: true">
+                    <div class="drk-card drk-card-default drk-card-body" drk-scrollspy-class="drk-animation-fade">
+                        <h3 class="drk-card-title">Stroke</h3>
+                        <img width="80" height="80" src="images/svg-fixture.svg#stroke-path" drk-svg="stroke-animation: true">
                     </div>
                 </div>
             </div>
 
             <h2>Adjacent Sibling (Test for Scrollspy Nav)</h2>
 
-            <div id="adjacent1" class="uk-section uk-section-primary uk-text-center">
+            <div id="adjacent1" class="drk-section drk-section-primary drk-text-center">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
-            <div id="adjacent2" class="uk-section uk-section-secondary uk-text-center">
+            <div id="adjacent2" class="drk-section drk-section-secondary drk-text-center">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
 
@@ -489,8 +489,8 @@
 
             <h3>Scrollspy</h3>
 
-            <div class="uk-overflow-auto">
-                <table class="uk-table uk-table-striped">
+            <div class="drk-overflow-auto">
+                <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
                             <th>Option</th>
@@ -542,8 +542,8 @@
 
             <h3>Scrollspy Nav</h3>
 
-            <div class="uk-overflow-auto">
-                <table class="uk-table uk-table-striped">
+            <div class="drk-overflow-auto">
+                <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
                             <th>Option</th>
@@ -556,7 +556,7 @@
                         <tr>
                             <td><code>cls</code></td>
                             <td>String</td>
-                            <td>uk-active</td>
+                            <td>drk-active</td>
                             <td>Class to add to the active links.</td>
                         </tr>
                         <tr>

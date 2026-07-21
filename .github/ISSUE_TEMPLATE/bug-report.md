@@ -1,40 +1,29 @@
 ---
-name: Bug Report 🐛
-about: Report a bug you have found.
+name: Rapport de bogue 🐛
+about: Signaler un défaut reproductible de Drake.css framework.
 labels: '! Bug'
 assignees: ''
 ---
 
-<!--
+### Version du fork
 
-👋 Hi, thank you for using UIKit!
+_Indiquer le commit ou la version `drake.css` concernée (voir `package.json`)._
 
-Please open an issues only for a bug report or feature request. Make sure no one else has already opened a similar issue. If you need help or have questions about UIkit, there are few places to start:
+### Comportement observé
 
-- Search our public documentation: https://getuikit.com/docs
-- Ask the community in the Discord chat: https://discord.gg/NEt4Pv7
-- Look for an answer on Stack Overflow: https://stackoverflow.com/questions/ask?tags=getuikit
+_Que se passe-t-il ? Captures d'écran si pertinent._
 
--->
+### Comportement attendu
 
-### UIkit Version
+_Que devrait-il se passer ? Si le défaut touche une surface héritée, préciser le
+comportement de la référence pré-renommage (voir `FORK.md`)._
 
-_Check if the issue is reproducible with the latest stable version._
-3.25.20
+### Reproduction minimale
 
-### Actual Behavior
+_Une page HTML locale minimale, idéalement dérivée du catalogue `tests/`, chargée avec
+`dist/css/drake.css` et `dist/js/drake.js`._
 
-_What happened? Screenshots please, if relevant!_
-
-### Expected Behavior
-
-_What should have happened?_
-
-### Reproduction Link
-
-_A minimal Codepen that can reproduce the bug. Start with this [Codepen template](http://codepen.io/anon/pen/XMpryM)_
-
-### Steps to Reproduce the Problem
+### Étapes de reproduction
 
 1.
 2.

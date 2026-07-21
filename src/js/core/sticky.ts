@@ -26,7 +26,7 @@ import {
     toPx,
     toggleClass,
     trigger,
-} from 'uikit-util';
+} from 'drake-util';
 import { resize, scroll, viewport } from '../api/observables';
 import { defineComponent } from '../api/options';
 import Class from '../mixin/class';
@@ -125,10 +125,10 @@ export default defineComponent<StickyInstance>()({
         offsetEnd: 0,
         overflowFlip: false,
         animation: '',
-        clsActive: 'uk-active',
+        clsActive: 'drk-active',
         clsInactive: '',
-        clsFixed: 'uk-sticky-fixed',
-        clsBelow: 'uk-sticky-below',
+        clsFixed: 'drk-sticky-fixed',
+        clsBelow: 'drk-sticky-below',
         selTarget: '',
         showOnUp: false,
         targetOffset: false,
@@ -144,7 +144,7 @@ export default defineComponent<StickyInstance>()({
         this.end = coerce(this.end || this.bottom);
 
         this.placeholder =
-            $<HTMLElement>('+ .uk-sticky-placeholder', this.$el) || createPlaceholder();
+            $<HTMLElement>('+ .drk-sticky-placeholder', this.$el) || createPlaceholder();
         this.isFixed = false;
         this.setActive(false);
     },
@@ -274,7 +274,7 @@ export default defineComponent<StickyInstance>()({
                 const overflow = this.overflowFlip ? 0 : Math.max(0, elementBox - viewport);
                 const topOffset =
                     getOffset(referenceElement).top -
-                    // offset possible `transform: translateY` animation 'uk-animation-slide-top' while hiding
+                    // offset possible `transform: translateY` animation 'drk-animation-slide-top' while hiding
                     new DOMMatrix(css(referenceElement, 'transform')).m42;
                 const elHeight = dimensions(this.$el).height;
 
@@ -441,7 +441,7 @@ export default defineComponent<StickyInstance>()({
                     }
 
                     if (this.animation && below) {
-                        if (hasClass(this.$el, 'uk-animation-leave')) {
+                        if (hasClass(this.$el, 'drk-animation-leave')) {
                             return;
                         }
                         Animation.out(this.$el, this.animation).then(() => this.hide(), noop);
@@ -577,7 +577,7 @@ function reset(el: HTMLElement): void {
     css(el, { position: '', top: '', marginTop: '', width: '' });
 }
 
-const clsTransitionDisable = 'uk-transition-disable';
+const clsTransitionDisable = 'drk-transition-disable';
 async function preventTransition(element: Element): Promise<void> {
     if (!hasClass(element, clsTransitionDisable)) {
         addClass(element, clsTransitionDisable);
@@ -604,6 +604,6 @@ function getScrollingElement(): HTMLElement {
 
 function createPlaceholder(): HTMLDivElement {
     const placeholder = document.createElement('div');
-    placeholder.className = 'uk-sticky-placeholder';
+    placeholder.className = 'drk-sticky-placeholder';
     return placeholder;
 }

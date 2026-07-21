@@ -1,4 +1,4 @@
-import { addClass, removeClass } from 'uikit-util';
+import { addClass, removeClass } from 'drake-util';
 import { resize } from '../api/observables';
 import { defineMixin } from '../api/options';
 import type { ComponentInternalInstance } from '../types';
@@ -29,7 +29,7 @@ export default defineMixin<SlideshowInstance>()({
 
     data: {
         animation: 'slide',
-        clsActivated: 'uk-transition-active',
+        clsActivated: 'drk-transition-active',
         Animations,
         Transitioner,
     },

@@ -7,15 +7,15 @@ import { args, banner, minify, read, renderLess, write } from './util.js';
 const { rtl } = args;
 const develop = args.develop || args.debug || args.d || args.nominify;
 const sources = [
-    { src: 'src/less/uikit.less', dist: `dist/css/uikit-core${rtl ? '-rtl' : ''}.css` },
-    { src: 'src/less/uikit.theme.less', dist: `dist/css/uikit${rtl ? '-rtl' : ''}.css` },
+    { src: 'src/less/drake.less', dist: `dist/css/drake-core${rtl ? '-rtl' : ''}.css` },
+    { src: 'src/less/drake.theme.less', dist: `dist/css/drake${rtl ? '-rtl' : ''}.css` },
 ];
 
 const themes = fs.existsSync('themes.json') ? JSON.parse(await read('themes.json')) : {};
 
 for await (const src of glob('custom/*.less')) {
     const theme = path.basename(src, '.less');
-    const dist = `dist/css/uikit.${theme}${rtl ? '-rtl' : ''}.css`;
+    const dist = `dist/css/drake.${theme}${rtl ? '-rtl' : ''}.css`;
 
     themes[theme] = { css: `../${dist}` };
 
@@ -66,7 +66,7 @@ async function compile(file, dist, develop, rtl) {
                     },
                     processors: [
                         {
-                            expr: ['--uk-position-translate-x', 'stroke-dashoffset'].join('|'),
+                            expr: ['--drk-position-translate-x', 'stroke-dashoffset'].join('|'),
                             action(prop, value, context) {
                                 return { prop, value: context.util.negate(value) };
                             },

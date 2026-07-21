@@ -22,7 +22,7 @@ for (const file of (await glob('src/less/**/*.less'))
             /(:[^'"]*?\([^'"]+?)\s*\/\s*([0-9.-]+)\)/g,
             (exp, m1, m2) => `${m1} * ${round(1 / parseFloat(m2), 5)})`,
         )
-        .replace(/--uk-\S+: (\$\S+);/g, (exp, name) => exp.replace(name, `#{${name}}`))
+        .replace(/--drk-\S+: (\$\S+);/g, (exp, name) => exp.replace(name, `#{${name}}`))
         .replace(/\\\$/g, '\\@') // revert classes using the @ symbol
         .replace(/ e\(/g, ' unquote(') // convert escape function
         .replace(/\.([\w-]*)\s*\((.*)\)\s*{/g, '@mixin $1($2){') // hook -> mixins
@@ -86,7 +86,7 @@ for (const file of (await glob('src/less/**/*.less'))
     /* get all Variables and remove them */
     source = await getVariablesFromFile(file, source);
 
-    if (filename === 'uikit.theme') {
+    if (filename === 'drake.theme') {
         /* remove the theme import first place */
         source = source.replace(/\/\/\n\/\/ Theme\n\/\/\n\n@import "theme\/_import.scss";/, '');
         source = source.replace(/\/\/ Core\n\/\//g, '// Theme\n//\n');

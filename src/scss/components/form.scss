@@ -3,33 +3,33 @@
 // Name:            Form
 // Description:     Styles for forms
 //
-// Component:       `uk-form-*`
-//                  `uk-input`
-//                  `uk-select`
-//                  `uk-textarea`
-//                  `uk-radio`
-//                  `uk-checkbox`
-//                  `uk-legend`
-//                  `uk-fieldset`
+// Component:       `drk-form-*`
+//                  `drk-input`
+//                  `drk-select`
+//                  `drk-textarea`
+//                  `drk-radio`
+//                  `drk-checkbox`
+//                  `drk-legend`
+//                  `drk-fieldset`
 //
-// Sub-objects:     `uk-form-custom`
-//                  `uk-form-stacked`
-//                  `uk-form-horizontal`
-//                  `uk-form-label`
-//                  `uk-form-controls`
-//                  `uk-form-icon`
-//                  `uk-form-icon-flip`
+// Sub-objects:     `drk-form-custom`
+//                  `drk-form-stacked`
+//                  `drk-form-horizontal`
+//                  `drk-form-label`
+//                  `drk-form-controls`
+//                  `drk-form-icon`
+//                  `drk-form-icon-flip`
 //
-// Modifiers:       `uk-form-small`
-//                  `uk-form-large`
-//                  `uk-form-danger`
-//                  `uk-form-success`
-//                  `uk-form-blank`
-//                  `uk-form-width-xsmall`
-//                  `uk-form-width-small`
-//                  `uk-form-width-medium`
-//                  `uk-form-width-large`
-//                  `uk-form-controls-text`
+// Modifiers:       `drk-form-small`
+//                  `drk-form-large`
+//                  `drk-form-danger`
+//                  `drk-form-success`
+//                  `drk-form-blank`
+//                  `drk-form-width-xsmall`
+//                  `drk-form-width-small`
+//                  `drk-form-width-medium`
+//                  `drk-form-width-large`
+//                  `drk-form-controls-text`
 //
 // ========================================================================
 
@@ -75,11 +75,11 @@
  * 4. Change font properties to `inherit` in all browsers.
  */
 
-.uk-input,
-.uk-select,
-.uk-textarea,
-.uk-radio,
-.uk-checkbox {
+.drk-input,
+.drk-select,
+.drk-textarea,
+.drk-radio,
+.drk-checkbox {
     /* 1 */
     box-sizing: border-box;
     /* 2 */
@@ -94,13 +94,13 @@
  * Show the overflow in Edge.
  */
 
-.uk-input { overflow: visible; }
+.drk-input { overflow: visible; }
 
 /*
  * Remove the inheritance of text transform in Firefox.
  */
 
-.uk-select { text-transform: none; }
+.drk-select { text-transform: none; }
 
 /*
  * 1. Change font properties to `inherit` in all browsers
@@ -108,7 +108,7 @@
  * NOTE: Both declarations don't work in Chrome, Safari and Opera.
  */
 
-.uk-select optgroup {
+.drk-select optgroup {
     /* 1 */
     font: inherit;
     /* 2 */
@@ -119,29 +119,29 @@
  * Remove the default vertical scrollbar in IE 10+.
  */
 
-.uk-textarea { overflow: auto; }
+.drk-textarea { overflow: auto; }
 
 /*
  * Remove the inner padding and cancel buttons in Chrome on OS X and Safari on OS X.
  */
 
-.uk-input[type="search"]::-webkit-search-cancel-button,
-.uk-input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+.drk-input[type="search"]::-webkit-search-cancel-button,
+.drk-input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
 
 /*
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
 
-.uk-input[type="number"]::-webkit-inner-spin-button,
-.uk-input[type="number"]::-webkit-outer-spin-button { height: auto; }
+.drk-input[type="number"]::-webkit-inner-spin-button,
+.drk-input[type="number"]::-webkit-outer-spin-button { height: auto; }
 
 /*
  * Correct vertical alignment in Safari.
  */
 
-.uk-input[type="date"]::-webkit-datetime-edit,
-.uk-input[type="time"]::-webkit-datetime-edit,
-.uk-input[type="datetime-local"]::-webkit-datetime-edit {
+.drk-input[type="date"]::-webkit-datetime-edit,
+.drk-input[type="time"]::-webkit-datetime-edit,
+.drk-input[type="datetime-local"]::-webkit-datetime-edit {
     display: inline-flex;
     align-items: center;
     height: 100%;
@@ -152,22 +152,22 @@
  * Removes placeholder transparency in Firefox.
  */
 
-.uk-input::-moz-placeholder,
-.uk-textarea::-moz-placeholder { opacity: 1; }
+.drk-input::-moz-placeholder,
+.drk-textarea::-moz-placeholder { opacity: 1; }
 
 /*
  * Improves consistency of cursor style for clickable elements
  */
 
-.uk-radio:not(:disabled),
-.uk-checkbox:not(:disabled) { cursor: pointer; }
+.drk-radio:not(:disabled),
+.drk-checkbox:not(:disabled) { cursor: pointer; }
 
 /*
  * Define consistent border, margin, and padding.
  * 1. Reset `min-width`
  */
 
-.uk-fieldset {
+.drk-fieldset {
     border: none;
     margin: 0;
     padding: 0;
@@ -186,8 +186,8 @@
  * Remove default style in iOS.
  */
 
-.uk-input,
-.uk-textarea { -webkit-appearance: none; }
+.drk-input,
+.drk-textarea { -webkit-appearance: none; }
 
 /*
  * 1. Prevent content overflow if a fixed width is used
@@ -196,9 +196,9 @@
  * 4. Style
  */
 
-.uk-input,
-.uk-select,
-.uk-textarea {
+.drk-input,
+.drk-select,
+.drk-textarea {
     /* 1 */
     max-width: 100%;
     /* 2 */
@@ -216,8 +216,8 @@
  * Single-line
  */
 
-.uk-input,
-.uk-select:not([multiple]):not([size]) {
+.drk-input,
+.drk-select:not([multiple]):not([size]) {
     height: $form-height;
     vertical-align: middle;
     @if(meta.mixin-exists(hook-form-single-line)) {@include hook-form-single-line();}
@@ -229,8 +229,8 @@
  * 3. Prevent text from wrapping onto multiple lines, and truncate with an ellipsis
  */
 
-.uk-input:where(:not(input)),
-.uk-select:where(:not(select)) {
+.drk-input:where(:not(input)),
+.drk-select:where(:not(select)) {
     /* 1 */
     display: inline-block;
     /* 2 */
@@ -245,21 +245,21 @@
  * Multi-line
  */
 
-.uk-select[multiple],
-.uk-select[size],
-.uk-textarea {
+.drk-select[multiple],
+.drk-select[size],
+.drk-textarea {
     padding: $form-multi-line-padding-vertical $form-multi-line-padding-horizontal;
     vertical-align: top;
     @if(meta.mixin-exists(hook-form-multi-line)) {@include hook-form-multi-line();}
 }
 
-.uk-select[multiple],
-.uk-select[size] { resize: vertical; }
+.drk-select[multiple],
+.drk-select[size] { resize: vertical; }
 
 /* Focus */
-.uk-input:focus,
-.uk-select:focus,
-.uk-textarea:focus {
+.drk-input:focus,
+.drk-select:focus,
+.drk-textarea:focus {
     outline: none;
     background-color: $form-focus-background;
     color: $form-focus-color;
@@ -267,9 +267,9 @@
 }
 
 /* Disabled */
-.uk-input:disabled,
-.uk-select:disabled,
-.uk-textarea:disabled {
+.drk-input:disabled,
+.drk-select:disabled,
+.drk-textarea:disabled {
     background-color: $form-disabled-background;
     color: $form-disabled-color;
     @if(meta.mixin-exists(hook-form-disabled)) {@include hook-form-disabled();}
@@ -279,20 +279,20 @@
  * Placeholder
  */
 
-.uk-input::placeholder { color: $form-placeholder-color; }
+.drk-input::placeholder { color: $form-placeholder-color; }
 
-.uk-textarea::placeholder { color: $form-placeholder-color; }
+.drk-textarea::placeholder { color: $form-placeholder-color; }
 
 
-/* Style modifier (`uk-input`, `uk-select` and `uk-textarea`)
+/* Style modifier (`drk-input`, `drk-select` and `drk-textarea`)
  ========================================================================== */
 
 /*
  * Error
  */
 
-.uk-form-danger,
-.uk-form-danger:focus {
+.drk-form-danger,
+.drk-form-danger:focus {
     color: $form-danger-color;
     @if(meta.mixin-exists(hook-form-danger)) {@include hook-form-danger();}
 }
@@ -301,8 +301,8 @@
  * Success
  */
 
-.uk-form-success,
-.uk-form-success:focus {
+.drk-form-success,
+.drk-form-success:focus {
     color: $form-success-color;
     @if(meta.mixin-exists(hook-form-success)) {@include hook-form-success();}
 }
@@ -311,17 +311,17 @@
  * Blank
  */
 
-.uk-form-blank {
+.drk-form-blank {
     background: none;
     @if(meta.mixin-exists(hook-form-blank)) {@include hook-form-blank();}
 }
 
-.uk-form-blank:focus {
+.drk-form-blank:focus {
     @if(meta.mixin-exists(hook-form-blank-focus)) {@include hook-form-blank-focus();}
 }
 
 
-/* Width modifiers (`uk-input`, `uk-select` and `uk-textarea`)
+/* Width modifiers (`drk-input`, `drk-select` and `drk-textarea`)
  ========================================================================== */
 
 /*
@@ -329,15 +329,15 @@
  * Different widths for mini sized `input` and `select` elements
  */
 
-input.uk-form-width-xsmall { width: $form-width-xsmall; }
+input.drk-form-width-xsmall { width: $form-width-xsmall; }
 
-select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
+select.drk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
 
-.uk-form-width-small { width: $form-width-small; }
+.drk-form-width-small { width: $form-width-small; }
 
-.uk-form-width-medium { width: $form-width-medium; }
+.drk-form-width-medium { width: $form-width-medium; }
 
-.uk-form-width-large { width: $form-width-large; }
+.drk-form-width-large { width: $form-width-large; }
 
 
 /* Select
@@ -349,7 +349,7 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
  * 3. Set `color` for options in the select dropdown, because the inherited `color` might be too light.
  */
 
-.uk-select:not([multiple]):not([size]) {
+.drk-select:not([multiple]):not([size]) {
     /* 1 */
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -361,13 +361,13 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
 }
 
 /* 3 */
-.uk-select:not([multiple]):not([size]) option { color: $form-select-option-color; }
+.drk-select:not([multiple]):not([size]) option { color: $form-select-option-color; }
 
 /*
  * Disabled
  */
 
-.uk-select:not([multiple]):not([size]):disabled { @include tabler-background($internal-form-select-image, $form-select-disabled-icon-color); }
+.drk-select:not([multiple]):not([size]):disabled { @include tabler-background($internal-form-select-image, $form-select-disabled-icon-color); }
 
 
 /* Datalist
@@ -377,17 +377,17 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
  * 1. Remove default style in Chrome
  */
 
- .uk-input[list] {
+ .drk-input[list] {
     padding-right: $form-datalist-padding-right;
     background-repeat: no-repeat;
     background-position: 100% 50%;
 }
 
-.uk-input[list]:hover,
-.uk-input[list]:focus { @include tabler-background($internal-form-datalist-image, $form-datalist-icon-color); }
+.drk-input[list]:hover,
+.drk-input[list]:focus { @include tabler-background($internal-form-datalist-image, $form-datalist-icon-color); }
 
 /* 1 */
-.uk-input[list]::-webkit-calendar-picker-indicator { display: none !important; }
+.drk-input[list]::-webkit-calendar-picker-indicator { display: none !important; }
 
 
 /* Radio and checkbox
@@ -402,8 +402,8 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
  * 6. Cover icons
  */
 
-.uk-radio,
-.uk-checkbox {
+.drk-radio,
+.drk-checkbox {
     /* 1 */
     display: inline-block;
     height: $form-radio-size;
@@ -423,11 +423,11 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
     @if(meta.mixin-exists(hook-form-radio)) {@include hook-form-radio();}
 }
 
-.uk-radio { border-radius: 50%; }
+.drk-radio { border-radius: 50%; }
 
 /* Focus */
-.uk-radio:focus,
-.uk-checkbox:focus {
+.drk-radio:focus,
+.drk-checkbox:focus {
     background-color: $form-radio-focus-background;
     outline: none;
     @if(meta.mixin-exists(hook-form-radio-focus)) {@include hook-form-radio-focus();}
@@ -437,17 +437,17 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
  * Checked
  */
 
-.uk-radio:checked,
-.uk-checkbox:checked,
-.uk-checkbox:indeterminate {
+.drk-radio:checked,
+.drk-checkbox:checked,
+.drk-checkbox:indeterminate {
     background-color: $form-radio-checked-background;
     @if(meta.mixin-exists(hook-form-radio-checked)) {@include hook-form-radio-checked();}
 }
 
 /* Focus */
-.uk-radio:checked:focus,
-.uk-checkbox:checked:focus,
-.uk-checkbox:indeterminate:focus {
+.drk-radio:checked:focus,
+.drk-checkbox:checked:focus,
+.drk-checkbox:indeterminate:focus {
     background-color: $form-radio-checked-focus-background;
     @if(meta.mixin-exists(hook-form-radio-checked-focus)) {@include hook-form-radio-checked-focus();}
 }
@@ -456,49 +456,49 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
  * Icons
  */
 
-.uk-radio:checked { @include tabler-background($internal-form-radio-image, $form-radio-checked-icon-color); }
-.uk-checkbox:checked { @include tabler-background($internal-form-checkbox-image, $form-radio-checked-icon-color); }
-.uk-checkbox:indeterminate { @include tabler-background($internal-form-checkbox-indeterminate-image, $form-radio-checked-icon-color); }
+.drk-radio:checked { @include tabler-background($internal-form-radio-image, $form-radio-checked-icon-color); }
+.drk-checkbox:checked { @include tabler-background($internal-form-checkbox-image, $form-radio-checked-icon-color); }
+.drk-checkbox:indeterminate { @include tabler-background($internal-form-checkbox-indeterminate-image, $form-radio-checked-icon-color); }
 
 /*
  * Disabled
  */
 
-.uk-radio:disabled,
-.uk-checkbox:disabled {
+.drk-radio:disabled,
+.drk-checkbox:disabled {
     background-color: $form-radio-disabled-background;
     @if(meta.mixin-exists(hook-form-radio-disabled)) {@include hook-form-radio-disabled();}
 }
 
-.uk-radio:disabled:checked { @include tabler-background($internal-form-radio-image, $form-radio-disabled-icon-color); }
-.uk-checkbox:disabled:checked { @include tabler-background($internal-form-checkbox-image, $form-radio-disabled-icon-color); }
-.uk-checkbox:disabled:indeterminate { @include tabler-background($internal-form-checkbox-indeterminate-image, $form-radio-disabled-icon-color); }
+.drk-radio:disabled:checked { @include tabler-background($internal-form-radio-image, $form-radio-disabled-icon-color); }
+.drk-checkbox:disabled:checked { @include tabler-background($internal-form-checkbox-image, $form-radio-disabled-icon-color); }
+.drk-checkbox:disabled:indeterminate { @include tabler-background($internal-form-checkbox-indeterminate-image, $form-radio-disabled-icon-color); }
 
 
-/* Style modifier (`uk-input`, `uk-select`, `uk-textarea`, `uk-radio`, `uk-checkbox`)
+/* Style modifier (`drk-input`, `drk-select`, `drk-textarea`, `drk-radio`, `drk-checkbox`)
  ========================================================================== */
 
 /*
  * Small
  */
 
-.uk-form-small:is(.uk-input, .uk-search-input, .uk-select, .uk-textarea) { font-size: $form-small-font-size; }
+.drk-form-small:is(.drk-input, .drk-search-input, .drk-select, .drk-textarea) { font-size: $form-small-font-size; }
 
 /* Single-line */
-.uk-form-small:is(.uk-input, .uk-search-input, .uk-select:not([multiple]):not([size])) {
+.drk-form-small:is(.drk-input, .drk-search-input, .drk-select:not([multiple]):not([size])) {
     height: $form-small-height;
     padding-left: $form-small-padding-horizontal;
     padding-right: $form-small-padding-horizontal;
 }
 
 /* Multi-line */
-.uk-form-small:is(.uk-select[multiple], .uk-select[size], .uk-textarea) { padding: $form-small-multi-line-padding-vertical $form-small-multi-line-padding-horizontal; }
+.drk-form-small:is(.drk-select[multiple], .drk-select[size], .drk-textarea) { padding: $form-small-multi-line-padding-vertical $form-small-multi-line-padding-horizontal; }
 
 /* Any element */
-.uk-form-small:not(select):not(input):not(textarea):not([type="radio"]):not([type="checkbox"]) { line-height: $form-small-line-height; }
+.drk-form-small:not(select):not(input):not(textarea):not([type="radio"]):not([type="checkbox"]) { line-height: $form-small-line-height; }
 
 /* Radio + Checkbox */
-.uk-form-small:is(.uk-radio, .uk-checkbox) {
+.drk-form-small:is(.drk-radio, .drk-checkbox) {
     height: $form-small-radio-size;
     width: $form-small-radio-size;
 }
@@ -507,23 +507,23 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
  * Large
  */
 
-.uk-form-large:is(.uk-input, .uk-search-input, .uk-select, .uk-textarea) { font-size: $form-large-font-size; }
+.drk-form-large:is(.drk-input, .drk-search-input, .drk-select, .drk-textarea) { font-size: $form-large-font-size; }
 
 /* Single-line */
-.uk-form-large:is(.uk-input, .uk-search-input, .uk-select:not([multiple]):not([size])) {
+.drk-form-large:is(.drk-input, .drk-search-input, .drk-select:not([multiple]):not([size])) {
     height: $form-large-height;
     padding-left: $form-large-padding-horizontal;
     padding-right: $form-large-padding-horizontal;
 }
 
 /* Multi-line */
-.uk-form-large:is(.uk-select[multiple], .uk-select[size], .uk-textarea) { padding: $form-large-multi-line-padding-vertical $form-large-multi-line-padding-horizontal; }
+.drk-form-large:is(.drk-select[multiple], .drk-select[size], .drk-textarea) { padding: $form-large-multi-line-padding-vertical $form-large-multi-line-padding-horizontal; }
 
 /* Any element */
-.uk-form-large:not(select):not(input):not(textarea):not([type="radio"]):not([type="checkbox"]) { line-height: $form-large-line-height; }
+.drk-form-large:not(select):not(input):not(textarea):not([type="radio"]):not([type="checkbox"]) { line-height: $form-large-line-height; }
 
 /* Radio + Checkbox */
-.uk-form-large:is(.uk-radio, .uk-checkbox) {
+.drk-form-large:is(.drk-radio, .drk-checkbox) {
     height: $form-large-radio-size;
     width: $form-large-radio-size;
 }
@@ -540,7 +540,7 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
  * 4. Style
  */
 
-.uk-legend {
+.drk-legend {
     /* 1 */
     width: 100%;
     /* 2 */
@@ -564,7 +564,7 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
  * 4. Behave like most inline-block elements
  */
 
-.uk-form-custom {
+.drk-form-custom {
     /* 1 */
     display: inline-block;
     /* 2 */
@@ -584,8 +584,8 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
  * 6. Clip height caused by 5. Needed for Webkit only
  */
 
-.uk-form-custom select,
-.uk-form-custom input[type="file"] {
+.drk-form-custom select,
+.drk-form-custom input[type="file"] {
     /* 1 */
     position: absolute;
     top: 0;
@@ -601,7 +601,7 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
     cursor: pointer;
 }
 
-.uk-form-custom input[type="file"] {
+.drk-form-custom input[type="file"] {
     /* 5 */
     font-size: 500px;
     /* 6 */
@@ -612,7 +612,7 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
 /* Label
  ========================================================================== */
 
-.uk-form-label {
+.drk-form-label {
     @if(meta.mixin-exists(hook-form-label)) {@include hook-form-label();}
 }
 
@@ -624,7 +624,7 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
  * Stacked
  */
 
-.uk-form-stacked .uk-form-label {
+.drk-form-stacked .drk-form-label {
     display: block;
     margin-bottom: $form-stacked-margin-bottom;
     @if(meta.mixin-exists(hook-form-stacked-label)) {@include hook-form-stacked-label();}
@@ -634,8 +634,8 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
  * Horizontal
  */
 
-/* Mobile baseline: behave like `uk-form-stacked` */
-.uk-form-horizontal .uk-form-label {
+/* Mobile baseline: behave like `drk-form-stacked` */
+.drk-form-horizontal .drk-form-label {
     display: block;
     margin-bottom: $form-stacked-margin-bottom;
     @if(meta.mixin-exists(hook-form-stacked-label)) {@include hook-form-stacked-label();}
@@ -644,7 +644,7 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
 /* Tablet landscape and bigger */
 @media (min-width: $breakpoint-medium) {
 
-    .uk-form-horizontal .uk-form-label {
+    .drk-form-horizontal .drk-form-label {
         width: $form-horizontal-label-width;
         margin-top: $form-horizontal-label-margin-top;
         margin-bottom: 0;
@@ -652,10 +652,10 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
         @if(meta.mixin-exists(hook-form-horizontal-label)) {@include hook-form-horizontal-label();}
     }
 
-    .uk-form-horizontal .uk-form-controls { margin-left: $form-horizontal-controls-margin-left; }
+    .drk-form-horizontal .drk-form-controls { margin-left: $form-horizontal-controls-margin-left; }
 
     /* Better vertical alignment if controls are checkboxes and radio buttons with text */
-    .uk-form-horizontal .uk-form-controls-text { padding-top: $form-horizontal-controls-text-padding-top; }
+    .drk-form-horizontal .drk-form-controls-text { padding-top: $form-horizontal-controls-text-padding-top; }
 
 }
 
@@ -670,7 +670,7 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
  * 4. Style
  */
 
-.uk-form-icon {
+.drk-form-icon {
     /* 1 */
     position: absolute;
     top: 0;
@@ -691,30 +691,30 @@ select.uk-form-width-xsmall { width: ($form-width-xsmall + 25px); }
  * Required for `a`.
  */
 
-.uk-form-icon:hover { color: $form-icon-hover-color; }
+.drk-form-icon:hover { color: $form-icon-hover-color; }
 
 /*
  * Make `input` element clickable through icon, e.g. if it's a `span`
  */
 
-.uk-form-icon:not(a):not(button):not(input) { pointer-events: none; }
+.drk-form-icon:not(a):not(button):not(input) { pointer-events: none; }
 
 /*
  * Input padding
  */
 
-.uk-form-icon:not(.uk-form-icon-flip) ~ .uk-input { padding-left: $form-icon-width !important; }
+.drk-form-icon:not(.drk-form-icon-flip) ~ .drk-input { padding-left: $form-icon-width !important; }
 
 /*
  * Position modifier
  */
 
-.uk-form-icon-flip {
+.drk-form-icon-flip {
     right: 0;
     left: auto;
 }
 
-.uk-form-icon-flip ~ .uk-input { padding-right: $form-icon-width !important; }
+.drk-form-icon-flip ~ .drk-input { padding-right: $form-icon-width !important; }
 
 
 // Hooks

@@ -1,4 +1,4 @@
-import { $$, boxModelAdjust, css, dimensions, isVisible, pick } from 'uikit-util';
+import { $$, boxModelAdjust, css, dimensions, isVisible, pick } from 'drake-util';
 import { resize } from '../api/observables';
 import { defineComponent } from '../api/options';
 import type { ComponentInternalInstance } from '../types';

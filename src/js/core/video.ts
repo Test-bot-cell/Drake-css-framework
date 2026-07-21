@@ -9,7 +9,7 @@ import {
     pointerEnter,
     pointerLeave,
     query,
-} from 'uikit-util';
+} from 'drake-util';
 import { intersection } from '../api/observables';
 import { defineComponent } from '../api/options';
 import type { ComponentInternalInstance, FrameworkEvent } from '../types';

@@ -3,14 +3,14 @@
 // Name:            Accordion
 // Description:     Component to create accordions
 //
-// Component:       `uk-accordion`
+// Component:       `drk-accordion`
 //
-// Sub-objects:     `uk-accordion-title`
-//                  `uk-accordion-content`
+// Sub-objects:     `drk-accordion-title`
+//                  `drk-accordion-content`
 //
-// Modifiers:       `uk-accordion-default`
+// Modifiers:       `drk-accordion-default`
 //
-// States:          `uk-open`
+// States:          `drk-open`
 //
 // ========================================================================
 
@@ -26,21 +26,21 @@
    Component: Accordion
  ========================================================================== */
 
-.uk-accordion {
+.drk-accordion {
     padding: 0;
     list-style: none;
     @if(meta.mixin-exists(hook-accordion)) {@include hook-accordion();}
 }
 
-.uk-accordion-title { display: block; }
+.drk-accordion-title { display: block; }
 
-.uk-accordion-content { display: flow-root; }
+.drk-accordion-content { display: flow-root; }
 
 /*
  * Remove margin from the last-child
  */
 
-.uk-accordion-content > :last-child { margin-bottom: 0; }
+.drk-accordion-content > :last-child { margin-bottom: 0; }
 
 
 /* Default modifier
@@ -50,14 +50,14 @@
  * Item
  */
 
-.uk-accordion-default > * {
+.drk-accordion-default > * {
     @if(meta.mixin-exists(hook-accordion-default-item)) {@include hook-accordion-default-item();}
 }
 
-.uk-accordion-default > :nth-child(n+2) { margin-top: $accordion-default-item-margin-top; }
+.drk-accordion-default > :nth-child(n+2) { margin-top: $accordion-default-item-margin-top; }
 
 /* Active */
-.uk-accordion-default > .uk-open {
+.drk-accordion-default > .drk-open {
     @if(meta.mixin-exists(hook-accordion-default-item-active)) {@include hook-accordion-default-item-active();}
 }
 
@@ -71,7 +71,7 @@
 * 3. Reset link
  */
 
-.uk-accordion-default .uk-accordion-title {
+.drk-accordion-default .drk-accordion-title {
     /* 1 */
     display: flex;
     align-items: center;
@@ -85,14 +85,14 @@
 }
 
 /* Hover */
-.uk-accordion-default .uk-accordion-title:hover {
+.drk-accordion-default .drk-accordion-title:hover {
     color: $accordion-default-title-hover-color;
     text-decoration: none;
     @if(meta.mixin-exists(hook-accordion-default-title-hover)) {@include hook-accordion-default-title-hover();}
 }
 
 /* Active */
-.uk-accordion-default > .uk-open .uk-accordion-title {
+.drk-accordion-default > .drk-open .drk-accordion-title {
     @if(meta.mixin-exists(hook-accordion-default-title-active)) {@include hook-accordion-default-title-active();}
 }
 
@@ -100,23 +100,23 @@
  * Icon
  */
 
-.uk-accordion-default .uk-accordion-icon {
-    --uk-icon-width: 13px;
-    --uk-icon-height: 13px;
+.drk-accordion-default .drk-accordion-icon {
+    --drk-icon-width: 13px;
+    --drk-icon-height: 13px;
     flex: none;
     margin-left: auto;
     @if(meta.mixin-exists(hook-accordion-default-icon)) {@include hook-accordion-default-icon();}
 }
 
-[aria-expanded="true"] .uk-accordion-icon {
-    --uk-ti-mask: var(--uk-tabler-icon-minus);
+[aria-expanded="true"] .drk-accordion-icon {
+    --drk-ti-mask: var(--drk-tabler-icon-minus);
 }
 
 /*
  * Content
  */
 
-.uk-accordion-default .uk-accordion-content {
+.drk-accordion-default .drk-accordion-content {
     margin-top: $accordion-default-content-margin-top;
     @if(meta.mixin-exists(hook-accordion-default-content)) {@include hook-accordion-default-content();}
 }

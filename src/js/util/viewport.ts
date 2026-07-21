@@ -240,7 +240,7 @@ export function getCoveringElement(target?: ElementInput): Element | undefined {
         for (const element of document.elementsFromPoint(left + width / 2, position)) {
             const relevant =
                 !element.contains(node) &&
-                !hasClass(element, 'uk-togglable-leave') &&
+                !hasClass(element, 'drk-togglable-leave') &&
                 ((hasPosition(element, 'fixed') &&
                     zIndex(
                         parents(node)

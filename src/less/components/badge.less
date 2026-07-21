@@ -1,7 +1,7 @@
 // Name:            Badge
 // Description:     Component to create notification badges
 //
-// Component:       `uk-badge`
+// Component:       `drk-badge`
 //
 // ========================================================================
 
@@ -27,7 +27,7 @@
  * 2. Center child vertically and horizontally
  */
 
-.uk-badge {
+.drk-badge {
     box-sizing: border-box;
     min-width: @badge-size;
     height: @badge-size;
@@ -50,7 +50,7 @@
  * Required for `a`
  */
 
-.uk-badge:hover {
+.drk-badge:hover {
     text-decoration: none;
     .hook-badge-hover();
 }
@@ -74,13 +74,13 @@
 
 .hook-inverse() {
 
-    .uk-badge {
+    .drk-badge {
         background-color: @inverse-badge-background;
         color: @inverse-badge-color !important;
         .hook-inverse-badge();
     }
 
-    .uk-badge:hover {
+    .drk-badge:hover {
         .hook-inverse-badge-hover();
     }
 

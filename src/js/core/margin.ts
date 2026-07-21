@@ -1,4 +1,4 @@
-import { children, isRtl, isVisible, offsetPosition, toggleClass } from 'uikit-util';
+import { children, isRtl, isVisible, offsetPosition, toggleClass } from 'drake-util';
 import { mutation, resize } from '../api/observables';
 import { defineComponent } from '../api/options';
 import type { ComponentInternalInstance } from '../types';
@@ -16,8 +16,8 @@ export default defineComponent<MarginInstance>()({
     },
 
     data: {
-        margin: 'uk-margin-small-top',
-        firstColumn: 'uk-first-column',
+        margin: 'drk-margin-small-top',
+        firstColumn: 'drk-first-column',
     },
 
     observe: [

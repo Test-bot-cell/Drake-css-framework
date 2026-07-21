@@ -17,7 +17,7 @@ import {
     Transition,
     unwrap,
     wrapAll,
-} from 'uikit-util';
+} from 'drake-util';
 import { generateId } from '../api/instance';
 import { lazyload } from '../api/observables';
 import { defineComponent } from '../api/options';
@@ -93,9 +93,9 @@ export default defineComponent<AccordionInstance>()({
         animation: true,
         collapsible: true,
         multiple: false,
-        clsOpen: 'uk-open',
-        toggle: '.uk-accordion-title',
-        content: '.uk-accordion-content',
+        clsOpen: 'drk-open',
+        toggle: '.drk-accordion-title',
+        content: '.drk-accordion-content',
         offset: 0,
     },
 

@@ -10,7 +10,7 @@ import {
     removeClass,
     trigger,
     type IndexSpecifier,
-} from 'uikit-util';
+} from 'drake-util';
 import { defineMixin } from '../api/options';
 import { awaitFrame } from '../util/await';
 import I18n from './i18n';
@@ -41,11 +41,11 @@ export default defineMixin<SliderInstance>()({
         prevIndex: -1,
         stack: [],
         percent: 0,
-        clsActive: 'uk-active',
+        clsActive: 'drk-active',
         clsActivated: '',
-        clsEnter: 'uk-slide-enter',
-        clsLeave: 'uk-slide-leave',
-        clsSlideActive: 'uk-slide-active',
+        clsEnter: 'drk-slide-enter',
+        clsLeave: 'drk-slide-leave',
+        clsSlideActive: 'drk-slide-active',
         Transitioner: false,
         transitionOptions: {},
     }),

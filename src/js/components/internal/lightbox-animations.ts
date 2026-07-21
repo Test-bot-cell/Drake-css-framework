@@ -1,4 +1,4 @@
-import { css } from 'uikit-util';
+import { css } from 'drake-util';
 import Animations from '../../mixin/internal/slideshow-animations';
 import { scale3d } from './slideshow-animations';
 

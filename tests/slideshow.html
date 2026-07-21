@@ -4,80 +4,80 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Slideshow - UIkit tests</title>
+        <title>Slideshow - Drake tests</title>
         <script src="../dist/js/tests/test.js"></script>
     </head>
 
     <body>
 
-        <div class="uk-container">
+        <div class="drk-container">
 
             <h1>Slideshow</h1>
 
             <h2>Animations</h2>
 
-            <div class="uk-margin">
-                <select id="js-animation-switcher" class="uk-select uk-form-width-small" aria-label="Animation switcher">
+            <div class="drk-margin">
+                <select id="js-animation-switcher" class="drk-select drk-form-width-small" aria-label="Animation switcher">
                     <option value="slide">Slide</option>
                     <option value="fade">Fade</option>
                     <option value="scale">Scale</option>
                     <option value="pull">Pull</option>
                     <option value="push">Push</option>
                 </select>
-                <select id="js-finite-switcher" class="uk-select uk-form-width-small" aria-label="Finite switcher">
+                <select id="js-finite-switcher" class="drk-select drk-form-width-small" aria-label="Finite switcher">
                     <option value="0">Infinite</option>
                     <option value="1">Finite</option>
                 </select>
             </div>
 
-            <div class="uk-child-width-1-2@m" uk-grid>
+            <div class="drk-child-width-1-2@m" drk-grid>
                 <div>
 
-                    <div class="js-slideshow-animation" uk-slideshow="ratio: 3:2; autoplay: true">
+                    <div class="js-slideshow-animation" drk-slideshow="ratio: 3:2; autoplay: true">
 
-                        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                        <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
-                            <div class="uk-slideshow-items">
+                            <div class="drk-slideshow-items">
                                 <div>
-                                    <img src="images/photo.jpg" alt="" uk-cover>
-                                    <div class="uk-position-center uk-position-small uk-text-center">
-                                        <h2 uk-slideshow-parallax="x: 100,-100">Heading</h2>
-                                        <p uk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+                                    <img src="images/photo.jpg" alt="" drk-cover>
+                                    <div class="drk-position-center drk-position-small drk-text-center">
+                                        <h2 drk-slideshow-parallax="x: 100,-100">Heading</h2>
+                                        <p drk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
                                     </div>
                                 </div>
                                 <div>
-                                    <img src="images/dark.jpg" alt="" uk-cover>
-                                    <div class="uk-position-center uk-position-small uk-text-center">
-                                        <h2 uk-slideshow-parallax="x: 100,-100">Heading</h2>
-                                        <p uk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+                                    <img src="images/dark.jpg" alt="" drk-cover>
+                                    <div class="drk-position-center drk-position-small drk-text-center">
+                                        <h2 drk-slideshow-parallax="x: 100,-100">Heading</h2>
+                                        <p drk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
                                     </div>
                                 </div>
                                 <div>
-                                    <img src="images/light.jpg" alt="" uk-cover>
-                                    <div class="uk-position-center uk-position-small uk-text-center">
-                                        <h2 uk-slideshow-parallax="y: -50,0,0; opacity: 1,1,0">Heading</h2>
-                                        <p uk-slideshow-parallax="y: 50,0,0; opacity: 1,1,0">Lorem ipsum dolor sit amet.</p>
+                                    <img src="images/light.jpg" alt="" drk-cover>
+                                    <div class="drk-position-center drk-position-small drk-text-center">
+                                        <h2 drk-slideshow-parallax="y: -50,0,0; opacity: 1,1,0">Heading</h2>
+                                        <p drk-slideshow-parallax="y: 50,0,0; opacity: 1,1,0">Lorem ipsum dolor sit amet.</p>
                                     </div>
                                 </div>
                                 <div>
-                                    <img src="images/photo2.jpg" alt="" uk-cover>
-                                    <div class="uk-position-center uk-position-small uk-text-center">
-                                        <h2 uk-slideshow-parallax="x: 200,0,0">Heading</h2>
-                                        <p uk-slideshow-parallax="x: 0,0,-200">Lorem ipsum dolor sit amet.</p>
+                                    <img src="images/photo2.jpg" alt="" drk-cover>
+                                    <div class="drk-position-center drk-position-small drk-text-center">
+                                        <h2 drk-slideshow-parallax="x: 200,0,0">Heading</h2>
+                                        <p drk-slideshow-parallax="x: 0,0,-200">Lorem ipsum dolor sit amet.</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
-                            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
+                            <a class="drk-position-center-left drk-position-small drk-hidden-hover" href drk-slidenav-previous drk-slideshow-item="previous"></a>
+                            <a class="drk-position-center-right drk-position-small drk-hidden-hover" href drk-slidenav-next drk-slideshow-item="next"></a>
 
                         </div>
 
-                        <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin">
-                            <li uk-slideshow-item="0"><a href>Item 1</a></li>
-                            <li uk-slideshow-item="1"><a href>Item 2</a></li>
-                            <li uk-slideshow-item="2"><a href>Item 3</a></li>
-                            <li uk-slideshow-item="3"><a href>Item 4</a></li>
+                        <ul class="drk-slideshow-nav drk-dotnav drk-flex-center drk-margin">
+                            <li drk-slideshow-item="0"><a href>Item 1</a></li>
+                            <li drk-slideshow-item="1"><a href>Item 2</a></li>
+                            <li drk-slideshow-item="2"><a href>Item 3</a></li>
+                            <li drk-slideshow-item="3"><a href>Item 4</a></li>
                         </ul>
 
                     </div>
@@ -85,47 +85,47 @@
                 </div>
                 <div>
 
-                    <div class="js-slideshow-animation" uk-slideshow="ratio: 3:2">
+                    <div class="js-slideshow-animation" drk-slideshow="ratio: 3:2">
 
-                        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                        <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
-                            <div class="uk-slideshow-items">
+                            <div class="drk-slideshow-items">
                                 <div>
-                                    <img src="images/photo.jpg" alt="" uk-cover>
-                                    <div class="uk-position-center uk-position-small uk-text-center">
-                                        <h2 uk-slideshow-parallax="x: 100,-100">Image</h2>
-                                        <p uk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+                                    <img src="images/photo.jpg" alt="" drk-cover>
+                                    <div class="drk-position-center drk-position-small drk-text-center">
+                                        <h2 drk-slideshow-parallax="x: 100,-100">Image</h2>
+                                        <p drk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
                                     </div>
                                 </div>
                                 <div>
-                                    <video src="https://yootheme.com/assets/images/media/yootheme-pro.mp4" playsinline loop muted uk-cover></video>
-                                    <div class="uk-position-center uk-position-small uk-text-center">
-                                        <h2 uk-slideshow-parallax="x: 100,-100">Video</h2>
-                                        <p uk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+                                    <video src="https://yootheme.com/assets/images/media/yootheme-pro.mp4" playsinline loop muted drk-cover></video>
+                                    <div class="drk-position-center drk-position-small drk-text-center">
+                                        <h2 drk-slideshow-parallax="x: 100,-100">Video</h2>
+                                        <p drk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
                                     </div>
                                 </div>
                                 <div>
-                                    <iframe src="https://www.youtube-nocookie.com/embed/c2pz2mlSfXA?playsinline=1&amp;rel=0&amp;controls=0&amp;loop=1&amp;mute=1" width="1920" height="1080" allowfullscreen loading="lazy" uk-cover></iframe>
-                                    <div class="uk-position-center uk-position-small uk-text-center">
-                                        <h2 uk-slideshow-parallax="x: 100,-100">YouTube</h2>
-                                        <p uk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+                                    <iframe src="https://www.youtube-nocookie.com/embed/c2pz2mlSfXA?playsinline=1&amp;rel=0&amp;controls=0&amp;loop=1&amp;mute=1" width="1920" height="1080" allowfullscreen loading="lazy" drk-cover></iframe>
+                                    <div class="drk-position-center drk-position-small drk-text-center">
+                                        <h2 drk-slideshow-parallax="x: 100,-100">YouTube</h2>
+                                        <p drk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
                                     </div>
                                 </div>
                                 <div>
-                                    <iframe src="https://player.vimeo.com/video/1084537?title=0&amp;background=1&amp;keyboard=0&amp;muted=1" width="500" height="281" allowfullscreen loading="lazy" uk-cover></iframe>
-                                    <div class="uk-position-center uk-position-small uk-text-center">
-                                        <h2 uk-slideshow-parallax="x: 100,-100">Vimeo</h2>
-                                        <p uk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
+                                    <iframe src="https://player.vimeo.com/video/1084537?title=0&amp;background=1&amp;keyboard=0&amp;muted=1" width="500" height="281" allowfullscreen loading="lazy" drk-cover></iframe>
+                                    <div class="drk-position-center drk-position-small drk-text-center">
+                                        <h2 drk-slideshow-parallax="x: 100,-100">Vimeo</h2>
+                                        <p drk-slideshow-parallax="x: 200,-200">Lorem ipsum dolor sit amet.</p>
                                     </div>
                                 </div>
                             </div>
 
-                            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
-                            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
+                            <a class="drk-position-center-left drk-position-small drk-hidden-hover" href drk-slidenav-previous drk-slideshow-item="previous"></a>
+                            <a class="drk-position-center-right drk-position-small drk-hidden-hover" href drk-slidenav-next drk-slideshow-item="next"></a>
 
                         </div>
 
-                        <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
+                        <ul class="drk-slideshow-nav drk-dotnav drk-flex-center drk-margin"></ul>
 
                     </div>
 
@@ -134,187 +134,187 @@
 
             <h2>Modifying animation with parallax</h2>
 
-            <div uk-slideshow="animation: push">
+            <div drk-slideshow="animation: push">
 
-                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
-                    <div class="uk-slideshow-items">
+                    <div class="drk-slideshow-items">
                         <div>
-                            <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
-                                <img src="images/photo.jpg" alt="" uk-cover>
+                            <div class="drk-position-cover" drk-slideshow-parallax="scale: 1.2,1.2,1">
+                                <img src="images/photo.jpg" alt="" drk-cover>
                             </div>
-                            <div class="uk-position-cover" uk-slideshow-parallax="opacity: 0,0,0.2; background-color: #000,#000"></div>
-                            <div class="uk-position-center uk-position-medium uk-text-center">
-                                <div uk-slideshow-parallax="scale: 1,1,0.8">
-                                    <h1 class="uk-heading-medium" uk-slideshow-parallax="x: 200,0,0">Heading</h1>
-                                    <p class="uk-text-lead" uk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
+                            <div class="drk-position-cover" drk-slideshow-parallax="opacity: 0,0,0.2; background-color: #000,#000"></div>
+                            <div class="drk-position-center drk-position-medium drk-text-center">
+                                <div drk-slideshow-parallax="scale: 1,1,0.8">
+                                    <h1 class="drk-heading-medium" drk-slideshow-parallax="x: 200,0,0">Heading</h1>
+                                    <p class="drk-text-lead" drk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
-                                <img src="images/dark.jpg" alt="" uk-cover>
+                            <div class="drk-position-cover" drk-slideshow-parallax="scale: 1.2,1.2,1">
+                                <img src="images/dark.jpg" alt="" drk-cover>
                             </div>
-                            <div class="uk-position-cover" uk-slideshow-parallax="opacity: 0,0,0.2; background-color: #000,#000"></div>
-                            <div class="uk-position-center uk-position-medium uk-text-center">
-                                <div uk-slideshow-parallax="scale: 1,1,0.8">
-                                    <h1 class="uk-heading-medium" uk-slideshow-parallax="x: 200,0,0">Heading</h1>
-                                    <p class="uk-text-lead" uk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
+                            <div class="drk-position-cover" drk-slideshow-parallax="opacity: 0,0,0.2; background-color: #000,#000"></div>
+                            <div class="drk-position-center drk-position-medium drk-text-center">
+                                <div drk-slideshow-parallax="scale: 1,1,0.8">
+                                    <h1 class="drk-heading-medium" drk-slideshow-parallax="x: 200,0,0">Heading</h1>
+                                    <p class="drk-text-lead" drk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
-                                <img src="images/light.jpg" alt="" uk-cover>
+                            <div class="drk-position-cover" drk-slideshow-parallax="scale: 1.2,1.2,1">
+                                <img src="images/light.jpg" alt="" drk-cover>
                             </div>
-                            <div class="uk-position-cover" uk-slideshow-parallax="opacity: 0,0,0.2; background-color: #000,#000"></div>
-                            <div class="uk-position-center uk-position-medium uk-text-center">
-                                <div uk-slideshow-parallax="scale: 1,1,0.8">
-                                    <h1 class="uk-heading-medium" uk-slideshow-parallax="x: 200,0,0">Heading</h1>
-                                    <p class="uk-text-lead" uk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
+                            <div class="drk-position-cover" drk-slideshow-parallax="opacity: 0,0,0.2; background-color: #000,#000"></div>
+                            <div class="drk-position-center drk-position-medium drk-text-center">
+                                <div drk-slideshow-parallax="scale: 1,1,0.8">
+                                    <h1 class="drk-heading-medium" drk-slideshow-parallax="x: 200,0,0">Heading</h1>
+                                    <p class="drk-text-lead" drk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
-                                <img src="images/photo2.jpg" alt="" uk-cover>
+                            <div class="drk-position-cover" drk-slideshow-parallax="scale: 1.2,1.2,1">
+                                <img src="images/photo2.jpg" alt="" drk-cover>
                             </div>
-                            <div class="uk-position-cover" uk-slideshow-parallax="opacity: 0,0,0.2; background-color: #000,#000"></div>
-                            <div class="uk-position-center uk-position-medium uk-text-center">
-                                <div uk-slideshow-parallax="scale: 1,1,0.8">
-                                    <h1 class="uk-heading-medium" uk-slideshow-parallax="x: 200,0,0">Heading</h1>
-                                    <p class="uk-text-lead" uk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
+                            <div class="drk-position-cover" drk-slideshow-parallax="opacity: 0,0,0.2; background-color: #000,#000"></div>
+                            <div class="drk-position-center drk-position-medium drk-text-center">
+                                <div drk-slideshow-parallax="scale: 1,1,0.8">
+                                    <h1 class="drk-heading-medium" drk-slideshow-parallax="x: 200,0,0">Heading</h1>
+                                    <p class="drk-text-lead" drk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
-                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
+                    <a class="drk-position-center-left drk-position-small drk-hidden-hover" href drk-slidenav-previous drk-slideshow-item="previous"></a>
+                    <a class="drk-position-center-right drk-position-small drk-hidden-hover" href drk-slidenav-next drk-slideshow-item="next"></a>
 
                 </div>
 
-                <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
+                <ul class="drk-slideshow-nav drk-dotnav drk-flex-center drk-margin"></ul>
 
             </div>
 
             <h2>Toggle Transitions + Kenburns</h2>
 
-            <div class="js-slideshow-animation" uk-slideshow="ratio: 5:3">
+            <div class="js-slideshow-animation" drk-slideshow="ratio: 5:3">
 
-                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
-                    <div class="uk-slideshow-items">
+                    <div class="drk-slideshow-items">
                         <div>
-                            <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-center-left">
-                                <img src="images/photo.jpg" alt="" uk-cover>
+                            <div class="drk-position-cover drk-animation-kenburns drk-animation-reverse drk-transform-origin-center-left">
+                                <img src="images/photo.jpg" alt="" drk-cover>
                             </div>
-                            <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
-                                <h3 class="uk-margin-remove">Bottom</h3>
-                                <p class="uk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div class="drk-overlay drk-overlay-primary drk-position-bottom drk-text-center drk-transition-slide-bottom">
+                                <h3 class="drk-margin-remove">Bottom</h3>
+                                <p class="drk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
                         </div>
                         <div>
-                            <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-top-right">
-                                <img src="images/dark.jpg" alt="" uk-cover>
+                            <div class="drk-position-cover drk-animation-kenburns drk-animation-reverse drk-transform-origin-top-right">
+                                <img src="images/dark.jpg" alt="" drk-cover>
                             </div>
-                            <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center uk-transition-slide-bottom">
-                                <h3 class="uk-margin-remove">Bottom</h3>
-                                <p class="uk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-bottom-left">
-                                <img src="images/light.jpg" alt="" uk-cover>
-                            </div>
-                            <div class="uk-overlay uk-overlay-primary uk-position-right uk-text-center uk-transition-slide-right uk-width-medium">
-                                <h3 class="uk-margin-remove">Right</h3>
-                                <p class="uk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div class="drk-overlay drk-overlay-primary drk-position-bottom drk-text-center drk-transition-slide-bottom">
+                                <h3 class="drk-margin-remove">Bottom</h3>
+                                <p class="drk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
                         </div>
                         <div>
-                            <div class="uk-position-cover uk-animation-kenburns uk-animation-reverse uk-transform-origin-top-center">
-                                <img src="images/photo2.jpg" alt="" uk-cover>
+                            <div class="drk-position-cover drk-animation-kenburns drk-animation-reverse drk-transform-origin-bottom-left">
+                                <img src="images/light.jpg" alt="" drk-cover>
                             </div>
-                            <div class="uk-overlay uk-overlay-primary uk-position-left uk-text-center uk-transition-slide-left uk-width-medium">
-                                <h3 class="uk-margin-remove">Left</h3>
-                                <p class="uk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <div class="drk-overlay drk-overlay-primary drk-position-right drk-text-center drk-transition-slide-right drk-width-medium">
+                                <h3 class="drk-margin-remove">Right</h3>
+                                <p class="drk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="drk-position-cover drk-animation-kenburns drk-animation-reverse drk-transform-origin-top-center">
+                                <img src="images/photo2.jpg" alt="" drk-cover>
+                            </div>
+                            <div class="drk-overlay drk-overlay-primary drk-position-left drk-text-center drk-transition-slide-left drk-width-medium">
+                                <h3 class="drk-margin-remove">Left</h3>
+                                <p class="drk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
                         </div>
                     </div>
 
-                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
-                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
+                    <a class="drk-position-center-left drk-position-small drk-hidden-hover" href drk-slidenav-previous drk-slideshow-item="previous"></a>
+                    <a class="drk-position-center-right drk-position-small drk-hidden-hover" href drk-slidenav-next drk-slideshow-item="next"></a>
 
                 </div>
 
-                <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
+                <ul class="drk-slideshow-nav drk-dotnav drk-flex-center drk-margin"></ul>
 
             </div>
 
             <h2>Parallax Control</h2>
 
-            <div uk-slideshow="parallax: true; parallax-start: 100%; parallax-end: 100%; animation: push">
+            <div drk-slideshow="parallax: true; parallax-start: 100%; parallax-end: 100%; animation: push">
 
-                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
-                    <div class="uk-slideshow-items">
+                    <div class="drk-slideshow-items">
                         <div>
-                            <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
-                                <img src="images/photo.jpg" alt="" uk-cover>
+                            <div class="drk-position-cover" drk-slideshow-parallax="scale: 1.2,1.2,1">
+                                <img src="images/photo.jpg" alt="" drk-cover>
                             </div>
-                            <div class="uk-position-cover" uk-slideshow-parallax="opacity: 0,0,0.2; background-color: #000,#000"></div>
-                            <div class="uk-position-center uk-position-medium uk-text-center">
-                                <div uk-slideshow-parallax="scale: 1,1,0.8">
-                                    <h1 class="uk-heading-medium" uk-slideshow-parallax="x: 200,0,0">Heading</h1>
-                                    <p class="uk-text-lead" uk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
+                            <div class="drk-position-cover" drk-slideshow-parallax="opacity: 0,0,0.2; background-color: #000,#000"></div>
+                            <div class="drk-position-center drk-position-medium drk-text-center">
+                                <div drk-slideshow-parallax="scale: 1,1,0.8">
+                                    <h1 class="drk-heading-medium" drk-slideshow-parallax="x: 200,0,0">Heading</h1>
+                                    <p class="drk-text-lead" drk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
-                                <img src="images/dark.jpg" alt="" uk-cover>
+                            <div class="drk-position-cover" drk-slideshow-parallax="scale: 1.2,1.2,1">
+                                <img src="images/dark.jpg" alt="" drk-cover>
                             </div>
-                            <div class="uk-position-cover" uk-slideshow-parallax="opacity: 0,0,0.2; background-color: #000,#000"></div>
-                            <div class="uk-position-center uk-position-medium uk-text-center">
-                                <div uk-slideshow-parallax="scale: 1,1,0.8">
-                                    <h1 class="uk-heading-medium" uk-slideshow-parallax="x: 200,0,0">Heading</h1>
-                                    <p class="uk-text-lead" uk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
+                            <div class="drk-position-cover" drk-slideshow-parallax="opacity: 0,0,0.2; background-color: #000,#000"></div>
+                            <div class="drk-position-center drk-position-medium drk-text-center">
+                                <div drk-slideshow-parallax="scale: 1,1,0.8">
+                                    <h1 class="drk-heading-medium" drk-slideshow-parallax="x: 200,0,0">Heading</h1>
+                                    <p class="drk-text-lead" drk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
-                                <img src="images/light.jpg" alt="" uk-cover>
+                            <div class="drk-position-cover" drk-slideshow-parallax="scale: 1.2,1.2,1">
+                                <img src="images/light.jpg" alt="" drk-cover>
                             </div>
-                            <div class="uk-position-cover" uk-slideshow-parallax="opacity: 0,0,0.2; background-color: #000,#000"></div>
-                            <div class="uk-position-center uk-position-medium uk-text-center">
-                                <div uk-slideshow-parallax="scale: 1,1,0.8">
-                                    <h1 class="uk-heading-medium" uk-slideshow-parallax="x: 200,0,0">Heading</h1>
-                                    <p class="uk-text-lead" uk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
+                            <div class="drk-position-cover" drk-slideshow-parallax="opacity: 0,0,0.2; background-color: #000,#000"></div>
+                            <div class="drk-position-center drk-position-medium drk-text-center">
+                                <div drk-slideshow-parallax="scale: 1,1,0.8">
+                                    <h1 class="drk-heading-medium" drk-slideshow-parallax="x: 200,0,0">Heading</h1>
+                                    <p class="drk-text-lead" drk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <div class="uk-position-cover" uk-slideshow-parallax="scale: 1.2,1.2,1">
-                                <img src="images/photo2.jpg" alt="" uk-cover>
+                            <div class="drk-position-cover" drk-slideshow-parallax="scale: 1.2,1.2,1">
+                                <img src="images/photo2.jpg" alt="" drk-cover>
                             </div>
-                            <div class="uk-position-cover" uk-slideshow-parallax="opacity: 0,0,0.2; background-color: #000,#000"></div>
-                            <div class="uk-position-center uk-position-medium uk-text-center">
-                                <div uk-slideshow-parallax="scale: 1,1,0.8">
-                                    <h1 class="uk-heading-medium" uk-slideshow-parallax="x: 200,0,0">Heading</h1>
-                                    <p class="uk-text-lead" uk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
+                            <div class="drk-position-cover" drk-slideshow-parallax="opacity: 0,0,0.2; background-color: #000,#000"></div>
+                            <div class="drk-position-center drk-position-medium drk-text-center">
+                                <div drk-slideshow-parallax="scale: 1,1,0.8">
+                                    <h1 class="drk-heading-medium" drk-slideshow-parallax="x: 200,0,0">Heading</h1>
+                                    <p class="drk-text-lead" drk-slideshow-parallax="x: 400,0,0;">Lorem ipsum dolor sit amet.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
-                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
+                    <a class="drk-position-center-left drk-position-small drk-hidden-hover" href drk-slidenav-previous drk-slideshow-item="previous"></a>
+                    <a class="drk-position-center-right drk-position-small drk-hidden-hover" href drk-slidenav-next drk-slideshow-item="next"></a>
 
                 </div>
 
-                <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
+                <ul class="drk-slideshow-nav drk-dotnav drk-flex-center drk-margin"></ul>
 
             </div>
 
@@ -322,110 +322,110 @@
 
         </div>
 
-        <div class="uk-margin js-slideshow-animation" uk-slideshow="ratio: 7:3; min-height: 300; max-height: 600">
+        <div class="drk-margin js-slideshow-animation" drk-slideshow="ratio: 7:3; min-height: 300; max-height: 600">
 
-            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+            <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
-                <div class="uk-slideshow-items">
+                <div class="drk-slideshow-items">
                     <div>
-                        <img src="images/photo.jpg" alt="" uk-cover>
-                        <div class="uk-position-center uk-position-medium uk-text-center">
-                            <h1 class="uk-heading-medium" uk-slideshow-parallax="x: 200,-200">Heading</h1>
-                            <p class="uk-text-lead" uk-slideshow-parallax="x: 400,-400">Lorem ipsum dolor sit amet.</p>
+                        <img src="images/photo.jpg" alt="" drk-cover>
+                        <div class="drk-position-center drk-position-medium drk-text-center">
+                            <h1 class="drk-heading-medium" drk-slideshow-parallax="x: 200,-200">Heading</h1>
+                            <p class="drk-text-lead" drk-slideshow-parallax="x: 400,-400">Lorem ipsum dolor sit amet.</p>
                         </div>
                     </div>
                     <div>
-                        <img src="images/dark.jpg" alt="" uk-cover>
-                        <div class="uk-position-center uk-position-medium uk-text-center">
-                            <h1 class="uk-heading-medium" uk-slideshow-parallax="x: 200,-200">Heading</h1>
-                            <p class="uk-text-lead" uk-slideshow-parallax="x: 400,-400">Lorem ipsum dolor sit amet.</p>
+                        <img src="images/dark.jpg" alt="" drk-cover>
+                        <div class="drk-position-center drk-position-medium drk-text-center">
+                            <h1 class="drk-heading-medium" drk-slideshow-parallax="x: 200,-200">Heading</h1>
+                            <p class="drk-text-lead" drk-slideshow-parallax="x: 400,-400">Lorem ipsum dolor sit amet.</p>
                         </div>
                     </div>
                     <div>
-                        <img src="images/light.jpg" alt="" uk-cover>
-                        <div class="uk-position-center uk-position-medium uk-text-center">
-                            <h1 class="uk-heading-medium" uk-slideshow-parallax="y: -100,0,0; opacity: 1,1,0">Heading</h1>
-                            <p class="uk-text-lead" uk-slideshow-parallax="y: 100,0,0; opacity: 1,1,0">Lorem ipsum dolor sit amet.</p>
+                        <img src="images/light.jpg" alt="" drk-cover>
+                        <div class="drk-position-center drk-position-medium drk-text-center">
+                            <h1 class="drk-heading-medium" drk-slideshow-parallax="y: -100,0,0; opacity: 1,1,0">Heading</h1>
+                            <p class="drk-text-lead" drk-slideshow-parallax="y: 100,0,0; opacity: 1,1,0">Lorem ipsum dolor sit amet.</p>
                         </div>
                     </div>
                     <div>
-                        <img src="images/photo2.jpg" alt="" uk-cover>
-                        <div class="uk-position-center uk-position-medium uk-text-center">
-                            <h1 class="uk-heading-medium" uk-slideshow-parallax="x: 200,-200">Heading</h1>
-                            <p class="uk-text-lead" uk-slideshow-parallax="x: 400,-400">Lorem ipsum dolor sit amet.</p>
+                        <img src="images/photo2.jpg" alt="" drk-cover>
+                        <div class="drk-position-center drk-position-medium drk-text-center">
+                            <h1 class="drk-heading-medium" drk-slideshow-parallax="x: 200,-200">Heading</h1>
+                            <p class="drk-text-lead" drk-slideshow-parallax="x: 400,-400">Lorem ipsum dolor sit amet.</p>
                         </div>
                     </div>
                 </div>
 
-                <a class="uk-slidenav-large uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
-                <a class="uk-slidenav-large uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
+                <a class="drk-slidenav-large drk-position-center-left drk-position-small drk-hidden-hover" href drk-slidenav-previous drk-slideshow-item="previous"></a>
+                <a class="drk-slidenav-large drk-position-center-right drk-position-small drk-hidden-hover" href drk-slidenav-next drk-slideshow-item="next"></a>
 
-                <div class="uk-position-bottom-center uk-position-medium">
-                    <ul class="uk-slideshow-nav uk-dotnav"></ul>
+                <div class="drk-position-bottom-center drk-position-medium">
+                    <ul class="drk-slideshow-nav drk-dotnav"></ul>
                 </div>
 
             </div>
 
         </div>
 
-        <div class="uk-container">
+        <div class="drk-container">
 
             <h2>Viewport Height</h2>
 
         </div>
 
-        <div class="uk-margin js-slideshow-animation" uk-slideshow="ratio: false">
+        <div class="drk-margin js-slideshow-animation" drk-slideshow="ratio: false">
 
-            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+            <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
-                <div class="uk-slideshow-items" uk-height-viewport="min: 300">
+                <div class="drk-slideshow-items" drk-height-viewport="min: 300">
                     <div>
-                        <img src="images/photo.jpg" alt="" uk-cover>
-                        <div class="uk-position-center uk-position-medium uk-text-center">
-                            <h1 class="uk-heading-xlarge" uk-slideshow-parallax="x: 200,-200">Heading</h1>
-                            <p class="uk-h1" uk-slideshow-parallax="x: 400,-400">Lorem ipsum dolor sit amet.</p>
+                        <img src="images/photo.jpg" alt="" drk-cover>
+                        <div class="drk-position-center drk-position-medium drk-text-center">
+                            <h1 class="drk-heading-xlarge" drk-slideshow-parallax="x: 200,-200">Heading</h1>
+                            <p class="drk-h1" drk-slideshow-parallax="x: 400,-400">Lorem ipsum dolor sit amet.</p>
                         </div>
                     </div>
                     <div>
-                        <img src="images/dark.jpg" alt="" uk-cover>
-                        <div class="uk-position-center uk-position-medium uk-text-center">
-                            <h1 class="uk-heading-xlarge" uk-slideshow-parallax="x: 200,-200">Heading</h1>
-                            <p class="uk-h1" uk-slideshow-parallax="x: 400,-400">Lorem ipsum dolor sit amet.</p>
+                        <img src="images/dark.jpg" alt="" drk-cover>
+                        <div class="drk-position-center drk-position-medium drk-text-center">
+                            <h1 class="drk-heading-xlarge" drk-slideshow-parallax="x: 200,-200">Heading</h1>
+                            <p class="drk-h1" drk-slideshow-parallax="x: 400,-400">Lorem ipsum dolor sit amet.</p>
                         </div>
                     </div>
                     <div>
-                        <img src="images/light.jpg" alt="" uk-cover>
-                        <div class="uk-position-center uk-position-medium uk-text-center">
-                            <h1 class="uk-heading-xlarge" uk-slideshow-parallax="y: -100,0,0; opacity: 1,1,0">Heading</h1>
-                            <p class="uk-h1" uk-slideshow-parallax="y: 100,0,0; opacity: 1,1,0">Lorem ipsum dolor sit amet.</p>
+                        <img src="images/light.jpg" alt="" drk-cover>
+                        <div class="drk-position-center drk-position-medium drk-text-center">
+                            <h1 class="drk-heading-xlarge" drk-slideshow-parallax="y: -100,0,0; opacity: 1,1,0">Heading</h1>
+                            <p class="drk-h1" drk-slideshow-parallax="y: 100,0,0; opacity: 1,1,0">Lorem ipsum dolor sit amet.</p>
                         </div>
                     </div>
                     <div>
-                        <img src="images/photo2.jpg" alt="" uk-cover>
-                        <div class="uk-position-center uk-position-medium uk-text-center">
-                            <h1 class="uk-heading-xlarge" uk-slideshow-parallax="x: 200,-200">Heading</h1>
-                            <p class="uk-h1" uk-slideshow-parallax="x: 400,-400">Lorem ipsum dolor sit amet.</p>
+                        <img src="images/photo2.jpg" alt="" drk-cover>
+                        <div class="drk-position-center drk-position-medium drk-text-center">
+                            <h1 class="drk-heading-xlarge" drk-slideshow-parallax="x: 200,-200">Heading</h1>
+                            <p class="drk-h1" drk-slideshow-parallax="x: 400,-400">Lorem ipsum dolor sit amet.</p>
                         </div>
                     </div>
                 </div>
 
-                <a class="uk-slidenav-large uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slideshow-item="previous"></a>
-                <a class="uk-slidenav-large uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slideshow-item="next"></a>
+                <a class="drk-slidenav-large drk-position-center-left drk-position-small drk-hidden-hover" href drk-slidenav-previous drk-slideshow-item="previous"></a>
+                <a class="drk-slidenav-large drk-position-center-right drk-position-small drk-hidden-hover" href drk-slidenav-next drk-slideshow-item="next"></a>
 
-                <div class="uk-position-bottom-center uk-position-medium">
-                    <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
+                <div class="drk-position-bottom-center drk-position-medium">
+                    <ul class="drk-slideshow-nav drk-dotnav drk-flex-center drk-margin"></ul>
                 </div>
 
             </div>
 
         </div>
 
-        <div class="uk-container">
+        <div class="drk-container">
 
             <h2>JavaScript Options</h2>
 
-            <div class="uk-overflow-auto">
-                <table class="uk-table uk-table-striped">
+            <div class="drk-overflow-auto">
+                <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
                             <th>Option</th>
@@ -513,8 +513,8 @@
 
             <h2>i18n</h2>
 
-            <div class="uk-overflow-auto">
-                <table class="uk-table uk-table-striped">
+            <div class="drk-overflow-auto">
+                <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
                             <th>Key</th>

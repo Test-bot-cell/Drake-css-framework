@@ -1,21 +1,21 @@
 // Name:            Notification
 // Description:     Component to create notification messages
 //
-// Component:       `uk-notification`
+// Component:       `drk-notification`
 //
-// Sub-objects:     `uk-notification-message`
+// Sub-objects:     `drk-notification-message`
 //
-// Adopted:         `uk-notification-close`
+// Adopted:         `drk-notification-close`
 //
-// Modifiers:       `uk-notification-top-center`
-//                  `uk-notification-top-right`
-//                  `uk-notification-bottom-left`
-//                  `uk-notification-bottom-center`
-//                  `uk-notification-bottom-right`
-//                  `uk-notification-message-primary`
-//                  `uk-notification-message-success`
-//                  `uk-notification-message-warning`
-//                  `uk-notification-message-danger`
+// Modifiers:       `drk-notification-top-center`
+//                  `drk-notification-top-right`
+//                  `drk-notification-bottom-left`
+//                  `drk-notification-bottom-center`
+//                  `drk-notification-bottom-right`
+//                  `drk-notification-message-primary`
+//                  `drk-notification-message-success`
+//                  `drk-notification-message-warning`
+//                  `drk-notification-message-danger`
 //
 // ========================================================================
 
@@ -52,7 +52,7 @@
  * 2. Dimensions
  */
 
-.uk-notification {
+.drk-notification {
     /* 1 */
     position: fixed;
     top: @notification-position;
@@ -70,9 +70,9 @@
 /* Position modifiers
 ========================================================================== */
 
-.uk-notification-bottom-left,
-.uk-notification-bottom-right,
-.uk-notification-bottom-center {
+.drk-notification-bottom-left,
+.drk-notification-bottom-right,
+.drk-notification-bottom-center {
     top: auto;
     bottom: @notification-position;
 }
@@ -84,19 +84,19 @@
 /* Phone landscape and bigger */
 @media (min-width: @breakpoint-small) {
 
-    .uk-notification {
+    .drk-notification {
         right: auto;
         width: @notification-width;
     }
 
-    .uk-notification-top-right,
-    .uk-notification-bottom-right {
+    .drk-notification-top-right,
+    .drk-notification-bottom-right {
         left: auto;
         right: @notification-position;
     }
 
-    .uk-notification-top-center,
-    .uk-notification-bottom-center {
+    .drk-notification-top-center,
+    .drk-notification-bottom-center {
         left: 50%;
         margin-left: (@notification-width / -2);
     }
@@ -107,7 +107,7 @@
 /* Message
 ========================================================================== */
 
-.uk-notification-message {
+.drk-notification-message {
     position: relative;
     padding: @notification-message-padding;
     background: @notification-message-background;
@@ -118,14 +118,14 @@
     .hook-notification-message();
 }
 
-* + .uk-notification-message { margin-top: @notification-message-margin-top; }
+* + .drk-notification-message { margin-top: @notification-message-margin-top; }
 
 
 /* Close
- * Adopts `uk-close`
+ * Adopts `drk-close`
  ========================================================================== */
 
-.uk-notification-close {
+.drk-notification-close {
     display: none;
     position: absolute;
     top: @notification-close-top;
@@ -133,7 +133,7 @@
     .hook-notification-close();
 }
 
-.uk-notification-message:hover .uk-notification-close { display: block; }
+.drk-notification-message:hover .drk-notification-close { display: block; }
 
 
 /* Style modifiers
@@ -143,7 +143,7 @@
  * Primary
  */
 
-.uk-notification-message-primary {
+.drk-notification-message-primary {
     color: @notification-message-primary-color;
     .hook-notification-message-primary();
 }
@@ -152,7 +152,7 @@
  * Success
  */
 
-.uk-notification-message-success {
+.drk-notification-message-success {
     color: @notification-message-success-color;
     .hook-notification-message-success();
 }
@@ -161,7 +161,7 @@
  * Warning
  */
 
-.uk-notification-message-warning {
+.drk-notification-message-warning {
     color: @notification-message-warning-color;
     .hook-notification-message-warning();
 }
@@ -170,7 +170,7 @@
  * Danger
  */
 
-.uk-notification-message-danger {
+.drk-notification-message-danger {
     color: @notification-message-danger-color;
     .hook-notification-message-danger();
 }

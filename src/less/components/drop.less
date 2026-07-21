@@ -1,14 +1,14 @@
 // Name:            Drop
 // Description:     Component to position any element next to any other element.
 //
-// Component:       `uk-drop`
+// Component:       `drk-drop`
 //
-// Sub-objects:     `uk-drop-parent-icon`
+// Sub-objects:     `drk-drop-parent-icon`
 //
-// Modifiers:       `uk-drop-stack`
-//                  `uk-drop-grid`
+// Modifiers:       `drk-drop-stack`
+//                  `drk-drop-grid`
 //
-// States:          `uk-open`
+// States:          `drk-open`
 //
 // Uses:            Animation
 //
@@ -36,38 +36,38 @@
  * 3. Set a default width
  */
 
-.uk-drop {
+.drk-drop {
     /* 1 */
     display: none;
     /* 2 */
     position: absolute;
     z-index: @drop-z-index;
-    --uk-position-offset: @drop-margin;
-    --uk-position-viewport-offset: @drop-viewport-margin;
+    --drk-position-offset: @drop-margin;
+    --drk-position-viewport-offset: @drop-viewport-margin;
     /* 3 */
     box-sizing: border-box;
     width: @drop-width;
 }
 
 /* Show */
-.uk-drop.uk-open { display: block; }
+.drk-drop.drk-open { display: block; }
 
 
 /* Grid modifiers
  ========================================================================== */
 
-.uk-drop-stack .uk-drop-grid > * { width: 100% !important; }
+.drk-drop-stack .drk-drop-grid > * { width: 100% !important; }
 
 
 /* Parent icon
  ========================================================================== */
 
-.uk-drop-parent-icon {
+.drk-drop-parent-icon {
     margin-left: @drop-parent-icon-margin-left;
     transition: transform 0.3s ease-out;
 }
 
-[aria-expanded="true"] > .uk-drop-parent-icon { transform: rotateX(180deg); }
+[aria-expanded="true"] > .drk-drop-parent-icon { transform: rotateX(180deg); }
 
 
 // Hooks

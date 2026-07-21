@@ -3,11 +3,11 @@
 // Name:            Label
 // Description:     Component to indicate important notes
 //
-// Component:       `uk-label`
+// Component:       `drk-label`
 //
-// Modifiers:       `uk-label-success`
-//                  `uk-label-warning`
-//                  `uk-label-danger`
+// Modifiers:       `drk-label-success`
+//                  `drk-label-warning`
+//                  `drk-label-danger`
 //
 // ========================================================================
 
@@ -22,7 +22,7 @@
    Component: Label
  ========================================================================== */
 
-.uk-label {
+.drk-label {
     display: inline-block;
     padding: $label-padding-vertical $label-padding-horizontal;
     background: $label-background;
@@ -42,7 +42,7 @@
  * Success
  */
 
-.uk-label-success {
+.drk-label-success {
     background-color: $label-success-background;
     color: $label-success-color;
     @if(meta.mixin-exists(hook-label-success)) {@include hook-label-success();}
@@ -52,7 +52,7 @@
  * Warning
  */
 
-.uk-label-warning {
+.drk-label-warning {
     background-color: $label-warning-background;
     color: $label-warning-color;
     @if(meta.mixin-exists(hook-label-warning)) {@include hook-label-warning();}
@@ -62,7 +62,7 @@
  * Danger
  */
 
-.uk-label-danger {
+.drk-label-danger {
     background-color: $label-danger-background;
     color: $label-danger-color;
     @if(meta.mixin-exists(hook-label-danger)) {@include hook-label-danger();}

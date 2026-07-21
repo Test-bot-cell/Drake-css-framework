@@ -4,9 +4,9 @@
 // Name:            Base
 // Description:     Default values for HTML elements
 //
-// Component:       `uk-link`
-//                  `uk-h1`, `uk-h2`, `uk-h3`, `uk-h4`, `uk-h5`, `uk-h6`
-//                  `uk-hr`
+// Component:       `drk-link`
+//                  `drk-h1`, `drk-h2`, `drk-h3`, `drk-h4`, `drk-h5`, `drk-h6`
+//                  `drk-hr`
 //
 // ========================================================================
 
@@ -66,7 +66,7 @@ body { margin: 0; }
  */
 
 a,
-.uk-link {
+.drk-link {
     color: $base-link-color;
     text-decoration: $base-link-text-decoration;
     cursor: pointer;
@@ -74,8 +74,8 @@ a,
 }
 
 a:hover,
-.uk-link:hover,
-.uk-link-toggle:hover .uk-link {
+.drk-link:hover,
+.drk-link-toggle:hover .drk-link {
     color: $base-link-hover-color;
     text-decoration: $base-link-hover-text-decoration;
     @if(meta.mixin-exists(hook-base-link-hover)) {@include hook-base-link-hover();}
@@ -85,9 +85,9 @@ a:hover,
  * Fix text underline offset if `vertical-align`is set to `middle`
  */
 
-a:has(.uk-text-middle),
-.uk-link:has(.uk-text-middle),
-.uk-link-toggle:hover .uk-link:has(.uk-text-middle) { text-underline-offset: 0.1875em; }
+a:has(.drk-text-middle),
+.drk-link:has(.drk-text-middle),
+.drk-link-toggle:hover .drk-link:has(.drk-text-middle) { text-underline-offset: 0.1875em; }
 
 
 /* Text-level semantics
@@ -204,7 +204,7 @@ video { vertical-align: middle; }
  * 3. Reset `height` attribute if present to scale the height based on the intrinsic aspect ratio.
  * 4. Scale height based on the extrinsic aspect ratio. Works only in Chrome yet.
  * 5. Size image to fill the element's content box.
- * Note: Add `iframe` as soon as `attr` is supported in all browsers and remove `uk-responsive`.
+ * Note: Add `iframe` as soon as `attr` is supported in all browsers and remove `drk-responsive`.
  */
 
 canvas,
@@ -224,7 +224,7 @@ video {
 }
 
 /*
- * Deprecated: only needed for `img` elements with `uk-img`
+ * Deprecated: only needed for `img` elements with `drk-img`
  * 1. Hide `alt` text for lazy load images.
  * 2. Fix lazy loading images if parent element is set to `display: inline` and has `overflow: hidden`.
  */
@@ -274,18 +274,18 @@ figure { margin: 0 0 $base-margin-vertical 0; }
 /* Headings
  ========================================================================== */
 
-h1, .uk-h1,
-h2, .uk-h2,
-h3, .uk-h3,
-h4, .uk-h4,
-h5, .uk-h5,
-h6, .uk-h6,
-.uk-heading-small,
-.uk-heading-medium,
-.uk-heading-large,
-.uk-heading-xlarge,
-.uk-heading-2xlarge,
-.uk-heading-3xlarge {
+h1, .drk-h1,
+h2, .drk-h2,
+h3, .drk-h3,
+h4, .drk-h4,
+h5, .drk-h5,
+h6, .drk-h6,
+.drk-heading-small,
+.drk-heading-medium,
+.drk-heading-large,
+.drk-heading-xlarge,
+.drk-heading-2xlarge,
+.drk-heading-3xlarge {
     margin: 0 0 $base-margin-vertical 0;
     font-family: $base-heading-font-family;
     font-weight: $base-heading-font-weight;
@@ -295,54 +295,54 @@ h6, .uk-h6,
 }
 
 /* Add margin if adjacent element */
-* + h1, * + .uk-h1,
-* + h2, * + .uk-h2,
-* + h3, * + .uk-h3,
-* + h4, * + .uk-h4,
-* + h5, * + .uk-h5,
-* + h6, * + .uk-h6,
-* + .uk-heading-small,
-* + .uk-heading-medium,
-* + .uk-heading-large,
-* + .uk-heading-xlarge,
-* + .uk-heading-2xlarge,
-* + .uk-heading-3xlarge { margin-top: $base-heading-margin-top; }
+* + h1, * + .drk-h1,
+* + h2, * + .drk-h2,
+* + h3, * + .drk-h3,
+* + h4, * + .drk-h4,
+* + h5, * + .drk-h5,
+* + h6, * + .drk-h6,
+* + .drk-heading-small,
+* + .drk-heading-medium,
+* + .drk-heading-large,
+* + .drk-heading-xlarge,
+* + .drk-heading-2xlarge,
+* + .drk-heading-3xlarge { margin-top: $base-heading-margin-top; }
 
 /*
  * Sizes
  */
 
-h1, .uk-h1 {
+h1, .drk-h1 {
     font-size: $base-h1-font-size;
     line-height: $base-h1-line-height;
     @if(meta.mixin-exists(hook-base-h1)) {@include hook-base-h1();}
 }
 
-h2, .uk-h2 {
+h2, .drk-h2 {
     font-size: $base-h2-font-size;
     line-height: $base-h2-line-height;
     @if(meta.mixin-exists(hook-base-h2)) {@include hook-base-h2();}
 }
 
-h3, .uk-h3 {
+h3, .drk-h3 {
     font-size: $base-h3-font-size;
     line-height: $base-h3-line-height;
     @if(meta.mixin-exists(hook-base-h3)) {@include hook-base-h3();}
 }
 
-h4, .uk-h4 {
+h4, .drk-h4 {
     font-size: $base-h4-font-size;
     line-height: $base-h4-line-height;
     @if(meta.mixin-exists(hook-base-h4)) {@include hook-base-h4();}
 }
 
-h5, .uk-h5 {
+h5, .drk-h5 {
     font-size: $base-h5-font-size;
     line-height: $base-h5-line-height;
     @if(meta.mixin-exists(hook-base-h5)) {@include hook-base-h5();}
 }
 
-h6, .uk-h6 {
+h6, .drk-h6 {
     font-size: $base-h6-font-size;
     line-height: $base-h6-line-height;
     @if(meta.mixin-exists(hook-base-h6)) {@include hook-base-h6();}
@@ -351,8 +351,8 @@ h6, .uk-h6 {
 /* Tablet landscape and bigger */
 @media (min-width: $breakpoint-medium) {
 
-    h1, .uk-h1 { font-size: $base-h1-font-size-m; }
-    h2, .uk-h2 { font-size: $base-h2-font-size-m; }
+    h1, .drk-h1 { font-size: $base-h1-font-size-m; }
+    h2, .drk-h2 { font-size: $base-h2-font-size-m; }
 
 }
 
@@ -389,7 +389,7 @@ dd { margin-left: 0; }
  * 3. Style
  */
 
-hr, .uk-hr {
+hr, .drk-hr {
     /* 1 */
     overflow: visible;
     /* 2 */
@@ -403,7 +403,7 @@ hr, .uk-hr {
 
 /* Add margin if adjacent element */
 * + hr,
-* + .uk-hr { margin-top: $base-hr-margin-vertical; }
+* + .drk-hr { margin-top: $base-hr-margin-vertical; }
 
 
 /* Address
@@ -512,10 +512,10 @@ template { display: none; }
  */
 
 :root {
-    --uk-breakpoint-s: #{$breakpoint-small};
-    --uk-breakpoint-m: #{$breakpoint-medium};
-    --uk-breakpoint-l: #{$breakpoint-large};
-    --uk-breakpoint-xl: #{$breakpoint-xlarge};
+    --drk-breakpoint-s: #{$breakpoint-small};
+    --drk-breakpoint-m: #{$breakpoint-medium};
+    --drk-breakpoint-l: #{$breakpoint-large};
+    --drk-breakpoint-xl: #{$breakpoint-xlarge};
 }
 
 // Hooks

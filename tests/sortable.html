@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Sortable - UIkit tests</title>
+        <title>Sortable - Drake tests</title>
         <script src="../dist/js/tests/test.js"></script>
 
         <style>
@@ -18,52 +18,52 @@
 
     <body>
 
-        <div class="uk-container">
+        <div class="drk-container">
 
             <h1>Sortable</h1>
 
             <h2>Grid</h2>
 
-            <ul class="uk-grid-match uk-child-width-1-2 uk-child-width-1-5@m" uk-sortable="handle: .uk-card" uk-grid>
+            <ul class="drk-grid-match drk-child-width-1-2 drk-child-width-1-5@m" drk-sortable="handle: .drk-card" drk-grid>
                 <li>
-                    <div class="uk-card uk-card-default uk-card-body">
-                        <a href="https://getuikit.com">Link</a>
+                    <div class="drk-card drk-card-default drk-card-body">
+                        <a href="https://example.com">Link</a>
                         <img src="images/avatar.jpg" width="40" height="40" alt="">
                     </div>
                 </li>
-                <li><a class="uk-card uk-card-default uk-card-body uk-display-block" href="https://getuikit.com">Link Handle</a></li>
-                <li><div class="uk-card uk-card-default uk-card-body">Item 3</div></li>
-                <li><div class="uk-card uk-card-default uk-card-body">Item 4</div></li>
-                <li><div class="uk-card uk-card-default uk-card-body">Item 5</div></li>
-                <li><div class="uk-card uk-card-default uk-card-body">Item 6</div></li>
-                <li><div class="uk-card uk-card-default uk-card-body">Item 7</div></li>
-                <li><div class="uk-card uk-card-default uk-card-body">Item 8</div></li>
-                <li><div class="uk-card uk-card-default uk-card-body">Item 9</div></li>
-                <li><div class="uk-card uk-card-default uk-card-body">Item 10</div></li>
-                <li><div class="uk-card uk-card-default uk-card-body">Item 11</div></li>
-                <li><div class="uk-card uk-card-default uk-card-body">Item 12</div></li>
+                <li><a class="drk-card drk-card-default drk-card-body drk-display-block" href="https://example.com">Link Handle</a></li>
+                <li><div class="drk-card drk-card-default drk-card-body">Item 3</div></li>
+                <li><div class="drk-card drk-card-default drk-card-body">Item 4</div></li>
+                <li><div class="drk-card drk-card-default drk-card-body">Item 5</div></li>
+                <li><div class="drk-card drk-card-default drk-card-body">Item 6</div></li>
+                <li><div class="drk-card drk-card-default drk-card-body">Item 7</div></li>
+                <li><div class="drk-card drk-card-default drk-card-body">Item 8</div></li>
+                <li><div class="drk-card drk-card-default drk-card-body">Item 9</div></li>
+                <li><div class="drk-card drk-card-default drk-card-body">Item 10</div></li>
+                <li><div class="drk-card drk-card-default drk-card-body">Item 11</div></li>
+                <li><div class="drk-card drk-card-default drk-card-body">Item 12</div></li>
             </ul>
 
-            <div class="uk-grid uk-child-width-1-3">
+            <div class="drk-grid drk-child-width-1-3">
                 <div>
 
                     <h2>Group</h2>
 
-                    <div uk-sortable="group: test">
-                        <div class="uk-margin">
-                            <div class="uk-card uk-card-default uk-card-body uk-card-small">Item 1</div>
+                    <div drk-sortable="group: test">
+                        <div class="drk-margin">
+                            <div class="drk-card drk-card-default drk-card-body drk-card-small">Item 1</div>
                         </div>
-                        <div class="uk-margin">
-                            <div class="uk-card uk-card-default uk-card-body uk-card-small">Item 2</div>
+                        <div class="drk-margin">
+                            <div class="drk-card drk-card-default drk-card-body drk-card-small">Item 2</div>
                         </div>
-                        <div class="uk-margin">
-                            <div class="uk-card uk-card-default uk-card-body uk-card-small">Item 3</div>
+                        <div class="drk-margin">
+                            <div class="drk-card drk-card-default drk-card-body drk-card-small">Item 3</div>
                         </div>
-                        <div class="uk-margin">
-                            <div class="uk-card uk-card-default uk-card-body uk-card-small">Item 4</div>
+                        <div class="drk-margin">
+                            <div class="drk-card drk-card-default drk-card-body drk-card-small">Item 4</div>
                         </div>
-                        <div class="uk-margin">
-                            <div class="uk-card uk-card-default uk-card-body uk-card-small">Item 5</div>
+                        <div class="drk-margin">
+                            <div class="drk-card drk-card-default drk-card-body drk-card-small">Item 5</div>
                         </div>
                     </div>
 
@@ -72,30 +72,30 @@
 
                     <h2>Handle</h2>
 
-                    <div uk-sortable="handle: .uk-sortable-handle; group: test">
-                        <div class="uk-margin">
-                            <div class="uk-card uk-card-default uk-card-body uk-card-small">
-                                <span class="uk-sortable-handle uk-margin-xsmall-right" uk-icon="icon: table"></span> Item 1
+                    <div drk-sortable="handle: .drk-sortable-handle; group: test">
+                        <div class="drk-margin">
+                            <div class="drk-card drk-card-default drk-card-body drk-card-small">
+                                <span class="drk-sortable-handle drk-margin-xsmall-right" drk-icon="icon: table"></span> Item 1
                             </div>
                         </div>
-                        <div class="uk-margin">
-                            <div class="uk-card uk-card-default uk-card-body uk-card-small">
-                                <span class="uk-sortable-handle uk-margin-xsmall-right" uk-icon="icon: table"></span> Item 2
+                        <div class="drk-margin">
+                            <div class="drk-card drk-card-default drk-card-body drk-card-small">
+                                <span class="drk-sortable-handle drk-margin-xsmall-right" drk-icon="icon: table"></span> Item 2
                             </div>
                         </div>
-                        <div class="uk-margin">
-                            <div class="uk-card uk-card-default uk-card-body uk-card-small">
-                                <span class="uk-sortable-handle uk-margin-xsmall-right" uk-icon="icon: table"></span> Item 3
+                        <div class="drk-margin">
+                            <div class="drk-card drk-card-default drk-card-body drk-card-small">
+                                <span class="drk-sortable-handle drk-margin-xsmall-right" drk-icon="icon: table"></span> Item 3
                             </div>
                         </div>
-                        <div class="uk-margin">
-                            <div class="uk-card uk-card-default uk-card-body uk-card-small">
-                                <span class="uk-sortable-handle uk-margin-xsmall-right" uk-icon="icon: table"></span> Item 4
+                        <div class="drk-margin">
+                            <div class="drk-card drk-card-default drk-card-body drk-card-small">
+                                <span class="drk-sortable-handle drk-margin-xsmall-right" drk-icon="icon: table"></span> Item 4
                             </div>
                         </div>
-                        <div class="uk-margin">
-                            <div class="uk-card uk-card-default uk-card-body uk-card-small">
-                                <span class="uk-sortable-handle uk-margin-xsmall-right" uk-icon="icon: table"></span> Item 5
+                        <div class="drk-margin">
+                            <div class="drk-card drk-card-default drk-card-body drk-card-small">
+                                <span class="drk-sortable-handle drk-margin-xsmall-right" drk-icon="icon: table"></span> Item 5
                             </div>
                         </div>
                     </div>
@@ -105,15 +105,15 @@
 
                     <h2>Empty</h2>
 
-                    <div uk-sortable="group: test"></div>
+                    <div drk-sortable="group: test"></div>
 
                 </div>
             </div>
 
             <h2>Nav + Custom Drag Class</h2>
 
-            <ul class="uk-nav uk-nav-default uk-width-1-4@m" uk-sortable="cls-custom: test-item uk-box-shadow-small uk-link-muted uk-flex uk-flex-middle uk-background-default">
-                <li class="uk-active"><a href="#">Active</a></li>
+            <ul class="drk-nav drk-nav-default drk-width-1-4@m" drk-sortable="cls-custom: test-item drk-box-shadow-small drk-link-muted drk-flex drk-flex-middle drk-background-default">
+                <li class="drk-active"><a href="#">Active</a></li>
                 <li><a href="#">Item</a></li>
                 <li><a href="#">Item</a></li>
                 <li><a href="#">Item</a></li>
@@ -126,62 +126,62 @@
 
             <h2>Nested Lists</h2>
 
-            <ul class="uk-grid-small uk-grid-match uk-child-width-1-2@m" uk-sortable="group: first" uk-grid>
-                <li><div class="uk-card uk-card-default uk-padding-small">
-                    <ul class="uk-grid-match uk-child-width-1-3" uk-sortable="group: second" uk-grid>
-                        <li><div class="uk-card uk-card-secondary uk-padding-small">
-                            <ul class="uk-grid-small uk-grid-match uk-child-width-1-1" uk-sortable="group: third" uk-grid>
-                                <li><div class="uk-card uk-card-primary uk-padding-small">Item 1</div></li>
-                                <li><div class="uk-card uk-card-primary uk-padding-small">Item 2</div></li>
-                                <li><div class="uk-card uk-card-primary uk-padding-small">Item 3</div></li>
+            <ul class="drk-grid-small drk-grid-match drk-child-width-1-2@m" drk-sortable="group: first" drk-grid>
+                <li><div class="drk-card drk-card-default drk-padding-small">
+                    <ul class="drk-grid-match drk-child-width-1-3" drk-sortable="group: second" drk-grid>
+                        <li><div class="drk-card drk-card-secondary drk-padding-small">
+                            <ul class="drk-grid-small drk-grid-match drk-child-width-1-1" drk-sortable="group: third" drk-grid>
+                                <li><div class="drk-card drk-card-primary drk-padding-small">Item 1</div></li>
+                                <li><div class="drk-card drk-card-primary drk-padding-small">Item 2</div></li>
+                                <li><div class="drk-card drk-card-primary drk-padding-small">Item 3</div></li>
                             </ul>
                         </div></li>
-                        <li><div class="uk-card uk-card-secondary uk-padding-small">
-                            <ul class="uk-grid-small uk-grid-match uk-child-width-1-1" uk-sortable="group: third" uk-grid>
-                                <li><div class="uk-card uk-card-primary uk-padding-small">Item 4</div></li>
-                                <li><div class="uk-card uk-card-primary uk-padding-small">Item 5</div></li>
+                        <li><div class="drk-card drk-card-secondary drk-padding-small">
+                            <ul class="drk-grid-small drk-grid-match drk-child-width-1-1" drk-sortable="group: third" drk-grid>
+                                <li><div class="drk-card drk-card-primary drk-padding-small">Item 4</div></li>
+                                <li><div class="drk-card drk-card-primary drk-padding-small">Item 5</div></li>
                             </ul>
                         </div></li>
-                        <li><div class="uk-card uk-card-secondary uk-padding-small">
-                            <ul class="uk-grid-small uk-grid-match uk-child-width-1-1" uk-sortable="group: third" uk-grid>
-                            </ul>
-                        </div></li>
-                    </ul>
-                </div></li>
-                <li><div class="uk-card uk-card-default uk-padding-small">
-                    <ul class="uk-grid-match uk-child-width-1-3" uk-sortable="group: second" uk-grid>
-                        <li><div class="uk-card uk-card-secondary uk-padding-small">
-                            <ul class="uk-grid-small uk-grid-match uk-child-width-1-1" uk-sortable="group: third" uk-grid>
-                                <li><div class="uk-card uk-card-primary uk-padding-small">Item 6</div></li>
-                                <li><div class="uk-card uk-card-primary uk-padding-small">Item 7</div></li>
-                            </ul>
-                        </div></li>
-                        <li><div class="uk-card uk-card-secondary uk-padding-small">
-                            <ul class="uk-grid-small uk-grid-match uk-child-width-1-1" uk-sortable="group: third" uk-grid>
-                                <li><div class="uk-card uk-card-primary uk-padding-small">Item 8</div></li>
-                                <li><div class="uk-card uk-card-primary uk-padding-small">Item 9</div></li>
-                            </ul>
-                        </div></li>
-                        <li><div class="uk-card uk-card-secondary uk-padding-small">
-                            <ul class="uk-grid-small uk-grid-match uk-child-width-1-1" uk-sortable="group: third" uk-grid>
+                        <li><div class="drk-card drk-card-secondary drk-padding-small">
+                            <ul class="drk-grid-small drk-grid-match drk-child-width-1-1" drk-sortable="group: third" drk-grid>
                             </ul>
                         </div></li>
                     </ul>
                 </div></li>
-                <li><div class="uk-card uk-card-default uk-padding-small">
-                    <ul class="uk-grid-match uk-child-width-1-3" uk-sortable="group: second" uk-grid>
-                        <li><div class="uk-card uk-card-secondary uk-padding-small">
-                            <ul class="uk-grid-small uk-grid-match uk-child-width-1-1" uk-sortable="group: third" uk-grid>
-                                <li><div class="uk-card uk-card-primary uk-padding-small">Item 10</div></li>
+                <li><div class="drk-card drk-card-default drk-padding-small">
+                    <ul class="drk-grid-match drk-child-width-1-3" drk-sortable="group: second" drk-grid>
+                        <li><div class="drk-card drk-card-secondary drk-padding-small">
+                            <ul class="drk-grid-small drk-grid-match drk-child-width-1-1" drk-sortable="group: third" drk-grid>
+                                <li><div class="drk-card drk-card-primary drk-padding-small">Item 6</div></li>
+                                <li><div class="drk-card drk-card-primary drk-padding-small">Item 7</div></li>
                             </ul>
                         </div></li>
-                        <li><div class="uk-card uk-card-secondary uk-padding-small">
-                            <ul class="uk-grid-small uk-grid-match uk-child-width-1-1" uk-sortable="group: third" uk-grid>
-                                <li><div class="uk-card uk-card-primary uk-padding-small">Item 11</div></li>
+                        <li><div class="drk-card drk-card-secondary drk-padding-small">
+                            <ul class="drk-grid-small drk-grid-match drk-child-width-1-1" drk-sortable="group: third" drk-grid>
+                                <li><div class="drk-card drk-card-primary drk-padding-small">Item 8</div></li>
+                                <li><div class="drk-card drk-card-primary drk-padding-small">Item 9</div></li>
                             </ul>
                         </div></li>
-                        <li><div class="uk-card uk-card-secondary uk-padding-small">
-                            <ul class="uk-grid-small uk-grid-match uk-child-width-1-1" uk-sortable="group: third" uk-grid>
+                        <li><div class="drk-card drk-card-secondary drk-padding-small">
+                            <ul class="drk-grid-small drk-grid-match drk-child-width-1-1" drk-sortable="group: third" drk-grid>
+                            </ul>
+                        </div></li>
+                    </ul>
+                </div></li>
+                <li><div class="drk-card drk-card-default drk-padding-small">
+                    <ul class="drk-grid-match drk-child-width-1-3" drk-sortable="group: second" drk-grid>
+                        <li><div class="drk-card drk-card-secondary drk-padding-small">
+                            <ul class="drk-grid-small drk-grid-match drk-child-width-1-1" drk-sortable="group: third" drk-grid>
+                                <li><div class="drk-card drk-card-primary drk-padding-small">Item 10</div></li>
+                            </ul>
+                        </div></li>
+                        <li><div class="drk-card drk-card-secondary drk-padding-small">
+                            <ul class="drk-grid-small drk-grid-match drk-child-width-1-1" drk-sortable="group: third" drk-grid>
+                                <li><div class="drk-card drk-card-primary drk-padding-small">Item 11</div></li>
+                            </ul>
+                        </div></li>
+                        <li><div class="drk-card drk-card-secondary drk-padding-small">
+                            <ul class="drk-grid-small drk-grid-match drk-child-width-1-1" drk-sortable="group: third" drk-grid>
                             </ul>
                         </div></li>
                     </ul>
@@ -190,8 +190,8 @@
 
             <h2>JavaScript Options</h2>
 
-            <div class="uk-overflow-auto">
-                <table class="uk-table uk-table-striped">
+            <div class="drk-overflow-auto">
+                <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
                             <th>Option</th>
@@ -228,43 +228,43 @@
                         <tr>
                             <td><code>cls-item</code></td>
                             <td>String</td>
-                            <td>uk-sortable-item</td>
+                            <td>drk-sortable-item</td>
                             <td>The item class.</td>
                         </tr>
                         <tr>
                             <td><code>cls-placeholder</code></td>
                             <td>String</td>
-                            <td>uk-sortable-placeholder</td>
+                            <td>drk-sortable-placeholder</td>
                             <td>The placeholder class.</td>
                         </tr>
                         <tr>
                             <td><code>cls-drag</code></td>
                             <td>String</td>
-                            <td>uk-sortable-drag</td>
+                            <td>drk-sortable-drag</td>
                             <td>The ghost class.</td>
                         </tr>
                         <tr>
                             <td><code>cls-drag-state</code></td>
                             <td>String</td>
-                            <td>uk-drag</td>
+                            <td>drk-drag</td>
                             <td>The dragging class added to the root element.</td>
                         </tr>
                         <tr>
                             <td><code>cls-base</code></td>
                             <td>String</td>
-                            <td>uk-sortable</td>
+                            <td>drk-sortable</td>
                             <td>The list's class.</td>
                         </tr>
                         <tr>
                             <td><code>cls-no-drag</code></td>
                             <td>String</td>
-                            <td>uk-sortable-nodrag</td>
+                            <td>drk-sortable-nodrag</td>
                             <td>Prevent dragging on elements with this class.</td>
                         </tr>
                         <tr>
                             <td><code>cls-empty</code></td>
                             <td>String</td>
-                            <td>uk-sortable-empty</td>
+                            <td>drk-sortable-empty</td>
                             <td>The empty list class.</td>
                         </tr>
                         <tr>

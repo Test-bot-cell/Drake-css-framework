@@ -1,11 +1,11 @@
-import { remove } from 'uikit-util';
-import type { ComponentInternalInstance, UIkitStatic } from '../types';
+import { remove } from 'drake-util';
+import type { ComponentInternalInstance, DrakeStatic } from '../types';
 import { attachToElement, createComponent, detachFromElement, getComponent } from './component';
 import { update } from './global';
 import { callConnected, callDisconnected, callHook } from './hooks';
 import { callUpdate } from './update';
 
-export default function instanceApi(App: UIkitStatic): void {
+export default function instanceApi(App: DrakeStatic): void {
     App.prototype.$mount = function (element: Element): void {
         attachToElement(element, this);
         this.$options.el = element;
@@ -61,5 +61,5 @@ export default function instanceApi(App: UIkitStatic): void {
 
 let id = 1;
 export function generateId(instance: ComponentInternalInstance, element?: Element | null): string {
-    return element?.id || `${instance.$options.id ?? 'uk'}-${id++}`;
+    return element?.id || `${instance.$options.id ?? 'drk'}-${id++}`;
 }

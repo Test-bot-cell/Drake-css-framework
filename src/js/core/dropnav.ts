@@ -26,7 +26,7 @@ import {
     selFocusable,
     toFloat,
     Transition,
-} from 'uikit-util';
+} from 'drake-util';
 import { defineComponent } from '../api/options';
 import Class from '../mixin/class';
 import Container from '../mixin/container';
@@ -103,8 +103,8 @@ export default defineComponent<DropnavInstance>()({
 
     data: {
         align: isRtl ? 'right' : 'left',
-        clsDrop: 'uk-dropdown',
-        clsDropbar: 'uk-dropnav-dropbar',
+        clsDrop: 'drk-dropdown',
+        clsDropbar: 'drk-dropnav-dropbar',
         boundary: true,
         dropbar: false,
         dropbarAnchor: false,
@@ -160,10 +160,10 @@ export default defineComponent<DropnavInstance>()({
         dropbar(dropbar: HTMLElement | null) {
             addClass(
                 dropbar,
-                'uk-dropbar',
-                'uk-dropbar-top',
+                'drk-dropbar',
+                'drk-dropbar-top',
                 this.clsDropbar,
-                `uk-${this.$options.name}-dropbar`,
+                `drk-${this.$options.name}-dropbar`,
             );
         },
 

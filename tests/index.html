@@ -4,58 +4,58 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Overview - UIkit tests</title>
+        <title>Overview - Drake tests</title>
         <script src="../dist/js/tests/test.js"></script>
     </head>
 
     <body>
 
-        <nav class="uk-navbar-container">
-            <div class="uk-container">
-                <div uk-navbar>
-                    <div class="uk-navbar-left">
+        <nav class="drk-navbar-container">
+            <div class="drk-container">
+                <div drk-navbar>
+                    <div class="drk-navbar-left">
 
-                        <a class="uk-navbar-item uk-logo" href="#">Logo</a>
+                        <a class="drk-navbar-item drk-logo" href="#">Logo</a>
 
-                        <ul class="uk-navbar-nav">
-                            <li class="uk-active"><a href="#">Active</a></li>
+                        <ul class="drk-navbar-nav">
+                            <li class="drk-active"><a href="#">Active</a></li>
                             <li>
-                                <a href>Dropdown <span uk-navbar-parent-icon></span></a>
-                                <div class="uk-navbar-dropdown">
-                                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                <a href>Dropdown <span drk-navbar-parent-icon></span></a>
+                                <div class="drk-navbar-dropdown">
+                                    <ul class="drk-nav drk-navbar-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                             </li>
                             <li>
-                                <a href>Dropbar <span uk-navbar-parent-icon></span></a>
-                                <div class="uk-dropbar uk-dropbar-top" uk-drop="pos: bottom-left; stretch: x; target-y: !.uk-navbar-container; animation: slide-top; animate-out: true">
-                                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
-                                        <li class="uk-parent">
+                                <a href>Dropbar <span drk-navbar-parent-icon></span></a>
+                                <div class="drk-dropbar drk-dropbar-top" drk-drop="pos: bottom-left; stretch: x; target-y: !.drk-navbar-container; animation: slide-top; animate-out: true">
+                                    <ul class="drk-nav drk-navbar-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
+                                        <li class="drk-parent">
                                             <a href="#">Parent</a>
-                                            <ul class="uk-nav-sub">
+                                            <ul class="drk-nav-sub">
                                                 <li><a href="#">Sub item</a></li>
                                                 <li><a href="#">Sub item</a></li>
                                             </ul>
                                         </li>
-                                        <li class="uk-nav-header">Header</li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                        <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                        <li class="drk-nav-header">Header</li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                        <li class="drk-nav-divider"></li>
+                                        <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -64,176 +64,176 @@
                         </ul>
 
                     </div>
-                    <div class="uk-navbar-right">
+                    <div class="drk-navbar-right">
 
-                        <div class="uk-navbar-item">
-                            <form class="uk-search uk-search-navbar uk-width-1-1">
-                                <span uk-search-icon></span>
-                                <input class="uk-search-input" type="search" placeholder="Search" aria-label="Search">
+                        <div class="drk-navbar-item">
+                            <form class="drk-search drk-search-navbar drk-width-1-1">
+                                <span drk-search-icon></span>
+                                <input class="drk-search-input" type="search" placeholder="Search" aria-label="Search">
                             </form>
                         </div>
-                        <a class="uk-navbar-toggle" href="#modal" uk-icon="icon: more-vertical" uk-toggle></a>
-                        <a class="uk-navbar-toggle" href="#modal-search" uk-search-icon uk-toggle></a>
-                        <a class="uk-navbar-toggle" href="#offcanvas" uk-navbar-toggle-icon uk-toggle></a>
+                        <a class="drk-navbar-toggle" href="#modal" drk-icon="icon: more-vertical" drk-toggle></a>
+                        <a class="drk-navbar-toggle" href="#modal-search" drk-search-icon drk-toggle></a>
+                        <a class="drk-navbar-toggle" href="#offcanvas" drk-navbar-toggle-icon drk-toggle></a>
                     </div>
                 </div>
             </div>
         </nav>
 
-        <div class="uk-section uk-section-default">
-            <div class="uk-container">
+        <div class="drk-section drk-section-default">
+            <div class="drk-container">
 
-                <div uk-grid>
-                    <div class="uk-width-2-3@m">
+                <div drk-grid>
+                    <div class="drk-width-2-3@m">
 
                         <nav aria-label="Breadcrumb">
-                            <ul class="uk-breadcrumb">
+                            <ul class="drk-breadcrumb">
                                 <li><a href="#">Home</a></li>
                                 <li><a href="#">Blog</a></li>
-                                <li class="uk-disabled"><a>Category</a></li>
+                                <li class="drk-disabled"><a>Category</a></li>
                                 <li><span aria-current="page">Post</span></li>
                             </ul>
                         </nav>
 
-                        <article class="uk-article">
+                        <article class="drk-article">
 
-                            <h1 class="uk-article-title"><a class="uk-link-reset" href="#">Article Title</a></h1>
+                            <h1 class="drk-article-title"><a class="drk-link-reset" href="#">Article Title</a></h1>
 
-                            <hr class="uk-divider-small">
+                            <hr class="drk-divider-small">
 
-                            <p class="uk-text-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <p class="drk-text-lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
-                            <p class="uk-column-1-2@s uk-dropcap">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            <p class="drk-column-1-2@s drk-dropcap">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
-                            <p class="uk-article-meta">Written by <a href="#">Super User</a> on 12 April 2012. Posted in <a href="#">Blog</a></p>
+                            <p class="drk-article-meta">Written by <a href="#">Super User</a> on 12 April 2012. Posted in <a href="#">Blog</a></p>
 
-                            <hr class="uk-divider-icon uk-margin-medium">
+                            <hr class="drk-divider-icon drk-margin-medium">
 
-                            <div class="uk-grid-small uk-child-width-auto uk-flex-middle uk-margin-medium" uk-grid>
+                            <div class="drk-grid-small drk-child-width-auto drk-flex-middle drk-margin-medium" drk-grid>
                                 <div>
-                                    <button class="uk-button uk-button-default">Default</button>
-                                    <div class="uk-dropdown" uk-drop="mode: click">
-                                        <ul class="uk-nav uk-dropdown-nav">
-                                            <li class="uk-active"><a href="#">Active</a></li>
-                                            <li class="uk-parent">
+                                    <button class="drk-button drk-button-default">Default</button>
+                                    <div class="drk-dropdown" drk-drop="mode: click">
+                                        <ul class="drk-nav drk-dropdown-nav">
+                                            <li class="drk-active"><a href="#">Active</a></li>
+                                            <li class="drk-parent">
                                                 <a href="#">Parent</a>
-                                                <ul class="uk-nav-sub">
+                                                <ul class="drk-nav-sub">
                                                     <li><a href="#">Sub item</a></li>
                                                     <li><a href="#">Sub item</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="uk-nav-header">Header</li>
-                                            <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                                            <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                                            <li class="uk-nav-divider"></li>
-                                            <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                                            <li class="drk-nav-header">Header</li>
+                                            <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                                            <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                                            <li class="drk-nav-divider"></li>
+                                            <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div>
-                                    <button class="uk-button uk-button-primary">Primary</button>
+                                    <button class="drk-button drk-button-primary">Primary</button>
                                 </div>
                                 <div>
-                                    <button class="uk-button uk-button-secondary">Secondary</button>
+                                    <button class="drk-button drk-button-secondary">Secondary</button>
                                 </div>
                                 <div>
-                                    <button class="uk-button uk-button-danger">Danger</button>
+                                    <button class="drk-button drk-button-danger">Danger</button>
                                 </div>
                                 <div>
-                                    <button class="uk-button uk-button-default" disabled>Disabled</button>
+                                    <button class="drk-button drk-button-default" disabled>Disabled</button>
                                 </div>
                             </div>
 
-                            <hr class="uk-margin-medium">
+                            <hr class="drk-margin-medium">
 
-                            <div class="uk-child-width-1-2 uk-child-width-1-4@s uk-margin" uk-grid>
+                            <div class="drk-child-width-1-2 drk-child-width-1-4@s drk-margin" drk-grid>
                                 <div>
-                                    <ul class="uk-list">
+                                    <ul class="drk-list">
                                         <li><a href="#">a element</a></li>
                                         <li><abbr title="Title text">abbr element</abbr></li>
                                         <li><code>code element</code></li>
                                         <li><del>del element</del></li>
                                         <li><dfn title="Title text">dfn element</dfn></li>
-                                        <li><a href="#" class="uk-link-muted">Link Muted</a></li>
+                                        <li><a href="#" class="drk-link-muted">Link Muted</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-list">
+                                    <ul class="drk-list">
                                         <li><em>em element</em></li>
                                         <li><ins>ins element</ins></li>
                                         <li><mark>mark element</mark></li>
                                         <li><q>q <q>inside</q> a q</q></li>
                                         <li><strong>strong element</strong></li>
-                                        <li><a href="#" class="uk-link-reset">Link Reset</a></li>
+                                        <li><a href="#" class="drk-link-reset">Link Reset</a></li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-list">
-                                        <li class="uk-text-muted">Text Muted</li>
-                                        <li class="uk-text-emphasis">Text Emphasis</li>
-                                        <li class="uk-text-primary">Text Primary</li>
-                                        <li class="uk-text-secondary">Text Secondary</li>
-                                        <li class="uk-text-success">Text Success</li>
-                                        <li class="uk-text-warning">Text Warning</li>
-                                        <li class="uk-text-danger">Text Danger</li>
-                                        <li class="uk-text-meta">Text Meta</li>
+                                    <ul class="drk-list">
+                                        <li class="drk-text-muted">Text Muted</li>
+                                        <li class="drk-text-emphasis">Text Emphasis</li>
+                                        <li class="drk-text-primary">Text Primary</li>
+                                        <li class="drk-text-secondary">Text Secondary</li>
+                                        <li class="drk-text-success">Text Success</li>
+                                        <li class="drk-text-warning">Text Warning</li>
+                                        <li class="drk-text-danger">Text Danger</li>
+                                        <li class="drk-text-meta">Text Meta</li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <ul class="uk-list">
-                                        <li><span class="uk-label">Default</span></li>
-                                        <li><span class="uk-label uk-label-success">Success</span></li>
-                                        <li><span class="uk-label uk-label-warning">Warning</span></li>
-                                        <li><span class="uk-label uk-label-danger">Danger</span></li>
-                                        <li><a class="uk-badge" href="#">1</a></li>
+                                    <ul class="drk-list">
+                                        <li><span class="drk-label">Default</span></li>
+                                        <li><span class="drk-label drk-label-success">Success</span></li>
+                                        <li><span class="drk-label drk-label-warning">Warning</span></li>
+                                        <li><span class="drk-label drk-label-danger">Danger</span></li>
+                                        <li><a class="drk-badge" href="#">1</a></li>
                                         <li>
-                                            <a class="uk-icon-button" href="#" uk-icon="icon: home"></a>
-                                            <a class="uk-icon-button" href="#" uk-icon="icon: github"></a>
-                                            <a class="uk-icon-link" href="#" uk-icon="icon: trash"></a>
+                                            <a class="drk-icon-button" href="#" drk-icon="icon: home"></a>
+                                            <a class="drk-icon-button" href="#" drk-icon="icon: github"></a>
+                                            <a class="drk-icon-link" href="#" drk-icon="icon: trash"></a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <pre class="uk-pre uk-margin-medium"><code>&lt;div class="myclass"&gt;…&lt;div&gt;</code></pre>
+                            <pre class="drk-pre drk-margin-medium"><code>&lt;div class="myclass"&gt;…&lt;div&gt;</code></pre>
 
-                            <blockquote class="uk-margin-medium" cite="#">
+                            <blockquote class="drk-margin-medium" cite="#">
                                 <p>The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a footer or cite element.</p>
                                 <footer>Someone famous in <cite><a href="#">Source Title</a></cite></footer>
                             </blockquote>
 
-                            <div class="uk-grid-small" uk-grid>
+                            <div class="drk-grid-small" drk-grid>
                                 <div>
-                                    <a class="uk-button uk-button-text" href="#">Read more</a>
+                                    <a class="drk-button drk-button-text" href="#">Read more</a>
                                 </div>
                                 <div>
-                                    <a class="uk-button uk-button-text" href="#">5 Comments</a>
+                                    <a class="drk-button drk-button-text" href="#">5 Comments</a>
                                 </div>
                                 <div>
-                                    <a class="uk-button uk-button-link" href="#">Button Link</a>
+                                    <a class="drk-button drk-button-link" href="#">Button Link</a>
                                 </div>
                             </div>
 
                         </article>
 
-                        <hr class="uk-margin-medium">
+                        <hr class="drk-margin-medium">
 
-                        <ul class="uk-comment-list uk-margin-medium">
+                        <ul class="drk-comment-list drk-margin-medium">
                             <li>
-                                <article class="uk-comment uk-visible-toggle" tabindex="-1" role="comment">
-                                    <header class="uk-comment-header uk-position-relative">
-                                        <div class="uk-grid-medium uk-flex-middle" uk-grid>
-                                            <div class="uk-width-auto">
-                                                <img class="uk-comment-avatar" src="images/avatar.jpg" width="50" height="50" alt="">
+                                <article class="drk-comment drk-visible-toggle" tabindex="-1" role="comment">
+                                    <header class="drk-comment-header drk-position-relative">
+                                        <div class="drk-grid-medium drk-flex-middle" drk-grid>
+                                            <div class="drk-width-auto">
+                                                <img class="drk-comment-avatar" src="images/avatar.jpg" width="50" height="50" alt="">
                                             </div>
-                                            <div class="uk-width-expand">
-                                                <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">Author</a></h4>
-                                                <p class="uk-comment-meta uk-margin-remove-top"><a class="uk-link-reset" href="#">12 days ago</a></p>
+                                            <div class="drk-width-expand">
+                                                <h4 class="drk-comment-title drk-margin-remove"><a class="drk-link-reset" href="#">Author</a></h4>
+                                                <p class="drk-comment-meta drk-margin-remove-top"><a class="drk-link-reset" href="#">12 days ago</a></p>
                                             </div>
                                         </div>
-                                        <div class="uk-position-top-right uk-position-small uk-hidden-hover"><a class="uk-button uk-button-text" href="#">Reply</a></div>
+                                        <div class="drk-position-top-right drk-position-small drk-hidden-hover"><a class="drk-button drk-button-text" href="#">Reply</a></div>
                                     </header>
-                                    <div class="uk-comment-body">
+                                    <div class="drk-comment-body">
                                         <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
                                     </div>
                                 </article>
@@ -241,38 +241,38 @@
                         </ul>
 
                         <nav aria-label="Pagination">
-                            <ul class="uk-pagination uk-flex-center" uk-margin>
-                                <li><a href="#"><span uk-pagination-previous></span></a></li>
+                            <ul class="drk-pagination drk-flex-center" drk-margin>
+                                <li><a href="#"><span drk-pagination-previous></span></a></li>
                                 <li><a href="#">1</a></li>
-                                <li class="uk-disabled"><span>…</span></li>
+                                <li class="drk-disabled"><span>…</span></li>
                                 <li><a href="#">4</a></li>
                                 <li><a href="#">5</a></li>
                                 <li><a href="#">6</a></li>
-                                <li class="uk-active"><span aria-current="page">7</span></li>
+                                <li class="drk-active"><span aria-current="page">7</span></li>
                                 <li><a href="#">8</a></li>
                                 <li><a href="#">9</a></li>
                                 <li><a href="#">10</a></li>
-                                <li class="uk-disabled"><span>…</span></li>
+                                <li class="drk-disabled"><span>…</span></li>
                                 <li><a href="#">20</a></li>
-                                <li><a href="#"><span uk-pagination-next></span></a></li>
+                                <li><a href="#"><span drk-pagination-next></span></a></li>
                             </ul>
                         </nav>
 
                     </div>
-                    <div class="uk-width-expand@m">
+                    <div class="drk-width-expand@m">
 
-                        <div class="uk-margin-medium-bottom">
-                            <form class="uk-search uk-search-default uk-width-1-1">
-                                <span uk-search-icon></span>
-                                <input class="uk-search-input" type="search" placeholder="Search" aria-label="Search">
+                        <div class="drk-margin-medium-bottom">
+                            <form class="drk-search drk-search-default drk-width-1-1">
+                                <span drk-search-icon></span>
+                                <input class="drk-search-input" type="search" placeholder="Search" aria-label="Search">
                             </form>
                         </div>
 
-                        <ul class="uk-nav-default uk-margin-medium" uk-nav>
-                            <li class="uk-active"><a href="#">Active</a></li>
-                            <li class="uk-parent">
-                                <a href="#">Parent <span uk-nav-parent-icon></span></a>
-                                <ul class="uk-nav-sub">
+                        <ul class="drk-nav-default drk-margin-medium" drk-nav>
+                            <li class="drk-active"><a href="#">Active</a></li>
+                            <li class="drk-parent">
+                                <a href="#">Parent <span drk-nav-parent-icon></span></a>
+                                <ul class="drk-nav-sub">
                                     <li><a href="#">Sub item</a></li>
                                     <li><a href="#">Sub item</a>
                                         <ul>
@@ -282,67 +282,67 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li class="uk-parent">
-                                <a href="#">Parent <span uk-nav-parent-icon></span></a>
-                                <ul class="uk-nav-sub">
+                            <li class="drk-parent">
+                                <a href="#">Parent <span drk-nav-parent-icon></span></a>
+                                <ul class="drk-nav-sub">
                                     <li><a href="#">Sub item</a></li>
                                     <li><a href="#">Sub item</a></li>
                                 </ul>
                             </li>
-                            <li class="uk-nav-header">Header</li>
-                            <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                            <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                            <li class="uk-nav-divider"></li>
-                            <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                            <li class="drk-nav-header">Header</li>
+                            <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                            <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                            <li class="drk-nav-divider"></li>
+                            <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                         </ul>
 
-                        <div class="uk-card uk-card-body uk-card-default uk-card-hover">
-                            <h3 class="uk-card-title">Default</h3>
+                        <div class="drk-card drk-card-body drk-card-default drk-card-hover">
+                            <h3 class="drk-card-title">Default</h3>
                             <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
 
-                        <div class="uk-margin uk-card uk-card-body uk-card-primary uk-card-hover">
-                            <h3 class="uk-card-title">Primary</h3>
+                        <div class="drk-margin drk-card drk-card-body drk-card-primary drk-card-hover">
+                            <h3 class="drk-card-title">Primary</h3>
                             <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
 
-                        <div class="uk-margin uk-card uk-card-body uk-card-secondary uk-card-hover">
-                            <h3 class="uk-card-title">Secondary</h3>
+                        <div class="drk-margin drk-card drk-card-body drk-card-secondary drk-card-hover">
+                            <h3 class="drk-card-title">Secondary</h3>
                             <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
 
-                        <div class="uk-margin uk-card uk-card-body uk-card-hover">
-                            <h3 class="uk-card-title">Hover</h3>
+                        <div class="drk-margin drk-card drk-card-body drk-card-hover">
+                            <h3 class="drk-card-title">Hover</h3>
                             <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
 
                     </div>
                 </div>
 
-                <hr class="uk-margin-large">
+                <hr class="drk-margin-large">
 
-                <div class="uk-grid-divider" uk-grid>
-                    <div class="uk-width-2-3@m">
+                <div class="drk-grid-divider" drk-grid>
+                    <div class="drk-width-2-3@m">
 
-                        <h1 class="uk-heading-2xlarge uk-margin-small">2X-Large</h1>
-                        <h1 class="uk-heading-xlarge uk-margin-small">X-Large</h1>
-                        <h1 class="uk-heading-large uk-margin-small">Heading L</h1>
-                        <h1 class="uk-heading-medium uk-margin-small">Heading M</h1>
-                        <h1 class="uk-heading-small uk-margin-small">Heading S</h1>
+                        <h1 class="drk-heading-2xlarge drk-margin-small">2X-Large</h1>
+                        <h1 class="drk-heading-xlarge drk-margin-small">X-Large</h1>
+                        <h1 class="drk-heading-large drk-margin-small">Heading L</h1>
+                        <h1 class="drk-heading-medium drk-margin-small">Heading M</h1>
+                        <h1 class="drk-heading-small drk-margin-small">Heading S</h1>
 
-                        <h1 class="uk-margin-small">Heading H1</h1>
-                        <h2 class="uk-margin-small">Heading H2</h2>
-                        <h3 class="uk-margin-small">Heading H3</h3>
-                        <h4 class="uk-margin-small">Heading H4</h4>
-                        <h5 class="uk-margin-small">Heading H5</h5>
-                        <h6 class="uk-margin-small">Heading H6</h6>
+                        <h1 class="drk-margin-small">Heading H1</h1>
+                        <h2 class="drk-margin-small">Heading H2</h2>
+                        <h3 class="drk-margin-small">Heading H3</h3>
+                        <h4 class="drk-margin-small">Heading H4</h4>
+                        <h5 class="drk-margin-small">Heading H5</h5>
+                        <h6 class="drk-margin-small">Heading H6</h6>
 
-                        <h3 class="uk-heading-divider">Heading Divider</h3>
-                        <h3 class="uk-heading-bullet">Heading Bullet</h3>
-                        <h3 class="uk-heading-line"><span>Heading Line</span></h3>
+                        <h3 class="drk-heading-divider">Heading Divider</h3>
+                        <h3 class="drk-heading-bullet">Heading Bullet</h3>
+                        <h3 class="drk-heading-line"><span>Heading Line</span></h3>
 
-                        <div class="uk-overflow-auto uk-margin-medium-top">
-                            <table class="uk-table uk-table-divider uk-table-hover uk-table-small">
+                        <div class="drk-overflow-auto drk-margin-medium-top">
+                            <table class="drk-table drk-table-divider drk-table-hover drk-table-small">
                                 <thead>
                                     <tr>
                                         <th>Table Heading</th>
@@ -375,36 +375,36 @@
                             </table>
                         </div>
 
-                        <div class="uk-heading-medium uk-grid-small uk-child-width-auto uk-flex-middle uk-margin-medium-top" uk-grid js-countdown>
+                        <div class="drk-heading-medium drk-grid-small drk-child-width-auto drk-flex-middle drk-margin-medium-top" drk-grid js-countdown>
                             <div>
-                                <div class="uk-countdown-number uk-countdown-days"></div>
+                                <div class="drk-countdown-number drk-countdown-days"></div>
                             </div>
-                            <div class="uk-countdown-separator">:</div>
+                            <div class="drk-countdown-separator">:</div>
                             <div>
-                                <div class="uk-countdown-number uk-countdown-hours"></div>
+                                <div class="drk-countdown-number drk-countdown-hours"></div>
                             </div>
-                            <div class="uk-countdown-separator">:</div>
+                            <div class="drk-countdown-separator">:</div>
                             <div>
-                                <div class="uk-countdown-number uk-countdown-minutes"></div>
+                                <div class="drk-countdown-number drk-countdown-minutes"></div>
                             </div>
-                            <div class="uk-countdown-separator">:</div>
+                            <div class="drk-countdown-separator">:</div>
                             <div>
-                                <div class="uk-countdown-number uk-countdown-seconds"></div>
+                                <div class="drk-countdown-number drk-countdown-seconds"></div>
                             </div>
                         </div>
 
                     </div>
-                    <div class="uk-width-1-3@m">
+                    <div class="drk-width-1-3@m">
 
-                        <form class="uk-form-stacked">
+                        <form class="drk-form-stacked">
 
-                            <div class="uk-margin-small">
-                                <label class="uk-form-label" for="form-input-text">Text</label>
-                                <input id="form-input-text" class="uk-input" type="text" placeholder="Some text...">
+                            <div class="drk-margin-small">
+                                <label class="drk-form-label" for="form-input-text">Text</label>
+                                <input id="form-input-text" class="drk-input" type="text" placeholder="Some text...">
                             </div>
 
-                            <div class="uk-margin-small">
-                                <select class="uk-select" aria-label="Select">
+                            <div class="drk-margin-small">
+                                <select class="drk-select" aria-label="Select">
                                     <option>Option 01</option>
                                     <option>Option 02</option>
                                     <optgroup label="Optgroup">
@@ -414,90 +414,90 @@
                                 </select>
                             </div>
 
-                            <div class="uk-margin-small">
-                                <textarea class="uk-textarea" rows="2" placeholder="Some text..." aria-label="Textarea"></textarea>
+                            <div class="drk-margin-small">
+                                <textarea class="drk-textarea" rows="2" placeholder="Some text..." aria-label="Textarea"></textarea>
                             </div>
 
-                            <div class="uk-grid-small uk-child-width-auto" uk-grid>
+                            <div class="drk-grid-small drk-child-width-auto" drk-grid>
                                 <div>
-                                    <label><input class="uk-radio" type="radio" name="radio"> Radio</label>
+                                    <label><input class="drk-radio" type="radio" name="radio"> Radio</label>
                                 </div>
                                 <div>
-                                    <label><input class="uk-checkbox" type="checkbox"> Checkbox</label>
+                                    <label><input class="drk-checkbox" type="checkbox"> Checkbox</label>
                                 </div>
                             </div>
 
-                            <div class="uk-margin-small">
-                                <input class="uk-range" type="range" value="2" min="0" max="10" step="0.1" aria-label="Range">
+                            <div class="drk-margin-small">
+                                <input class="drk-range" type="range" value="2" min="0" max="10" step="0.1" aria-label="Range">
                             </div>
 
-                            <div class="uk-margin-small">
-                                <label class="uk-form-label" for="form-input-states">States</label>
-                                <input id="form-input-states" class="uk-input" type="text" placeholder=":disabled" disabled>
+                            <div class="drk-margin-small">
+                                <label class="drk-form-label" for="form-input-states">States</label>
+                                <input id="form-input-states" class="drk-input" type="text" placeholder=":disabled" disabled>
 
                             </div>
 
-                            <div class="uk-margin-small">
-                                <input class="uk-input uk-form-danger" type="text" placeholder="form-danger" aria-label="form-danger" value="form-danger">
+                            <div class="drk-margin-small">
+                                <input class="drk-input drk-form-danger" type="text" placeholder="form-danger" aria-label="form-danger" value="form-danger">
                             </div>
-                            <div class="uk-margin-small">
-                                <input class="uk-input uk-form-success" type="text" placeholder="form-success" aria-label="form-success" value="form-success">
+                            <div class="drk-margin-small">
+                                <input class="drk-input drk-form-success" type="text" placeholder="form-success" aria-label="form-success" value="form-success">
                             </div>
-                            <div class="uk-margin-small">
-                                <input class="uk-input uk-form-blank" type="text" placeholder="form-blank" aria-label="form-blank">
+                            <div class="drk-margin-small">
+                                <input class="drk-input drk-form-blank" type="text" placeholder="form-blank" aria-label="form-blank">
                             </div>
 
                         </form>
 
-                        <ul class="uk-nav uk-nav-primary uk-margin-medium">
-                            <li class="uk-active"><a href="#">Active</a></li>
+                        <ul class="drk-nav drk-nav-primary drk-margin-medium">
+                            <li class="drk-active"><a href="#">Active</a></li>
                             <li><a href="#">Item</a></li>
                             <li><a href="#">Item</a></li>
                             <li><a href="#">Item</a></li>
                         </ul>
 
-                        <ul class="uk-nav uk-nav-secondary uk-margin-medium">
-                            <li class="uk-active"><a href="#"><div>Active<div class="uk-nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
-                            <li><a href="#"><div>Item<div class="uk-nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
-                            <li><a href="#"><div>Item<div class="uk-nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
-                            <li><a href="#"><div>Item<div class="uk-nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
+                        <ul class="drk-nav drk-nav-secondary drk-margin-medium">
+                            <li class="drk-active"><a href="#"><div>Active<div class="drk-nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
+                            <li><a href="#"><div>Item<div class="drk-nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
+                            <li><a href="#"><div>Item<div class="drk-nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
+                            <li><a href="#"><div>Item<div class="drk-nav-subtitle">Subtitle lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.</div></div></a></li>
                         </ul>
 
-                        <div class="uk-margin-medium-top" uk-alert>
-                            <a href="#" class="uk-alert-close" uk-close></a>
+                        <div class="drk-margin-medium-top" drk-alert>
+                            <a href="#" class="drk-alert-close" drk-close></a>
                             <p>Default</p>
                         </div>
 
-                        <div class="uk-alert-primary" uk-alert>
-                            <a href="#" class="uk-alert-close" uk-close></a>
+                        <div class="drk-alert-primary" drk-alert>
+                            <a href="#" class="drk-alert-close" drk-close></a>
                             <p>Primary</p>
                         </div>
 
-                        <div class="uk-alert-success" uk-alert>
-                            <a href="#" class="uk-alert-close" uk-close></a>
+                        <div class="drk-alert-success" drk-alert>
+                            <a href="#" class="drk-alert-close" drk-close></a>
                             <p>Success</p>
                         </div>
 
-                        <div class="uk-alert-warning" uk-alert>
-                            <a href="#" class="uk-alert-close" uk-close></a>
+                        <div class="drk-alert-warning" drk-alert>
+                            <a href="#" class="drk-alert-close" drk-close></a>
                             <p>Warning</p>
                         </div>
 
-                        <div class="uk-alert-danger uk-margin-remove-bottom" uk-alert>
-                            <a href="#" class="uk-alert-close" uk-close></a>
+                        <div class="drk-alert-danger drk-margin-remove-bottom" drk-alert>
+                            <a href="#" class="drk-alert-close" drk-close></a>
                             <p>Danger</p>
                         </div>
 
                     </div>
                 </div>
 
-                <hr class="uk-margin-medium">
+                <hr class="drk-margin-medium">
 
-                <div class="uk-grid-divider uk-child-width-auto@m" uk-grid>
+                <div class="drk-grid-divider drk-child-width-auto@m" drk-grid>
                     <div>
 
-                        <ul class="uk-dotnav">
-                            <li class="uk-active"><a href="#">Item 1</a></li>
+                        <ul class="drk-dotnav">
+                            <li class="drk-active"><a href="#">Item 1</a></li>
                             <li><a href="#">Item 2</a></li>
                             <li><a href="#">Item 3</a></li>
                             <li><a href="#">Item 4</a></li>
@@ -508,14 +508,14 @@
                     </div>
                     <div>
 
-                        <a href="#" uk-slidenav-previous></a>
-                        <a href="#" uk-slidenav-next></a>
+                        <a href="#" drk-slidenav-previous></a>
+                        <a href="#" drk-slidenav-next></a>
 
                     </div>
                     <div>
 
-                        <ul class="uk-thumbnav">
-                            <li class="uk-active"><a href="#"><img src="images/photo.jpg" width="60" height="40" alt=""></a></li>
+                        <ul class="drk-thumbnav">
+                            <li class="drk-active"><a href="#"><img src="images/photo.jpg" width="60" height="40" alt=""></a></li>
                             <li><a href="#"><img src="images/dark.jpg" width="60" height="40" alt=""></a></li>
                             <li><a href="#"><img src="images/light.jpg" width="60" height="40" alt=""></a></li>
                         </ul>
@@ -523,141 +523,141 @@
                     </div>
                     <div>
 
-                        <div class="uk-tooltip uk-tooltip-top-center uk-display-inline-block uk-margin-remove uk-position-relative">Tooltip</div>
+                        <div class="drk-tooltip drk-tooltip-top-center drk-display-inline-block drk-margin-remove drk-position-relative">Tooltip</div>
 
                     </div>
-                    <div class="uk-width-expand@m">
+                    <div class="drk-width-expand@m">
 
-                        <progress class="uk-progress" value="45" max="100">45%</progress>
-
-                    </div>
-                    <div>
-
-                        <button type="button" uk-close></button>
+                        <progress class="drk-progress" value="45" max="100">45%</progress>
 
                     </div>
                     <div>
 
-                        <a href="#" uk-totop></a>
+                        <button type="button" drk-close></button>
+
+                    </div>
+                    <div>
+
+                        <a href="#" drk-totop></a>
 
                     </div>
                 </div>
 
-                <hr class="uk-margin-medium">
+                <hr class="drk-margin-medium">
 
-                <div class="uk-grid-divider uk-child-width-auto@m" uk-grid>
+                <div class="drk-grid-divider drk-child-width-auto@m" drk-grid>
                     <div>
 
-                        <nav uk-dropnav="mode: click">
-                            <ul class="uk-subnav uk-subnav-divider" uk-margin>
-                                <li class="uk-active"><a href="#">Active</a></li>
+                        <nav drk-dropnav="mode: click">
+                            <ul class="drk-subnav drk-subnav-divider" drk-margin>
+                                <li class="drk-active"><a href="#">Active</a></li>
                                 <li>
-                                    <a href>Parent <span uk-drop-parent-icon></span></a>
-                                    <div class="uk-dropdown">
-                                        <ul class="uk-nav uk-dropdown-nav">
-                                            <li class="uk-active"><a href="#">Active</a></li>
+                                    <a href>Parent <span drk-drop-parent-icon></span></a>
+                                    <div class="drk-dropdown">
+                                        <ul class="drk-nav drk-dropdown-nav">
+                                            <li class="drk-active"><a href="#">Active</a></li>
                                             <li><a href="#">Item</a></li>
-                                            <li class="uk-nav-header">Header</li>
+                                            <li class="drk-nav-header">Header</li>
                                             <li><a href="#">Item</a></li>
                                             <li><a href="#">Item</a></li>
-                                            <li class="uk-nav-divider"></li>
+                                            <li class="drk-nav-divider"></li>
                                             <li><a href="#">Item</a></li>
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="uk-disabled"><a>Disabled</a></li>
+                                <li class="drk-disabled"><a>Disabled</a></li>
                             </ul>
                         </nav>
 
                     </div>
                     <div>
 
-                        <nav uk-dropnav="mode: click">
-                            <ul class="uk-subnav uk-subnav-pill" uk-margin>
-                                <li class="uk-active"><a href="#">Active</a></li>
+                        <nav drk-dropnav="mode: click">
+                            <ul class="drk-subnav drk-subnav-pill" drk-margin>
+                                <li class="drk-active"><a href="#">Active</a></li>
                                 <li>
-                                    <a href>Parent <span uk-drop-parent-icon></span></a>
-                                    <div class="uk-dropdown">
-                                        <ul class="uk-nav uk-dropdown-nav">
-                                            <li class="uk-active"><a href="#">Active</a></li>
+                                    <a href>Parent <span drk-drop-parent-icon></span></a>
+                                    <div class="drk-dropdown">
+                                        <ul class="drk-nav drk-dropdown-nav">
+                                            <li class="drk-active"><a href="#">Active</a></li>
                                             <li><a href="#">Item</a></li>
-                                            <li class="uk-nav-header">Header</li>
+                                            <li class="drk-nav-header">Header</li>
                                             <li><a href="#">Item</a></li>
                                             <li><a href="#">Item</a></li>
-                                            <li class="uk-nav-divider"></li>
+                                            <li class="drk-nav-divider"></li>
                                             <li><a href="#">Item</a></li>
                                         </ul>
                                     </div>
                                 </li>
-                                <li class="uk-disabled"><a>Disabled</a></li>
+                                <li class="drk-disabled"><a>Disabled</a></li>
                             </ul>
                         </nav>
 
                     </div>
                     <div>
 
-                        <ul uk-tab>
-                            <li class="uk-active"><a href="#">Active</a></li>
+                        <ul drk-tab>
+                            <li class="drk-active"><a href="#">Active</a></li>
                             <li>
-                                <a href>Parent <span uk-drop-parent-icon></span></a>
-                                <div class="uk-dropdown" uk-drop="mode: click">
-                                    <ul class="uk-nav uk-dropdown-nav">
-                                        <li class="uk-active"><a href="#">Active</a></li>
+                                <a href>Parent <span drk-drop-parent-icon></span></a>
+                                <div class="drk-dropdown" drk-drop="mode: click">
+                                    <ul class="drk-nav drk-dropdown-nav">
+                                        <li class="drk-active"><a href="#">Active</a></li>
                                         <li><a href="#">Item</a></li>
-                                        <li class="uk-nav-header">Header</li>
+                                        <li class="drk-nav-header">Header</li>
                                         <li><a href="#">Item</a></li>
                                         <li><a href="#">Item</a></li>
-                                        <li class="uk-nav-divider"></li>
+                                        <li class="drk-nav-divider"></li>
                                         <li><a href="#">Item</a></li>
                                     </ul>
                                 </div>
                             </li>
-                            <li class="uk-disabled"><a>Disabled</a></li>
+                            <li class="drk-disabled"><a>Disabled</a></li>
                         </ul>
 
                     </div>
                     <div>
 
-                        <ul class="uk-iconnav">
-                            <li class="uk-active"><a href="#" uk-icon="icon: plus"></a></li>
-                            <li><a href="#" uk-icon="icon: pencil"></a></li>
-                            <li><a href="#"><span uk-icon="icon: bag"></span> (2)</a></li>
+                        <ul class="drk-iconnav">
+                            <li class="drk-active"><a href="#" drk-icon="icon: plus"></a></li>
+                            <li><a href="#" drk-icon="icon: pencil"></a></li>
+                            <li><a href="#"><span drk-icon="icon: bag"></span> (2)</a></li>
                         </ul>
 
                     </div>
                 </div>
 
-                <hr class="uk-margin-medium">
+                <hr class="drk-margin-medium">
 
-                <div class="uk-grid-divider" uk-grid>
-                    <div class="uk-width-2-3@m">
+                <div class="drk-grid-divider" drk-grid>
+                    <div class="drk-width-2-3@m">
 
-                        <div class="uk-child-width-1-2@s" uk-grid>
+                        <div class="drk-child-width-1-2@s" drk-grid>
                             <div>
 
-                                <div class="uk-inline">
+                                <div class="drk-inline">
                                     <img src="images/light.jpg" width="1800" height="1200" alt="">
-                                    <a class="uk-position-absolute uk-transform-center" style="left: 20%; top: 30%" href="#" uk-marker></a>
-                                    <a class="uk-position-absolute uk-transform-center" style="left: 60%; top: 40%" href="#" uk-marker></a>
-                                    <a class="uk-position-absolute uk-transform-center" style="left: 80%; top: 70%" href="#" uk-marker></a>
+                                    <a class="drk-position-absolute drk-transform-center" style="left: 20%; top: 30%" href="#" drk-marker></a>
+                                    <a class="drk-position-absolute drk-transform-center" style="left: 60%; top: 40%" href="#" drk-marker></a>
+                                    <a class="drk-position-absolute drk-transform-center" style="left: 80%; top: 70%" href="#" drk-marker></a>
                                 </div>
 
                             </div>
                             <div>
 
-                                <a href class="uk-inline">
+                                <a href class="drk-inline">
                                     <img src="images/light.jpg" width="1800" height="1200" alt="">
-                                    <div class="uk-position-center">
-                                        <span class="uk-icon-overlay" href="#" uk-icon="ratio: 3; icon: play-circle"></span>
+                                    <div class="drk-position-center">
+                                        <span class="drk-icon-overlay" href="#" drk-icon="ratio: 3; icon: play-circle"></span>
                                     </div>
                                 </a>
 
                             </div>
                             <div>
 
-                                <div class="uk-inline-clip uk-inverse-light">
+                                <div class="drk-inline-clip drk-inverse-light">
                                     <img src="images/photo.jpg" width="1800" height="1200" alt="">
-                                    <div class="uk-overlay uk-overlay-default uk-position-bottom">
+                                    <div class="drk-overlay drk-overlay-default drk-position-bottom">
                                         <p>Default Lorem ipsum dolor sit amet, consectetur.</p>
                                     </div>
                                 </div>
@@ -665,9 +665,9 @@
                             </div>
                             <div>
 
-                                <div class="uk-inline-clip uk-inverse-light">
+                                <div class="drk-inline-clip drk-inverse-light">
                                     <img src="images/photo.jpg" width="1800" height="1200" alt="">
-                                    <div class="uk-overlay uk-overlay-primary uk-position-bottom">
+                                    <div class="drk-overlay drk-overlay-primary drk-position-bottom">
                                         <p>Primary Lorem ipsum dolor sit amet, consectetur.</p>
                                     </div>
                                 </div>
@@ -675,10 +675,10 @@
                             </div>
                             <div>
 
-                                <div class="uk-inline-clip uk-inverse-light">
+                                <div class="drk-inline-clip drk-inverse-light">
                                     <img src="images/photo.jpg" width="1800" height="1200" alt="">
-                                    <div class="uk-card uk-card-body uk-card-overlay uk-card-hover uk-position-cover uk-position-medium">
-                                        <h3 class="uk-card-title">Card Overlay</h3>
+                                    <div class="drk-card drk-card-body drk-card-overlay drk-card-hover drk-position-cover drk-position-medium">
+                                        <h3 class="drk-card-title">Card Overlay</h3>
                                         <p>Lorem ipsum <a href="#">dolor</a> sit amet, consectetur adipiscing elit.</p>
                                     </div>
                                 </div>
@@ -687,54 +687,54 @@
                         </div>
 
                     </div>
-                    <div class="uk-width-expand@m">
+                    <div class="drk-width-expand@m">
 
-                        <ul class="uk-list uk-list-bullet uk-margin-medium">
+                        <ul class="drk-list drk-list-bullet drk-margin-medium">
                             <li>List item 1</li>
                             <li>List item 2</li>
                             <li>List item 3</li>
                          </ul>
 
-                        <ul class="uk-list uk-list-striped uk-margin-medium">
+                        <ul class="drk-list drk-list-striped drk-margin-medium">
                             <li>List item 1</li>
                             <li>List item 2</li>
                             <li>List item 3</li>
                         </ul>
 
-                        <ul class="uk-list uk-list-divider uk-margin-medium">
+                        <ul class="drk-list drk-list-divider drk-margin-medium">
                             <li>List item 1</li>
                             <li>List item 2</li>
                             <li>List item 3</li>
                         </ul>
 
-                        <dl class="uk-description-list uk-description-list-divider uk-margin-medium">
+                        <dl class="drk-description-list drk-description-list-divider drk-margin-medium">
                             <dt>Description lists</dt>
                             <dd>A description text</dd>
                             <dt>Description lists</dt>
                             <dd>A description text</dd>
                         </dl>
 
-                        <ul class="uk-accordion-default" uk-accordion>
-                            <li class="uk-open">
+                        <ul class="drk-accordion-default" drk-accordion>
+                            <li class="drk-open">
 
-                                <a class="uk-accordion-title" href="#">Item 1 <span uk-accordion-icon></span></a>
-                                <div class="uk-accordion-content">
+                                <a class="drk-accordion-title" href="#">Item 1 <span drk-accordion-icon></span></a>
+                                <div class="drk-accordion-content">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
                                 </div>
 
                             </li>
                             <li>
 
-                                <a class="uk-accordion-title" href="#">Item 2 <span uk-accordion-icon></span></a>
-                                <div class="uk-accordion-content">
+                                <a class="drk-accordion-title" href="#">Item 2 <span drk-accordion-icon></span></a>
+                                <div class="drk-accordion-content">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
                                 </div>
 
                             </li>
                             <li>
 
-                                <a class="uk-accordion-title" href="#">Item 3 <span uk-accordion-icon></span></a>
-                                <div class="uk-accordion-content">
+                                <a class="drk-accordion-title" href="#">Item 3 <span drk-accordion-icon></span></a>
+                                <div class="drk-accordion-content">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
                                 </div>
 
@@ -747,116 +747,116 @@
             </div>
         </div>
 
-        <div class="uk-section uk-padding-remove-vertical">
-            <div class="uk-child-width-1-2@s uk-child-width-1-4@l uk-grid-collapse uk-grid-match" uk-grid>
+        <div class="drk-section drk-padding-remove-vertical">
+            <div class="drk-child-width-1-2@s drk-child-width-1-4@l drk-grid-collapse drk-grid-match" drk-grid>
                 <div>
-                    <div class="uk-tile uk-tile-default">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
-                </div>
-                <div>
-                    <div class="uk-tile uk-tile-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
+                    <div class="drk-tile drk-tile-default">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
                 </div>
                 <div>
-                    <div class="uk-tile uk-tile-primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
+                    <div class="drk-tile drk-tile-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
                 </div>
                 <div>
-                    <div class="uk-tile uk-tile-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
+                    <div class="drk-tile drk-tile-primary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
+                </div>
+                <div>
+                    <div class="drk-tile drk-tile-secondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</div>
                 </div>
             </div>
         </div>
 
-        <div class="uk-section uk-section-default">
-            <div class="uk-container">
+        <div class="drk-section drk-section-default">
+            <div class="drk-container">
 
-                <div class="uk-grid-large uk-flex-middle" uk-grid>
-                    <div class="uk-width-expand@m">
-                        <p class="uk-text-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                <div class="drk-grid-large drk-flex-middle" drk-grid>
+                    <div class="drk-width-expand@m">
+                        <p class="drk-text-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
                     </div>
-                    <div class="uk-width-auto@m">
-                        <a class="uk-button uk-button-default uk-button-large" href="#">Button</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="uk-section uk-section-muted">
-            <div class="uk-container">
-
-                <div class="uk-grid-large uk-flex-middle" uk-grid>
-                    <div class="uk-width-expand@m">
-                        <p class="uk-text-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-                    </div>
-                    <div class="uk-width-auto@m">
-                        <a class="uk-button uk-button-default uk-button-large" href="#">Button</a>
+                    <div class="drk-width-auto@m">
+                        <a class="drk-button drk-button-default drk-button-large" href="#">Button</a>
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <div class="uk-section uk-section-primary">
-            <div class="uk-container">
+        <div class="drk-section drk-section-muted">
+            <div class="drk-container">
 
-                <div class="uk-grid-large uk-flex-middle" uk-grid>
-                    <div class="uk-width-expand@m">
-                        <p class="uk-text-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                <div class="drk-grid-large drk-flex-middle" drk-grid>
+                    <div class="drk-width-expand@m">
+                        <p class="drk-text-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
                     </div>
-                    <div class="uk-width-auto@m">
-                        <a class="uk-button uk-button-default uk-button-large" href="#">Button</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="uk-section uk-section-secondary">
-            <div class="uk-container">
-
-                <div class="uk-grid-large uk-flex-middle" uk-grid>
-                    <div class="uk-width-expand@m">
-                        <p class="uk-text-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-                    </div>
-                    <div class="uk-width-auto@m">
-                        <a class="uk-button uk-button-default uk-button-large" href="#">Button</a>
+                    <div class="drk-width-auto@m">
+                        <a class="drk-button drk-button-default drk-button-large" href="#">Button</a>
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <div id="modal" uk-modal>
-            <div class="uk-modal-dialog">
-                <button class="uk-modal-close-default" type="button" uk-close></button>
-                <div class="uk-modal-header">
-                    <h2 class="uk-modal-title">Headline</h2>
+        <div class="drk-section drk-section-primary">
+            <div class="drk-container">
+
+                <div class="drk-grid-large drk-flex-middle" drk-grid>
+                    <div class="drk-width-expand@m">
+                        <p class="drk-text-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <div class="drk-width-auto@m">
+                        <a class="drk-button drk-button-default drk-button-large" href="#">Button</a>
+                    </div>
                 </div>
-                <div class="uk-modal-body">
+
+            </div>
+        </div>
+
+        <div class="drk-section drk-section-secondary">
+            <div class="drk-container">
+
+                <div class="drk-grid-large drk-flex-middle" drk-grid>
+                    <div class="drk-width-expand@m">
+                        <p class="drk-text-large">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                    </div>
+                    <div class="drk-width-auto@m">
+                        <a class="drk-button drk-button-default drk-button-large" href="#">Button</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="modal" drk-modal>
+            <div class="drk-modal-dialog">
+                <button class="drk-modal-close-default" type="button" drk-close></button>
+                <div class="drk-modal-header">
+                    <h2 class="drk-modal-title">Headline</h2>
+                </div>
+                <div class="drk-modal-body">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
-                <div class="uk-modal-footer uk-text-right">
-                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                    <button class="uk-button uk-button-primary" type="button">Save</button>
+                <div class="drk-modal-footer drk-text-right">
+                    <button class="drk-button drk-button-default drk-modal-close" type="button">Cancel</button>
+                    <button class="drk-button drk-button-primary" type="button">Save</button>
                 </div>
             </div>
         </div>
 
-        <div id="modal-search" class="uk-modal-full" uk-modal>
-            <div class="uk-modal-dialog uk-flex uk-flex-center uk-flex-middle" uk-height-viewport>
+        <div id="modal-search" class="drk-modal-full" drk-modal>
+            <div class="drk-modal-dialog drk-flex drk-flex-center drk-flex-middle" drk-height-viewport>
 
-                <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+                <button class="drk-modal-close-full drk-close-large" type="button" drk-close></button>
 
                 <div>
 
-                    <ul class="uk-nav-primary uk-nav-center" uk-nav>
-                        <li class="uk-active"><a href="#">Active</a></li>
+                    <ul class="drk-nav-primary drk-nav-center" drk-nav>
+                        <li class="drk-active"><a href="#">Active</a></li>
                         <li><a href="#">Item</a></li>
                         <li><a href="#">Item</a></li>
                         <li><a href="#">Item</a></li>
                     </ul>
 
-                    <div class="uk-margin">
-                        <form class="uk-search uk-search-large">
-                            <input class="uk-search-input uk-text-center" type="search" placeholder="Search" aria-label="Search">
+                    <div class="drk-margin">
+                        <form class="drk-search drk-search-large">
+                            <input class="drk-search-input drk-text-center" type="search" placeholder="Search" aria-label="Search">
                         </form>
                     </div>
 
@@ -865,25 +865,25 @@
             </div>
         </div>
 
-        <div id="offcanvas" uk-offcanvas="flip: true; overlay: true">
-            <div class="uk-offcanvas-bar">
+        <div id="offcanvas" drk-offcanvas="flip: true; overlay: true">
+            <div class="drk-offcanvas-bar">
 
-                <button class="uk-offcanvas-close" type="button" uk-close></button>
+                <button class="drk-offcanvas-close" type="button" drk-close></button>
 
-                <ul class="uk-nav uk-nav-default">
-                    <li class="uk-active"><a href="#">Active</a></li>
-                    <li class="uk-parent">
+                <ul class="drk-nav drk-nav-default">
+                    <li class="drk-active"><a href="#">Active</a></li>
+                    <li class="drk-parent">
                         <a href="#">Parent</a>
-                        <ul class="uk-nav-sub">
+                        <ul class="drk-nav-sub">
                             <li><a href="#">Sub item</a></li>
                             <li><a href="#">Sub item</a></li>
                         </ul>
                     </li>
-                    <li class="uk-nav-header">Header</li>
-                    <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: table"></span> Item</a></li>
-                    <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                    <li class="uk-nav-divider"></li>
-                    <li><a href="#"><span class="uk-margin-xsmall-right" uk-icon="icon: trash"></span> Item</a></li>
+                    <li class="drk-nav-header">Header</li>
+                    <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: table"></span> Item</a></li>
+                    <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: thumbnails"></span> Item</a></li>
+                    <li class="drk-nav-divider"></li>
+                    <li><a href="#"><span class="drk-margin-xsmall-right" drk-icon="icon: trash"></span> Item</a></li>
                 </ul>
 
                 <h3>Title</h3>

@@ -2,8 +2,14 @@
 
 ## Statut
 
-Cette feuille de route ordonne le travail ; elle n’assouplit aucun gate. Son état initial est
-établi le 2026-07-21.
+Cette feuille de route ordonne le travail de Drake.css framework ; elle n’assouplit aucun
+gate. Son état initial est établi le 2026-07-21. Elle intègre les décisions D-012 (identité
+Drake), D-013 (port Panda.css) et D-014 (Elm hors du cœur) acceptées le 2026-07-21.
+
+Depuis D-012, la « référence » de compatibilité désigne la référence pré-renommage : le
+dernier état vert de `fork/main` avant l’application de D-012. La parité comportementale
+C0 à C3 s’apprécie contre cette référence interne, et non contre l’API publique littérale du
+projet amont (voir FORK.md).
 
 États autorisés :
 
@@ -26,7 +32,11 @@ sortie doivent être vérifiés sur un checkout propre.
    pas ajoutés en fin de migration.
 6. Aucun lot publiable ne conserve une source JavaScript navigateur ni un registre SVG JS.
 7. La compatibilité complète précède la première release stable.
-8. L’adaptateur Elm éventuel vient après la stabilité et ne bloque aucun jalon du cœur.
+8. Le renommage d’identité (D-012) est achevé et prouvé avant le port des styles (D-013) :
+   un seul espace de noms est porté.
+9. Le port Panda.css avance composant par composant avec preuve de parité ; `src/less` reste
+   la source canonique tant que cette preuve n’est pas apportée.
+10. L’adaptateur Elm éventuel vient après la stabilité et ne bloque aucun jalon du cœur.
 
 ## Phase 0 — Fondation et gouvernance
 
@@ -38,11 +48,11 @@ pnpm 11.4.0.
 
 ### Portée
 
-- conserver la base UIkit 3.25.20 et son SHA ;
-- créer le tag annoté `fork-base/uikit-v3.25.20` ;
+- conserver la base amont 3.25.20 et son SHA (voir FORK.md) ;
+- créer le tag annoté de base amont ;
 - établir `fork/main` et protéger `upstream` contre les pushes ;
 - épingler Node.js 24.18.0 et pnpm 11.4.0 ;
-- maintenir le paquet privé jusqu’à décision d’identité ;
+- maintenir le paquet privé (`private: true`) tant que le remote `origin` n’est pas décidé ;
 - adopter le corpus documentaire du fork.
 
 ### Critères de sortie
@@ -62,9 +72,13 @@ Avancement au 2026-07-21 : les régressions critiques du fork, le chargement Nod
 navigateur et deux fixtures Chrome sont automatisés. La matrice interactive C0 à C3 de chaque
 page historique, notamment destruction/focus/RTL, reste à compléter avant release.
 
+Depuis D-012, cette référence est figée comme référence pré-renommage : le dernier état vert
+de `fork/main` avant renommage sert de comparaison C0 à C3 pour toutes les phases suivantes.
+
 ### Portée
 
-- inventorier les surfaces C0 à C3 de UIkit 3.25.20 ;
+- inventorier les surfaces C0 à C3 de la référence pré-renommage (dernier état vert de
+  `fork/main` avant D-012, voir FORK.md) ;
 - exécuter et documenter les pages de `tests/` ;
 - établir les scénarios critiques automatisables ;
 - enregistrer tailles et empreintes des bundles de référence ;
@@ -82,35 +96,43 @@ page historique, notamment destruction/focus/RTL, reste à compléter avant rele
 - LTR et RTL sont couverts ;
 - les comportements connus qui semblent anormaux sont enregistrés et non « corrigés » sans
   décision ;
-- la référence peut comparer un build du fork au comportement amont.
+- la référence peut comparer un build du fork au comportement de la référence pré-renommage.
 - chaque composant possède une attente documentée avec JavaScript désactivé ;
-- les écarts mobile-first et SEO de l'amont sont inventoriés comme divergences à corriger.
+- les écarts mobile-first et SEO de l’amont sont inventoriés comme divergences à corriger.
 
 ## Phase 2 — Pipeline d’assets
 
 - État : **Terminé**
 
 Preuves au 2026-07-21 : 5 112 masques Outline et 184 alias CSS sont générés, les 190 fichiers
-SVG d'icônes historiques et `uikit-icons.js` sont supprimés, les 14 masques core gardent leur
-notice MIT après minification, Inter roman/italic est intégré, et `pnpm check-assets` audite
-également la packlist npm et ses notices.
+SVG d’icônes historiques et le registre d’icônes JavaScript hérité sont supprimés, les
+14 masques core gardent leur notice MIT après minification, Inter roman/italic est intégré, et
+`pnpm check-assets` audite également la packlist npm et ses notices.
+
+Note : la preuve initiale de cette phase a été apportée sous les noms de la référence
+pré-renommage ; les critères ci-dessous sont exprimés avec les noms D-012 et leur
+revalidation sous ces noms définitifs relève de la phase 7.
 
 ### Portée
 
-- générer Tabler Icons Outline 3.45.0 en CSS ;
-- générer Inter 4.1 variable roman et italic en CSS ;
+- générer Tabler Icons Outline 3.45.0 en CSS (masques `data:image/svg+xml`) depuis le
+  catalogue `src/icons/drake-tabler.json` ;
+- générer Inter 4.1 variable roman et italic en CSS, WOFF2 encodé en data: URI ;
 - relier Inter à la source Less canonique ;
 - ajouter les contrôles de versions, nombres, empreintes, licences et fichiers interdits ;
 - documenter les besoins CSP.
-- cartographier chaque ancienne icône UIkit vers Tabler et générer les alias CSS nécessaires ;
-- supprimer `uikit-icons.js` et tout registre, objet de glyphes ou injection SVG d'icônes.
+- cartographier chaque ancienne icône héritée vers Tabler et générer les alias CSS
+  nécessaires ;
+- supprimer le registre d’icônes JavaScript hérité et tout registre, objet de glyphes ou
+  injection SVG d’icônes.
 
 ### Critères de sortie
 
-- `dist/css/uikit-tabler-icons.css` contient exactement 5 112 entrées/classes d’icône
+- `dist/css/drake-tabler-icons.css` contient exactement 5 112 entrées/classes d’icône
   Outline, y compris `brand-*`, sans variante filled ;
-- les sélecteurs publics suivent `.uk-ti` et `.uk-ti-{nom}` ;
-- `dist/css/uikit-inter.css` contient exactement deux `@font-face` variables, roman et italic ;
+- les sélecteurs publics suivent `.drk-ti` et `.drk-ti-{nom}` ;
+- `dist/css/drake-inter.css` contient exactement deux `@font-face` variables, roman et
+  italic ;
 - `dist/` et le paquet publiable ne contiennent aucun asset Tabler `.svg` autonome ni fichier
   `.woff`/`.woff2` autonome ;
 - les bannières MIT et SIL OFL applicables sont conservées ;
@@ -118,7 +140,7 @@ notice MIT après minification, Inter roman/italic est intégré, et `pnpm check
 - deux builds successifs sont identiques ;
 - les composants internes restent accessibles avec le nouveau mécanisme d’icônes ;
 - chaque ancienne icône livrée résout vers Tabler CSS ou possède une migration documentée ;
-- aucun registre ou bundle d'icônes SVG JavaScript n'est présent dans la distribution.
+- aucun registre ou bundle d’icônes SVG JavaScript n’est présent dans la distribution.
 
 ## Phase 3 — Port intégral TypeScript
 
@@ -137,17 +159,18 @@ de comparaison comportementale C0 à C3 exhaustive, suivi par la phase 1.
   changement fonctionnel ;
 - définir les types du runtime, du DOM et des composants ;
 - créer `defineComponent` et `defineMixin` ou leurs équivalents ;
-- adapter Rollup/esbuild aux entrées `.ts` sans changer les bundles publics.
+- adapter Rollup/esbuild aux entrées `.ts` (`src/js/drake.ts`, `src/js/drake-core.ts`) sans
+  changer les bundles publics.
 
 ### Critères de sortie
 
 - le typecheck strict est vert ;
-- aucune source JavaScript destinée au navigateur n'existe hors des sorties compilées de
+- aucune source JavaScript destinée au navigateur n’existe hors des sorties compilées de
   `dist/` ;
 - aucun `any` structurel ne masque le modèle de composants ;
 - les sorties UMD de référence démarrent et s’initialisent automatiquement ;
 - chaque bundle public est produit exclusivement depuis des sources TypeScript sans
-  différence C0 à C3.
+  différence C0 à C3 avec la référence pré-renommage.
 
 ## Phase 4 — Utilitaires et noyau
 
@@ -201,7 +224,7 @@ de sortie non atteint.
 - les conversions sont séparées des corrections fonctionnelles ;
 - les composants core ne contiennent plus de JavaScript source historique ;
 - chaque composant contient son HTML utile avant runtime, reflow à 320 pixels CSS et expose
-  un repli natif pour l'action essentielle ;
+  un repli natif pour l’action essentielle ;
 - aucun composant core ne fabrique une icône depuis un registre SVG JavaScript.
 
 ## Phase 6 — Composants optionnels et types publics
@@ -216,9 +239,9 @@ des exemples indexables au profil complet restent à réaliser.
 ### Portée
 
 - typer les composants optionnels ;
-- publier des déclarations `.d.ts` cohérentes ;
+- publier des déclarations `.d.ts` cohérentes (types publics `Drake*`) ;
 - ajouter une sortie ESM si elle ne modifie pas les sorties historiques ;
-- typer l’API globale, les méthodes de composants et les plugins ;
+- typer l’API globale `Drake`, les méthodes de composants et les plugins ;
 - documenter les imports modulaires ;
 - convertir les exemples et tests navigateur en sources TypeScript avec sorties sous `dist/` ;
 - rendre les exemples côté serveur ou les prérendre avec contenu, navigation et métadonnées
@@ -230,13 +253,82 @@ des exemples indexables au profil complet restent à réaliser.
 
 - tout le runtime navigateur source est TypeScript ;
 - les déclarations passent des tests de consommation ;
-- UMD, global et composants séparés restent compatibles ;
+- l’API globale (`window.Drake`), l’UMD et les composants séparés sous `dist/js/components/`
+  restent compatibles avec la référence pré-renommage ;
 - l’ESM, s’il est livré, ne duplique pas inutilement le runtime ;
 - aucun consommateur historique couvert par la matrice ne régresse ;
 - tous les exemples passent le profil `MOBILE_FIRST_SEO.md` ;
 - la parité du contenu mobile/bureau et les objectifs Core Web Vitals sont démontrés.
 
-## Phase 7 — Stabilisation et release candidate
+## Phase 7 — Identité Drake (D-012)
+
+- État : **En cours**
+
+Avancement au 2026-07-21 : phase ouverte par l’acceptation de D-012. Le renommage intégral du
+code, des documents et des artefacts est engagé ; aucun critère de sortie n’est encore prouvé.
+
+### Portée
+
+- appliquer la table de renommage normative de D-012 :
+    - API globale JS/UMD `Drake` (`window.Drake`) et types internes `Drake*` ;
+    - préfixe universel : classes `.drk-*`, attributs `drk-*`, `data-drk-*`, custom
+      properties `--drk-*` ;
+    - icônes : classe de base `.drk-ti`, icônes `.drk-ti-{nom}` ;
+    - artefacts : `dist/css/drake.css`, `drake.min.css`, `drake-rtl.css`,
+      `drake-rtl.min.css`, `drake-tabler-icons.css`, `drake-inter.css` ; `dist/js/drake.js`,
+      `drake.min.js` et composants sous `dist/js/components/` ;
+    - sources : `src/js/drake.ts` et `src/js/drake-core.ts` ;
+    - paquet npm : name `drake.css`, title « Drake.css framework », version 0.1.0, base
+      amont 3.25.20 conservée en métadonnée de provenance, `private: true` tant que le
+      remote `origin` n’est pas décidé ;
+- renommer les documents, exemples, tests et fixtures selon la même table ;
+- restreindre le nom du projet amont aux seules zones autorisées (fichiers de provenance,
+  licences, bannières légales générées, métadonnée de provenance et remote git, voir FORK.md
+  et DECISIONS.md) et écrire « l’amont » partout ailleurs ;
+- redéfinir le contrat de compatibilité : parité comportementale C0 à C3 avec la référence
+  pré-renommage, et non plus avec l’API publique littérale de l’amont ;
+- régénérer `dist/` intégralement sous les nouveaux noms.
+
+### Critères de sortie
+
+- zéro occurrence des préfixes hérités `uk-`, `data-uk-`, `--uk-` et du nom du projet amont
+  hors des zones autorisées, vérifiée par un contrôle automatisé sur checkout propre ;
+- la parité comportementale C0 à C3 est démontrée contre la référence pré-renommage ;
+- `dist/` est régénéré sous les noms D-012 et deux builds successifs sont identiques ;
+- les gates G0 à G14 sont verts sous Node.js 24.18.0 et pnpm 11.4.0 ;
+- les notices de copyright du projet amont (voir LICENSE.md et THIRD_PARTY_NOTICES.md)
+  restent intégralement présentes, y compris après minification.
+
+## Phase 8 — Port Panda.css (D-013)
+
+- État : **Planifié**
+
+Les mixins Less constituent une dette qui bloque la release finale (phase 9).
+
+### Portée
+
+- introduire `panda.config.ts` et les modules TypeScript de styles : tokens, semantic
+  tokens, recettes, fonctions de style typées remplaçant les mixins Less, `globalCss` pour
+  la cascade héritée ;
+- épingler `@pandacss/dev` en version exacte lors de son introduction ;
+- porter les styles composant par composant, chaque port étant prouvé par un diff CSS
+  normalisé contre la sortie Less ;
+- conserver `src/less` comme source canonique et `src/scss` comme sortie générée tant que le
+  port n’est pas achevé ;
+- supprimer Less/SCSS et les mixins une fois la parité intégralement prouvée ;
+- ajouter le gate G15 (parité par diff CSS normalisé) ; le déterminisme de la génération
+  Panda relève de G9.
+
+### Critères de sortie
+
+- chaque composant porté possède un diff CSS normalisé sans écart non décidé ;
+- la CSS distribuée reste statique, générée et déterministe : deux générations successives
+  sont identiques ;
+- `src/less`, `src/scss` et les mixins Less sont supprimés ;
+- le gate G15 est vert ;
+- les artefacts publics `dist/css/*` conservent leurs noms et leur contrat.
+
+## Phase 9 — Stabilisation et release candidate
 
 - État : **Planifié**
 
@@ -244,14 +336,16 @@ des exemples indexables au profil complet restent à réaliser.
 
 - exécuter la matrice complète ;
 - auditer les licences et la distribution ;
-- définir le nom du paquet, le remote `origin` et le schéma de version ;
-- produire les notes de migration ;
+- décider le remote `origin` et lever `private: true` (le nom `drake.css`, le titre et la
+  version 0.1.0 sont fixés par D-012) ;
+- produire les notes de migration, dont la table de renommage `uk-` vers `drk-` ;
 - mesurer tailles, performances d’initialisation et fuites ;
 - tester la reconstruction dans un environnement propre.
 
 ### Critères de sortie
 
-- gates G1 à G14 verts sous Node.js 24.18.0 et pnpm 11.4.0 ;
+- les gates G1 à G14, et G15 introduit par D-013, sont verts sous Node.js 24.18.0 et
+  pnpm 11.4.0 ;
 - catalogue `tests/` validé en LTR et RTL ;
 - distribution conforme aux contrats Tabler et Inter ;
 - aucune source JavaScript navigateur hors `dist/` et aucun registre SVG JS ;
@@ -259,18 +353,20 @@ des exemples indexables au profil complet restent à réaliser.
 - reflow 320 pixels CSS, cibles et parité mobile/bureau validés ;
 - budgets LCP/INP/CLS validés avec les preuves disponibles ;
 - notices légales présentes après minification ;
+- la dette Less/SCSS de D-013 est soldée ;
 - deuxième build sans diff ;
 - aucun blocage constitutionnel ou exception de release ouverte ;
 - tag release du fork annoté et distinct des tags amont.
 
-## Phase 8 — Maintenance amont
+## Phase 10 — Maintenance amont
 
 - État : **Planifié**
 
 ### Portée
 
 - exécuter une synchronisation amont pilote selon `UPSTREAM.md` ;
-- mesurer le coût réel du port JavaScript vers TypeScript ;
+- mesurer le coût réel du port JavaScript vers TypeScript et de l’application de la table de
+  renommage D-012 aux correctifs portés ;
 - améliorer les tests et la discipline de commits pour réduire les conflits ;
 - décider la cadence de veille et d’intégration.
 
@@ -283,18 +379,23 @@ des exemples indexables au profil complet restent à réaliser.
 
 Cette phase devient ensuite une activité récurrente, pas une migration ponctuelle.
 
-## Phase 9 — Adaptateur Elm facultatif
+## Phase 11 — Adaptateur Elm facultatif
 
 - État : **Planifié, non engagé**
 
+Réexamen du 2026-07-21 (D-014) : les raisons de D-003 sont reconduites. La possession du DOM
+par Elm reste incompatible avec le progressive enhancement HTML-first du cœur ; aucune
+pertinence n’est identifiée dans le cœur. Un adaptateur reste possible en paquet séparé après
+stabilisation.
+
 ### Condition d’entrée
 
-La phase 7 est terminée et l’API publique TypeScript est stable.
+La phase 9 est terminée et l’API publique TypeScript est stable.
 
 ### Portée autorisée
 
 - paquet séparé ;
-- helpers Elm produisant les classes et attributs publics ;
+- helpers Elm produisant les classes et attributs publics `drk-*` ;
 - ports ou custom elements confinés à l’application ou au paquet adaptateur ;
 - documentation et tests propres ;
 - aucun changement requis dans le cœur pour un utilisateur non Elm.

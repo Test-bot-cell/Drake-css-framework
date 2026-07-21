@@ -1,4 +1,4 @@
-import { css } from 'uikit-util';
+import { css } from 'drake-util';
 import type { SlideshowAnimations } from '../types';
 
 const animations: SlideshowAnimations = {

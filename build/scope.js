@@ -9,7 +9,7 @@ if (args.h || args.help) {
 
         example:
 
-        scope.js // will scope with uk-scope
+        scope.js // will scope with drk-scope
         scope.js -s "my-scope" // will replace any existing scope with my-scope
         scope.js cleanup // will remove current scope
 
@@ -17,7 +17,7 @@ if (args.h || args.help) {
     process.exit(0);
 }
 const currentScopeRe = /\/\* scoped: ([^*]*) \*\/\n/;
-const currentScopeLegacyRe = /\.(uk-scope)/;
+const currentScopeLegacyRe = /\.(drk-scope)/;
 
 const files = await glob('dist/**/*.css', ['**/*.min.css']);
 const prevScope = await getScope(files);
@@ -50,7 +50,7 @@ async function getScope(files) {
 }
 
 function getNewScope() {
-    const scopeFromInput = args.scope || args.s || 'uk-scope';
+    const scopeFromInput = args.scope || args.s || 'drk-scope';
 
     if (scopeFromInput.match(/^[a-z_\x7f-\xff][-\w\x7f-\xff]*$/i)) {
         return scopeFromInput;
@@ -68,7 +68,7 @@ async function scope(files, scope) {
             return `/* scoped: ${scope} */\n${
                 output.replace(
                     new RegExp(
-                        `.${scope}\\s((\\.(uk-(drag|modal-page|offcanvas-page|offcanvas-flip)))|html|:root)`,
+                        `.${scope}\\s((\\.(drk-(drag|modal-page|offcanvas-page|offcanvas-flip)))|html|:root)`,
                         'g',
                     ),
                     '$1',

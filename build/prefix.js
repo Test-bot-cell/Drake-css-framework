@@ -28,7 +28,7 @@ if (currentPrefix === prefix) {
 await replacePrefix(currentPrefix, prefix);
 
 async function findExistingPrefix() {
-    return (await read(`${path}/css/uikit.css`)).match(
+    return (await read(`${path}/css/drake.css`)).match(
         /([a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*)(-[a-z]+)?-grid/,
     )?.[1];
 }
@@ -70,7 +70,7 @@ async function replacePrefix(from, to) {
         await replaceInFile(file, (data) =>
             data
                 .replace(new RegExp(`${from}-`, 'g'), `${to}-`)
-                .replace(new RegExp(`(${from})?UIkit`, 'g'), `${to === 'uk' ? '' : to}UIkit`),
+                .replace(new RegExp(`(${from})?Drake`, 'g'), `${to === 'drk' ? '' : to}Drake`),
         );
     }
 }
