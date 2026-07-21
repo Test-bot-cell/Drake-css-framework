@@ -14,6 +14,9 @@ importers:
       '@rollup/plugin-alias':
         specifier: ^6.0.0
         version: 6.0.0(rollup@4.62.2)
+      '@tabler/icons':
+        specifier: 3.45.0
+        version: 3.45.0
       archiver:
         specifier: ^8.0.0
         version: 8.0.0
@@ -74,8 +77,14 @@ importers:
       svgo:
         specifier: ^4.0.0
         version: 4.0.1
+      typescript:
+        specifier: 5.5.2
+        version: 5.5.2
 
 packages:
+
+  '@tabler/icons@3.45.0':
+    resolution: {integrity: sha512-jiATwV8+zGYLTZ7gMLGivCic+KtsMZXcDmufIG8umlLxoHhI6902hGYIEt0Oa9Y9SXblNzUlrisHm5jOFMxOQA==}
 
   '@esbuild/aix-ppc64@0.28.1':
     resolution: {integrity: sha512-Svl7tq8k/08+p6CXPpRjQ1fKX+1odH/BQbb48fV6fj3CWHhsoIOoY87w1oHXm0qEpkIK3ZfVgp0hed3XBXzXMQ==}
@@ -1324,6 +1333,8 @@ packages:
     engines: {node: '>=18'}
 
 snapshots:
+
+  '@tabler/icons@3.45.0': {}
 
   '@esbuild/aix-ppc64@0.28.1':
     optional: true
