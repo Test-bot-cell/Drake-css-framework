@@ -9,6 +9,8 @@
 !/dist/css/uikit-core.min.css
 !/dist/css/uikit-core-rtl.css
 !/dist/css/uikit-core-rtl.min.css
+!/dist/css/uikit-inter.css
+!/dist/css/uikit-tabler-icons.css
 !/dist/js/
 /dist/js/*
 !/dist/js/uikit.js

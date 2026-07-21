@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Fork assets smoke test</title>
+        <link rel="stylesheet" href="../dist/css/uikit-inter.css" />
+        <link rel="stylesheet" href="../dist/css/uikit.css" />
+        <link rel="stylesheet" href="../dist/css/uikit-tabler-icons.css" />
+        <style>
+            .fork-assets-sample {
+                color: #1e87f0;
+                font-size: 3rem;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="uk-container uk-container-small uk-padding">
+            <h1>Inter variable + Tabler Outline</h1>
+            <p data-testid="inter-roman">Inter Variable Roman — 100 à 900.</p>
+            <p data-testid="inter-italic"><em>Inter Variable Italic — 100 à 900.</em></p>
+            <p>
+                <span
+                    class="uk-ti uk-ti-brand-tabler fork-assets-sample"
+                    data-testid="tabler-icon"
+                    aria-hidden="true"
+                ></span>
+                <span>Icône Tabler décorative, libellé texte distinct.</span>
+            </p>
+        </main>
+        <script src="../dist/js/uikit.js"></script>
+    </body>
+</html>

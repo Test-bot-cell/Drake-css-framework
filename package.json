@@ -16,6 +16,10 @@
         "lint": "eslint .",
         "typecheck": "tsc --noEmit",
         "build-scss": "node build/scss",
+        "build-assets": "node build/fork/generate-tabler-icons.js && node build/fork/generate-inter-css.js",
+        "build-icons-css": "node build/fork/generate-tabler-icons.js",
+        "build-inter-css": "node build/fork/generate-inter-css.js",
+        "check-assets": "node build/fork/check-assets.js",
         "compile": "pnpm compile-less && pnpm compile-js",
         "compile-js": "node build/build",
         "compile-less": "pnpm icons && node build/less",
@@ -39,6 +43,7 @@
     "devDependencies": {
         "@eslint/js": "^10.0.1",
         "@rollup/plugin-alias": "^6.0.0",
+        "@tabler/icons": "3.45.0",
         "archiver": "^8.0.0",
         "camelcase": "^9.0.0",
         "clean-css": "^5.3.3",
