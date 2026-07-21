@@ -100,6 +100,11 @@ explicitement :
 <link rel="stylesheet" href="/dist/css/drake-tabler-icons.css" />
 ```
 
+Le catalogue complet coûte ~3,9 Mo de CSS à parser (pour ~285 Ko de transfert) : une
+intégration qui connaît ses icônes génère plutôt une feuille réduite avec
+`generate-tabler-icons.js --subset` (voir `docs/fork/ICON_MIGRATION.md`). Les icônes
+sont des masques `currentColor`, monochromes par construction.
+
 Les alias historiques et la suppression volontaire de `Drake.icon.add` sont détaillés
 dans [`docs/fork/ICON_MIGRATION.md`](docs/fork/ICON_MIGRATION.md).
 
@@ -115,6 +120,29 @@ Les sources canoniques sont :
 
 `dist/` et `src/styles/tabler.ts` sont générés. Ils **NE DOIVENT** jamais recevoir une
 correction manuelle. La dépendance `@pandacss/dev` est épinglée en version exacte (1.11.4).
+
+## Comment c’est testé
+
+Chaque push sur `fork/main` rejoue l’intégralité des preuves en CI GitHub Actions
+(workflow `verify`, check requis par la protection de branche) :
+
+- `pnpm verify` — les gates constitutionnels G0 à G14 : format, lint, TypeScript strict
+  (+ test de consommation des déclarations publiées), builds CSS/JS/RTL/types,
+  manifeste, audits d’assets (empreintes épinglées, licences) et de politique frontend
+  (identité D-012, HTML-first/SEO, mobile-first, budgets de performance) — code sous
+  `build/fork/` ;
+- `pnpm check-compat` — la matrice de compatibilité C0-C3 en Chrome headless
+  (`tests/js/compat/`) : contrat sans-JavaScript des 88 pages du catalogue, 176
+  snapshots structurels LTR/RTL comparés à fixtures committées, 156 assertions
+  d’interaction (clavier, focus, ARIA, reconnexion DOM, plugins), montage et
+  destruction programmatiques de 58 composants sans résidu ;
+- `pnpm audit-heritage` — l’audit à 320 px CSS : zéro débordement, zéro image sans
+  alternative ou dimensions, hiérarchie de titres, cibles tactiles décomptées contre le
+  registre d’exceptions (`docs/fork/HERITAGE_EXCEPTIONS.md`) ;
+- un second build en fin de run prouve l’absence de diff (reproductibilité G9).
+
+Les résultats sont publics dans l’onglet Actions du dépôt ; `docs/fork/DEVELOPMENT.md`
+détaille chaque gate.
 
 ## Provenance et licences
 

@@ -63,3 +63,23 @@ framework.
 
 Une migration conforme supprime aussi tout chargement du bundle d’icônes JavaScript de
 l’amont, fichier qui n’est plus généré.
+
+## Feuille projet réduite et limites du format
+
+Le catalogue complet (5 112 icônes, ~3,9 Mo de CSS à parser pour ~285 Ko de transfert)
+reste opt-in et n'est jamais le chargement recommandé d'une page. Une intégration qui
+connaît ses icônes génère une feuille réduite à ses seuls besoins :
+
+```sh
+node build/fork/generate-tabler-icons.js \
+    --subset home,search,arrow-left \
+    --subset-output ./mon-projet/icons-subset.css
+```
+
+La feuille produite ne contient que les noms canoniques demandés (ni alias hérités, ni
+variantes RTL — demander les noms cibles), porte la même bannière légale MIT et refuse
+tout nom inconnu. Elle ne remplace jamais le catalogue épinglé de `dist/`.
+
+Limite de format assumée : les icônes sont des masques CSS sur `currentColor` —
+monochromes par construction (le set Tabler Outline est lui-même monochrome à traits).
+Une icône multicolore relève d'un SVG de contenu (`drk-svg`), pas du système d'icônes.

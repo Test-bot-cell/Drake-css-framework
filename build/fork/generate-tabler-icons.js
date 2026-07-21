@@ -105,8 +105,57 @@ console.log(
         `Drake CSS aliases in ${output}; internal masks in ${coreOutput}`,
 );
 
+// Feuille projet réduite (--subset) : outil consommateur, hors distribution — le
+// catalogue épinglé de dist/ n'est jamais remplacé par un subset.
+if (options.subset) {
+    if (!options.subsetOutput) {
+        throw new Error(`--subset requires --subset-output <path>.`);
+    }
+    const subsetOutput = resolve(options.subsetOutput);
+    if (subsetOutput.startsWith(join(PROJECT_ROOT, 'dist') + '/')) {
+        throw new Error(`--subset-output must point outside dist/ (pinned catalogue).`);
+    }
+    const requested = [...new Set(options.subset.split(',').map((name) => name.trim()))].filter(
+        Boolean,
+    );
+    const unknown = requested.filter((name) => !iconData.has(name));
+    if (!requested.length || unknown.length) {
+        throw new Error(
+            unknown.length
+                ? `Unknown Tabler icon name(s): ${unknown.join(', ')} — use canonical outline names.`
+                : `--subset requires at least one icon name.`,
+        );
+    }
+    const subsetRules = requested
+        .sort((left, right) => left.localeCompare(right, 'en'))
+        .map(
+            (name) =>
+                `.${CLASS_PREFIX}-${name} { --drk-ti-mask: url("${iconData.get(name).dataUri}"); }`,
+        );
+    const subsetCss = renderCss({
+        license,
+        mapping: { internal: {}, public: {} },
+        rtlAliasRules: [],
+        rules: subsetRules,
+        sourceHash: sourceDigest,
+    }).replace(`count=${EXPECTED_ICON_COUNT}`, `count=${subsetRules.length} subset=true`);
+    await writeAtomic(subsetOutput, subsetCss);
+    console.log(
+        `Generated a ${subsetRules.length}-icon subset sheet in ${subsetOutput} ` +
+            `(canonical names only, aliases and RTL variants excluded).`,
+    );
+}
+
 function parseArguments(argv) {
-    const result = { coreOutput: null, help: false, mapping: null, output: null, source: null };
+    const result = {
+        coreOutput: null,
+        help: false,
+        mapping: null,
+        output: null,
+        source: null,
+        subset: null,
+        subsetOutput: null,
+    };
 
     for (let index = 0; index < argv.length; index++) {
         const argument = argv[index];
@@ -117,7 +166,16 @@ function parseArguments(argv) {
         }
 
         const [name, inlineValue] = argument.split('=', 2);
-        if (!['--core-output', '--mapping', '--output', '--source'].includes(name)) {
+        if (
+            ![
+                '--core-output',
+                '--mapping',
+                '--output',
+                '--source',
+                '--subset',
+                '--subset-output',
+            ].includes(name)
+        ) {
             throw new Error(`Unknown argument: ${argument}`);
         }
 
@@ -143,6 +201,8 @@ Options:
   --source <path>       @tabler/icons package root or icons/outline directory
   --mapping <path>      Drake compatibility mapping JSON
   --output <path>       Complete CSS catalogue output
+  --subset <names>      Comma-separated canonical icon names for a project sheet
+  --subset-output <path> Reduced sheet output (required with --subset, outside dist/)
   --core-output <path>  Generated internal Less output
   -h, --help            Show this help
 `);
