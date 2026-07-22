@@ -6,8 +6,28 @@
     "main": "dist/js/drake.js",
     "types": "dist/types/drake.d.ts",
     "style": "dist/css/drake.css",
+    "exports": {
+        ".": {
+            "types": "./dist/types/drake.d.ts",
+            "import": "./dist/esm/drake.js",
+            "require": "./dist/js/drake.js"
+        },
+        "./core": {
+            "types": "./dist/types/drake-core.d.ts",
+            "import": "./dist/esm/drake-core.js",
+            "require": "./dist/js/drake-core.js"
+        },
+        "./components/*": {
+            "import": "./dist/js/components/*.esm.js",
+            "require": "./dist/js/components/*.js"
+        },
+        "./dist/*": "./dist/*",
+        "./package.json": "./package.json"
+    },
     "files": [
         "dist/css/*.css",
+        "dist/esm/**/*.js",
+        "dist/esm/package.json",
         "dist/fonts/*.woff2",
         "dist/js/*.js",
         "dist/js/components/*.js",
@@ -26,11 +46,20 @@
     "sideEffects": [
         "*.css",
         "./src/js/*.ts",
-        "./dist/**/*.js"
+        "./src/js/api/index.ts",
+        "./src/js/components/index.ts",
+        "./src/js/core/index.ts",
+        "./dist/js/**/*.js",
+        "./dist/esm/drake.js",
+        "./dist/esm/drake-core.js",
+        "./dist/esm/api/index.js",
+        "./dist/esm/api/boot.js",
+        "./dist/esm/components/index.js",
+        "./dist/esm/core/index.js"
     ],
     "scripts": {
         "lint": "eslint .",
-        "typecheck": "tsc --noEmit && tsc -p tests/types",
+        "typecheck": "tsc --noEmit && tsc -p tests/types && tsc -p tests/types/tsconfig.esm.json",
         "build-assets": "node build/fork/generate-tabler-icons.js && node build/fork/generate-inter-css.js",
         "build-icons-css": "node build/fork/generate-tabler-icons.js",
         "build-inter-css": "node build/fork/generate-inter-css.js",

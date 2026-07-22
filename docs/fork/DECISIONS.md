@@ -1003,6 +1003,59 @@ Trois garanties de production reposent encore sur la discipline humaine :
   des budgets est la nouvelle référence chiffrée du pilier vélocité côté
   distribution.
 
+## D-025 — Sortie ESM et carte `exports` (véhicule 0.2.0)
+
+- Date : 2026-07-22
+- Statut : **Acceptée** (arbitrages explicites du mainteneur du 2026-07-22 : bundles
+  ET modules préservés ; composants optionnels exposés dès 0.2.0)
+- Amende : D-017 (qui excluait l'ESM du périmètre 0.1.0 — l'exclusion prend fin)
+
+### Contexte
+
+Le paquet ne livre que des bundles UMD (`window.Drake`, `main`/`browser`). Les
+consommateurs modernes (Vite, esbuild, webpack) attendent `import`, des entrées par
+composant et le tree-shaking. C'était le principal frein d'adoption identifié.
+
+### Décision
+
+1. **Deux livraisons ESM**, générées par la même chaîne Rollup que l'UMD :
+    - bundles `dist/js/drake.esm.js`, `dist/js/drake-core.esm.js` (+ `.min`) et
+      `dist/js/components/<nom>.esm.js` — prêts pour `<script type="module">` et CDN ;
+    - arborescence de modules préservés `dist/esm/` (`preserveModules`, imports
+      relatifs avec extension, compatible Node et bundlers) — le tree-shaking réel.
+2. **Carte `exports`** de `package.json` :
+    - `"."` : `types` → déclarations existantes, `import` → entrée modules préservés,
+      `require` → UMD actuel (inchangé) ;
+    - `"./core"` : idem pour la variante core ;
+    - `"./components/*"` : `import` → ESM, `require` → UMD ;
+    - `"./dist/*"` : **passe-plat obligatoire** — la carte `exports` ne doit casser
+      aucun chemin profond existant (feuilles CSS, fontes, types) ;
+    - champs `main`/`style`/`types` conservés pour les outillages antérieurs.
+3. **`sideEffects` honnête** : les feuilles CSS, les bundles `dist/js/**`, les
+   entrées (`drake.js`, `drake-core.js`), l'amorçage et les modules de composants
+   (qui s'enregistrent à l'import) sont déclarés à effets ; les feuilles pures
+   (utilitaires, mixins) deviennent élagables. Aucun module ne peut être déclaré pur
+   sans preuve (un marquage erroné casse silencieusement le comportement — c'est le
+   risque n°1 de ce chantier).
+4. **Gates étendus, pas de nouveau contrat de comportement** : le runtime n'est pas
+   modifié (C0-C3 inchangés sans recapture) ; le gate consommateur ajoute la fumée
+   ESM (`import()` de l'entrée, d'un composant, `require` toujours vert, chemins
+   profonds résolus) ; le test de consommation de types couvre la résolution par la
+   carte `exports` ; les budgets de taille couvrent les nouveaux bundles ;
+   G9 (déterminisme) couvre `dist/esm/`.
+5. **Véhicule** : version `0.2.0` (SemVer, fonctionnalité) au rituel de release
+   D-024 ; l'UMD reste livré à l'identique — aucun changement cassant.
+
+### Conséquences
+
+- `import Drake from 'drake.css'` et `import 'drake.css/components/<nom>'`
+  fonctionnent nativement ; un bundler n'emporte que ce qu'il consomme (hors effets
+  déclarés).
+- Le paquet grossit (~arborescence `dist/esm/`) : couvert par les budgets D-024 et
+  le gate consommateur — le coût est visible et décidé, pas subi.
+- Toute évolution future du graphe de modules doit maintenir `sideEffects` exact ;
+  la fumée du gate consommateur en est le garde-fou minimal.
+
 ## Modèle d’une nouvelle décision
 
     ## D-NNN — Titre

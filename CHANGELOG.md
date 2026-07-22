@@ -17,6 +17,11 @@ dans [`docs/fork/CHANGELOG-uikit-amont.md`](docs/fork/CHANGELOG-uikit-amont.md).
   release outillé `pnpm release` (préflight, tag signé, release GitHub, vérification
   HTTP des chemins CDN), budgets de taille épinglés des artefacts principaux dans
   `pnpm verify` (relèvement = décision consignée, jamais silencieux).
+- Sortie ESM (décision D-025, amendant D-017) : bundles `drake.esm.js`,
+  `drake-core.esm.js` et composants `.esm.js`, arborescence de modules préservés
+  `dist/esm/` (tree-shaking réel), carte `exports` avec passe-plat `./dist/*`,
+  `sideEffects` déclaré, fumée ESM au gate consommateur, budgets et test de types
+  étendus — l'UMD reste livré à l'identique.
 
 ## 0.1.1 — 2026-07-21
 

@@ -16,6 +16,12 @@
         "dist/js/drake.js": 411648,
         "dist/js/drake.min.js": 179200,
         "dist/js/drake-core.js": 272384,
-        "dist/js/drake-core.min.js": 116736
+        "dist/js/drake-core.min.js": 116736,
+        "dist/js/drake.esm.js": 363520,
+        "dist/js/drake.esm.min.js": 179200,
+        "dist/js/drake-core.esm.js": 239616,
+        "dist/js/drake-core.esm.min.js": 116736,
+        "dist/js/drake-util.esm.js": 64512,
+        "dist/js/drake-util.esm.min.js": 30720
     }
 }

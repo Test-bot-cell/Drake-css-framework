@@ -68,7 +68,7 @@ export async function minify(file) {
 export async function compile(
     file,
     dest,
-    { external, globals, name, aliases, virtualModules } = {},
+    { external, globals, name, aliases, virtualModules, formats = ['umd'], esmPaths } = {},
 ) {
     const minify = !args.nominify;
     const debug = args.d || args.debug;
@@ -103,12 +103,7 @@ export async function compile(
                 supported: { 'template-literal': true, destructuring: true },
             }),
 
-            !debug && {
-                name: 'trim-whitespace',
-                transform(source) {
-                    return source.replaceAll(/(?<=>)\n\s+|\n\s+(?=<)/g, '  ');
-                },
-            },
+            !debug && trimWhitespacePlugin(),
         ],
     };
 
@@ -121,26 +116,48 @@ export async function compile(
         sourcemap: debug ? 'inline' : false,
     };
 
-    const output = [
-        {
-            ...outputOptions,
-            file: `${dest}.js`,
-        },
-    ];
+    const output = [];
 
-    if (minify) {
+    if (formats.includes('umd')) {
         output.push({
             ...outputOptions,
-            file: `${dest}.min.js`,
-            plugins: [
-                debug
-                    ? undefined
-                    : esbuildMinify({
-                          target: 'safari12',
-                          supported: { 'template-literal': true, destructuring: true },
-                      }),
-            ],
+            file: `${dest}.js`,
         });
+
+        if (minify) {
+            output.push({
+                ...outputOptions,
+                file: `${dest}.min.js`,
+                plugins: [minifyPlugin(debug)],
+            });
+        }
+    }
+
+    // Sortie ESM (D-025 §1) : même graphe, même bannière, format 'es'. `esmPaths`
+    // réécrit les identifiants externes vers des fichiers voisins ; la variante
+    // minifiée pointe vers les voisins minifiés pour qu'une page ne charge jamais
+    // deux exemplaires (min + non-min) du même module.
+    if (formats.includes('es')) {
+        const esmOutputOptions = {
+            banner,
+            format: 'es',
+            sourcemap: debug ? 'inline' : false,
+        };
+
+        output.push({
+            ...esmOutputOptions,
+            file: `${dest}.esm.js`,
+            paths: esmPaths,
+        });
+
+        if (minify) {
+            output.push({
+                ...esmOutputOptions,
+                file: `${dest}.esm.min.js`,
+                paths: minifiedPaths(esmPaths),
+                plugins: [minifyPlugin(debug)],
+            });
+        }
     }
 
     if (!watch) {
@@ -174,6 +191,134 @@ export async function compile(
 
         return watcher;
     }
+}
+
+// Modules préservés (D-025 §1) : un seul graphe Rollup multi-entrées, émis fichier
+// par fichier (imports relatifs avec extension .js, compatibles Node), non minifié,
+// bannière légale sur les entrées seulement.
+export async function compileModules(files, dest) {
+    const debug = args.d || args.debug;
+    const log = args.l || args.log;
+    const watch = args.w || args.watch;
+
+    const inputOptions = {
+        input: files,
+        plugins: [
+            virtualModulesPlugin({
+                'virtual:version': `'${await getVersion()}'`,
+                'virtual:log': String(!!log),
+            }),
+
+            alias({
+                entries: {
+                    'drake-util': path.resolve('./src/js/util/index.ts'),
+                },
+            }),
+
+            svgPlugin(),
+
+            esbuild({
+                target: 'safari12',
+                sourceMap: !!debug,
+                minify: false,
+                supported: { 'template-literal': true, destructuring: true },
+            }),
+
+            !debug && trimWhitespacePlugin(),
+
+            {
+                // Le champ type ne peut pas vivre à la racine du paquet (il ferait
+                // interpréter les bundles UMD comme des modules ES) : ce manifeste
+                // local rend dist/esm/ nativement ESM pour Node, sans re-parse.
+                name: 'esm-package-type',
+                generateBundle() {
+                    this.emitFile({
+                        type: 'asset',
+                        fileName: 'package.json',
+                        source: `${JSON.stringify({ type: 'module' }, null, 4)}\n`,
+                    });
+                },
+            },
+        ],
+    };
+
+    const output = [
+        {
+            dir: dest,
+            format: 'es',
+            preserveModules: true,
+            preserveModulesRoot: 'src/js',
+            entryFileNames: '[name].js',
+            sourcemap: debug ? 'inline' : false,
+            banner: (chunk) => (chunk.isEntry ? banner : ''),
+        },
+    ];
+
+    if (!watch) {
+        const bundle = await rollup(inputOptions);
+
+        for (const options of output) {
+            const { output: chunks } = await limit(() => bundle.write(options));
+            for (const chunk of chunks) {
+                if (chunk.isEntry) {
+                    logFile(path.join(options.dir, chunk.fileName));
+                }
+            }
+        }
+
+        await bundle.close();
+    } else {
+        console.log('Drake is watching the files...');
+
+        const watcher = rollupWatch({
+            ...inputOptions,
+            output,
+        });
+
+        watcher.on('event', ({ code, result, error }) => {
+            if (result) {
+                result.close();
+            }
+            if (code === 'BUNDLE_END') {
+                console.log(`${styleText(['cyan', 'bold'], dest)} updated`);
+            }
+            if (error) {
+                console.error(error);
+            }
+        });
+
+        return watcher;
+    }
+}
+
+function trimWhitespacePlugin() {
+    return {
+        name: 'trim-whitespace',
+        transform(source) {
+            return source.replaceAll(/(?<=>)\n\s+|\n\s+(?=<)/g, '  ');
+        },
+    };
+}
+
+function minifyPlugin(debug) {
+    return debug
+        ? undefined
+        : esbuildMinify({
+              target: 'safari12',
+              supported: { 'template-literal': true, destructuring: true },
+          });
+}
+
+function minifiedPaths(paths) {
+    return (
+        paths &&
+        Object.fromEntries(
+            Object.entries(paths).map(([id, target]) => [
+                id,
+                target.replace(/\.esm\.js$/, '.esm.min.js'),
+            ]),
+        )
+    );
 }
 
 function ucfirst(str) {

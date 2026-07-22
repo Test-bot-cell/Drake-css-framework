@@ -14,7 +14,9 @@ import { promisify } from 'node:util';
 // vierge en répertoire temporaire, chargement réel du point d'entrée (le bundle UMD
 // s'exporte en CommonJS sous Node, sans DOM), cohérence de version, puis présence des
 // fichiers recommandés par le README dans l'arbre installé. Une release cassée est ainsi
-// détectée avant le tag, plus jamais après.
+// détectée avant le tag, plus jamais après. La fumée ESM (D-025) s'y ajoute : l'entrée
+// import de la carte exports et un composant réel se chargent dans un processus Node
+// vierge, require reste vert, et le passe-plat ./dist/* résout un chemin profond.
 
 const execFileAsync = promisify(execFile);
 const PROJECT_ROOT = fileURLToPath(new URL('../..', import.meta.url));
@@ -33,6 +35,11 @@ const EXPECTED_RUNTIME_SURFACES = {
 // EXPECTED_INTER_FONT_FILES dans build/fork/check-assets.js (les empreintes exactes sont
 // vérifiées là-bas ; ici, seule la présence dans l'arbre installé est en jeu). Le point
 // d'entrée des types s'y ajoute, lu dans le champ types du paquet installé.
+// Fumée ESM (D-025) : un composant réel du paquet (entrée ./components/* de la carte
+// exports) et un chemin profond représentatif servi par le passe-plat ./dist/*.
+const ESM_SMOKE_COMPONENT = 'filter';
+const DEEP_PATH_SPECIMEN = 'dist/css/drake.css';
+
 const README_RECOMMENDED_FILES = [
     'dist/css/drake.css',
     'dist/css/drake.min.css',
@@ -57,6 +64,8 @@ try {
 
     const installed = await readInstalledManifest(installedRoot, manifest);
     smokeTestRuntime(consumer, manifest);
+    await smokeTestEsmModules(consumer, manifest);
+    await checkDeepPathResolution(consumer, manifest);
     const checkedFileCount = await checkRecommendedFiles(installedRoot, installed);
 
     console.log(
@@ -64,7 +73,9 @@ try {
             `${manifest.name}@${manifest.version} empaqueté, installé dans un consommateur ` +
             `vierge et chargé sans window ` +
             `(surfaces ${Object.keys(EXPECTED_RUNTIME_SURFACES).join(', ')}) ; ` +
-            `${checkedFileCount} fichiers recommandés présents.`,
+            `fumée ESM D-025 verte (import de l'entrée et du composant ` +
+            `${ESM_SMOKE_COMPONENT}, require inchangé, passe-plat ${DEEP_PATH_SPECIMEN} ` +
+            `résolu) ; ${checkedFileCount} fichiers recommandés présents.`,
     );
 } catch (error) {
     console.error(`Gate consommateur en échec : ${error.message}`);
@@ -195,6 +206,68 @@ function smokeTestRuntime(consumer, manifest) {
                 `de ${manifest.version} — reconstruire les bundles (pnpm compile).`,
         );
     }
+}
+
+async function smokeTestEsmModules(consumer, manifest) {
+    // Fumée ESM (D-025) : l'entrée import de la carte exports (dist/esm/drake.js) et un
+    // composant réel (dist/js/components/*.esm.js) doivent se charger depuis le
+    // consommateur vierge, dans un processus Node séparé et sans DOM — l'amorçage se
+    // retire de lui-même hors navigateur, et l'enregistrement du composant est gardé par
+    // typeof window. Les surfaces attendues sont les mêmes que pour la fumée require.
+    const script = join(consumer, 'smoke-esm.mjs');
+    const componentSpecifier = `${manifest.name}/components/${ESM_SMOKE_COMPONENT}`;
+    await writeFile(
+        script,
+        [
+            `import assert from 'node:assert/strict';`,
+            `import Drake from ${JSON.stringify(manifest.name)};`,
+            `import Component from ${JSON.stringify(componentSpecifier)};`,
+            `assert.equal(typeof globalThis.window, 'undefined', 'fumée ESM sans DOM invalide : un global window est présent');`,
+            `assert.ok(Drake !== null && (typeof Drake === 'object' || typeof Drake === 'function'), \`l'entrée ESM n'exporte pas l'objet runtime : reçu \${typeof Drake}\`);`,
+            ...Object.entries(EXPECTED_RUNTIME_SURFACES).map(
+                ([surface, expectedType]) =>
+                    `assert.ok(typeof Drake[${JSON.stringify(surface)}] === ${JSON.stringify(expectedType)} && Drake[${JSON.stringify(surface)}] !== null, \`surface runtime absente ou invalide sur l'export ESM : ${surface} (attendu ${expectedType}, reçu \${typeof Drake[${JSON.stringify(surface)}]})\`);`,
+            ),
+            `assert.equal(Drake.version, ${JSON.stringify(manifest.version)}, \`version runtime ESM incohérente : \${Drake.version} au lieu de ${manifest.version}\`);`,
+            `assert.ok(Component !== null && (typeof Component === 'object' || typeof Component === 'function'), \`le composant ${ESM_SMOKE_COMPONENT} n'exporte pas de définition : reçu \${typeof Component}\`);`,
+            ``,
+        ].join('\n'),
+    );
+
+    try {
+        await execFileAsync(process.execPath, [script], {
+            cwd: consumer,
+            encoding: 'utf8',
+            maxBuffer: 16 * 1024 * 1024,
+        });
+    } catch (error) {
+        const detail =
+            error.stderr?.trim().split('\n').slice(-5).join(' | ') || error.message || error;
+        throw new Error(
+            `La fumée ESM a échoué (import('${manifest.name}') et ` +
+                `import('${componentSpecifier}') depuis le consommateur) : ${detail}`,
+            { cause: error },
+        );
+    }
+}
+
+async function checkDeepPathResolution(consumer, manifest) {
+    // Passe-plat ./dist/* (D-025) : la carte exports ne doit casser aucun chemin profond
+    // existant — require.resolve d'une feuille CSS recommandée le prouve depuis le
+    // consommateur (une carte sans passe-plat ferait échouer cette résolution).
+    const requireFromConsumer = createRequire(join(consumer, 'smoke.cjs'));
+    const specifier = `${manifest.name}/${DEEP_PATH_SPECIMEN}`;
+    let resolved;
+    try {
+        resolved = requireFromConsumer.resolve(specifier);
+    } catch (error) {
+        throw new Error(
+            `require.resolve('${specifier}') a échoué depuis le consommateur : le ` +
+                `passe-plat ./dist/* de la carte exports est absent ou cassé (${error.message}).`,
+            { cause: error },
+        );
+    }
+    await assertNonEmptyFile(resolved, `le chemin profond résolu ${specifier}`);
 }
 
 async function checkRecommendedFiles(installedRoot, installed) {

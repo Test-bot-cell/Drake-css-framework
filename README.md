@@ -67,6 +67,34 @@ dans `dist/js/` est l’artefact compilé indispensable aux navigateurs ; aucune
 JavaScript frontend n’est maintenue hors de `dist/`. Les composants individuels sont
 livrés sous `dist/js/components/`.
 
+Depuis la décision D-025, le runtime est aussi livré en ESM, sans changement cassant :
+les bundles UMD restent distribués à l’identique (`window.Drake`) et `require('drake.css')`
+continue de résoudre `dist/js/drake.js`. Avec un bundler (Vite, esbuild, webpack), la
+carte `exports` de `package.json` résout `import` vers l’arborescence de modules préservés
+`dist/esm/` ; combinée à la déclaration `sideEffects`, elle permet le tree-shaking : le
+bundler n’emporte que les modules réellement consommés. Chaque composant optionnel
+s’enregistre à l’import via `import 'drake.css/components/<nom>'` :
+
+```js
+import Drake from 'drake.css';
+
+import 'drake.css/components/filter';
+```
+
+Sans bundler, les bundles `dist/js/*.esm.js` et `dist/js/components/*.esm.js` (et leurs
+variantes `.min`) se chargent en module natif depuis le même CDN, au tag de la release
+qui livre l’ESM (`v0.2.0`, véhicule de la décision D-025) :
+
+```html
+<script
+    type="module"
+    src="https://cdn.jsdelivr.net/gh/Test-bot-cell/Drake-css-framework@v0.2.0/dist/js/drake.esm.js"
+></script>
+```
+
+Dans tous les cas, l’ESM ne couvre que le JavaScript : les feuilles CSS se chargent
+séparément, comme décrit dans [« Chargement recommandé »](#chargement-recommandé).
+
 ## Installation locale
 
 La chaîne de référence utilise Node.js 24.18.0 exact et pnpm 11.4.0 :

@@ -1,7 +1,7 @@
 import camelize from 'camelcase';
 import path from 'node:path';
 import pLimit from 'p-limit';
-import { args, compile, glob } from './util.js';
+import { args, compile, compileModules, glob } from './util.js';
 
 const limit = pLimit(Number(process.env.cpus || 2));
 
@@ -49,9 +49,18 @@ await Promise.all(Object.values(tasks).map((task) => limit(task)));
 
 function getBundleTasks() {
     return {
-        core: () => compile('src/js/drake-core.ts', 'dist/js/drake-core'),
+        core: () =>
+            compile('src/js/drake-core.ts', 'dist/js/drake-core', { formats: ['umd', 'es'] }),
 
-        drake: () => compile('src/js/drake.ts', 'dist/js/drake'),
+        drake: () => compile('src/js/drake.ts', 'dist/js/drake', { formats: ['umd', 'es'] }),
+
+        // Source ESM des utilitaires pour les composants (D-025 §1) : pas d'UMD,
+        // `Drake.util` reste porté par les bundles historiques.
+        'drake-util': () =>
+            compile('src/js/util/index.ts', 'dist/js/drake-util', { formats: ['es'] }),
+
+        // Arborescence de modules préservés (D-025 §1) : le tree-shaking réel.
+        esm: () => compileModules(['src/js/drake.ts', 'src/js/drake-core.ts'], 'dist/esm'),
 
         tests: async () =>
             compile('tests/js/index.ts', 'dist/js/tests/test', {
@@ -74,6 +83,10 @@ async function getComponentTasks() {
                 name,
                 external: ['drake', 'drake-util'],
                 globals: { drake: 'Drake', 'drake-util': 'Drake.util' },
+                formats: ['umd', 'es'],
+                // En ESM, les externes se résolvent en voisins de fichiers (D-025 §1) :
+                // aucune seconde instance de Drake n'est embarquée dans les composants.
+                esmPaths: { drake: './../drake.esm.js', 'drake-util': './../drake-util.esm.js' },
                 aliases: { component: path.resolve('src/js/components', `${name}.ts`) },
                 virtualModules: { 'virtual:name': `'${camelize(name)}'` },
             });
