@@ -949,6 +949,60 @@ ni les gates. Aucune branche `sync/…` n'est ouverte (il n'y a rien à intégre
   écart de la base elle-même : il est consigné et traité par décision dédiée, jamais
   corrigé silencieusement.
 
+## D-024 — Trio de fiabilité de distribution : gate consommateur, rituel de release outillé, budgets de taille
+
+- Date : 2026-07-22
+- Statut : **Acceptée** (arbitrage explicite du mainteneur du 2026-07-22 : ordre de
+  bataille « quick wins de fiabilité d'abord » approuvé)
+- Complète : D-020 (distribution GitHub-first) et le pilier vélocité
+
+### Contexte
+
+Trois garanties de production reposent encore sur la discipline humaine :
+
+1. le canal de distribution D-020 (tarball → install → artefacts servis) n'a été
+   prouvé qu'une fois, manuellement ;
+2. le rituel de release (préflight, tag signé, release GitHub, vérification HTTP des
+   chemins CDN recommandés — la « leçon du chemin mort » de v0.1.0) est exécuté à la
+   main à chaque version ;
+3. aucun gate ne surveille la dérive de taille des artefacts : une régression de
+   poids passerait silencieusement (le pilier vélocité n'est pas outillé côté
+   distribution).
+
+### Décision
+
+1. **Gate consommateur** (`build/fork/check-consumer.js`, étape CI dédiée après la
+   preuve de non-diff) : empaquette le paquet (`npm pack --ignore-scripts`, légitime
+   car les artefacts viennent d'être reconstruits et prouvés sans diff), l'installe
+   dans un projet consommateur vierge en répertoire temporaire, puis vérifie : la
+   résolution du point d'entrée et son chargement (l'objet global exposé et ses
+   surfaces attendues), la cohérence de version, et la présence des fichiers
+   recommandés par le README (feuilles CSS, fontes subsettées, types).
+2. **Rituel de release outillé** (`build/fork/release.js`, script `pnpm release`) en
+   sous-commandes explicites : `--check` (préflight : arbre propre, cohérence de
+   version package/CHANGELOG/README, CI verte sur HEAD, état du tag), `--tag` (tag
+   annoté **signé**, notes extraites du CHANGELOG), `--publish` (tarball frais +
+   release GitHub avec notes), `--verify-cdn` (HTTP 200 et tailles exactes des
+   chemins recommandés au tag, avec tentatives espacées pour l'échauffement CDN).
+   Le script n'exécute **jamais** de push ni d'étape irréversible sans sa
+   sous-commande dédiée : chaque étape reste un feu vert du mainteneur.
+3. **Budgets de taille** (`build/fork/check-budgets.js` + fixture
+   `tests/fixtures/size-budgets.json`, intégré à `pnpm verify`) : chaque artefact
+   principal de `dist/` porte un budget épinglé = taille actuelle + 5 % arrondie au
+   Kio supérieur. Dépassement = échec du gate ; le remède est l'optimisation ou une
+   décision consignée de relèvement — jamais un relèvement silencieux. Les fontes
+   restent sous empreintes exactes (D-022, plus fort qu'un budget).
+
+### Conséquences
+
+- Le canal D-020 est re-prouvé à chaque push ; une release cassée est détectée avant
+  le tag, plus jamais après.
+- La vérification CDN post-release devient structurelle (outillée et répétable) au
+  lieu de disciplinaire.
+- Toute évolution de poids des artefacts devient une décision visible ; le registre
+  des budgets est la nouvelle référence chiffrée du pilier vélocité côté
+  distribution.
+
 ## Modèle d’une nouvelle décision
 
     ## D-NNN — Titre

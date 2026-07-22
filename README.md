@@ -133,9 +133,9 @@ Chaque push sur `fork/main` rejoue l’intégralité des preuves en CI GitHub Ac
 
 - `pnpm verify` — les gates constitutionnels G0 à G14 : format, lint, TypeScript strict
   (+ test de consommation des déclarations publiées), builds CSS/JS/RTL/types,
-  manifeste, audits d’assets (empreintes épinglées, licences) et de politique frontend
-  (identité D-012, HTML-first/SEO, mobile-first, budgets de performance) — code sous
-  `build/fork/` ;
+  manifeste, audits d’assets (empreintes épinglées, licences), budgets de taille des
+  artefacts (D-024) et politique frontend (identité D-012, HTML-first/SEO,
+  mobile-first, budgets de performance) — code sous `build/fork/` ;
 - `pnpm check-compat` — la matrice de compatibilité C0-C3 en Chrome headless
   (`tests/js/compat/`) : contrat sans-JavaScript des 88 pages du catalogue, 176
   snapshots structurels LTR/RTL comparés à fixtures committées, 156 assertions
@@ -144,7 +144,10 @@ Chaque push sur `fork/main` rejoue l’intégralité des preuves en CI GitHub Ac
 - `pnpm audit-heritage` — l’audit à 320 px CSS : zéro débordement, zéro image sans
   alternative ou dimensions, hiérarchie de titres, cibles tactiles décomptées contre le
   registre d’exceptions (`docs/fork/HERITAGE_EXCEPTIONS.md`) ;
-- un second build en fin de run prouve l’absence de diff (reproductibilité G9).
+- un second build en fin de run prouve l’absence de diff (reproductibilité G9) ;
+- le gate consommateur (D-024) clôt le run : le tarball npm est installé dans un
+  projet vierge et chargé — le canal de distribution D-020 est re-prouvé à chaque
+  push, pas seulement à la release.
 
 Les résultats sont publics dans l’onglet Actions du dépôt ; `docs/fork/DEVELOPMENT.md`
 détaille chaque gate.

@@ -36,6 +36,8 @@
         "build-inter-css": "node build/fork/generate-inter-css.js",
         "build-manifest": "node build/fork/dist-manifest.js",
         "check-assets": "node build/fork/check-assets.js",
+        "check-budgets": "node build/fork/check-budgets.js",
+        "check-consumer": "node build/fork/check-consumer.js",
         "check-compat": "node build/fork/check-compat",
         "audit-heritage": "node build/fork/audit-heritage",
         "check-frontend": "node build/fork/check-frontend.js",
@@ -49,9 +51,10 @@
         "prepack": "pnpm build-assets && pnpm compile && pnpm compile-rtl && pnpm build-manifest && pnpm check-node-runtime && pnpm check-assets",
         "prefix": "node build/prefix",
         "scope": "node build/scope",
-        "verify": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm build-assets && pnpm compile && pnpm compile-rtl && pnpm build-manifest && pnpm check-node-runtime && pnpm check-assets && pnpm check-frontend",
+        "verify": "pnpm format:check && pnpm lint && pnpm typecheck && pnpm build-assets && pnpm compile && pnpm compile-rtl && pnpm build-manifest && pnpm check-node-runtime && pnpm check-assets && pnpm check-budgets && pnpm check-frontend",
         "watch": "node build/watch.js",
-        "compile-css": "node build/panda"
+        "compile-css": "node build/panda",
+        "release": "node build/fork/release.js"
     },
     "drakeFork": {
         "upstream": "https://github.com/uikit/uikit.git",

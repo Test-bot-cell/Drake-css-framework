@@ -3,6 +3,21 @@
 Journal des changements de Drake.css framework. L'historique du projet amont est archivé
 dans [`docs/fork/CHANGELOG-uikit-amont.md`](docs/fork/CHANGELOG-uikit-amont.md).
 
+## Non publié
+
+### Ajouté
+
+- Pilote de synchronisation amont à blanc (décision D-023) : la procédure
+  `docs/fork/UPSTREAM.md` exercée sur le delta historique v3.25.16 → v3.25.20 avec
+  vérité terrain — 44 hunks substantiels vérifiés, 32 retrouvés preuve à l'appui,
+  12 sans objet par décision, zéro absent ; outillage `build/fork/sync-scout.js` et
+  rapport en section 11 d'`UPSTREAM.md`.
+- Trio de fiabilité de distribution (décision D-024) : gate consommateur en CI (le
+  tarball est installé dans un projet vierge et fumé à chaque push), rituel de
+  release outillé `pnpm release` (préflight, tag signé, release GitHub, vérification
+  HTTP des chemins CDN), budgets de taille épinglés des artefacts principaux dans
+  `pnpm verify` (relèvement = décision consignée, jamais silencieux).
+
 ## 0.1.1 — 2026-07-21
 
 ### Ajouté

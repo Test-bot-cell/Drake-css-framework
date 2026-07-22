@@ -50,3 +50,5 @@ jobs:
         run: pnpm audit-heritage
       - name: No diff after rebuild (G9)
         run: git diff --exit-code && test -z "$(git status --porcelain)"
+      - name: Gate consommateur (D-024)
+        run: node build/fork/check-consumer.js

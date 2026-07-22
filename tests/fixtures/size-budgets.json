@@ -1,0 +1,21 @@
+{
+    "schemaVersion": 1,
+    "policy": "D-024 — budget = taille constatée + 5 % arrondie au Kio supérieur ; relèvement = décision consignée, jamais silencieux",
+    "budgets": {
+        "dist/css/drake.css": 362496,
+        "dist/css/drake.min.css": 329728,
+        "dist/css/drake-rtl.css": 362496,
+        "dist/css/drake-rtl.min.css": 329728,
+        "dist/css/drake-core.css": 343040,
+        "dist/css/drake-core.min.css": 312320,
+        "dist/css/drake-core-rtl.css": 343040,
+        "dist/css/drake-core-rtl.min.css": 312320,
+        "dist/css/drake-inter.css": 1042432,
+        "dist/css/drake-inter-files.css": 8192,
+        "dist/css/drake-tabler-icons.css": 4205568,
+        "dist/js/drake.js": 411648,
+        "dist/js/drake.min.js": 179200,
+        "dist/js/drake-core.js": 272384,
+        "dist/js/drake-core.min.js": 116736
+    }
+}
