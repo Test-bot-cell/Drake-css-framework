@@ -1,0 +1,390 @@
+{
+    "schemaVersion": 1,
+    "outil": "build/fork/sync-scout.js (D-023)",
+    "fenetre": {
+        "base": "v3.25.16",
+        "cible": "v3.25.20"
+    },
+    "resume": {
+        "revue-manuelle": 13,
+        "archiver": 1,
+        "sans-objet": 9,
+        "porter": 17
+    },
+    "entrees": [
+        {
+            "status": "M",
+            "path": ".github/ISSUE_TEMPLATE/bug-report.md",
+            "disposition": "revue-manuelle",
+            "motif": "CI et gabarits propres au fork (workflow verify consolidé)",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": ".github/dependabot.yml",
+            "disposition": "revue-manuelle",
+            "motif": "CI et gabarits propres au fork (workflow verify consolidé)",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": ".github/workflows/publish-npm.yml",
+            "disposition": "revue-manuelle",
+            "motif": "CI et gabarits propres au fork (workflow verify consolidé)",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": ".gitignore",
+            "disposition": "revue-manuelle",
+            "motif": "hors règles de classement : décision humaine requise",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "CHANGELOG.md",
+            "disposition": "archiver",
+            "motif": "journal amont archivé intégralement",
+            "destinations": [
+                {
+                    "path": "docs/fork/CHANGELOG-uikit-amont.md",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "build/build.js",
+            "disposition": "revue-manuelle",
+            "motif": "hors règles de classement : décision humaine requise",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "build/icons.js",
+            "disposition": "revue-manuelle",
+            "motif": "hors règles de classement : décision humaine requise",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "build/release.js",
+            "disposition": "revue-manuelle",
+            "motif": "hors règles de classement : décision humaine requise",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "build/scope.js",
+            "disposition": "revue-manuelle",
+            "motif": "hors règles de classement : décision humaine requise",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "build/scss.js",
+            "disposition": "revue-manuelle",
+            "motif": "hors règles de classement : décision humaine requise",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "build/util.js",
+            "disposition": "revue-manuelle",
+            "motif": "hors règles de classement : décision humaine requise",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "dist/css/uikit-rtl.css",
+            "disposition": "sans-objet",
+            "motif": "artefact amont : le fork régénère ses propres artefacts (G9)",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "dist/css/uikit-rtl.min.css",
+            "disposition": "sans-objet",
+            "motif": "artefact amont : le fork régénère ses propres artefacts (G9)",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "dist/css/uikit.css",
+            "disposition": "sans-objet",
+            "motif": "artefact amont : le fork régénère ses propres artefacts (G9)",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "dist/css/uikit.min.css",
+            "disposition": "sans-objet",
+            "motif": "artefact amont : le fork régénère ses propres artefacts (G9)",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "dist/js/uikit-icons.js",
+            "disposition": "sans-objet",
+            "motif": "artefact amont : le fork régénère ses propres artefacts (G9)",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "dist/js/uikit-icons.min.js",
+            "disposition": "sans-objet",
+            "motif": "artefact amont : le fork régénère ses propres artefacts (G9)",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "dist/js/uikit.js",
+            "disposition": "sans-objet",
+            "motif": "artefact amont : le fork régénère ses propres artefacts (G9)",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "dist/js/uikit.min.js",
+            "disposition": "sans-objet",
+            "motif": "artefact amont : le fork régénère ses propres artefacts (G9)",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "package.json",
+            "disposition": "revue-manuelle",
+            "motif": "packaging du fork indépendant ; dépendances épinglées (D-008)",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "pnpm-lock.yaml",
+            "disposition": "revue-manuelle",
+            "motif": "packaging du fork indépendant ; dépendances épinglées (D-008)",
+            "destinations": []
+        },
+        {
+            "status": "A",
+            "path": "pnpm-workspace.yaml",
+            "disposition": "revue-manuelle",
+            "motif": "hors règles de classement : décision humaine requise",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "src/js/api/instance.js",
+            "disposition": "porter",
+            "motif": "source runtime : contrepartie TypeScript stricte du fork",
+            "destinations": [
+                {
+                    "path": "src/js/api/instance.ts",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "src/js/components/filter.js",
+            "disposition": "porter",
+            "motif": "source runtime : contrepartie TypeScript stricte du fork",
+            "destinations": [
+                {
+                    "path": "src/js/components/filter.ts",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "src/js/components/slider.js",
+            "disposition": "porter",
+            "motif": "source runtime : contrepartie TypeScript stricte du fork",
+            "destinations": [
+                {
+                    "path": "src/js/components/slider.ts",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "src/js/components/upload.js",
+            "disposition": "porter",
+            "motif": "source runtime : contrepartie TypeScript stricte du fork",
+            "destinations": [
+                {
+                    "path": "src/js/components/upload.ts",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "src/js/mixin/internal/animate-slide.js",
+            "disposition": "porter",
+            "motif": "source runtime : contrepartie TypeScript stricte du fork",
+            "destinations": [
+                {
+                    "path": "src/js/mixin/internal/animate-slide.ts",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "src/js/mixin/slider-nav.js",
+            "disposition": "porter",
+            "motif": "source runtime : contrepartie TypeScript stricte du fork",
+            "destinations": [
+                {
+                    "path": "src/js/mixin/slider-nav.ts",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "src/js/util/event.js",
+            "disposition": "porter",
+            "motif": "source runtime : contrepartie TypeScript stricte du fork",
+            "destinations": [
+                {
+                    "path": "src/js/util/event.ts",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "src/js/util/position.js",
+            "disposition": "porter",
+            "motif": "source runtime : contrepartie TypeScript stricte du fork",
+            "destinations": [
+                {
+                    "path": "src/js/util/position.ts",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "src/less/components/slideshow.less",
+            "disposition": "porter",
+            "motif": "source de styles : fragments Panda core et theme du composant (D-013)",
+            "destinations": [
+                {
+                    "path": "src/styles/core/slideshow.ts",
+                    "exists": true
+                },
+                {
+                    "path": "src/styles/theme/slideshow.ts",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "src/scss/components/slideshow.scss",
+            "disposition": "sans-objet",
+            "motif": "miroir SCSS supprimé par D-013",
+            "destinations": []
+        },
+        {
+            "status": "M",
+            "path": "tests/base.html",
+            "disposition": "porter",
+            "motif": "page de test : même chemin, contenu traduit par la table D-012",
+            "destinations": [
+                {
+                    "path": "tests/base.html",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "tests/cover.html",
+            "disposition": "porter",
+            "motif": "page de test : même chemin, contenu traduit par la table D-012",
+            "destinations": [
+                {
+                    "path": "tests/cover.html",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "tests/lightbox.html",
+            "disposition": "porter",
+            "motif": "page de test : même chemin, contenu traduit par la table D-012",
+            "destinations": [
+                {
+                    "path": "tests/lightbox.html",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "tests/modal.html",
+            "disposition": "porter",
+            "motif": "page de test : même chemin, contenu traduit par la table D-012",
+            "destinations": [
+                {
+                    "path": "tests/modal.html",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "tests/slideshow.html",
+            "disposition": "porter",
+            "motif": "page de test : même chemin, contenu traduit par la table D-012",
+            "destinations": [
+                {
+                    "path": "tests/slideshow.html",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "tests/sortable.html",
+            "disposition": "porter",
+            "motif": "page de test : même chemin, contenu traduit par la table D-012",
+            "destinations": [
+                {
+                    "path": "tests/sortable.html",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "tests/upload.html",
+            "disposition": "porter",
+            "motif": "page de test : même chemin, contenu traduit par la table D-012",
+            "destinations": [
+                {
+                    "path": "tests/upload.html",
+                    "exists": true
+                }
+            ]
+        },
+        {
+            "status": "M",
+            "path": "tests/video.html",
+            "disposition": "porter",
+            "motif": "page de test : même chemin, contenu traduit par la table D-012",
+            "destinations": [
+                {
+                    "path": "tests/video.html",
+                    "exists": true
+                }
+            ]
+        }
+    ]
+}

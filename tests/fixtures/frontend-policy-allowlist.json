@@ -176,6 +176,10 @@
             "reason": "Captured trace of the yootheme brand-icon alias demo."
         },
         {
+            "file": "tests/fixtures/sync-pilot.json",
+            "reason": "Sync pilot inventory (D-023) listing upstream artefact paths verbatim."
+        },
+        {
             "file": "tests/icon.html",
             "reason": "Demonstrates the yootheme brand-icon alias."
         },

@@ -888,6 +888,67 @@ campagne ; l'implémentation les suit fidèlement.
 - Les attentes des fixtures G11/G13 sont re-épinglées pour les deux pages corrigées
   (divergence décidée) ; l'esthétique héritée est préservée partout ailleurs au pixel.
 
+## D-023 — Pilote de synchronisation à blanc sur delta amont historique
+
+- Date : 2026-07-22
+- Statut : **Acceptée** (arbitrage explicite du mainteneur du 2026-07-22 : « pilote à
+  blanc » retenu contre statu quo et outillage seul)
+- Complète : la procédure de `docs/fork/UPSTREAM.md` (qu'elle exerce sans la modifier)
+
+### Contexte
+
+La procédure de synchronisation amont existe sur le papier (`UPSTREAM.md` : veille en
+huit points, branche courte, portage avant fusion) mais n'a jamais été exécutée :
+l'amont est immobile à la version de base exacte du fork (dernière release amont du
+2026-07-14 = commit de base, zéro commit au-delà). La revue externe a pointé ce risque :
+le coût et la fiabilité du portage d'un delta amont à travers le renommage D-012 et le
+port de styles D-013 ne sont pas prouvés.
+
+Or un delta **historique** se terminant à la base du fork offre une vérité terrain
+gratuite : le fork ayant été coupé à la version de base, tout changement amont de ce
+delta DOIT être retrouvable dans `fork/main` actuel (modulo migration TypeScript,
+renommage D-012, port Panda D-013).
+
+### Options
+
+1. Statu quo : premier exercice à la première vraie release amont (position phase 10).
+2. Outillage seul : écrire le classificateur de diff sans rejouer le rituel.
+3. Pilote à blanc complet sur delta historique — retenu.
+
+### Décision
+
+Rejouer la procédure d'`UPSTREAM.md` comme si la version de base venait de paraître,
+sur la fenêtre **v3.25.16 → v3.25.20** — la plus petite fenêtre exerçant les deux axes
+de portage (huit sources JavaScript réparties api/composants/mixins/utilitaires, une
+source Less et son miroir SCSS supprimé par D-013), là où la fenêtre minimale
+v3.25.19 → v3.25.20 ne contient aucun changement de sources. Livrables :
+
+1. la veille en huit points d'`UPSTREAM.md` §4, consignée ;
+2. un outillage de classement `build/fork/sync-scout.js` : donné deux références
+   amont, produit l'inventaire du diff classé par destination dans l'arbre du fork
+   (sources JS → modules TS, sources Less → fragments Panda core/theme, miroirs SCSS
+   et `dist/` amont → sans objet, tests → tests renommés, CI/packaging → revue
+   manuelle), sans jamais embarquer d'identifiant public hérité (le classement porte
+   sur les chemins) ;
+3. la vérification contre la vérité terrain : chaque changement substantiel du delta
+   est recherché dans la contrepartie du fork, verdict par fichier avec preuve
+   (fichier:ligne) ;
+4. un rapport consigné dans `UPSTREAM.md` (section « Pilote à blanc ») et la fixture
+   machine du classement.
+
+Le produit distribué n'est pas touché : le pilote ne modifie ni `src/`, ni `dist/`,
+ni les gates. Aucune branche `sync/…` n'est ouverte (il n'y a rien à intégrer).
+
+### Conséquences
+
+- Le point « coût du portage amont non prouvé » de la revue externe passe de
+  « non prouvé » à « exercé sur delta réel avec vérité terrain ».
+- `sync-scout` devient l'outil d'entrée du vrai pilote à la première release amont
+  postérieure ; la veille hebdomadaire reste l'unique déclencheur.
+- Si la vérification révèle un changement amont NON retrouvé dans le fork, c'est un
+  écart de la base elle-même : il est consigné et traité par décision dédiée, jamais
+  corrigé silencieusement.
+
 ## Modèle d’une nouvelle décision
 
     ## D-NNN — Titre

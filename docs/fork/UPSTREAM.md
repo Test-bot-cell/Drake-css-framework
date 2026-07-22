@@ -291,12 +291,68 @@ et faire l’objet d’un suivi explicite.
 ## 10. Version et tags du fork
 
 Le fork publie sous l’identité « Drake.css framework » (D-012) : paquet npm `drake.css`,
-version propre au fork `0.1.0`, base amont `3.25.20` conservée exclusivement comme métadonnée
-de provenance dans `package.json`. Le paquet reste `private: true` tant que le remote
-`origin` n’est pas décidé.
+version propre au fork (`0.1.1` au dernier tag), base amont `3.25.20` conservée
+exclusivement comme métadonnée de provenance dans `package.json`. Le dépôt est public et la
+distribution est GitHub-first — release taguée avec tarball, installation `github:…#tag`,
+CDN jsDelivr (D-019, D-020).
 
 Le fork **NE DOIT PAS** publier un artefact modifié sous le numéro amont nu `3.25.20` ni sous
 l’identité `uikit` de l’amont.
 
 Les tags du fork sont annotés, immuables et clairement distincts des tags `vX.Y.Z` de
 l’amont.
+
+## 11. Pilote à blanc (D-023, 2026-07-22)
+
+La procédure de ce document a été exercée une première fois **à blanc**, sans release
+amont nouvelle, sur le delta historique **v3.25.16 → v3.25.20** (37 commits, quatre
+releases correctives, 40 fichiers) — la plus petite fenêtre exerçant les deux axes de
+portage. La base du fork étant exactement v3.25.20, tout changement de cette fenêtre
+devait se retrouver dans `fork/main` : vérité terrain gratuite.
+
+### Veille (§4) consignée
+
+1. Changelog : quatre releases correctives — réactivité du slider, état actif du filtre
+   combinant filtrage et tri, redémarrage de l'effet Ken Burns sous Safari, liens vidéo
+   des pages de démonstration ; aucune fonctionnalité nouvelle.
+2. Inventaire : 8 sources JavaScript (api, composants filter/slider/upload, mixins,
+   utilitaires event/position), 1 source Less (slideshow) et son miroir SCSS, 6 fichiers
+   build, packaging, CI, 8 pages de test, 8 artefacts `dist/` amont.
+3. API, accessibilité, navigateurs, licences : aucun changement d'API publique ni de
+   licence ; un correctif spécifique Safari ; support navigateurs inchangé.
+4. Icônes et fontes : aucun changement d'assets ; le build d'icônes amont remplace la
+   dépendance `glob` par un utilitaire interne (pipeline du fork indépendant).
+5. Rendu, navigation, SEO : seuls les liens vidéo distants des pages de démonstration
+   changent — le fork sert déjà ses médias localement.
+6. Styles desktop-first et 320 px : diff Less limité au composant slideshow, aucun
+   nouveau `max-width` de mise en page.
+7. Chiffrage du portage : sans objet pour un delta déjà contenu dans la base ; la
+   vérification ci-dessous en tient lieu.
+8. Utilité : convergences notées au passage (`.cachebro` déjà ignoré par le fork,
+   l'amont rejoint pnpm 11.4.0, la version exacte de la chaîne du fork).
+
+### Classement et vérification
+
+`node build/fork/sync-scout.js v3.25.16 v3.25.20 --output tests/fixtures/sync-pilot.json`
+classe les 40 chemins : **porter 17** (toutes les destinations existent dans le fork),
+**sans-objet 9** (artefacts amont régénérés chez nous, miroir SCSS supprimé par D-013),
+**revue-manuelle 13** (CI, packaging, gabarits, build — politiques propres au fork),
+**archiver 1** (journal amont).
+
+Vérification hunk par hunk (18 lots, contre-vérification adversariale des verdicts
+négatifs prévue au protocole — aucune n'a été nécessaire) :
+
+- **44 hunks substantiels examinés : 32 retrouvés** dans la contrepartie du fork avec
+  preuve fichier:ligne (traduction D-012 et migration TypeScript traversées, dont des
+  équivalences non triviales : narrowing `AbortError`, booléanisation stricte du
+  filtre) ; **12 sans objet par décision consignée** (8 : URLs vidéo distantes du
+  vendeur amont, remplacées par le média local `tests/media/` exigé par D-012 ;
+  4 : hunks des fichiers build supprimés par D-005/D-013) ; **zéro absent**.
+
+### Conclusion
+
+La chaîne provenance → renommage D-012 → migration TypeScript → port Panda D-013 n'a
+perdu aucun changement amont de la fenêtre. Le coût réel d'un delta futur reste
+proportionnel à sa taille, mais la machinerie de classement (`sync-scout`) et la
+méthode de vérification sont désormais exercées : au premier delta réel, le rituel
+commence par `sync-scout`, la veille §4, puis le portage lot par lot avec preuve.
