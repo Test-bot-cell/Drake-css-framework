@@ -44,6 +44,7 @@ var overflowAuto = defineComponent()({
     },
     write({ max }) {
       css(this.$el, { minHeight: this.minHeight, maxHeight: max });
+      this.$el.tabIndex = 0;
     },
     events: ["resize"]
   }

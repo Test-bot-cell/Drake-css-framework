@@ -75,8 +75,11 @@ window.addEventListener('load', async () => {
     await awaitTimeout(100);
     await awaitFrame();
 
-    const container = document.createElement('div');
+    // D-026 (axe 2, complément) : le chrome de test est un landmark <nav> nommé,
+    // hors du <main> des fixtures (familles axe landmark-one-main / region).
+    const container = document.createElement('nav');
     container.className = 'drk-container';
+    container.ariaLabel = 'Test harness';
 
     const testSelect = createSelect('Component switcher', [
         ['index.html', 'Overview'],

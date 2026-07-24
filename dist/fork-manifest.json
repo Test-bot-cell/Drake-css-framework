@@ -3,23 +3,23 @@
     "files": [
         {
             "path": "dist/css/drake-core-rtl.css",
-            "bytes": 326095,
-            "sha256": "236c752873af7b5f02267bbdcac7a3df87b8ce2094b2aa91382e13517b42fad1"
+            "bytes": 326864,
+            "sha256": "2e9f51847e1bee2efe3e2c2852d994ef9e62fb585e40d70125f180ba6d400b18"
         },
         {
             "path": "dist/css/drake-core-rtl.min.css",
-            "bytes": 297381,
-            "sha256": "18deaf84d47bb141bfd9d8861361dd7102d7b33309c0c48ec5d41f2faa4669e1"
+            "bytes": 298076,
+            "sha256": "750b9662da134a0093d43c260c40de32e69481acff7e7200e71e498b9a1594e4"
         },
         {
             "path": "dist/css/drake-core.css",
-            "bytes": 325989,
-            "sha256": "f8f717339272e8dc8656e8e03a12a76877a1e98d43d877ddce5614759e356fea"
+            "bytes": 326758,
+            "sha256": "9318cfe9bb7e11e91e0cfd5ae50d19f03640f0b3ef7a6ac2e1af552ee6a3bdfc"
         },
         {
             "path": "dist/css/drake-core.min.css",
-            "bytes": 297283,
-            "sha256": "d41cf37267de589be8c0644966e981b6ff272e1f4b1020364d9e5121250c6ae2"
+            "bytes": 297978,
+            "sha256": "0a295a1aaedba7dd386918261e55bd645e72e81628072a448f7c720b6c9ffdd2"
         },
         {
             "path": "dist/css/drake-inter-files.css",
@@ -33,13 +33,13 @@
         },
         {
             "path": "dist/css/drake-rtl.css",
-            "bytes": 344697,
-            "sha256": "32d9010f28b95e707bfe3062ffe7a0381ef294edeb847d1ffa0d987f7ae4a2f7"
+            "bytes": 345482,
+            "sha256": "ab272449ebd266c679a9570848b57f65703f454a290ee20ec752282451c5d22f"
         },
         {
             "path": "dist/css/drake-rtl.min.css",
-            "bytes": 313424,
-            "sha256": "34e9f6c501f3c674702031d0714a3d435db70a39223313a6d2126d10a97ab60b"
+            "bytes": 314143,
+            "sha256": "6bbca28147667d7acdf6284b59c07f08415fc894ba49b854fd755a24e42a21ed"
         },
         {
             "path": "dist/css/drake-tabler-icons.css",
@@ -48,13 +48,13 @@
         },
         {
             "path": "dist/css/drake.css",
-            "bytes": 344583,
-            "sha256": "ab50f57d5488c08e972ce19dfb2e4fd39b1540827f1307824e6100983a7360ad"
+            "bytes": 345368,
+            "sha256": "bd1e3e6505e4c85239907c763454f983ccffd40701b7887eb129d64fc63163e8"
         },
         {
             "path": "dist/css/drake.min.css",
-            "bytes": 313303,
-            "sha256": "3d88219abec055e01cf02707e8689ad83ef5053dea1b75816fa5890ea9687b29"
+            "bytes": 314022,
+            "sha256": "270c4481038a96c150111d4bd9b8811bfe55bd2be5ccf05913450b195d139556"
         },
         {
             "path": "dist/esm/_virtual/_virtual_version.js",
@@ -278,8 +278,8 @@
         },
         {
             "path": "dist/esm/core/icon.js",
-            "bytes": 5583,
-            "sha256": "84ab3a9def009cde88da3e10a81efb576c794a010bf3bb5fe8c6066ca1e3ffbd"
+            "bytes": 6952,
+            "sha256": "0fa9d96163718015afcbb5b63c68886fb5f7d0250270f45236efa094af7b4db1"
         },
         {
             "path": "dist/esm/core/img.js",
@@ -328,8 +328,8 @@
         },
         {
             "path": "dist/esm/core/overflow-auto.js",
-            "bytes": 1409,
-            "sha256": "fb90505c42f870a9bf0e694796e1fda6d627b6fad53077e261c69c6bc59f79f9"
+            "bytes": 1438,
+            "sha256": "79968963b57563df96d338b402b5564a6b985501d88b06ab63db69997d515fbc"
         },
         {
             "path": "dist/esm/core/overflow-fade.js",
@@ -898,23 +898,23 @@
         },
         {
             "path": "dist/js/drake-core.esm.js",
-            "bytes": 228155,
-            "sha256": "eb0f9984ed2dc1ce6bba891e301c36f78bad010fa22b367563d27ae28bcdfc33"
+            "bytes": 229494,
+            "sha256": "e68cd3a229c1279eae29eb4ad038d1cbc5673a7e1df827dc6084cc6e2e23ff6a"
         },
         {
             "path": "dist/js/drake-core.esm.min.js",
-            "bytes": 110500,
-            "sha256": "fdf61be42ffd1d7a0975489aceff0e32c9c00c2a4d34ac75ad689c5aa355b0b9"
+            "bytes": 111160,
+            "sha256": "be071e8ca612993d00646c6d3179cd1fe52a0f8de265efd40f392afc334b3051"
         },
         {
             "path": "dist/js/drake-core.js",
-            "bytes": 258785,
-            "sha256": "74c1720268fb0c57e8c6d1d2d59904af8cd045e6695b7ff9ee2c67a8c98cbe65"
+            "bytes": 260252,
+            "sha256": "a5b40f540a09878c0a6561ea21902bfd09c55a1857ef9fb0021356afbb97cedf"
         },
         {
             "path": "dist/js/drake-core.min.js",
-            "bytes": 110722,
-            "sha256": "6ed1b6f14bbbf36e872ac2f1e7b3ff165230671df2bac16dd126c39b3474a9e3"
+            "bytes": 111382,
+            "sha256": "92bc4e44b7707e4315a9923c922c6906a723667559673e8d94baea53672a6e45"
         },
         {
             "path": "dist/js/drake-util.esm.js",
@@ -928,23 +928,23 @@
         },
         {
             "path": "dist/js/drake.esm.js",
-            "bytes": 345505,
-            "sha256": "315f2110ede56dcd1f8da50231e11498e786e02db80f7c45e7757d51f896429c"
+            "bytes": 346844,
+            "sha256": "861555931263f8efc5a054c0080f8b8f710750ae8d35f5c473f426280fa203bc"
         },
         {
             "path": "dist/js/drake.esm.min.js",
-            "bytes": 169980,
-            "sha256": "481e44756e353dc326f04094b709392281de4f351d4e35f20f588d964e782e8d"
+            "bytes": 170641,
+            "sha256": "bbae32249019521e727655185aec7b8acd486931468d2b0dca5840f12209b478"
         },
         {
             "path": "dist/js/drake.js",
-            "bytes": 391527,
-            "sha256": "8d650bab3122df53d07b061a8f4df262043bddf2c6fee8153da0f2d9bb33c21b"
+            "bytes": 392994,
+            "sha256": "410e382dbbf0e52e19518a01ad2dd6a3ba7da32bff6b0ab61f0193962b177085"
         },
         {
             "path": "dist/js/drake.min.js",
-            "bytes": 170202,
-            "sha256": "5bc7513c521dfea4b85a0adb577094fef00eb4f9572b825ddb3434d66b0560f2"
+            "bytes": 170863,
+            "sha256": "54ac92e95451ea791a3002419beee1ca999d4f6e12eb744ed4bc6c240b85b195"
         }
     ]
 }

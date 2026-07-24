@@ -10,6 +10,10 @@ interface SnapshotOptions {
 
 const SKIPPED_TAGS = new Set(['SCRIPT', 'STYLE', 'LINK', 'META', 'NOSCRIPT', 'TEMPLATE']);
 const GENERATED_ID = /^(?:uk|drk)-\d+$/;
+// Classe posée au runtime par le scrollspy quand un élément franchit le viewport : le jeu
+// exact dépend de l'IntersectionObserver aux frontières de pixel (non déterministe run à
+// run), et n'appartient pas au contrat structurel C0/C1. Neutralisée comme les ids générés.
+const VOLATILE_RUNTIME_CLASSES = new Set(['drk-scrollspy-inview']);
 const PREFIX_BEARING = /uk-|drk-|UIkit|Drake|uikit|drake/;
 
 function djb2(value: string): string {
@@ -47,7 +51,9 @@ function snapshot(options: SnapshotOptions): string[] {
         if (SKIPPED_TAGS.has(element.tagName)) {
             return;
         }
-        const classes = [...element.classList].sort();
+        const classes = [...element.classList]
+            .filter((token) => !VOLATILE_RUNTIME_CLASSES.has(token))
+            .sort();
         const attributes: string[] = [];
         for (const { name, value } of [...element.attributes].sort((left, right) =>
             left.name < right.name ? -1 : 1,
@@ -70,8 +76,13 @@ function snapshot(options: SnapshotOptions): string[] {
             normalized = normalized.replace(/player_id=\d+/g, 'player_id=<n>');
             if (name === 'style') {
                 normalized = normalized
+                    // L'opacité en ligne est l'état de révélation du scrollspy (opacity:0
+                    // sur les éléments hors viewport) : présentationnel, piloté au runtime
+                    // selon la frontière viewport, jamais structurel — retiré des deux côtés.
+                    .replace(/opacity\s*:\s*[^;]+;?/g, '')
                     .replace(/-?\d+(?:\.\d+)?/g, '#')
                     .replace(/\s+/g, ' ')
+                    .replace(/^\s*;\s*|\s*;\s*$/g, '')
                     .trim();
             } else {
                 normalized = mapIds(normalized);
@@ -119,25 +130,72 @@ async function settle(): Promise<boolean> {
         await new Promise((done) => setTimeout(done, 50));
     }
     await document.fonts.ready;
+    // Les composants pilotés par le défilement (scrollspy) révèlent leurs éléments —
+    // classes d'animation et « inview » — au fur et à mesure qu'ils franchissent le
+    // viewport, via IntersectionObserver. Capturé à une position donnée, l'ensemble
+    // révélé dépend du défilement et des frontières de pixel : non déterministe. On
+    // balaie la page jusqu'en bas pour tout révéler une fois (repeat=false → l'état
+    // reste acquis), puis on revient en tête : l'état capturé est « tout révélé »,
+    // identique à chaque exécution.
+    const sweepHeight = document.documentElement.scrollHeight;
+    for (let y = 0; y <= sweepHeight; y += 300) {
+        window.scrollTo(0, y);
+        await new Promise((done) => requestAnimationFrame(() => done(undefined)));
+    }
+    window.scrollTo(0, 0);
     window.dispatchEvent(new Event('resize'));
     await new Promise((done) => setTimeout(done, 300));
-    // Les démos parallax « stroke » posent stroke-dasharray après l'injection asynchrone
-    // du SVG cible : sur un environnement lent, capturer avant cette pose fait diverger
-    // la trace (le style est attesté par les fixtures). On attend la pose, sans masquer :
-    // au-delà du délai, la capture continue et la divergence reste visible.
+    // Les démos parallax « stroke » posent stroke-dasharray sur un cycle d'update
+    // déclenché par resize/scroll, et seulement quand l'hôte est visible (le composant
+    // écoute les deux événements). Un seul déclencheur en amont peut manquer la fenêtre
+    // sur un environnement chargé (balayage complet), d'où une divergence intermittente
+    // sur la seule présence du style (la valeur est déjà normalisée en trace). On
+    // re-déclenche à chaque itération jusqu'à la pose, sans masquer : au-delà du délai la
+    // capture continue et la divergence reste visible.
     const strokeHosts = [...document.querySelectorAll('[drk-parallax*="stroke:"]')];
-    for (let attempt = 0; attempt < 100; attempt++) {
-        if (
-            strokeHosts.every((host) =>
-                (host.getAttribute('style') ?? '').includes('stroke-dasharray'),
-            )
-        ) {
-            break;
-        }
+    const strokePosed = () =>
+        strokeHosts.every((host) =>
+            (host.getAttribute('style') ?? '').includes('stroke-dasharray'),
+        );
+    for (let attempt = 0; attempt < 100 && !strokePosed(); attempt++) {
+        window.dispatchEvent(new Event('scroll'));
+        window.dispatchEvent(new Event('resize'));
         await new Promise((done) => setTimeout(done, 50));
     }
+    // Convergence générale avant capture : d'autres composants basculent des classes ou
+    // des styles de façon asynchrone après la mise en page, sur des délais qu'aucun
+    // événement ne force (scrollspy « inview » via IntersectionObserver puis chaîne de
+    // promesses). On observe les mutations d'attributs et on ne capture qu'après une
+    // fenêtre sans mutation (le DOM est stable). Le plafond borne l'attente pour ne
+    // jamais bloquer : il reste très inférieur à l'intervalle d'autoplay des démos
+    // (7 s), donc l'état capturé demeure l'état initial déterministe.
+    await waitForQuietDom(250, 3000);
     await new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done)));
     return true;
+}
+
+// Résout après `quietMs` sans mutation de class/style, ou au plus tard après `maxMs`.
+async function waitForQuietDom(quietMs: number, maxMs: number): Promise<void> {
+    await new Promise<void>((resolve) => {
+        let quietTimer = 0;
+        const finish = () => {
+            clearTimeout(quietTimer);
+            clearTimeout(hardCap);
+            observer.disconnect();
+            resolve();
+        };
+        const observer = new MutationObserver(() => {
+            clearTimeout(quietTimer);
+            quietTimer = window.setTimeout(finish, quietMs);
+        });
+        const hardCap = window.setTimeout(finish, maxMs);
+        observer.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ['class', 'style'],
+            subtree: true,
+        });
+        quietTimer = window.setTimeout(finish, quietMs);
+    });
 }
 
 Object.defineProperty(window, '__drakeCompat', { value: { settle, snapshot } });

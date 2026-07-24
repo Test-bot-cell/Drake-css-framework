@@ -5141,6 +5141,8 @@
     });
 
     const iconNamePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+    const selFocusableHost = `${selFocusable},[drk-tooltip]`;
+    const selNamableHost = "a[href],area[href],button,input,select,textarea,summary";
     const Icon = {
       args: "icon",
       props: {
@@ -5164,7 +5166,7 @@
         this._iconClasses = [`drk-ti-${icon}`, `drk-icon-alias-${icon}`];
         addClass(this.$el, this._iconClasses);
         setDimensions(this);
-        hideDecorativeIcon(this);
+        hideDecorativeIcon(this, icon);
       },
       disconnected() {
         removeClass(this.$el, this._iconClasses);
@@ -5176,7 +5178,15 @@
         if (this._iconAddedAriaHidden) {
           attr(this.$el, "aria-hidden", null);
         }
+        if (this._iconAddedAriaLabel) {
+          attr(this.$el, "aria-label", null);
+        }
+        if (this._iconAddedRole) {
+          attr(this.$el, "role", null);
+        }
         this._iconAddedAriaHidden = void 0;
+        this._iconAddedAriaLabel = void 0;
+        this._iconAddedRole = void 0;
         this._iconClasses = void 0;
       }
     };
@@ -5249,10 +5259,19 @@
     };
     const Slidenav = {
       extends: ButtonComponent,
+      // D-026 (axe 3) : libellés de repli des slidenav autonomes — mêmes clés et
+      // mêmes valeurs que le mixin slider-nav, qui conserve tout aria-label déjà
+      // posé (la course slider-nav est neutralisée par le garde de focalisabilité).
+      i18n: { next: "Next slide", previous: "Previous slide" },
       beforeConnect() {
         addClass(this.$el, "drk-slidenav");
         const icon = readIconProp(this);
         this.icon = hasClass(this.$el, "drk-slidenav-large") ? `${icon}-large` : icon;
+        const button = this.$el.closest("a,button");
+        if (button && !hasAttr(button, "aria-label")) {
+          const direction = String(this.$options.id || "").includes("previous") ? "previous" : "next";
+          attr(button, "aria-label", this.t(direction));
+        }
       }
     };
     const NavbarToggleIcon = {
@@ -5310,11 +5329,23 @@
         css(instance.$el, "--drk-icon-height", `${height}px`);
       }
     }
-    function hideDecorativeIcon(instance) {
+    function hideDecorativeIcon(instance, icon) {
       var _a;
       const role = (_a = attr(instance.$el, "role")) == null ? void 0 : _a.toLowerCase();
       const hasAccessibleName = hasAttr(instance.$el, "aria-label") || hasAttr(instance.$el, "aria-labelledby");
-      if (!hasAccessibleName && role !== "status" && role !== "img" && !hasAttr(instance.$el, "aria-hidden")) {
+      if (hasAccessibleName || role === "status" || role === "img") {
+        return;
+      }
+      if (matches(instance.$el, selFocusableHost)) {
+        attr(instance.$el, "aria-label", icon.replaceAll("-", " "));
+        instance._iconAddedAriaLabel = true;
+        if (!hasAttr(instance.$el, "role") && !matches(instance.$el, selNamableHost)) {
+          attr(instance.$el, "role", "img");
+          instance._iconAddedRole = true;
+        }
+        return;
+      }
+      if (!hasAttr(instance.$el, "aria-hidden")) {
         attr(instance.$el, "aria-hidden", "true");
         instance._iconAddedAriaHidden = true;
       }
@@ -6276,6 +6307,7 @@
         },
         write({ max }) {
           css(this.$el, { minHeight: this.minHeight, maxHeight: max });
+          this.$el.tabIndex = 0;
         },
         events: ["resize"]
       }

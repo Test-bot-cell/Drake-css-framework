@@ -59,7 +59,7 @@ export const fragments: GlobalStyleObject[] = [
         "line-height": 1.5
     },
     ".drk-nav-default > li > a": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-nav-default > li > a:hover": {
         "color": palette.text
@@ -81,7 +81,7 @@ export const fragments: GlobalStyleObject[] = [
         "line-height": 1.5
     },
     ".drk-nav-default .drk-nav-sub a": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-nav-default .drk-nav-sub a:hover": {
         "color": palette.text
@@ -94,7 +94,7 @@ export const fragments: GlobalStyleObject[] = [
         "line-height": 1.5
     },
     ".drk-nav-primary > li > a": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-nav-primary > li > a:hover": {
         "color": palette.text
@@ -116,7 +116,7 @@ export const fragments: GlobalStyleObject[] = [
         "line-height": 1.5
     },
     ".drk-nav-primary .drk-nav-sub a": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-nav-primary .drk-nav-sub a:hover": {
         "color": palette.text
@@ -145,7 +145,7 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-nav-secondary .drk-nav-subtitle": {
         "font-size": "0.875rem",
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-nav-secondary > li > a:hover .drk-nav-subtitle": {
         "color": palette.text
@@ -164,7 +164,7 @@ export const fragments: GlobalStyleObject[] = [
         "line-height": 1.5
     },
     ".drk-nav-secondary .drk-nav-sub a": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-nav-secondary .drk-nav-sub a:hover": {
         "color": palette.text

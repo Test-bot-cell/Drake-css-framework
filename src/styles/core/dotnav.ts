@@ -33,6 +33,7 @@ export const fragments: GlobalStyleObject[] = [
         "background": "rgba(102, 102, 102, 0.2)",
         "background-clip": "content-box",
         "text-indent": "100%",
+        "text-decoration": "none",
         "overflow": "hidden",
         "white-space": "nowrap"
     },

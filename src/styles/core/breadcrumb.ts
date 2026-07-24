@@ -16,7 +16,7 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-breadcrumb > * > *": {
         "font-size": "0.875rem",
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-breadcrumb > * > :hover": {
         "color": palette.text,
@@ -30,7 +30,7 @@ export const fragments: GlobalStyleObject[] = [
         "display": "inline-block",
         "margin": "0 20px",
         "font-size": "0.875rem",
-        "color": palette.muted
+        "color": palette.mutedText
     }
 },
 ];

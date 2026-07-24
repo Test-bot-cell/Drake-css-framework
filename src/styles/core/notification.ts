@@ -68,16 +68,16 @@ export const fragments: GlobalStyleObject[] = [
         "display": "block"
     },
     ".drk-notification-message-primary": {
-        "color": palette.primary
+        "color": palette.primaryText
     },
     ".drk-notification-message-success": {
-        "color": palette.success
+        "color": palette.successText
     },
     ".drk-notification-message-warning": {
-        "color": palette.warning
+        "color": palette.warningText
     },
     ".drk-notification-message-danger": {
-        "color": palette.danger
+        "color": palette.dangerText
     }
 },
 ];

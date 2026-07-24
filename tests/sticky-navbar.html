@@ -9,6 +9,7 @@
     </head>
 
     <body style="padding-bottom: 1100px;">
+        <main>
 
         <div class="drk-container drk-margin-bottom">
 
@@ -18,7 +19,7 @@
 
         <div class="tm-header drk-overflow-auto">
             <div drk-sticky="end: #sticky-dropdown; sel-target: .drk-navbar-container; cls-active: drk-navbar-sticky">
-                <nav class="drk-navbar-container">
+                <nav class="drk-navbar-container" aria-label="Navbar 1">
                     <div class="drk-container">
                         <div drk-navbar>
                             <div class="drk-navbar-left">
@@ -119,7 +120,7 @@
 
         <div class="tm-header drk-overflow-auto">
             <div drk-sticky="end: #sticky-dropbar; sel-target: .drk-navbar-container; cls-active: drk-navbar-sticky">
-                <nav class="drk-navbar-container">
+                <nav class="drk-navbar-container" aria-label="Navbar 2">
                     <div class="drk-container">
                         <div drk-navbar="target-y: !.drk-navbar-container; dropbar: true; dropbar-anchor: !.drk-navbar-container">
                             <div class="drk-navbar-left">
@@ -220,7 +221,7 @@
 
         <div class="tm-header drk-overflow-auto">
             <div drk-sticky="end: #scrollup-dropdown; show-on-up: true; animation: drk-animation-slide-top; sel-target: .drk-navbar-container; cls-active: drk-navbar-sticky">
-                <nav class="drk-navbar-container">
+                <nav class="drk-navbar-container" aria-label="Navbar 3">
                     <div class="drk-container drk-container-expand">
                         <div drk-navbar>
                             <div class="drk-navbar-left">
@@ -321,7 +322,7 @@
 
         <div class="tm-header drk-overflow-auto">
             <div drk-sticky="end: #scrollup-dropbar; show-on-up: true; animation: drk-animation-slide-top; sel-target: .drk-navbar-container; cls-active: drk-navbar-sticky">
-                <nav class="drk-navbar-container">
+                <nav class="drk-navbar-container" aria-label="Navbar 4">
                     <div class="drk-container drk-container-expand">
                         <div drk-navbar="target-y: !.drk-navbar-container; dropbar: true; dropbar-anchor: !.drk-navbar-container">
                             <div class="drk-navbar-left">
@@ -424,7 +425,7 @@
 
             <div class="tm-header drk-overflow-auto">
                 <div drk-sticky="start: 200; end: #transparent-dropdown; show-on-up: true; animation: drk-animation-slide-top; sel-target: .drk-navbar-container; cls-active: drk-navbar-sticky; cls-inactive: drk-navbar-transparent drk-light">
-                    <nav class="drk-navbar-container drk-light">
+                    <nav class="drk-navbar-container drk-light" aria-label="Navbar 5">
                         <div class="drk-container drk-container-expand">
                             <div drk-navbar>
                                 <div class="drk-navbar-left">
@@ -529,7 +530,7 @@
 
             <div class="tm-header drk-overflow-auto">
                 <div drk-sticky="start: 200; end: #transparent-dropbar; show-on-up: true; animation: drk-animation-slide-top; sel-target: .drk-navbar-container; cls-active: drk-navbar-sticky; cls-inactive: drk-navbar-transparent">
-                    <nav class="drk-navbar-container" drk-inverse="sel-active: .drk-navbar-transparent">
+                    <nav class="drk-navbar-container drk-light" drk-inverse="sel-active: .drk-navbar-transparent" aria-label="Navbar 6">
                         <div class="drk-container drk-container-expand">
                             <div drk-navbar="target-y: !.drk-navbar-container; dropbar: true; dropbar-anchor: !.drk-navbar-container; dropbar-transparent-mode: remove;">
                                 <div class="drk-navbar-left">
@@ -634,7 +635,7 @@
 
             <div class="tm-header drk-overflow-auto">
                 <div drk-sticky="end: #sticky-transparent-dropbar-remove; sel-target: .drk-navbar-container; cls-active: drk-navbar-sticky">
-                    <nav class="drk-navbar-container drk-navbar-transparent" drk-inverse="sel-active: .drk-navbar-transparent">
+                    <nav class="drk-navbar-container drk-navbar-transparent" drk-inverse="sel-active: .drk-navbar-transparent" aria-label="Navbar 7">
                         <div class="drk-container drk-container-expand">
                             <div drk-navbar="target-y: !.drk-navbar-container; dropbar: true; dropbar-anchor: !.drk-navbar-container; dropbar-transparent-mode: remove;">
                                 <div class="drk-navbar-left">
@@ -758,7 +759,7 @@
 
             <div class="tm-header drk-overflow-auto">
                 <div drk-sticky="end: #sticky-transparent-dropbar-behind; sel-target: .drk-navbar-container; cls-active: drk-navbar-sticky">
-                    <nav class="drk-navbar-container drk-navbar-transparent drk-position-relative drk-position-z-index-high" drk-inverse>
+                    <nav class="drk-navbar-container drk-navbar-transparent drk-position-relative drk-position-z-index-high" drk-inverse aria-label="Navbar 8">
                         <div class="drk-container drk-container-expand">
                             <div drk-navbar="target-y: !.drk-navbar-container; dropbar: true; dropbar-anchor: !.drk-navbar-container; dropbar-transparent-mode: behind;">
                                 <div class="drk-navbar-left">
@@ -883,7 +884,7 @@
 
             <div class="tm-header drk-overflow-auto">
                 <div class="drk-blend-difference drk-position-z-index-high" drk-sticky="end: #sticky-transparent-dropbar-behind-blend; sel-target: .drk-navbar-container; cls-active: drk-navbar-sticky">
-                    <nav class="drk-navbar-container drk-navbar-transparent drk-light">
+                    <nav class="drk-navbar-container drk-navbar-transparent drk-light" aria-label="Navbar 9">
                         <div class="drk-container drk-container-expand">
                             <div drk-navbar="target-y: #sticky-transparent-dropbar-behind-blend .drk-navbar-container; container: #sticky-transparent-dropbar-behind-blend .tm-header; dropbar: true; dropbar-anchor: !.tm-header > *; dropbar-transparent-mode: behind; close-on-scroll: true">
                                 <div class="drk-navbar-left">
@@ -1008,7 +1009,7 @@
 
             <div class="tm-header drk-position-top drk-overflow-auto">
                 <div drk-sticky="end: #sticky-transparent-recolor; sel-target: .drk-navbar-container; cls-active: drk-navbar-sticky">
-                    <nav class="drk-navbar-container drk-navbar-transparent" drk-inverse="sel-active: .drk-navbar-transparent">
+                    <nav class="drk-navbar-container drk-navbar-transparent" drk-inverse="sel-active: .drk-navbar-transparent" aria-label="Navbar 10">
                         <div class="drk-container drk-container-expand">
                             <div drk-navbar>
                                 <div class="drk-navbar-left">
@@ -1187,7 +1188,7 @@
 
             <div class="tm-header drk-position-top drk-overflow-auto">
                 <div drk-sticky="end: #sticky-transparent-recolor-tiles; sel-target: .drk-navbar-container; cls-active: drk-navbar-sticky">
-                    <nav class="drk-navbar-container drk-navbar-transparent" drk-inverse="target: .drk-navbar-left, .drk-navbar-center, .drk-navbar-right">
+                    <nav class="drk-navbar-container drk-navbar-transparent" drk-inverse="target: .drk-navbar-left, .drk-navbar-center, .drk-navbar-right" aria-label="Navbar 11">
                         <div class="drk-container drk-container-expand">
                             <div drk-navbar>
                                 <div class="drk-navbar-left">
@@ -1417,5 +1418,6 @@
 
         </div>
 
+        </main>
     </body>
 </html>

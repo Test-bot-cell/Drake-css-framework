@@ -172,6 +172,10 @@ Chaque push sur `fork/main` rejoue l’intégralité des preuves en CI GitHub Ac
 - `pnpm audit-heritage` — l’audit à 320 px CSS : zéro débordement, zéro image sans
   alternative ou dimensions, hiérarchie de titres, cibles tactiles décomptées contre le
   registre d’exceptions (`docs/fork/HERITAGE_EXCEPTIONS.md`) ;
+- `pnpm audit-a11y` — l’audit axe-core (version épinglée) des 88 pages : contraste,
+  ARIA, landmarks, noms accessibles, labels de formulaire — zéro violation hors du
+  registre d’exceptions (`docs/fork/A11Y_EXCEPTIONS.md`, restreint aux surfaces
+  d’accent, décision D-026) ;
 - un second build en fin de run prouve l’absence de diff (reproductibilité G9) ;
 - le gate consommateur (D-024) clôt le run : le tarball npm est installé dans un
   projet vierge et chargé — le canal de distribution D-020 est re-prouvé à chaque

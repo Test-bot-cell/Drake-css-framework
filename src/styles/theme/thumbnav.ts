@@ -25,7 +25,8 @@ export const fragments: GlobalStyleObject[] = [
         "display": "inline-block",
         "min-width": "24px",
         "min-height": "24px",
-        "position": "relative"
+        "position": "relative",
+        "text-decoration": "none"
     },
     ".drk-thumbnav > * > *::after": {
         "content": "\"\"",

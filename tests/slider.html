@@ -38,6 +38,7 @@
     </head>
 
     <body>
+        <main>
 
         <div class="drk-container">
 
@@ -64,7 +65,7 @@
 
             <h2>Content Widths</h2>
 
-            <div drk-slider>
+            <div drk-slider aria-label="Slider 1">
 
                 <div class="drk-position-relative">
 
@@ -148,7 +149,7 @@
 
             <h2>Different Widths</h2>
 
-            <div drk-slider>
+            <div drk-slider aria-label="Slider 2">
 
                 <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
@@ -214,7 +215,7 @@
 
             <h2>Width Classes + Toggle on active</h2>
 
-            <div drk-slider="clsActivated: drk-transition-active">
+            <div drk-slider="clsActivated: drk-transition-active" aria-label="Slider 3">
 
                 <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
@@ -272,7 +273,7 @@
 
             <h2>Grid + Toggle on hover</h2>
 
-            <div drk-slider>
+            <div drk-slider aria-label="Slider 4">
 
                 <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
@@ -348,7 +349,7 @@
 
             <h2>Container Offset + Cards</h2>
 
-            <div drk-slider>
+            <div drk-slider aria-label="Slider 5">
 
                 <div class="drk-position-relative drk-visible-toggle">
 
@@ -431,7 +432,7 @@
 
             <h2>Parallax Control</h2>
 
-            <div drk-slider="parallax: true; parallax-start: 100%; parallax-end: 100%; clsActivated: drk-transition-active">
+            <div drk-slider="parallax: true; parallax-start: 100%; parallax-end: 100%; clsActivated: drk-transition-active" aria-label="Slider 6">
 
                 <div class="drk-slider-items drk-child-width-1-2@s drk-child-width-1-4@m drk-light">
                     <div>
@@ -484,7 +485,7 @@
 
         </div>
 
-        <div class="drk-margin" drk-slider>
+        <div class="drk-margin" drk-slider aria-label="Slider 7">
 
             <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
@@ -549,7 +550,7 @@
 
             <h2>JavaScript Options</h2>
 
-            <div class="drk-overflow-auto">
+            <div class="drk-overflow-auto" tabindex="0">
                 <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
@@ -662,7 +663,7 @@
 
             <h2>i18n</h2>
 
-            <div class="drk-overflow-auto">
+            <div class="drk-overflow-auto" tabindex="0">
                 <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
@@ -699,5 +700,6 @@
         </div>
 
 
+        </main>
     </body>
 </html>

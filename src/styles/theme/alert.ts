@@ -35,19 +35,22 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-alert-primary": {
         "background": "#d8eafc",
-        "color": palette.primary
+        "color": "#0d68c4"
     },
     ".drk-alert-success": {
         "background": "#edfbf6",
-        "color": palette.success
+        "color": palette.successText
     },
     ".drk-alert-warning": {
         "background": "#fff6ee",
-        "color": palette.warning
+        "color": "#b45300"
     },
     ".drk-alert-danger": {
         "background": "#fef4f6",
-        "color": palette.danger
+        "color": "#dc1138"
+    },
+    ".drk-alert-primary a, .drk-alert-primary .drk-link": {
+        "color": "#0d68c4"
     },
     ".drk-alert h1, .drk-alert h2, .drk-alert h3, .drk-alert h4, .drk-alert h5, .drk-alert h6": {
         "color": "inherit"

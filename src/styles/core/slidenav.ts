@@ -8,7 +8,8 @@ export const fragments: GlobalStyleObject[] = [
         "--drk-icon-width": "14px",
         "--drk-icon-height": "24px",
         "padding": "5px 10px",
-        "color": "rgba(102, 102, 102, 0.5)"
+        "color": "rgba(102, 102, 102, 0.5)",
+        "text-decoration": "none"
     },
     ".drk-slidenav:hover": {
         "color": "rgba(102, 102, 102, 0.9)"

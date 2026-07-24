@@ -83,7 +83,7 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-navbar-nav > li > a": {
         "height": "100%",
         "padding": "0 0",
-        "color": palette.muted,
+        "color": palette.mutedText,
         "text-transform": "uppercase",
         "transition": "0.1s ease-in-out"
     }
@@ -121,7 +121,7 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-navbar-toggle": {
         "padding": "0 0",
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-navbar-toggle:hover, .drk-navbar-toggle[aria-expanded=\"true\"]": {
         "color": palette.text,
@@ -218,7 +218,7 @@ export const fragments: GlobalStyleObject[] = [
         "font-size": "0.875rem"
     },
     ".drk-navbar-dropdown-nav > li > a": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-navbar-dropdown-nav > li > a:hover": {
         "color": palette.text
@@ -236,7 +236,7 @@ export const fragments: GlobalStyleObject[] = [
         "border-top": "1px solid #e5e5e5"
     },
     ".drk-navbar-dropdown-nav .drk-nav-sub a": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-navbar-dropdown-nav .drk-nav-sub a:hover": {
         "color": palette.text

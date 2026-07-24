@@ -165,14 +165,15 @@
     "comment.html": {
         "formControls": 0,
         "headings": {
-            "h3": 1,
-            "h4": 9
+            "h1": 1,
+            "h2": 1,
+            "h3": 9
         },
         "imagesTotal": 9,
         "imagesWithoutAlt": 0,
         "links": 27,
         "linksWithoutHref": 0,
-        "textLength": 2896
+        "textLength": 2904
     },
     "container.html": {
         "formControls": 0,
@@ -435,6 +436,7 @@
     "height.html": {
         "formControls": 0,
         "headings": {
+            "h1": 1,
             "h2": 2,
             "h3": 5
         },
@@ -442,7 +444,7 @@
         "imagesWithoutAlt": 0,
         "links": 1,
         "linksWithoutHref": 0,
-        "textLength": 951
+        "textLength": 958
     },
     "icon.html": {
         "formControls": 5,
@@ -929,7 +931,7 @@
         "imagesWithoutAlt": 0,
         "links": 14,
         "linksWithoutHref": 8,
-        "textLength": 3883
+        "textLength": 3915
     },
     "text.html": {
         "formControls": 0,
@@ -959,13 +961,15 @@
     "tile.html": {
         "formControls": 0,
         "headings": {
-            "h3": 16
+            "h1": 1,
+            "h2": 1,
+            "h3": 15
         },
         "imagesTotal": 0,
         "imagesWithoutAlt": 0,
         "links": 48,
         "linksWithoutHref": 0,
-        "textLength": 2435
+        "textLength": 2440
     },
     "toggle.html": {
         "formControls": 10,

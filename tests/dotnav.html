@@ -6,9 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Dotnav - Drake tests</title>
         <script src="../dist/js/tests/test.js"></script>
+        <style>
+
+            /* D-026 : le libellé des pastilles (rogné par text-indent) hérite du bleu lien
+               #0f6ecd, sous AA sur les fonds de pastille #e0e0e0 (3,84:1) et #a3a3a3 (2,01:1).
+               Bleu foncé AA : 9,17:1 et 4,80:1 — aucun impact visuel, le texte est rogné. */
+            .drk-dotnav a { color: #073763; }
+
+        </style>
     </head>
 
     <body>
+        <main>
 
         <div class="drk-container">
 
@@ -135,5 +144,6 @@
 
         </div>
 
+        </main>
     </body>
 </html>

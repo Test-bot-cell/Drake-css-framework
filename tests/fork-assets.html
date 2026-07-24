@@ -35,7 +35,7 @@
             }
 
             .drk-tab > li > button,
-            .drk-switcher > li > button {
+            .drk-switcher > div > button {
                 padding-block: 4px;
                 margin-block: -3px;
             }
@@ -95,8 +95,10 @@
                     <li><button type="button">Premier panneau</button></li>
                     <li><button type="button">Second panneau</button></li>
                 </ul>
-                <ul id="fork-event-targets" class="drk-switcher">
-                    <li>
+                <!-- D-026 : cible connect en markup canonique div/div (cf. switcher.html) —
+                     le runtime pose role="tabpanel", interdit sur li (aria-allowed-role). -->
+                <div id="fork-event-targets" class="drk-switcher">
+                    <div>
                         <button
                             type="button"
                             drk-switcher-item="next"
@@ -104,9 +106,9 @@
                         >
                             Avancer depuis le panneau
                         </button>
-                    </li>
-                    <li data-testid="array-event-result">Événement lié à une cible tableau.</li>
-                </ul>
+                    </div>
+                    <div data-testid="array-event-result">Événement lié à une cible tableau.</div>
+                </div>
             </section>
             <section aria-labelledby="compatibility-icons">
                 <h2 id="compatibility-icons">Compatibilité des icônes Drake</h2>

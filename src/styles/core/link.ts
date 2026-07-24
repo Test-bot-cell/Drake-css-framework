@@ -7,7 +7,7 @@ import { palette } from '../tokens';
 export const fragments: GlobalStyleObject[] = [
 {
     "a.drk-link-muted, .drk-link-muted a, .drk-link-toggle .drk-link-muted": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     "a.drk-link-muted:hover, .drk-link-muted a:hover, .drk-link-toggle:hover .drk-link-muted": {
         "color": palette.text
@@ -16,10 +16,11 @@ export const fragments: GlobalStyleObject[] = [
         "color": "inherit"
     },
     "a.drk-link-text:hover, .drk-link-text a:hover, .drk-link-toggle:hover .drk-link-text": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     "a.drk-link-heading, .drk-link-heading a, .drk-link-toggle .drk-link-heading": {
-        "color": "inherit"
+        "color": "inherit",
+        "text-decoration": "none"
     },
     "a.drk-link-heading:hover, .drk-link-heading a:hover, .drk-link-toggle:hover .drk-link-heading": {
         "color": palette.primary,

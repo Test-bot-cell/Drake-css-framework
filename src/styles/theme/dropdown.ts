@@ -58,7 +58,7 @@ export const fragments: GlobalStyleObject[] = [
         "font-size": "0.875rem"
     },
     ".drk-dropdown-nav > li > a": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-dropdown-nav > li > a:hover, .drk-dropdown-nav > li.drk-active > a": {
         "color": palette.text
@@ -73,7 +73,7 @@ export const fragments: GlobalStyleObject[] = [
         "border-top": "1px solid #e5e5e5"
     },
     ".drk-dropdown-nav .drk-nav-sub a": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-dropdown-nav .drk-nav-sub a:hover, .drk-dropdown-nav .drk-nav-sub li.drk-active > a": {
         "color": palette.text

@@ -9,7 +9,7 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-close": {
         "--drk-icon-width": "14px",
         "--drk-icon-height": "14px",
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-close-large": {
         "--drk-icon-width": "20px",

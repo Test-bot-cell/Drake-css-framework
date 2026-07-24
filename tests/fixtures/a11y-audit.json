@@ -1,0 +1,782 @@
+{
+    "schemaVersion": 1,
+    "scope": "Catalogue tests/ à 320 px CSS, runtime actif — gate D-026 : axe.run resultTypes=[violations], nœuds décomptés contre le registre d’exceptions tests/fixtures/a11y-exceptions.json.",
+    "axeVersion": "4.10.3",
+    "engineVersion": "4.10.3",
+    "viewport": {
+        "height": 640,
+        "width": 320
+    },
+    "totals": {
+        "consignees": 193,
+        "consigneesParFamille": {
+            "D-badges": 5,
+            "D-boutons-accent": 43,
+            "E-inverse-sur-primary": 119,
+            "D-subnav-pill-actif": 15,
+            "D-panneaux-demo-filter": 2,
+            "D-labels": 9
+        },
+        "nonConsignees": 0,
+        "nonConsigneesParRegle": {},
+        "violations": 193
+    },
+    "pages": {
+        "accordion.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "alert.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "align.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "animation.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "article.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "background.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "badge.html": {
+            "consignees": 3,
+            "consigneesParFamille": {
+                "D-badges": 3
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 3
+        },
+        "base.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "breadcrumb.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "button.html": {
+            "consignees": 30,
+            "consigneesParFamille": {
+                "D-boutons-accent": 30
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 30
+        },
+        "card.html": {
+            "consignees": 20,
+            "consigneesParFamille": {
+                "D-boutons-accent": 1,
+                "D-badges": 2,
+                "E-inverse-sur-primary": 17
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 20
+        },
+        "close.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "column.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "comment.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "container.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "countdown.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "cover.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "description-list.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "divider.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "dotnav.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "drop.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "dropbar.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "dropdown.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "dropnav.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "filter.html": {
+            "consignees": 10,
+            "consigneesParFamille": {
+                "D-subnav-pill-actif": 8,
+                "D-panneaux-demo-filter": 2
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 10
+        },
+        "flex.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "fork-assets.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "fork-mobile-seo.html": {
+            "consignees": 4,
+            "consigneesParFamille": {
+                "D-boutons-accent": 1,
+                "E-inverse-sur-primary": 3
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 4
+        },
+        "form.html": {
+            "consignees": 1,
+            "consigneesParFamille": {
+                "D-labels": 1
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 1
+        },
+        "grid-masonry.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "grid-parallax.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "grid.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "heading.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "height-expand.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "height-viewport.html": {
+            "consignees": 24,
+            "consigneesParFamille": {
+                "E-inverse-sur-primary": 24
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 24
+        },
+        "height.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "icon.html": {
+            "consignees": 2,
+            "consigneesParFamille": {
+                "D-boutons-accent": 2
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 2
+        },
+        "iconnav.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "image.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "index.html": {
+            "consignees": 11,
+            "consigneesParFamille": {
+                "D-boutons-accent": 2,
+                "D-labels": 4,
+                "D-subnav-pill-actif": 1,
+                "E-inverse-sur-primary": 4
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 11
+        },
+        "label.html": {
+            "consignees": 4,
+            "consigneesParFamille": {
+                "D-labels": 4
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 4
+        },
+        "leader.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "lightbox.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "link.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "list.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "margin.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "marker.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "modal.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "nav.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "navbar.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "notification.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "offcanvas.html": {
+            "consignees": 1,
+            "consigneesParFamille": {
+                "D-boutons-accent": 1
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 1
+        },
+        "overlay.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "padding.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "pagination.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "parallax.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "placeholder.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "position.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "progress.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "scroll.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "scrollspy.html": {
+            "consignees": 1,
+            "consigneesParFamille": {
+                "E-inverse-sur-primary": 1
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 1
+        },
+        "search.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "section.html": {
+            "consignees": 15,
+            "consigneesParFamille": {
+                "D-boutons-accent": 2,
+                "E-inverse-sur-primary": 13
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 15
+        },
+        "slidenav.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "slider.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "slideshow.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "sortable.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "spinner.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "sticky-navbar.html": {
+            "consignees": 20,
+            "consigneesParFamille": {
+                "E-inverse-sur-primary": 20
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 20
+        },
+        "sticky-parallax.html": {
+            "consignees": 3,
+            "consigneesParFamille": {
+                "E-inverse-sur-primary": 3
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 3
+        },
+        "sticky.html": {
+            "consignees": 22,
+            "consigneesParFamille": {
+                "E-inverse-sur-primary": 22
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 22
+        },
+        "subnav.html": {
+            "consignees": 4,
+            "consigneesParFamille": {
+                "D-subnav-pill-actif": 4
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 4
+        },
+        "svg.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "switcher.html": {
+            "consignees": 1,
+            "consigneesParFamille": {
+                "D-subnav-pill-actif": 1
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 1
+        },
+        "tab.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "table.html": {
+            "consignees": 3,
+            "consigneesParFamille": {
+                "D-boutons-accent": 3
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 3
+        },
+        "text.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "thumbnav.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "tile.html": {
+            "consignees": 12,
+            "consigneesParFamille": {
+                "E-inverse-sur-primary": 12
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 12
+        },
+        "toggle.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "tooltip.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "totop.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "transition.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "upload.html": {
+            "consignees": 1,
+            "consigneesParFamille": {
+                "D-boutons-accent": 1
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 1
+        },
+        "utility.html": {
+            "consignees": 1,
+            "consigneesParFamille": {
+                "D-subnav-pill-actif": 1
+            },
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 1
+        },
+        "video.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "visibility.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        },
+        "width.html": {
+            "consignees": 0,
+            "consigneesParFamille": {},
+            "nonConsignees": 0,
+            "nonConsigneesEchantillon": [],
+            "nonConsigneesParRegle": {},
+            "violations": 0
+        }
+    }
+}

@@ -9,6 +9,7 @@
     </head>
 
     <body>
+        <main>
 
         <div class="drk-container">
 
@@ -30,7 +31,7 @@
                 </select>
             </div>
 
-            <nav drk-dropnav>
+            <nav drk-dropnav aria-label="Dropnav 1">
                 <ul class="drk-subnav">
                     <li class="drk-active">
                         <a href>Hover <span drk-drop-parent-icon></span></a>
@@ -194,7 +195,7 @@
                 </ul>
             </nav>
 
-            <nav drk-dropnav="mode: click; align: center">
+            <nav drk-dropnav="mode: click; align: center" aria-label="Dropnav 2">
                 <ul class="drk-subnav drk-flex-center">
                     <li class="drk-active">
                         <a href>Click <span drk-drop-parent-icon></span></a>
@@ -367,7 +368,7 @@
                 </select>
             </div>
 
-            <nav drk-dropnav="dropbar: true">
+            <nav drk-dropnav="dropbar: true" aria-label="Dropnav 3">
                 <ul class="drk-subnav">
                     <li class="drk-active">
                         <a href>Hover <span drk-drop-parent-icon></span></a>
@@ -531,7 +532,7 @@
                 </ul>
             </nav>
 
-            <nav drk-dropnav="dropbar: true; mode: click; align: center">
+            <nav drk-dropnav="dropbar: true; mode: click; align: center" aria-label="Dropnav 4">
                 <ul class="drk-subnav drk-flex-center">
                     <li class="drk-active">
                         <a href>Click <span drk-drop-parent-icon></span></a>
@@ -697,7 +698,7 @@
 
             <h2>JavaScript Options</h2>
 
-            <div class="drk-overflow-auto">
+            <div class="drk-overflow-auto" tabindex="0">
                 <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
@@ -823,5 +824,6 @@
         </div>
 
 
+        </main>
     </body>
 </html>

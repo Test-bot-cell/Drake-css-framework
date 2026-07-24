@@ -31,7 +31,7 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-article-meta": {
         "font-size": "0.875rem",
         "line-height": 1.4,
-        "color": palette.muted
+        "color": palette.mutedText
     }
 },
 ];

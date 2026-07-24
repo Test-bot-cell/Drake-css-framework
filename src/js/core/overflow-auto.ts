@@ -60,6 +60,9 @@ export default defineComponent<OverflowAutoInstance>()({
 
         write({ max }: { max: number }) {
             css(this.$el, { minHeight: this.minHeight, maxHeight: max });
+            // D-026 (axe 3) : la zone rendue défilante par le composant doit
+            // livrer son accès clavier (WCAG 2.1.1, scrollable-region-focusable).
+            this.$el.tabIndex = 0;
         },
 
         events: ['resize'],

@@ -6,6 +6,8 @@ interface IconInstance extends ComponentInternalInstance {
     ratio: number;
     role?: string | null;
     _iconAddedAriaHidden?: boolean;
+    _iconAddedAriaLabel?: boolean;
+    _iconAddedRole?: boolean;
     _iconClasses?: readonly string[];
     t(key: string, ...params: string[]): string;
 }
@@ -163,6 +165,10 @@ export declare const Slidenav: {
         };
         mixins: import("../api/options").ExplicitComponentOptionsFor<import("../mixin/i18n").I18nInstance>[];
         beforeConnect(this: IconInstance): void;
+    };
+    i18n: {
+        next: string;
+        previous: string;
     };
     beforeConnect(this: IconInstance): void;
 };

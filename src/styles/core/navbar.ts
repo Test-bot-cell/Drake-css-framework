@@ -83,7 +83,7 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-navbar-nav > li > a": {
         "height": "100%",
         "padding": "0 15px",
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-navbar-nav > li:hover > a, .drk-navbar-nav > li > a[aria-expanded=\"true\"]": {
         "color": palette.text
@@ -112,7 +112,7 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-navbar-toggle": {
         "padding": "0 15px",
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-navbar-toggle:hover, .drk-navbar-toggle[aria-expanded=\"true\"]": {
         "color": palette.text,
@@ -204,7 +204,7 @@ export const fragments: GlobalStyleObject[] = [
         "padding-bottom": "40px"
     },
     ".drk-navbar-dropdown-nav > li > a": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-navbar-dropdown-nav > li > a:hover": {
         "color": palette.text
@@ -222,7 +222,7 @@ export const fragments: GlobalStyleObject[] = [
         "border-top": "1px solid #e5e5e5"
     },
     ".drk-navbar-dropdown-nav .drk-nav-sub a": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-navbar-dropdown-nav .drk-nav-sub a:hover": {
         "color": palette.text

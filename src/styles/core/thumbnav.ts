@@ -24,7 +24,8 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-thumbnav > * > *": {
         "display": "inline-block",
         "min-width": "24px",
-        "min-height": "24px"
+        "min-height": "24px",
+        "text-decoration": "none"
     },
     ".drk-thumbnav-vertical": {
         "flex-direction": "column",

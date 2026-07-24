@@ -23,7 +23,7 @@ export const fragments: GlobalStyleObject[] = [
         "display": "flex",
         "align-items": "center",
         "column-gap": "0.25em",
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-subnav > * > a:hover": {
         "color": palette.text,
@@ -58,7 +58,7 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-subnav-pill > * > :first-child": {
         "padding": "5px 10px",
         "background": "transparent",
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-subnav-pill > * > a:hover": {
         "background-color": palette.mutedBackground,
@@ -73,7 +73,7 @@ export const fragments: GlobalStyleObject[] = [
         "color": "#fff"
     },
     ".drk-subnav > .drk-disabled > :first-child": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-comment-meta.drk-subnav > * > a": {
         "min-height": "24px",

@@ -28,7 +28,7 @@ export const fragments: GlobalStyleObject[] = [
         "align-items": "center",
         "column-gap": "0.25em",
         "line-height": 0,
-        "color": palette.muted,
+        "color": palette.mutedText,
         "text-decoration": "none",
         "box-sizing": "border-box",
         "min-width": "24px",

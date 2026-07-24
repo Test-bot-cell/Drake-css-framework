@@ -25,7 +25,7 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-comment-meta": {
         "font-size": "0.875rem",
         "line-height": 1.4,
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-comment-list": {
         "padding": "__DRK_RAW__0__",

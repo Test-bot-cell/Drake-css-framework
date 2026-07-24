@@ -6,9 +6,18 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Slideshow - Drake tests</title>
         <script src="../dist/js/tests/test.js"></script>
+        <style>
+
+            /* D-026 : le libellé des pastilles du slideshow-nav (rogné par text-indent) hérite
+               du bleu lien #0f6ecd, sous AA sur les fonds de pastille #e0e0e0 (3,84:1) et
+               #a3a3a3 (2,01:1). Bleu foncé AA : 9,17:1 et 4,80:1 — aucun impact visuel. */
+            .drk-dotnav a { color: #073763; }
+
+        </style>
     </head>
 
     <body>
+        <main>
 
         <div class="drk-container">
 
@@ -33,7 +42,7 @@
             <div class="drk-child-width-1-2@m" drk-grid>
                 <div>
 
-                    <div class="js-slideshow-animation" drk-slideshow="ratio: 3:2; autoplay: true">
+                    <div class="js-slideshow-animation" drk-slideshow="ratio: 3:2; autoplay: true" aria-label="Slideshow 1">
 
                         <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
@@ -85,7 +94,7 @@
                 </div>
                 <div>
 
-                    <div class="js-slideshow-animation" drk-slideshow="ratio: 3:2">
+                    <div class="js-slideshow-animation" drk-slideshow="ratio: 3:2" aria-label="Slideshow 2">
 
                         <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
@@ -134,7 +143,7 @@
 
             <h2>Modifying animation with parallax</h2>
 
-            <div drk-slideshow="animation: push">
+            <div drk-slideshow="animation: push" aria-label="Slideshow 3">
 
                 <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
@@ -200,7 +209,7 @@
 
             <h2>Toggle Transitions + Kenburns</h2>
 
-            <div class="js-slideshow-animation" drk-slideshow="ratio: 5:3">
+            <div class="js-slideshow-animation" drk-slideshow="ratio: 5:3" aria-label="Slideshow 4">
 
                 <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
@@ -254,7 +263,7 @@
 
             <h2>Parallax Control</h2>
 
-            <div drk-slideshow="parallax: true; parallax-start: 100%; parallax-end: 100%; animation: push">
+            <div drk-slideshow="parallax: true; parallax-start: 100%; parallax-end: 100%; animation: push" aria-label="Slideshow 5">
 
                 <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
@@ -322,7 +331,7 @@
 
         </div>
 
-        <div class="drk-margin js-slideshow-animation" drk-slideshow="ratio: 7:3; min-height: 300; max-height: 600">
+        <div class="drk-margin js-slideshow-animation" drk-slideshow="ratio: 7:3; min-height: 300; max-height: 600" aria-label="Slideshow 6">
 
             <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
@@ -374,7 +383,7 @@
 
         </div>
 
-        <div class="drk-margin js-slideshow-animation" drk-slideshow="ratio: false">
+        <div class="drk-margin js-slideshow-animation" drk-slideshow="ratio: false" aria-label="Slideshow 7">
 
             <div class="drk-position-relative drk-visible-toggle drk-light" tabindex="-1">
 
@@ -424,7 +433,7 @@
 
             <h2>JavaScript Options</h2>
 
-            <div class="drk-overflow-auto">
+            <div class="drk-overflow-auto" tabindex="0">
                 <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
@@ -513,7 +522,7 @@
 
             <h2>i18n</h2>
 
-            <div class="drk-overflow-auto">
+            <div class="drk-overflow-auto" tabindex="0">
                 <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
@@ -550,5 +559,6 @@
         </div>
 
 
+        </main>
     </body>
 </html>

@@ -11,6 +11,8 @@
             .drk-flex > * {
                 padding: 10px;
                 text-align: center;
+                /* D-026 : AA (>= 4,5:1) sur toute la rampe de fonds gris, y compris composée sur .test #f0f0f0 — 5,79:1 sur le pire fond observé (#9c9c9c). */
+                color: #222;
             }
 
             .drk-flex > :nth-child(8n-7) { background: rgba(0,0,0,0.1); }
@@ -31,6 +33,7 @@
     </head>
 
     <body>
+        <main>
 
         <div class="drk-container">
 
@@ -178,5 +181,6 @@
 
         </div>
 
+        </main>
     </body>
 </html>

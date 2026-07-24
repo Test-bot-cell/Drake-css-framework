@@ -14,7 +14,7 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-text-meta": {
         "font-size": "0.875rem",
         "line-height": 1.4,
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-text-small": {
         "font-size": "0.875rem",
@@ -59,25 +59,25 @@ export const fragments: GlobalStyleObject[] = [
         "text-decoration": "none !important"
     },
     ".drk-text-muted": {
-        "color": `${palette.muted} !important`
+        "color": `${palette.mutedText} !important`
     },
     ".drk-text-emphasis": {
         "color": `${palette.emphasis} !important`
     },
     ".drk-text-primary": {
-        "color": `${palette.primary} !important`
+        "color": `${palette.primaryText} !important`
     },
     ".drk-text-secondary": {
         "color": `${palette.secondary} !important`
     },
     ".drk-text-success": {
-        "color": `${palette.success} !important`
+        "color": `${palette.successText} !important`
     },
     ".drk-text-warning": {
-        "color": `${palette.warning} !important`
+        "color": `${palette.warningText} !important`
     },
     ".drk-text-danger": {
-        "color": `${palette.danger} !important`
+        "color": `${palette.dangerText} !important`
     },
     ".drk-text-background": {
         "-webkit-background-clip": "text",

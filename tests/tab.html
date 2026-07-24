@@ -9,6 +9,7 @@
     </head>
 
     <body>
+        <main>
 
         <div class="drk-container">
 
@@ -19,7 +20,7 @@
 
                     <h2>Top</h2>
 
-                    <nav drk-dropnav="mode: click">
+                    <nav drk-dropnav="mode: click" aria-label="Dropnav 1">
                         <ul drk-tab>
                             <li class="drk-active"><a href="#">Left</a></li>
                             <li>
@@ -151,7 +152,7 @@
                     <h2>Overflow</h2>
 
                     <div class="drk-margin" drk-overflow-fade>
-                        <nav drk-dropnav="mode: click; container: body">
+                        <nav drk-dropnav="mode: click; container: body" aria-label="Dropnav 2">
                             <ul class="drk-flex-inline drk-flex-nowrap" drk-tab>
                                 <li class="drk-active"><a href="#">Left</a></li>
                                 <li>
@@ -203,7 +204,7 @@
 
             <h2>JavaScript Options</h2>
 
-            <div class="drk-overflow-auto">
+            <div class="drk-overflow-auto" tabindex="0">
                 <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
@@ -262,5 +263,6 @@
 
         </div>
 
+        </main>
     </body>
 </html>

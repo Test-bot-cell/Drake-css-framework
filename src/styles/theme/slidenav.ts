@@ -9,6 +9,7 @@ export const fragments: GlobalStyleObject[] = [
         "--drk-icon-height": "24px",
         "padding": "5px 10px",
         "color": "rgba(102, 102, 102, 0.5)",
+        "text-decoration": "none",
         "transition": "color 0.1s ease-in-out"
     },
     ".drk-slidenav:hover": {

@@ -17,6 +17,13 @@ dans [`docs/fork/CHANGELOG-uikit-amont.md`](docs/fork/CHANGELOG-uikit-amont.md).
   release outillé `pnpm release` (préflight, tag signé, release GitHub, vérification
   HTTP des chemins CDN), budgets de taille épinglés des artefacts principaux dans
   `pnpm verify` (relèvement = décision consignée, jamais silencieux).
+- Campagne d'accessibilité (décision D-026) : inventaire axe-core des 88 pages
+  (3 926 violations, 15 familles) résorbé sur quatre axes arbitrés — rôles texte de
+  la palette recalibrés AA (surfaces d'accent intactes, consignées), sémantique du
+  catalogue (`<main>`, landmarks, labels) avec recapture décidée, garde de
+  focalisabilité du runtime d'icônes et accès clavier des zones défilantes,
+  soulignement des liens en bloc de texte ; gate permanent `pnpm audit-a11y`
+  (axe-core épinglé, registre d'exceptions, zéro violation non consignée en CI).
 - Sortie ESM (décision D-025, amendant D-017) : bundles `drake.esm.js`,
   `drake-core.esm.js` et composants `.esm.js`, arborescence de modules préservés
   `dist/esm/` (tree-shaking réel), carte `exports` avec passe-plat `./dist/*`,

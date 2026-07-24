@@ -40,7 +40,7 @@ export const fragments: GlobalStyleObject[] = [
         "list-style-type": "'–  '"
     },
     ".drk-list-muted > ::marker": {
-        "color": `${palette.muted} !important`
+        "color": `${palette.mutedText} !important`
     },
     ".drk-list-emphasis > ::marker": {
         "color": `${palette.emphasis} !important`

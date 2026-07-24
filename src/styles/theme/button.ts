@@ -103,7 +103,7 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-button-default:disabled, .drk-button-primary:disabled, .drk-button-secondary:disabled, .drk-button-danger:disabled": {
         "background-color": "transparent",
-        "color": palette.muted,
+        "color": palette.mutedText,
         "border-color": "#e5e5e5"
     },
     ".drk-button-small": {
@@ -140,7 +140,7 @@ export const fragments: GlobalStyleObject[] = [
         "right": "__DRK_RAW__0__"
     },
     ".drk-button-text:disabled": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-button-text:disabled::before": {
         "display": "none"
@@ -152,11 +152,11 @@ export const fragments: GlobalStyleObject[] = [
         "color": palette.emphasis
     },
     ".drk-button-link:hover": {
-        "color": palette.muted,
+        "color": palette.mutedText,
         "text-decoration": "none"
     },
     ".drk-button-link:disabled": {
-        "color": palette.muted,
+        "color": palette.mutedText,
         "text-decoration": "none"
     },
     ".drk-button-group": {

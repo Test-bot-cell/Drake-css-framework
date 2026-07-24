@@ -1056,6 +1056,77 @@ composant et le tree-shaking. C'était le principal frein d'adoption identifié.
 - Toute évolution future du graphe de modules doit maintenir `sideEffects` exact ;
   la fumée du gate consommateur en est le garde-fou minimal.
 
+## D-026 — Campagne d'accessibilité : conformité axe-core du catalogue et gate permanent
+
+- Date : 2026-07-22
+- Statut : **Acceptée et implémentée** (quatre arbitrages explicites du mainteneur du
+  2026-07-22, tous sur les options recommandées de l'analyse en éventail ;
+  implémentation vérifiée le 2026-07-23 — `pnpm audit-a11y` : 193 violations
+  consignées, zéro non consignée sur les 88 pages ; matrice C0/C1 recapturée
+  divergence décidée, C2/C3 verts sans recapture)
+- Complète : D-021 (même méthode : inventaire → arbitrage → résorption → gate) ;
+  seconde divergence assumée de la CSS et du markup vis-à-vis de la référence
+  pré-renommage
+
+### Contexte
+
+Inventaire axe-core 4.10.3 exact-épinglé, sonde hors dépôt sur les 88 pages du
+catalogue (harnais calqué sur `audit-heritage`, viewport 320 px) : 3 926 violations
+en 15 familles, analysées en éventail avec causes racines aux sources, ratios
+recalculés et options re-prouvées par re-run d'axe sur l'état candidat. Les analyses
+détaillées sont l'annexe de la campagne (journal du workflow d'inventaire).
+
+### Décision — quatre axes arbitrés
+
+1. **Recalibrage des rôles texte de la palette** (1 618 occ, 72,5 % éteintes) : les
+   couleurs sémantiques employées comme TEXTE passent AA (>= 4,5:1 sur `#fff` ET sur
+   `#f8f8f8`) — liens vers leur couleur d'accent foncée existante (`#0f6ecd`),
+   `muted` texte vers `#727272`, `danger`/`success`/`warning` texte vers leurs
+   variantes AA calculées par l'analyse. `tokens.ts` reste l'unique racine (nouveaux
+   rôles texte distincts des rôles surface, discipline D-016 `var(--drk-…, repli)`).
+   Les **surfaces d'accent restent intactes** (boutons, badges, labels : blanc sur
+   accent) : leurs ~193 occurrences sont consignées au registre d'exceptions a11y
+   avec ratios documentés.
+2. **Sémantique du catalogue, avec recapture assumée** : enveloppe `<main>` statique
+   sur les 88 fixtures, switcher du harnais rendu en `<nav aria-label>`, suppression
+   des `role="comment"` invalides, labels de carousels et de `<nav>` de démo,
+   titres d'accordéons désambiguïsés. La recapture C0/C1 + attentes sans-runtime qui
+   en découle est une **divergence décidée** (seconde après D-021) ; l'enveloppe
+   `<main>` devient une transformation mécanique du pipeline de sync D-023.
+3. **Réparations sans changement visuel, toutes** : garde de focalisabilité et
+   libellés de repli dans le runtime d'icônes (`icon.ts`, 491→0 prouvé), accès
+   clavier des zones défilantes (`tabindex="0"` fixtures + ligne unique
+   `overflow-auto.ts`, 60→0), `alt`/`aria-label` des liens-images (31→0), labels et
+   `frame-title` des démos.
+4. **Soulignement des liens en bloc de texte** (voie couleur mathématiquement
+   fermée) : `text-decoration: underline` 1 px, `text-underline-offset: 0.15em`, à
+   la source unique (`a, .drk-link`) — changement stylistique visible et assumé,
+   robuste sous tout theming D-016.
+
+Complément d'implémentation (axe 1) : le texte des trois variantes d'alerte, posé sur
+des fonds teintés (`#d8eafc`, `#fff6ee`, `#fef4f6`) hors du critère `#fff`/`#f8f8f8`,
+reçoit des teintes contextuelles AA calculées (`#0d68c4`, `#b45300`, `#dc1138`) plutôt
+qu'une exception — le résidu que l'analyse laissait à l'arbitrage central est corrigé,
+pas consigné.
+
+### Gate permanent
+
+`build/fork/audit-a11y.js` (`pnpm audit-a11y`, étape CI dédiée) : axe-core
+exact-épinglé en devDependency, 88 pages, violations décomptées contre le registre
+`tests/fixtures/a11y-exceptions.json` (+ contrepartie humaine
+`docs/fork/A11Y_EXCEPTIONS.md`) — zéro violation non consignée, même contrat que le
+registre tactile D-021. L'état normal du registre : les seules exceptions
+surfaces-d'accent de l'axe 1.
+
+### Conséquences
+
+- Le catalogue passe de 3 926 violations à un résidu intégralement consigné et
+  justifié ; toute nouvelle violation casse la CI.
+- Divergences visuelles décidées : teintes texte AA, soulignement des liens ;
+  l'identité des surfaces d'accent est préservée.
+- Recapture G7 one-shot documentée ; scénarios C2 et boucle C3 exigés verts.
+- La palette texte AA prépare le thème sombre (D-016) : mêmes rôles, valeurs duales.
+
 ## Modèle d’une nouvelle décision
 
     ## D-NNN — Titre

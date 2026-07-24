@@ -24,7 +24,7 @@ export const fragments: GlobalStyleObject[] = [
         "column-gap": "0.25em",
         "justify-content": "center",
         "padding": "5px 10px",
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-tab > * > a:hover": {
         "color": palette.text,
@@ -34,7 +34,7 @@ export const fragments: GlobalStyleObject[] = [
         "color": palette.emphasis
     },
     ".drk-tab > .drk-disabled > a": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-tab-left, .drk-tab-right": {
         "flex-direction": "column",

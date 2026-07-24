@@ -9,6 +9,7 @@
     </head>
 
     <body>
+        <main>
 
         <div class="drk-container">
 
@@ -17,7 +18,7 @@
             <h2>Select</h2>
 
             <div class="js-upload" drk-form-custom>
-                <input type="file" multiple>
+                <input type="file" multiple aria-label="Sélectionner des fichiers">
                 <button class="drk-button drk-button-default" type="button" tabindex="-1">Select</button>
             </div>
 
@@ -27,7 +28,7 @@
                 <span drk-icon="icon: cloud-upload"></span>
                 <span class="drk-text-middle">Attach binaries by dropping them here or</span>
                 <div drk-form-custom>
-                    <input type="file" multiple>
+                    <input type="file" multiple aria-label="Sélectionner des fichiers (zone de dépôt)">
                     <span class="drk-link">selecting one</span>
                 </div>
             </div>
@@ -39,7 +40,7 @@
             <p>Select one or more files and check the console. The request aborts from <code>loadStart</code>, so <code>abort</code> should fire while <code>error</code> and <code>completeAll</code> should not.</p>
 
             <div class="js-upload-abort" drk-form-custom>
-                <input type="file" multiple>
+                <input type="file" multiple aria-label="Sélectionner des fichiers (envoi annulable)">
                 <button class="drk-button drk-button-danger" type="button" tabindex="-1">Select and abort</button>
             </div>
 
@@ -47,7 +48,7 @@
 
             <h2>JavaScript Options</h2>
 
-            <div class="drk-overflow-auto">
+            <div class="drk-overflow-auto" tabindex="0">
                 <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
@@ -202,7 +203,7 @@
 
             <h2>i18n</h2>
 
-            <div class="drk-overflow-auto">
+            <div class="drk-overflow-auto" tabindex="0">
                 <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
@@ -233,5 +234,6 @@
 
         </div>
 
+        </main>
     </body>
 </html>

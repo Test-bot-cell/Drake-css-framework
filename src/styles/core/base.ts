@@ -20,8 +20,10 @@ export const fragments: GlobalStyleObject[] = [
         "margin": "__DRK_RAW__0__"
     },
     "a, .drk-link": {
-        "color": palette.primary,
-        "text-decoration": "none",
+        "color": palette.primaryText,
+        "text-decoration": "underline",
+        "text-decoration-thickness": "1px",
+        "text-underline-offset": "0.15em",
         "cursor": "pointer"
     },
     "a:hover, .drk-link:hover, .drk-link-toggle:hover .drk-link": {
@@ -41,11 +43,11 @@ export const fragments: GlobalStyleObject[] = [
     ":not(pre) > code, :not(pre) > kbd, :not(pre) > samp": {
         "font-family": "Consolas, monaco, monospace",
         "font-size": "0.875rem",
-        "color": palette.danger,
+        "color": palette.dangerText,
         "white-space": "nowrap"
     },
     "em": {
-        "color": palette.danger
+        "color": palette.dangerText
     },
     "ins": {
         "background": "#ffd",

@@ -40,7 +40,7 @@ export const fragments: GlobalStyleObject[] = [
         "outline": "none"
     },
     ".drk-search-input::placeholder": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-search .drk-search-icon": {
         "position": "absolute",
@@ -50,10 +50,10 @@ export const fragments: GlobalStyleObject[] = [
         "display": "inline-flex",
         "justify-content": "center",
         "align-items": "center",
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-search .drk-search-icon:hover": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-search .drk-search-icon:not(a):not(button):not(input)": {
         "pointer-events": "none"
@@ -169,7 +169,7 @@ export const fragments: GlobalStyleObject[] = [
         "padding-right": "80px"
     },
     ".drk-search-toggle": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-search-toggle:hover": {
         "color": palette.text

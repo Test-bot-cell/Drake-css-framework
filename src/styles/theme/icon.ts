@@ -81,7 +81,7 @@ export const fragments: GlobalStyleObject[] = [
         "max-width": "none"
     },
     ".drk-icon-link": {
-        "color": palette.muted,
+        "color": palette.mutedText,
         "text-decoration": "none !important"
     },
     ".drk-icon-link:hover": {
@@ -96,7 +96,7 @@ export const fragments: GlobalStyleObject[] = [
         "height": "36px",
         "border-radius": "500px",
         "background": palette.mutedBackground,
-        "color": palette.muted,
+        "color": palette.mutedText,
         "vertical-align": "middle",
         "display": "inline-flex",
         "justify-content": "center",

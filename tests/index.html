@@ -6,11 +6,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Overview - Drake tests</title>
         <script src="../dist/js/tests/test.js"></script>
+        <style>
+
+            /* D-026 : le libellé des pastilles du dotnav (rogné par text-indent) hérite du bleu
+               lien #0f6ecd, sous AA sur les fonds de pastille #e0e0e0 (3,84:1) et #a3a3a3
+               (2,01:1). Bleu foncé AA : 9,17:1 et 4,80:1 — aucun impact visuel, texte rogné. */
+            .drk-dotnav a { color: #073763; }
+
+        </style>
     </head>
 
     <body>
+        <main>
 
-        <nav class="drk-navbar-container">
+        <nav class="drk-navbar-container" aria-label="Navbar">
             <div class="drk-container">
                 <div class="drk-overflow-auto">
                 <div drk-navbar>
@@ -222,7 +231,7 @@
 
                         <ul class="drk-comment-list drk-margin-medium">
                             <li>
-                                <article class="drk-comment drk-visible-toggle" tabindex="-1" role="comment">
+                                <article class="drk-comment drk-visible-toggle" tabindex="-1">
                                     <header class="drk-comment-header drk-position-relative">
                                         <div class="drk-grid-medium drk-flex-middle" drk-grid>
                                             <div class="drk-width-auto">
@@ -517,9 +526,9 @@
                     <div>
 
                         <ul class="drk-thumbnav">
-                            <li class="drk-active"><a href="#"><img src="images/photo.jpg" width="60" height="40" alt=""></a></li>
-                            <li><a href="#"><img src="images/dark.jpg" width="60" height="40" alt=""></a></li>
-                            <li><a href="#"><img src="images/light.jpg" width="60" height="40" alt=""></a></li>
+                            <li class="drk-active"><a href="#"><img src="images/photo.jpg" width="60" height="40" alt="Photo"></a></li>
+                            <li><a href="#"><img src="images/dark.jpg" width="60" height="40" alt="Sombre"></a></li>
+                            <li><a href="#"><img src="images/light.jpg" width="60" height="40" alt="Claire"></a></li>
                         </ul>
 
                     </div>
@@ -550,7 +559,7 @@
                 <div class="drk-grid-divider drk-child-width-auto@m" drk-grid>
                     <div>
 
-                        <nav drk-dropnav="mode: click">
+                        <nav drk-dropnav="mode: click" aria-label="Dropnav 1">
                             <ul class="drk-subnav drk-subnav-divider" drk-margin>
                                 <li class="drk-active"><a href="#">Active</a></li>
                                 <li>
@@ -574,7 +583,7 @@
                     </div>
                     <div>
 
-                        <nav drk-dropnav="mode: click">
+                        <nav drk-dropnav="mode: click" aria-label="Dropnav 2">
                             <ul class="drk-subnav drk-subnav-pill" drk-margin>
                                 <li class="drk-active"><a href="#">Active</a></li>
                                 <li>
@@ -648,7 +657,7 @@
                             <div>
 
                                 <a href class="drk-inline">
-                                    <img src="images/light.jpg" width="1800" height="1200" alt="">
+                                    <img src="images/light.jpg" width="1800" height="1200" alt="Photo claire — lecture">
                                     <div class="drk-position-center">
                                         <span class="drk-icon-overlay" href="#" drk-icon="ratio: 3; icon: play-circle"></span>
                                     </div>
@@ -895,5 +904,6 @@
             </div>
         </div>
 
+        </main>
     </body>
 </html>

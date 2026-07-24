@@ -21,7 +21,7 @@ export const fragments: GlobalStyleObject[] = [
         "vertical-align": "bottom",
         "font-size": "0.875rem",
         "font-weight": "normal",
-        "color": palette.muted,
+        "color": palette.mutedText,
         "text-transform": "uppercase"
     },
     ".drk-table td": {
@@ -37,7 +37,7 @@ export const fragments: GlobalStyleObject[] = [
     ".drk-table caption": {
         "font-size": "0.875rem",
         "text-align": "left",
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-table-middle, .drk-table-middle td": {
         "vertical-align": "middle !important"

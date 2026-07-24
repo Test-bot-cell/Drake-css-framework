@@ -113,21 +113,21 @@ export const fragments: GlobalStyleObject[] = [
     },
     ".drk-input:disabled, .drk-select:disabled, .drk-textarea:disabled": {
         "background-color": palette.mutedBackground,
-        "color": palette.muted,
+        "color": palette.mutedText,
         "border-color": "#e5e5e5"
     },
     ".drk-input::placeholder": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-textarea::placeholder": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-form-danger, .drk-form-danger:focus": {
-        "color": palette.danger,
+        "color": palette.dangerText,
         "border-color": palette.danger
     },
     ".drk-form-success, .drk-form-success:focus": {
-        "color": palette.success,
+        "color": palette.successText,
         "border-color": palette.success
     },
     ".drk-form-blank": {
@@ -379,7 +379,7 @@ export const fragments: GlobalStyleObject[] = [
         "display": "inline-flex",
         "justify-content": "center",
         "align-items": "center",
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-form-icon:hover": {
         "color": palette.text

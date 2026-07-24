@@ -30,18 +30,26 @@ export const breakpointsMax = {
 } as const;
 
 // Palette sémantique héritée : valeurs brutes, source de vérité unique.
+// D-026 : chaque couleur d'accent employée comme TEXTE possède un rôle texte AA
+// dédié (`…Text`, >= 4,5:1 sur #fff ET sur #f8f8f8) publié à côté du rôle
+// surface ; les rôles surface (fonds de boutons, badges, labels…) ne bougent pas.
 export const paletteValues = {
     text: '#666',
     emphasis: '#333',
     muted: '#999',
+    mutedText: '#727272',
     inverse: '#fff',
     background: '#fff',
     mutedBackground: '#f8f8f8',
     primary: '#1e87f0',
+    primaryText: '#0f6ecd',
     secondary: '#222',
     success: '#32d296',
+    successText: '#1c815c',
     warning: '#faa05a',
+    warningText: '#ba5506',
     danger: '#f0506e',
+    dangerText: '#e2133a',
 } as const;
 
 // Noms publics des propriétés personnalisées (surfaces protégées, D-016).
@@ -49,14 +57,19 @@ export const colorVariables = {
     text: '--drk-color-text',
     emphasis: '--drk-color-emphasis',
     muted: '--drk-color-muted',
+    mutedText: '--drk-color-muted-text',
     inverse: '--drk-color-inverse',
     background: '--drk-color-background',
     mutedBackground: '--drk-color-muted-background',
     primary: '--drk-color-primary',
+    primaryText: '--drk-color-primary-text',
     secondary: '--drk-color-secondary',
     success: '--drk-color-success',
+    successText: '--drk-color-success-text',
     warning: '--drk-color-warning',
+    warningText: '--drk-color-warning-text',
     danger: '--drk-color-danger',
+    dangerText: '--drk-color-danger-text',
 } as const;
 
 type PaletteName = keyof typeof paletteValues;
@@ -86,14 +99,19 @@ export const tokens = defineTokens({
         text: { value: paletteValues.text },
         emphasis: { value: paletteValues.emphasis },
         muted: { value: paletteValues.muted },
+        mutedText: { value: paletteValues.mutedText },
         inverse: { value: paletteValues.inverse },
         background: { value: paletteValues.background },
         mutedBackground: { value: paletteValues.mutedBackground },
         primary: { value: paletteValues.primary },
+        primaryText: { value: paletteValues.primaryText },
         secondary: { value: paletteValues.secondary },
         success: { value: paletteValues.success },
+        successText: { value: paletteValues.successText },
         warning: { value: paletteValues.warning },
+        warningText: { value: paletteValues.warningText },
         danger: { value: paletteValues.danger },
+        dangerText: { value: paletteValues.dangerText },
     },
     fonts: {
         body: { value: fontFamilyValues.body },

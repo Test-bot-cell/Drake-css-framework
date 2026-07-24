@@ -15,10 +15,17 @@
                 z-index: 1;
             }
 
+            /* D-026 : les révélations séquencées du scrollspy laissaient des cartes à
+               opacité intermédiaire au passage d'axe (texte #666 composé à ~0,45 → 1,91:1,
+               irrattrapable par la couleur). Durée nulle : l'état atteint est toujours
+               l'état final (5,4:1), le déclenchement scrollspy reste démontré. */
+            [class*="drk-animation-"] { animation-duration: 0s !important; }
+
         </style>
     </head>
 
     <body>
+        <main>
 
         <div class="drk-card drk-card-default drk-card-body test-fixed">
             <h3 class="drk-card-title">Scrollspy Nav</h3>
@@ -489,7 +496,7 @@
 
             <h3>Scrollspy</h3>
 
-            <div class="drk-overflow-auto">
+            <div class="drk-overflow-auto" tabindex="0">
                 <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
@@ -542,7 +549,7 @@
 
             <h3>Scrollspy Nav</h3>
 
-            <div class="drk-overflow-auto">
+            <div class="drk-overflow-auto" tabindex="0">
                 <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
@@ -589,5 +596,6 @@
 
         </div>
 
+        </main>
     </body>
 </html>

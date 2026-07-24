@@ -10,7 +10,7 @@ export const fragments: GlobalStyleObject[] = [
         "--drk-icon-width": "18px",
         "--drk-icon-height": "10px",
         "padding": "5px",
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-totop:hover": {
         "color": palette.text

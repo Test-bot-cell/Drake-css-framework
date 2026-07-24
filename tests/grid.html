@@ -11,6 +11,8 @@
             .drk-panel {
                 padding: 10px;
                 text-align: center;
+                /* D-026 : AA (>= 4,5:1) sur toute la rampe de fonds gris — 4,73:1 sur le plus foncé porteur de texte (#8c8c8c). */
+                color: #222;
             }
 
             :nth-child(10n-9) > .drk-panel { background: rgba(0,0,0,0.1); }
@@ -28,6 +30,7 @@
     </head>
 
     <body>
+        <main>
 
         <div class="drk-container">
 
@@ -616,7 +619,7 @@
 
             <h2>JavaScript Options</h2>
 
-            <div class="drk-overflow-auto">
+            <div class="drk-overflow-auto" tabindex="0">
                 <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
@@ -675,5 +678,6 @@
 
         </div>
 
+        </main>
     </body>
 </html>

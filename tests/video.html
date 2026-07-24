@@ -9,6 +9,7 @@
     </head>
 
     <body>
+        <main>
 
         <div class="drk-container">
 
@@ -97,14 +98,14 @@
                     All browsers: `Out of view` + `Hidden`: Doesn't stop when hidden.
                     -->
 
-                    <iframe src="https://www.youtube-nocookie.com/embed/c2pz2mlSfXA?playsinline=1&amp;rel=0&amp;controls=0&amp;loop=1&amp;mute=1" width="1920" height="1080" allowfullscreen drk-responsive class="drk-disabled" drk-video></iframe>
+                    <iframe src="https://www.youtube-nocookie.com/embed/c2pz2mlSfXA?playsinline=1&amp;rel=0&amp;controls=0&amp;loop=1&amp;mute=1" width="1920" height="1080" allowfullscreen drk-responsive class="drk-disabled" drk-video title="Vidéo YouTube de démonstration (autoplay)"></iframe>
 
                 </div>
                 <div>
 
                     <h3>Autoplay Inview</h3>
 
-                    <iframe src="https://www.youtube-nocookie.com/embed/c2pz2mlSfXA?playsinline=1&amp;rel=0&amp;controls=0&amp;loop=1&amp;mute=1" width="1920" height="1080" allowfullscreen drk-responsive class="drk-disabled" drk-video="autoplay: inview"></iframe>
+                    <iframe src="https://www.youtube-nocookie.com/embed/c2pz2mlSfXA?playsinline=1&amp;rel=0&amp;controls=0&amp;loop=1&amp;mute=1" width="1920" height="1080" allowfullscreen drk-responsive class="drk-disabled" drk-video="autoplay: inview" title="Vidéo YouTube de démonstration (autoplay inview)"></iframe>
 
                 </div>
             </div>
@@ -116,14 +117,14 @@
 
                     <h3>Autoplay</h3>
 
-                    <iframe src="https://player.vimeo.com/video/1084537?background=1&amp;keyboard=0&amp;muted=1" width="1920" height="1080" allowfullscreen drk-responsive class="drk-disabled" drk-video></iframe>
+                    <iframe src="https://player.vimeo.com/video/1084537?background=1&amp;keyboard=0&amp;muted=1" width="1920" height="1080" allowfullscreen drk-responsive class="drk-disabled" drk-video title="Vidéo Vimeo de démonstration (autoplay)"></iframe>
 
                 </div>
                 <div>
 
                     <h3>Autoplay Inview</h3>
 
-                    <iframe src="https://player.vimeo.com/video/1084537?background=1&amp;keyboard=0&amp;muted=1" width="1920" height="1080" allowfullscreen drk-responsive class="drk-disabled" drk-video="autoplay: inview"></iframe>
+                    <iframe src="https://player.vimeo.com/video/1084537?background=1&amp;keyboard=0&amp;muted=1" width="1920" height="1080" allowfullscreen drk-responsive class="drk-disabled" drk-video="autoplay: inview" title="Vidéo Vimeo de démonstration (autoplay inview)"></iframe>
 
                 </div>
             </div>
@@ -146,7 +147,7 @@
                     <div class="drk-inline drk-light">
                         <video src="media/drake-demo.webm" width="640" height="360" controls preload="none" hidden drk-video></video>
                         <a href drk-toggle="target: ! > *">
-                            <img src="images/photo.jpg" width="1800" height="1200" alt="">
+                            <img src="images/photo.jpg" width="1800" height="1200" alt="Afficher la vidéo">
                             <span class="drk-position-center drk-icon-overlay" drk-icon="icon: youtube; ratio: 3"></span>
                         </a>
                     </div>
@@ -159,7 +160,7 @@
                     <div class="drk-inline drk-light">
                         <iframe src="https://www.youtube-nocookie.com/embed/c2pz2mlSfXA?rel=0" width="1920" height="1080" allowfullscreen loading="lazy" hidden drk-responsive drk-video></iframe>
                         <a href drk-toggle="target: ! > *">
-                            <img src="images/photo.jpg" width="1800" height="1200" alt="">
+                            <img src="images/photo.jpg" width="1800" height="1200" alt="Afficher la vidéo YouTube">
                             <span class="drk-position-center drk-icon-overlay" drk-icon="icon: youtube; ratio: 3"></span>
                         </a>
                     </div>
@@ -169,7 +170,7 @@
 
             <h2>JavaScript Options</h2>
 
-            <div class="drk-overflow-auto">
+            <div class="drk-overflow-auto" tabindex="0">
             <table class="drk-table drk-table-striped">
                 <thead>
                     <tr>
@@ -204,5 +205,6 @@
 
         </div>
 
+        </main>
     </body>
 </html>

@@ -6,9 +6,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Scroll - Drake tests</title>
         <script src="../dist/js/tests/test.js"></script>
+        <style>
+
+            /* D-026 : la fuite d'inverse des cartes default imbriquées dans une carte primary
+               (.drk-card-primary .drk-card-title { color: #fff } l'emporte à l'ordre) laissait
+               les titres imbriqués en blanc sur #f8f8f8 (1,06:1). Retour à la couleur de titre
+               normale des cartes default : 11,9:1. */
+            .drk-card-primary .drk-card-default .drk-card-title { color: var(--drk-color-emphasis, #333); }
+
+        </style>
     </head>
 
     <body>
+        <main>
 
         <div class="drk-container">
 
@@ -27,7 +37,7 @@
 
             <div class="drk-flex drk-flex-column drk-flex-center" style="height: 2000px;">
 
-                <div class="drk-overflow-auto" style="height: 300px;">
+                <div class="drk-overflow-auto" style="height: 300px;" tabindex="0">
                     <div class="drk-card drk-card-default drk-card-hover drk-card-body">
                         <h2 class="drk-card-title">1</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
@@ -37,7 +47,7 @@
                     </div>
                     <div id="second-card" class="drk-card drk-card-primary drk-card-hover drk-card-body">
                         <h2 class="drk-card-title">2</h2>
-                        <div class="drk-overflow-auto" style="height: 250px;">
+                        <div class="drk-overflow-auto" style="height: 250px;" tabindex="0">
                             <div class="drk-card drk-card-default drk-card-hover drk-card-body">
                                 <h3 class="drk-card-title">Nested 1</h3>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
@@ -77,7 +87,7 @@
 
             <h2>JavaScript Options</h2>
 
-            <div class="drk-overflow-auto">
+            <div class="drk-overflow-auto" tabindex="0">
                 <table class="drk-table drk-table-striped">
                     <thead>
                         <tr>
@@ -100,5 +110,6 @@
 
         </div>
 
+        </main>
     </body>
 </html>

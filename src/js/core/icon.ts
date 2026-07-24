@@ -1,8 +1,29 @@
-import { addClass, attr, css, hasAttr, hasClass, hyphenate, isTag, removeClass } from 'drake-util';
+import {
+    addClass,
+    attr,
+    css,
+    hasAttr,
+    hasClass,
+    hyphenate,
+    isTag,
+    matches,
+    removeClass,
+    selFocusable,
+} from 'drake-util';
 import I18n from '../mixin/i18n';
 import type { ComponentInternalInstance } from '../types';
 
 const iconNamePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+// Garde de focalisabilité (D-026, axe 3) : hôtes focalisables ou en passe de
+// l'être — le déclencheur [drk-tooltip] reçoit son tabindex du composant
+// tooltip après le connect de l'icône. Jamais aria-hidden sur ces hôtes.
+const selFocusableHost = `${selFocusable},[drk-tooltip]`;
+
+// Hôtes dont le rôle implicite accepte aria-label (nommables sans rôle
+// explicite). Les autres (span[drk-tooltip], [tabindex]…) sont génériques :
+// aria-label y est interdit (aria-prohibited-attr) sans role explicite.
+const selNamableHost = 'a[href],area[href],button,input,select,textarea,summary';
 
 interface IconInstance extends ComponentInternalInstance {
     icon?: string;
@@ -11,6 +32,8 @@ interface IconInstance extends ComponentInternalInstance {
     ratio: number;
     role?: string | null;
     _iconAddedAriaHidden?: boolean;
+    _iconAddedAriaLabel?: boolean;
+    _iconAddedRole?: boolean;
     _iconClasses?: readonly string[];
     t(key: string, ...params: string[]): string;
 }
@@ -44,7 +67,7 @@ const Icon = {
         this._iconClasses = [`drk-ti-${icon}`, `drk-icon-alias-${icon}`];
         addClass(this.$el, this._iconClasses);
         setDimensions(this);
-        hideDecorativeIcon(this);
+        hideDecorativeIcon(this, icon);
     },
 
     disconnected(this: IconInstance) {
@@ -57,7 +80,15 @@ const Icon = {
         if (this._iconAddedAriaHidden) {
             attr(this.$el, 'aria-hidden', null);
         }
+        if (this._iconAddedAriaLabel) {
+            attr(this.$el, 'aria-label', null);
+        }
+        if (this._iconAddedRole) {
+            attr(this.$el, 'role', null);
+        }
         this._iconAddedAriaHidden = undefined;
+        this._iconAddedAriaLabel = undefined;
+        this._iconAddedRole = undefined;
         this._iconClasses = undefined;
     },
 };
@@ -163,10 +194,23 @@ const ButtonComponent = {
 export const Slidenav = {
     extends: ButtonComponent,
 
+    // D-026 (axe 3) : libellés de repli des slidenav autonomes — mêmes clés et
+    // mêmes valeurs que le mixin slider-nav, qui conserve tout aria-label déjà
+    // posé (la course slider-nav est neutralisée par le garde de focalisabilité).
+    i18n: { next: 'Next slide', previous: 'Previous slide' },
+
     beforeConnect(this: IconInstance) {
         addClass(this.$el, 'drk-slidenav');
         const icon = readIconProp(this);
         this.icon = hasClass(this.$el, 'drk-slidenav-large') ? `${icon}-large` : icon;
+
+        const button = this.$el.closest('a,button');
+        if (button && !hasAttr(button, 'aria-label')) {
+            const direction = String(this.$options.id || '').includes('previous')
+                ? 'previous'
+                : 'next';
+            attr(button, 'aria-label', this.t(direction));
+        }
     },
 };
 
@@ -240,17 +284,33 @@ function setDimensions(instance: IconInstance): void {
     }
 }
 
-function hideDecorativeIcon(instance: IconInstance): void {
+function hideDecorativeIcon(instance: IconInstance, icon: string): void {
     const role = attr(instance.$el, 'role')?.toLowerCase();
     const hasAccessibleName =
         hasAttr(instance.$el, 'aria-label') || hasAttr(instance.$el, 'aria-labelledby');
 
-    if (
-        !hasAccessibleName &&
-        role !== 'status' &&
-        role !== 'img' &&
-        !hasAttr(instance.$el, 'aria-hidden')
-    ) {
+    if (hasAccessibleName || role === 'status' || role === 'img') {
+        return;
+    }
+
+    // D-026 (axe 3) : jamais aria-hidden sur un hôte focalisable — le clavier
+    // atteindrait un contrôle muet pour le lecteur d'écran (aria-hidden-focus).
+    // L'hôte sans nom accessible reçoit un libellé de repli dérivé du nom
+    // d'icône, surchargeable par l'auteur via aria-label/aria-labelledby.
+    if (matches(instance.$el, selFocusableHost)) {
+        attr(instance.$el, 'aria-label', icon.replaceAll('-', ' '));
+        instance._iconAddedAriaLabel = true;
+        // D-026 (solde) : aria-label est interdit sur un élément générique
+        // (aria-prohibited-attr). L'hôte sans rôle implicite nommable reçoit
+        // role="img" avec son libellé de repli — retiré au disconnect.
+        if (!hasAttr(instance.$el, 'role') && !matches(instance.$el, selNamableHost)) {
+            attr(instance.$el, 'role', 'img');
+            instance._iconAddedRole = true;
+        }
+        return;
+    }
+
+    if (!hasAttr(instance.$el, 'aria-hidden')) {
         attr(instance.$el, 'aria-hidden', 'true');
         instance._iconAddedAriaHidden = true;
     }

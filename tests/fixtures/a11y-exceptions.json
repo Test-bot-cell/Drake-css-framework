@@ -1,0 +1,43 @@
+{
+    "schemaVersion": 1,
+    "policy": "D-026 — état normal du registre : les seules exceptions surfaces-d'accent de l'axe 1 (familles D « blanc-sur-accent » et E « inverse-sur-primary » de l'inventaire axe-core 4.10.3, ~193 occurrences). L'identité visuelle des surfaces d'accent est préservée par décision ; toute nouvelle exception passe par une décision DECISIONS.md et par docs/fork/A11Y_EXCEPTIONS.md, jamais par un silence de l'audit",
+    "rules": [
+        {
+            "famille": "D-boutons-accent",
+            "regle": "color-contrast",
+            "selecteur": ".drk-button-primary, .drk-button-danger",
+            "motif": "Surface d'accent préservée (D-026 axe 1) : blanc #fff sur primary #1e87f0 (3,63:1 mesuré par axe) et sur danger #f0506e (3,45:1)."
+        },
+        {
+            "famille": "D-badges",
+            "regle": "color-contrast",
+            "selecteur": ".drk-badge, .drk-card-badge",
+            "motif": "Surface d'accent préservée (D-026 axe 1) : blanc #fff sur primary #1e87f0 (3,63:1), corps 11 px."
+        },
+        {
+            "famille": "D-labels",
+            "regle": "color-contrast",
+            "selecteur": ".drk-label",
+            "motif": "Surface d'accent préservée (D-026 axe 1) : blanc #fff sur primary #1e87f0 (3,63:1), success #32d296 (1,94:1), warning #faa05a (2,05:1), danger #f0506e (3,45:1)."
+        },
+        {
+            "famille": "D-subnav-pill-actif",
+            "regle": "color-contrast",
+            "selecteur": ".drk-subnav-pill .drk-active a",
+            "motif": "Surface d'accent préservée (D-026 axe 1) : pilule active du subnav (y compris switcher et contrôles de filtre), blanc #fff sur primary #1e87f0 (3,63:1)."
+        },
+        {
+            "famille": "D-panneaux-demo-filter",
+            "regle": "color-contrast",
+            "selecteur": "li[color=\"green\"] > .drk-panel",
+            "pages": ["filter.html"],
+            "motif": "Panneaux de démonstration du filtre : blanc #fff sur success #32d296 (1,94:1), même paire de couleurs que les labels success."
+        },
+        {
+            "famille": "E-inverse-sur-primary",
+            "regle": "color-contrast",
+            "selecteur": ".drk-section-primary, .drk-card-primary, .drk-tile-primary, .drk-background-primary.drk-light, :is(.drk-section-primary, .drk-card-primary, .drk-tile-primary, .drk-background-primary.drk-light) *:not(:is(.drk-card-default, .drk-card-secondary, .drk-card-muted) *)",
+            "motif": "Contexte inverse sur primary #1e87f0 (D-026 axe 1, mathématiquement insoluble à palette constante — le blanc pur ne fait que 3,63:1) : rgba(255,255,255,0.7) composé #bcdbfb (2,53:1), rgba(255,255,255,0.5) composé #8fc3f8 (1,96:1), blanc pur #fff (3,63:1). Les cartes non primary imbriquées dans un contexte primary sont exclues : leur fuite d'inverse est un vrai défaut, pas une surface d'accent."
+        }
+    ]
+}

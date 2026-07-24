@@ -33,7 +33,7 @@ export const fragments: GlobalStyleObject[] = [
         "column-gap": "0.25em",
         "justify-content": "center",
         "padding": "5px 10px",
-        "color": palette.muted,
+        "color": palette.mutedText,
         "border-bottom": "1px solid transparent",
         "font-size": "0.875rem",
         "text-transform": "uppercase",
@@ -48,7 +48,7 @@ export const fragments: GlobalStyleObject[] = [
         "border-color": palette.primary
     },
     ".drk-tab > .drk-disabled > a": {
-        "color": palette.muted
+        "color": palette.mutedText
     },
     ".drk-tab-bottom::before": {
         "top": "__DRK_RAW__0__",
