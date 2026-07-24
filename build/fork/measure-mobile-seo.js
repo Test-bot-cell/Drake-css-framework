@@ -190,7 +190,7 @@ async function readDevToolsUrl(child) {
         let output = '';
         const timer = setTimeout(
             () => reject(new Error('Chrome DevTools startup timed out.')),
-            10000,
+            30000,
         );
         child.stderr.setEncoding('utf8');
         child.stderr.on('data', (chunk) => {
@@ -252,7 +252,7 @@ async function createCdpClient(url) {
 }
 
 async function waitForDocumentComplete(cdp, sessionId) {
-    for (let attempt = 0; attempt < 100; attempt++) {
+    for (let attempt = 0; attempt < 600; attempt++) {
         const state = await evaluate(cdp, sessionId, 'document.readyState');
         if (state === 'complete') {
             return;

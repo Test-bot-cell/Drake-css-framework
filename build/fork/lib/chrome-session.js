@@ -104,7 +104,7 @@ export async function launchChrome({ chrome = 'google-chrome', width = 1440, hei
 
 export async function navigateAndWait(session, url) {
     await session.cdp.send('Page.navigate', { url }, session.sessionId);
-    for (let attempt = 0; attempt < 200; attempt++) {
+    for (let attempt = 0; attempt < 600; attempt++) {
         const state = await evaluate(session, 'document.readyState');
         if (state === 'complete') {
             return;
@@ -137,7 +137,7 @@ async function readDevToolsUrl(child) {
         let output = '';
         const timer = setTimeout(
             () => reject(new Error('Chrome DevTools startup timed out.')),
-            10000,
+            30000,
         );
         child.stderr.setEncoding('utf8');
         child.stderr.on('data', (chunk) => {
