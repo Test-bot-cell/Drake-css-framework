@@ -8,6 +8,8 @@ import { fileURLToPath } from 'node:url';
 
 const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const METRICS_SOURCE = resolve(PROJECT_ROOT, 'tests/js/mobile-seo-metrics.ts');
+// Nombre de mesures de laboratoire agrégées en médiane (résilience au bruit du runner).
+const MEASURE_RUNS = 3;
 const options = parseArguments(process.argv.slice(2));
 
 if (options.help) {
@@ -76,41 +78,60 @@ try {
             { source: await compileMetricsBootstrap() },
             sessionId,
         );
-        await cdp.send('Page.navigate', { url: options.url }, sessionId);
-        await waitForDocumentComplete(cdp, sessionId);
-        await evaluate(cdp, sessionId, 'window.__forkMobileSeo.fontsReady()');
-        await delay(500);
+        // Les métriques de laboratoire (LCP, TBT, CLS, INP) sont sensibles au bruit du
+        // runner (contention CPU d'un runner CI froid ou partagé) : un échantillon unique
+        // rend le budget G13 intermittent. On répète la navigation dans la même session et
+        // on retient la MÉDIANE par métrique — un pic isolé n'échoue plus le gate, une vraie
+        // régression (médiane au-dessus du budget) échoue toujours. Les champs structurels
+        // proviennent du dernier run (déterministes).
+        const samples = [];
+        for (let run = 0; run < MEASURE_RUNS; run++) {
+            await cdp.send('Page.navigate', { url: options.url }, sessionId);
+            await waitForDocumentComplete(cdp, sessionId);
+            await evaluate(cdp, sessionId, 'window.__forkMobileSeo.fontsReady()');
+            await delay(500);
 
-        const summaryRect = await evaluate(
-            cdp,
-            sessionId,
-            'window.__forkMobileSeo.summaryCenter()',
-        );
-        if (summaryRect) {
-            await cdp.send(
-                'Input.dispatchMouseEvent',
-                { button: 'left', clickCount: 1, type: 'mousePressed', ...summaryRect },
+            const summaryRect = await evaluate(
+                cdp,
                 sessionId,
+                'window.__forkMobileSeo.summaryCenter()',
             );
-            await cdp.send(
-                'Input.dispatchMouseEvent',
-                { button: 'left', clickCount: 1, type: 'mouseReleased', ...summaryRect },
-                sessionId,
-            );
-            await delay(300);
+            if (summaryRect) {
+                await cdp.send(
+                    'Input.dispatchMouseEvent',
+                    { button: 'left', clickCount: 1, type: 'mousePressed', ...summaryRect },
+                    sessionId,
+                );
+                await cdp.send(
+                    'Input.dispatchMouseEvent',
+                    { button: 'left', clickCount: 1, type: 'mouseReleased', ...summaryRect },
+                    sessionId,
+                );
+                await delay(300);
+            }
+
+            samples.push(await evaluate(cdp, sessionId, 'window.__forkMobileSeo.snapshot()'));
         }
 
-        const measured = await evaluate(cdp, sessionId, 'window.__forkMobileSeo.snapshot()');
+        const measured = samples[samples.length - 1];
+        const medianOf = (key) => {
+            const values = samples
+                .map((sample) => sample[key])
+                .filter((value) => typeof value === 'number')
+                .sort((left, right) => left - right);
+            return values.length ? values[Math.floor((values.length - 1) / 2)] : null;
+        };
+        const medianInp = medianOf('inpMs');
         const metrics = {
             schemaVersion: 1,
-            source: 'Chrome headless laboratory run',
+            source: `Chrome headless laboratory run (médiane de ${MEASURE_RUNS})`,
             page: new URL(options.url).pathname,
             deviceProfile,
             viewport: { height: options.height, width: options.width },
-            lcpMs: round(measured.lcpMs, 1),
-            inpMs: measured.inpMs === null ? null : round(measured.inpMs, 1),
-            cls: round(measured.cls, 4),
-            labTbtMs: round(measured.labTbtMs, 1),
+            lcpMs: round(medianOf('lcpMs'), 1),
+            inpMs: medianInp === null ? null : round(medianInp, 1),
+            cls: round(medianOf('cls'), 4),
+            labTbtMs: round(medianOf('labTbtMs'), 1),
             reflow: measured.reflow,
             actionTarget: measured.actionTarget
                 ? {
